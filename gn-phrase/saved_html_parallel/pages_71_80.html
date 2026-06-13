@@ -1,0 +1,715 @@
+<!DOCTYPE html>
+<html lang="te-IN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+body {
+    padding: 0 !important;
+    margin: 0 !important;
+    background-color: white !important;
+    width: 100% !important;
+    font-family: serif;
+}
+
+.page-body-container {
+    background-color: white;
+    width: 210mm;
+    margin: 0 auto;
+    padding: 20mm 15mm;
+    box-sizing: border-box;
+    min-height: 100vh;
+}
+
+p.paragraph, .paragraph, .block, .quote, .ordered-list, .unordered-list,
+.advertisement, .answer, .contact-info, .index, .options,
+.reference, .unknown, .sidebar, .footnote {
+    text-align: justify !important;
+    text-align-last: left !important;
+    text-justify: inter-word !important;
+    font-size: inherit !important;
+    line-height: 1.3 !important;
+    margin: 0 0 12pt 0 !important;
+    text-indent: 18pt !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box;
+}
+
+.quote, .ordered-list, .unordered-list, .sidebar, .footnote {
+    text-indent: 0 !important;
+}
+
+.multi-column-row { font-size: 12pt; }
+.multi-column-row.cols-1 { font-size: 12pt; }
+.multi-column-row.cols-2 { font-size: 11pt; gap: 18pt; }
+.multi-column-row.cols-3 { font-size: 10pt; gap: 16pt; }
+.multi-column-row.cols-4 { font-size: 9pt; gap: 12pt; }
+
+.page-body-container > p.paragraph,
+.page-body-container > .paragraph {
+    font-size: 12pt !important;
+}
+
+h1.chapter-title {
+    font-size: 30pt !important;
+    line-height: 1.1 !important;
+    margin: 0 0 12pt 0 !important;
+    text-align: center !important;
+    font-weight: bold;
+}
+
+h2.section-title, h2.headline {
+    font-size: 18pt !important;
+    line-height: 1.1 !important;
+    margin: 12pt 0 8pt 0 !important;
+    text-align: center !important;
+    font-weight: bold;
+}
+
+h3.sub-section-title, h3.sub-headline,
+h4.subsub-section-title, h4.subsub-headline {
+    font-size: 13pt !important;
+    line-height: 1.25 !important;
+    margin: 12pt 0 4pt 0 !important;
+    text-align: center !important;
+    font-weight: bold;
+}
+
+.multi-column-row {
+    width: 100% !important;
+    margin: 12pt 0 !important;
+    display: grid;
+}
+
+.column-block {
+    text-align: left !important;
+    text-align-last: left !important;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    min-width: 0;
+    overflow-wrap: break-word;
+    width: 100%;
+}
+
+.column-block p {
+    text-indent: 0 !important;
+    margin-bottom: 8pt !important;
+    font-size: inherit !important;
+}
+
+.column-block p br {
+    display: none;
+}
+
+.centered-block {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin: 12pt 0;
+}
+
+.centered-block > * {
+    text-align: center !important;
+    font-size: 13pt !important;
+    max-width: 100% !important;
+    margin: 0 auto !important;
+    text-indent: 0 !important;
+}
+
+.table table {
+    width: 100% !important;
+    margin: 18pt 0 !important;
+    border-collapse: collapse;
+    border: 1.5pt solid #333;
+    table-layout: fixed;
+    font-size: 11pt;
+    line-height: 1.2;
+}
+
+.table table td,
+.table table th {
+    word-break: normal;
+    overflow-wrap: break-word;
+    padding: 6pt;
+    font-size: inherit;
+    border: 0.5pt solid #333;
+    text-align: center;
+}
+
+.table table td:first-child,
+.table table th:first-child {
+    text-align: left;
+}
+
+.table table td:not(:first-child),
+.table table th:not(:first-child) {
+    white-space: nowrap;
+    text-align: right;
+}
+
+.column-block .table table {
+    width: 100% !important;
+    table-layout: fixed;
+    margin: 12pt 0;
+    border-collapse: collapse;
+    border: 1.5pt solid #333;
+}
+
+.column-block .table table td,
+.column-block .table table th {
+    word-break: break-word;
+    padding: 6pt;
+    font-size: 10pt;
+    border: 0.5pt solid #333;
+    text-align: center;
+}
+
+.column-block .table table td:first-child,
+.column-block .table table th:first-child {
+    text-align: left;
+}
+
+.column-block .table table td:not(:first-child),
+.column-block .table table th:not(:first-child) {
+    white-space: nowrap;
+    text-align: right;
+}
+
+.quote {
+    font-size: 13pt !important;
+    margin: 0 0 0 0 !important;
+    padding: 0 20px !important;
+    font-style: italic;
+    border-left: 3px solid #ccc;
+    text-align: justify !important;
+    text-indent: 0 !important;
+}
+
+.ordered-list, .unordered-list {
+    font-size: inherit !important;
+    margin: 0 0 0 0 !important;
+    padding-left: 40px !important;
+    text-align: justify !important;
+    text-indent: 0 !important;
+}
+
+.sub-ordered-list, .sub-unordered-list {
+    font-size: inherit !important;
+    margin: 0 0 0 0 !important;
+    padding-left: 60px !important;
+    text-align: justify !important;
+    text-indent: 0 !important;
+}
+
+.subsub-ordered-list, .subsub-unordered-list {
+    font-size: inherit !important;
+    margin: 0 0 0 0 !important;
+    padding-left: 80px !important;
+    text-align: justify !important;
+    text-indent: 0 !important;
+}
+
+.image, .chart, .diagram, .photograph {
+    margin: 16px auto;
+    text-align: center;
+    max-width: 100% !important;
+}
+
+.image img, .chart img, .diagram img, .photograph img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    border: 1px solid #ddd;
+}
+
+.chart {
+    border: 2px solid #4a90d9;
+    padding: 8px;
+    background-color: #f8fafc;
+}
+
+.diagram {
+    border: 2px solid #6b7280;
+    padding: 8px;
+    background-color: #f9fafb;
+}
+
+.photograph {
+    border: 2px solid #059669;
+    padding: 4px;
+    background-color: #f0fdf4;
+}
+
+.image-caption {
+    font-style: italic;
+    margin: 8px auto;
+    text-align: center;
+    max-width: 100% !important;
+}
+
+.header, .footer {
+    font-size: 13pt !important;
+    margin: 12px auto;
+    text-align: center;
+    max-width: 100% !important;
+}
+
+.sidebar {
+    font-size: inherit !important;
+    margin: 12px auto;
+    padding: 10px;
+    background-color: #f5f5f5;
+    text-align: justify !important;
+    text-indent: 0 !important;
+}
+
+.footnote {
+    font-size: inherit !important;
+    margin: 8px auto;
+    padding-left: 20px;
+    text-align: justify !important;
+    text-indent: 0 !important;
+}
+
+hr.footnote-separator {
+    border: none;
+    border-top: 1px solid #999;
+    width: 40%;
+    margin: 16px 0 8px 0;
+}
+
+a.footnote-ref {
+    color: inherit;
+    text-decoration: none;
+}
+
+a.footnote-ref:hover {
+    text-decoration: underline;
+}
+
+.advertisement, .answer, .contact-info, .index, .options,
+.reference, .unknown {
+    font-size: inherit !important;
+    margin: 0 0 12pt 0 !important;
+    text-align: justify !important;
+}
+
+.author, .dateline, .flag, .formula, .jumpline,
+.page-number, .folio, .website-link,
+.first-level-question, .second-level-question, .third-level-question {
+    font-size: inherit !important;
+    margin: 12px auto;
+    text-align: center;
+    max-width: 100% !important;
+    text-indent: 0 !important;
+}
+    </style>
+</head>
+<body>
+<div class="page-body-container">
+<div class="centered-block"><header class="header">గోండి ➥ తెలుగు Gondi ➥ English गोंडि ➥ हिन्दी 72<br/>
+ఇంగ్లిష్ హింది కొలామి Telugu Hindi Kolami तेलुगु अंग्रेजी कोलामि</header></div>
+<div class="table"><table>
+<thead>
+<tr>
+<th>గోండి ➔ తెలుగు<br>ఇంగ్లిష్ హింది కొలామి</br></th>
+<th>Gondi ➔ English<br/>Telugu Hindi Kolami</th>
+<th>గोंडि ➔ हिन्दी<br/>तेलुगु अंग्रेजी కోలామి</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>304. మనోజ్ నెయున్ బగటల్ పాతోర్?<br/>➥మనోజ్ కుక్కని ఎక్కడి నుండి కొట్టాడు?<br/>ఫ్రమ్ వేర్ డిడ్ మనోజ్ హిట్ ద డాగ్?<br/>మనోజ్ నేకుత్తే కోకహాసే మారా<br/>మనోజ్ ఆతెన్ ఎత్తతన కుడుక్తెంద్?</td>
+<td>manōj neydun bagaṭal pātōr?<br/>manōj kukkani ekkadi nuṇḍi koṭṭādu?<br/>→From where did Manoj hit the dog?<br/>manōj nē kuttē kō kahā sē mārā<br/>manōj āten ettatana kuḍuktend?</td>
+<td>manoj neydun bagaṭal pātōr?<br/>manoj kukkani ekkadi nuṇḍi koṭṭādu?<br/>→From where did Manoj hit the dog?<br/>frum ver diḍ manoj hit the dog?<br/>→मनोज ने कुत्ते को कहाँ से मारा<br/>manoj aeten ettatana kuḍuktend?</td>
+</tr>
+<tr>
+<td>305. మనోజ్ నెయున్ బస్కే పాతోర్?<br/>➥మనోజ్ కుక్కని ఎప్పుడు కొట్టాడు?<br/>వెన్ డిడ్ మనోజ్ హిట్ ద డాగ్?<br/>మనోజ్ నేకుత్తే కో కబ్ మారా?<br/>మనోజ్ అతెన్ ఎపుడ్ కుడుక్తెంద్?</td>
+<td>manōj neydun baskē pātōr?<br/>manōj kukkani eppuḍu koṭṭādu?<br/>→When did Manoj hit the dog?<br/>manōj nē kuttē kō kab mārā?<br/>manōj aten epuḍ kuḍuktend?</td>
+<td>manoj neydun baskē pator?<br/>manoj kukkani eppuḍu koṭṭādu?<br/>→When did Manoj hit the dog?<br/>ven diḍ manoj hit the dog?<br/>→मनोज ने कुत्ते को कब मारा?<br/>manoj aten epuḍ kuḍuktend?</td>
+</tr>
+<tr>
+<td>306. మనోజ్ నెయున్ బెందల్ పాతోర్?<br/>➥మనోజ్ కుక్కని ఎట్టు నుండి కొట్టాడు?<br/>ఫ్రమ్ విచ్ సైడ్ డిడ్ మనోజ్ హిట్ ద డాగ్?<br/>మనోజ్ నేకుత్తే కో కిధర్ సే మారా?<br/>మనోజ్ ఆతెన్ ఎలడ్ కుడుక్ తెంద్?</td>
+<td>manōj neydun bendal pātōr?<br/>manōj kukkani eṭṭu nuṇḍi koṭṭādu?<br/>→From which side did Manoj hit the dog?<br/>manōj nē kuttē kō kidhar sē mārā?<br/>manōj āten elad kuḍk tend?</td>
+<td>manoj neydun bendal pātōr?<br/>manoj kukkani etṭu nuṇḍi koṭṭādu?<br/>→From which side did Manoj hit the dog?<br/>frum vich saḍ diḍ manoj hit the dog?<br/>→मनोज ने कुत्ते को किधर से मारा?<br/>manoj aeten elad kuḍk tend?</td>
+</tr>
+<tr>
+<td>307. మనోజ్ బెందల్ వాతోర్?<br/>➥మనోజ్ ఎట్టు నుండి వచ్చాడు?<br/>విచ్ సైడ్ డిడ్ మనోజ్ కమ్ ఫ్రమ్?<br/>మనోజ్ కిధర్ సే ఆయా<br/>మనోజ్ ఏలడ్ వత్తింద్?</td>
+<td>manōj bendal vātōr?<br/>manōj ettu nuṇḍi vaccādu?<br/>→Which side did Manoj come from?<br/>manōj kidhar sē āyā<br/>manōj elad vattend?</td>
+<td>manoj bendal vator?<br/>manoj ettu nuṇḍi vaccaḍu?<br/>→Which side did Manoj come from?<br/>vin diḍ manoj kam frum?<br/>→मनोज किधर से आया<br/>manoj elad vattend?</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<br><br>
+<div class="page-body-container">
+<div class="table"><table>
+<tbody>
+<tr>
+<td>308.</td>
+<td>నిమ్మె ఇద్ సారి బహన్ సుర్తి?<br/>➥ నీవు ఈ రొట్టె ఎలా చేశావు?<br/>హౌ డిడ్ యూ మేక్ దిస్ బ్రేడ్?<br/>ఆప్నే యహ్ రోటీ కైసే బనాయీ?<br/>నీ ఈ నిపటె ఎనజ్ సుట్టి?</td>
+<td>nimme id sāri bahan surti?<br/>nīvu ī rotṭe elā cēśāvu?<br/>How did you make this bread?<br/>āp nē yah rōṭi kaisē banāyi?<br/>nī i nipate enaṅ suṭti?</td>
+<td>నిమ్మె ఇద సారిన సుర్తి?<br/>నీవు ఇ రోట్టే ఎలా చేశాवु?<br/>హౌ డిడ్ యూ మేక్ దిస్ బ్రేడ్?<br/>ఆప్నే యహ్ రోటీ కైసే బనాయీ?<br/>నీ ఈ నిపటె ఎనజ్ సుట్టి?</td>
+</tr>
+<tr>
+<td>309.</td>
+<td>మనోజ్ నెయ్దున్ బహన్ పాతోర్?<br/>➥ మనోజ్ కుక్కని ఎలా కొట్టాడు?<br/>హౌ డిడ్ మనోజ్ హిట్ ద డాగ్?<br/>మనోజ్ నే కుత్తే కోకైసే మారా?<br/>మనోజ్ ఆతెన్ ఎనజ్ కుడుక్తెంద్?</td>
+<td>manoj neydun bahan pātör?<br/>manoj kukkani elā koṭṭādu?<br/>→ How did Manoj hit the dog?<br/>manoj nē kutte kō kaisē mārā?<br/>manoj āten enaṅ kuḍuktend?</td>
+<td>ಮನೋಜ ನೆಯದುನ ಬಹನ್ ಪಾತೋರ್?<br/>ಮನೋಜ್ ಕುಕ್ಕನಿ ಎಲಾ ಕೋಟ್ಟಾಡುದೆ?<br/>How did Manoj hit the dog?<br/>manoj nē kutte kō kaisē mārā?<br/>manoj āten enaṅ kuḍuktend?</td>
+</tr>
+<tr>
+<td>310.</td>
+<td>ಮನೋಜ್ ನೆಯ್ದುನ್ ಬಾರಿ ಪಾತೋರ್?<br/>➥ ಮನೋಜ್ కుక్కని ఎందుకు కొట్టిండు<br/>ವೈಡಿಡ್ ಮನೋಜ್ హిట్ ದ ಡಾಗ್?<br/>ಮನೋಜ್ ನೇ ಕುತ್ತಾ ಕೋ ಕ್ಯೋ ಮಾರಾ?<br/>ಮನೋಜ್ ಆತೇನ್ ತಾನೂಜ್ ಕುಡುಕ್తెంద್?</td>
+<td>manoj neydun bāri pātör?<br/>manoj kukkani enduku koṭṭindu<br/>→Why did Manoj hit the dog?<br/>manoj nē kutta kō kyō mārā?<br/>manoj āten tānun kuḍuktend?</td>
+<td>ಮನೋಜ ನೆಯದುನ ಬಾರ್ಿ ಪಾತೋರ್?<br/>ಮನೋಜ್ ಕುಕ್ಕುನಿ ಎನ್ದುಕು ಕೋಟ್ಟಿನಡು<br/>ವೈ ಡಿಡ್ ಮನೋಜ್ హిట్ ದ ಡಾಗ್?<br/>→Why did Manoj hit the dog?<br/>manoj nē kutta kō kyō mārā?<br/>manoj āten tānun kuḍuktend?</td>
+</tr>
+<tr>
+<td>311.</td>
+<td>ವೊನ ಕಾಮ್‌ ಬಹನ್ ಮಂತ?<br/>➥ ಆತನ పని ఎలా ఉంది?<br/>ಹೌ ಇನ್ ಹಿಸ್ ವರ್ಕ್?<br/>ಉಸ್ಕಾ ಕಾಮ್‌ ಕೈಸಾಹೈ?<br/>ಅಮ್ನೆ పని ఎనజ్ అన్సద్?</td>
+<td>vōna kām bahan manta?<br/>atani pani elā undi?<br/>→How is his work?<br/>uskā kām kaisā hai?<br/>amne pani enaṅ ansad?</td>
+<td>ವೋನಾ ಕಾಮ ಬಹನ್ ಮನತಾ?<br/>ಅತನಿ पनि एला उनदि?<br/>ಹೌ ಈ ಹಿಸ್ ವರ್ಕ್?<br/>uskā kām kaisā hai?<br/>amne pani enaṅ ansad?</td>
+</tr>
+<tr>
+<td>312.</td>
+<td>ಮನೋಜ್ ಬಹನ್ ಸೊತ್ತ್ರ್?<br/>➥ ಮನೋಜ್ ಹೇಗೆ వెళ్ళాడు?<br/>ಹೌ ಡಿಡ್ ಮನೋಜ್ ಗೋ?<br/>ಮನೋಜ್ ಕೈಸೇ ಗಯಾ?<br/>ಮನೋಜ್ ಎನಜ್ ಸೆದ್ದೆಂದ?</td>
+<td>manoj bahan sottör?<br/>manoj elā vellādu?<br/>→How did Manoj go?<br/>manoj kaisē gayā?<br/>manoj enaj seddend?</td>
+<td>ಮನೋಜ್ ಬಹನ್ ಸೋತ್ತ್ರ್?<br/>ಮನೋಜ್ ಎಲಾ ವೆಲ್ಳ್ಲಾಡುದೆ?<br/>How did Manoj go?<br/>manoj kaisē gayā?<br/>manoj enaj seddend?</td>
+</tr>
+</tbody>
+</table></div>
+<p class="page-number">73</p>
+</div>
+<br><br>
+<div class="page-body-container">
+<div class="centered-block"><header class="header">గోండి ➥ తెలుగు Gondi ➥ English गोंडि ➥ हिन्दी 74<br/>
+ఇంగ్లిష్ హింది కొలామి Telugu Hindi Kolami तेलुगु अंग्रेजी कोलामि</header></div>
+<div class="table"><table>
+<thead>
+<tr>
+<th>గోండి ➥ తెలుగు<br>ఇంగ్లిష్ హిందీ కోలామి</br></th>
+<th>Gondi ➥ English<br/>Telugu Hindi Kolami</th>
+<th>गोंडि ➥ हिन्दी<br/>तेलुगु अंग्रेजी कोलामि</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>313. టెబల్త్ పొరొ బచ్చొంగ్ మర్క పండింగ్ మంతంగ్?<br/>➥ బల్ల మీద ఎన్ని మామిడి పండ్లు ఉన్నాయి?<br/>హౌ మెని మంగోస్ ఆర్ ఆన్ ద టేబుల్?<br/>మేజ్ పర్ కిత్నె ఆమ్ హైన్?<br/>టెబుల్ పొదె ఎన్ని మామ్ది పన్చ్ అన్సా?</td>
+<td>ṭebalt porro baccong marka panding mantang?<br/>balla mīda enni māmidi pandlu unnāyi?<br/>→How many mangoes are on the table?<br/>mēz par kitne ām hain?<br/>ṭebul pode enni māmḍi panl ansā?</td>
+<td>टेबल्त पोरो बच्चोंग मर्का पनडिंग मनतंग?<br/>बल्ला मीदा एंनि मामिडि पनड्लु उन्नायि?<br/>→How many mangoes are on the table?<br/>हौ मेनि मंगोस आर आन द टेबल?<br/>→मेज़ पर कितने आम हैं?<br/>टेबुल पोदे एंनि माम्डि पँल अंसा?</td>
+</tr>
+<tr>
+<td>314. రోన్ బచ్చొంగ్ పెరెక్ మంతంగ్?<br/>➥ ఇంట్లో బియ్యం ఎన్ని ఉన్నాయి?<br/>హౌ మచ్ రైస్ ఇన్ దేర్ ఇన్ ద హౌస్?<br/>ఘర్ మే కితనా చావల్ హై?<br/>ఎల్లత్ ఎంతె బియ్యం అన్సద్?</td>
+<td>rōn baccong perek mantang?<br/>inṭlō biyyam enni unnāyi?<br/>→How much rice is there in the house?<br/>ghar mē kitanā cāval hai?<br/>ellat ente biyyam ansad?</td>
+<td>రోన బచ్చోగ్ పేరెక్ మనతంగ?<br/>इनट्లో బియ్యమ ఎંని उन्नाయి?<br/>→How much rice is there in the house?<br/>घर में कितना चावल है?<br/>→घर में कितना चावल है?<br/>एल्लत एनते बिయ్యम अंसद?</td>
+</tr>
+<tr>
+<td>315. సాడిత దర బచ్చోర్?<br/>➥ చీర ధర ఎంత?<br/>హౌ మచ్ ఇస్ ద సారీ?<br/>సాఢీ కా దామ్ కితనాహై?<br/>జుజెనె దర ఎంతె?</td>
+<td>sāḍita dara baccôr?<br/>cīra dhara enta?<br/>→How much is the sari?<br/>sārī kā dām kitanā hai?<br/>juṇene dara ente?</td>
+<td>साडिता दरा बच्चोर?<br/>चीरा धरा एनता?<br/>→How much is the sari?<br/>हौ मच इस द सारी?<br/>→साड़ी का दाम कितना है?<br/>जुडेने दरा एनते?</td>
+</tr>
+</tbody>
+</table></div>
+<div class="table"><table>
+<thead>
+<tr>
+<th>కలిపె పదాలు</th>
+<th>Joining Words</th>
+<th>जोड़ना शब्द</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>316. ఉండే</td>
+<td>undē</td>
+<td>उनडे</td>
+</tr>
+<tr>
+<td>➥ మరియు</td>
+<td>mariyu</td>
+<td>मरियु</td>
+</tr>
+<tr>
+<td>ఎండ్</td>
+<td>➥And</td>
+<td>ऐंड</td>
+</tr>
+<tr>
+<td>ఔర్</td>
+<td>aur</td>
+<td>➥और</td>
+</tr>
+<tr>
+<td>పెన</td>
+<td>pena</td>
+<td>पेना</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<br><br>
+<div class="page-body-container">
+<div class="table"><table>
+<tbody>
+<tr>
+<td>317.</td>
+<td>మనోజ్ అని తేజల్ హాటుం సొత్తేర్<br/>→ మనోజ్ మరియు తేజ బజార్/అంగడి వెళ్ళారు<br/>మనోజ్ ఎండ్ తేజా వెంట్ టూ ద మార్కెట్<br/>మనోజ్ ఔర్ తేజా బాజార్ గయే<br/>మనోజ్ అని లలిత అజడి సెద్దెర్</td>
+<td>manoj ani tējal hāṭum sottēr<br/>manoj mariyu tēja bajär/angaḍi veḷlāru<br/>→Manoj and Teja went to the market<br/>manoj aur tējā bāzār gayē<br/>manoj ani lalita aṇaḍi sedder</td>
+<td>मनोज अनि तेजल हाटुम सोत्तेर<br/>मनोज मरिయు तेजा बजार/अंगडि वेळ्ळारु<br/>मनोज ऐंड तेजा वेंट टू द मार्केट<br/>→मनोज और तेजा बाज़ार गये<br/>मनोज अनि ललिता अङडि सेद्देर</td>
+</tr>
+<tr>
+<td>318.</td>
+<td>మొమొట్ బస్నె सॉత్తోం అని పండింగ్ తత్తోం<br/>→మేము బస్సులో వెళ్ళీ ఫళ్ళు తెచ్చాము<br/>వీ వెంట్ బై బస్ ఎండ్ బ్రాట్ సమ్ ఫ్రూట్<br/>హమ్ లోగ్ బస్సే గయే ఔర్ ఫర్ ఫఖరీద్ కర్ లాయే<br/>ఆమ్ బస్సుత్సెత్ పండ్ల కొత్తం</td>
+<td>momoṭ basne sottōm ani paṇḍing tattōm<br/>mēmu bassulō veḷḷi phaḷlu teccāmu<br/>→We went by bus and brought some fruit<br/>ham lōg bas sē gayē aur phal kharīd kar lāyē<br/>ām bassut set paṇḍl kottam</td>
+<td>मोमोट बस्ने सोत्तोम अनि पनडिंग तत्तोम<br/>मेमु बपुलो वेळ्ळी फळ्लु तेज्जामु<br/>वी वेंट बै बस ऐंड ब्राट सम फ्रूट<br/>→हम लोग बस से गये और फल खरीद कर लाये<br/>आम बपुत सेत पनड्ल कोत्तम</td>
+</tr>
+<tr>
+<td>319.</td>
+<td>తెర్<br/>→లేదా<br/>ఓర్<br/>యా<br/>తోతెదా / తోతెద్</td>
+<td>ter<br/>lēdā<br/>→Or<br/>yā<br/>tōtedā / tōted</td>
+<td>तेर<br/>लेदा<br/>ओर<br/>→या<br/>तोतेदा / तोतेद</td>
+</tr>
+<tr>
+<td>320.</td>
+<td>మనోజ్ తెర్ తేజ తెర్ వానిర్<br/>→మనోజ్ లేదా తేజ రావచ్చు<br/>మనోజ్ ఓర్ తేజా విల్ లైక్లీ కమ్<br/>మనోజ్ యా తేజా ఆయేంగే<br/>మనోజ్ తోడ్ తె రామి ఎన వరాద్</td>
+<td>manoj ter tēja ter vānir<br/>manoj lēdā tēja rāvaccu<br/>→Manoj or Teja will likely come<br/>manoj yā tējā ayēngē<br/>manoj tōd te rāmi ena varād</td>
+<td>मनोज तेर तेजा तेर वानिर<br/>मनोज लेदा तेजा रावच्चు<br/>मनोज ओर तेजा विल लैक्ली कम<br/>→मनोज या तेजा आयेंगे<br/>मनोज तोद ते रामि एना वराद</td>
+</tr>
+<tr>
+<td>321.</td>
+<td>వోర్ బస్నె తెర్ ఆటొతె తెర్ దానూర్<br/>→అతను బస్సు ద్వారా లేదా ఆటో ద్వారా వెళ్ళవచ్చు<br/>హీ విల్ గో బై బస్ ఓర్ బై ఔటో<br/>వహ్ బస్ యా ఆటోసే జాఏగా<br/>అమ్ద్ బస్సుత్ తోదింతె ఆటొత్ సెరెజ్ వంద్</td>
+<td>vör basne ter āṭote ter dānūr<br/>atanu bassu dvārā lēdā āṭō dvārā veḷlavaccu<br/>→He will go by bus or by auto<br/>vah bas yā āṭō sē jāegā<br/>amd bassut tōdinte āṭot sereṅ vand</td>
+<td>वोर बस्ने तेर आटोते तेर दानूर<br/>अतनु बपु द्वारा लेदा आटो द्वारा वेळ्ळवच्चु<br/>ही विल गो वै बस ओर बै औटो<br/>→वह बस या आटो से जाएगा<br/>अम्द बपुत तोदिनते आटोत सेरेङ वनद</td>
+</tr>
+</tbody>
+</table></div>
+<p class="page-number">75</p>
+</div>
+<br><br>
+<div class="page-body-container">
+<div class="table"><table>
+<thead>
+<tr>
+<th>గోండి ➥ తెలుగు<br/>ఇంగ్లిష్ హింది కొలామి</th>
+<th>Gondi ➥ English<br/>Telugu Hindi Kolami</th>
+<th>గोंडि ➥ हिन्दी<br/>तेलुगु अंग्रेजी కోలామి</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>322. హాటుమ్న కొర్ తెర్ మీన్క్ తెర్ యేత<br/>➥ బజార్ నుండి కోడి లేదా చేపలు తీసుకొండి<br/>ఫ్రమ్ ద మార్కెట్ బై చిక్కెన్ ఓర్ ఫిశ్<br/>బాజార్ సే ముర్గీ యా మఛలి ఖరీదో<br/>అజడి తన కొర్ ఎన కయ్యెలెన సుమ్ముర్</td>
+<td>hātumna kor ter mīnk ter yēta<br/>bajār nunḍi kōḍi lēdā cēpalu tīsukonḍi<br/>➥From the market buy chicken or fish<br/>bāzār sē murgī yā machali kharīdō<br/>añaḍi tana kor ena kayyelena summur</td>
+<td>హాటుమ్నా కోర్ తేర్ మీన్క్ తేర్ యెతా<br/>బଜାର ననుడి కొడి లెదా చెపల్ు తీసుకోనడి<br/>ఫ్రమ్ ది మార్కెట్ బ్యా చికెన్ ఓర్ ఫిష్<br/>ఫ్రమ్ ద మార్కెట్ బ్యా చికెన్ ఓర్ ఫਿਸ਼<br/>➥బాజర్ సె ముర్గీ యా మచ్చలి కొనుగోలు<br/>అఙ్డి తనా కోర్ ఎన కయ్యెలెనా సుమ్మర</td>
+</tr>
+<tr>
+<td>323. కీ<br/>➥ నాడు<br/>దెట్<br/>కి<br/>ఆ యపుడ్</td>
+<td>kī<br/>nādu<br/>➥That<br/>ki<br/>ā yapuḍ</td>
+<td>కీ<br/>నాడు<br/>దెట్<br/>➥కి<br/>ఆ యపుడ</td>
+</tr>
+<tr>
+<td>324. గోపాల్ ఇంజేర్ మంతోర్ కీ వోర్ సొంజేర్ మంతోర్<br/>➥ గోపాల్ చెప్తున్నాడు అతను వెళ్ళుతున్నాడు<br/>గోపాల్ ఇన్సేయింగ్ దెట్ హీ ఇస్ గోఇంగ్<br/>గోపాల్ కహ్ రహాహై కి వహ్ జా రహాహై<br/>గోపాల్ ఇసంద్ కిసెసనంసర్</td>
+<td>gōpāl injēr mantor kī vōr sonjēr mantor<br/>gōpāl ceptunnādu atanu veḷḷutunnādu<br/>➥Gopal is saying that he is going<br/>gōpāl kah rahā hai ki vah jā rahā hai<br/>gōpāl isandki sesanansar</td>
+<td>गोपाल इनजेर मनतोर की वोर सोनजेर मनतोर<br/>गोपाल चेप्मुन्नाडु अतनु वेळळुतुन्नाडु<br/>गोपाल इस सेयिंग देट ही इस गोइंग<br/>➥गोपाल कह रहा हैं कि वह जा रहा है<br/>गोपाल इसनद्कि सेसनंसर</td>
+</tr>
+<tr>
+<td>325. మనోజ్ ఇత్తోర్ కీ దుకన్ బంద్ ఆత<br/>➥ మనోజ్ అన్నాడు దుకాణం తాళ్ళ ఉంది<br/>మనోజ్ సెడ్ దెట్ ద శాప్ వాస్ క్లోస్ట్<br/>మనోజ్ నే కహా కి దూకాన్ బంద్ హుఈ<br/>మనోజ్ ఇంతెంద్ కి దుకన్ బంద్ ఎద్దిన్</td>
+<td>manoj ittor kī dukan band āta<br/>manoj annādu dukānam tālla undi<br/>➥Manoj said that the shop was closed<br/>manoj nē kahā ki dükān band huī<br/>manoj intend ki dukan band eddin</td>
+<td>मनोज इत्तोर की दुकन बनद आता<br/>मनोज अन्नाडु दुकाणम ताळळा उनदि<br/>मनोज सॅड देट द शाप वास क्लोस्ट<br/>→मनोज ने कहा कि दुकान बंद हुई<br/>मनोज इंटेंड कि दुकान बैंड एड्दिन</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<br><br>
+<div class="page-body-container">
+<div class="table"><table>
+<tbody>
+<tr>
+<td>326.</td>
+<td>నన్న వోన్ ఇత్తోన్ కీ నన్న నాడి ఉండే వాయ పరోన్<br/>➥ నేను అతనికి అన్నాను నేను రేపు కూడడ తిరిగి రాను<br/>ఐ టోల్డ్ హిమ్ దెట్ ఐ కెన్నాట్ కమ్ అగేన్ టుమారొ<br/>మైంనే ఉషె కహాకి మైకల్ ఫిర్ నహీ ఆ సకూగా<br/>ఆన్ అమ్నడ్ ఇంతన్ కి వేగెడ్ వరెన్</td>
+<td>nanna vön ittōn kī nanna nāḍi unḍe vāya parōn<br/>nēnu ataniki annānu nēnu rēpu kūdaḍa tirigi rānu<br/>➥I told him that I cannot come again tomorrow<br/>mainnē usse kahā ki mai kal phir nahī ā sakūgā<br/>ān amnaḍ intan ki vēgeḍ varen</td>
+<td>నన్నా వోన ఇత్తోని కీ నన్నా నాడి UNDE VIA PERON<br/>నెను అతనికి అన్నాను నెను రెపు కూడాదా తిరిగి రాను<br/>NE TOLD HIM DENT AE KENNAT KOM AGEN TUMARO<br/>➥मैंने उससे कहा कि मैं कल फिर नहीं आ सकूँगा<br/>आन अम्नड इनतन कि वेगेड वरेन</td>
+</tr>
+<tr>
+<td>327.</td>
+<td>అదెన్ సాటి<br/>➥ అందు కొరకు<br/>దేర్ ఫోర్<br/>ఇసలిఏ<br/>అదుజ్ సటి</td>
+<td>aden sāṭi<br/>andu koraku<br/>➥Therefore<br/>isaliē<br/>aduṉ saṭi</td>
+<td>अदेन साटि<br/>अनदु कोरकु<br/>देर फोर<br/>➥इसलिए<br/>अदुङ सटि</td>
+</tr>
+<tr>
+<td>328.</td>
+<td>వోన్ బయ్ కర్వాస్త అడెన్ సాటి మర్క పండి తిత్తోర్<br/>➥ అతనికి చాలా ఆకలిగ ఉండే అందు కొరకు<br/>అతను మామిడి పండు తిన్నాడు<br/>హీ వాస్ వెరి హంగ్రీ దేర్ ఫోర్‌ హీ ఏట్ ద మెంగో<br/>ఉన్ కో బహుత్ భూఖ్ లగీ ఇసలిఏ ఉస్నె ఆమ్ ఖాయా<br/>అమ్ముజ్ కర్వ్ ఎద్దిన్. అదుజ్ సటి మామ్దిక్ తిందెం</td>
+<td>vōn bay karvāsta aden sāṭi marka panḍi tittor<br/>ataniki cālā ākaliga unḍe andu koraku<br/>atanu māmiḍi panḍu tinnādu<br/>➥He was very hungry therefore he ate the mango<br/>us kō bahut bhūkh lagī isaliē usne ām khāyā<br/>ammuṅ karv eddin. aduṉ saṭi māmdik tindend</td>
+<td>वोन बय कर्वास्ता अदेन साटि मर्क पनाडि तित्तोर<br/>अतनिकि चाला आकलिगा उनडे अनदु कोरकु<br/>अतनु मामिडि पनडु तिन्नाडु<br/>ही वास वेरि हंग्री देर फोर ही एट द मेंगो<br/>➥उस को बहुत भूख लगी इसलिए उसने आम खाया<br/>अम्रुङ कर्व एद्दिन। अदुङ सटि माम्दिक तिनदेनद</td>
+</tr>
+<tr>
+<td>329.</td>
+<td>बारीत्तेके<br/>➥ क्योंकिटे<br/>बिकास<br/>क्योन्कि<br/>తానుज् इतें</td>
+<td>bāritteke<br/>endukanṭe<br/>➥Because<br/>kyōnki<br/>tānuṉ inte</td>
+<td>बारित्तेके<br/>एनदुकनटे<br/>बिकास<br/>➥क्योंकि<br/>तानुङ इनते</td>
+</tr>
+</tbody>
+</table></div>
+<p class="page-number">77</p>
+</div>
+<br><br>
+<div class="page-body-container">
+<div class="centered-block"><header class="header">గోండి ➥ తెలుగు Gondi ➥ English गोंडि ➥ हिन्दी 78<br/>
+ఇంగ్లిష్ హింది కొలామి Telugu Hindi Kolami तेलुगु अंग्रेजी कोलामि</header></div>
+<div class="table"><table>
+<tbody>
+<tr>
+<td>330.</td>
+<td>నన్న గాటొ తిన్మకి బారిత్తెకె కర్వస్మకి<br>→ నేను అన్నం తిన్నలేదు ఎందుకంటే ఆకలిగ లేదు<br/>ఐ డిడ్ నాట్ ఈట్ ఫుడ్ బికాస్ ఐ వాస్ నాట్ హంగ్రీ<br/>మైనేఖానా నహి ఖాయాక్యోన్కి భూఖ్ లగ్ నహీరహిథీ<br/>ఆన్ అంబా తినెన్ తానుజ్ ఇంతె కర్వ్ ఎరెద్</br></td>
+<td>nanna gāto tinmaki bāritteke karvasmakki<br/>nēnu annam tinnalēdu endukanṭe ākaliga lēdu<br/>I did not eat food because I was not hungry<br/>mainnē khānā nahī khāyā kyōnkī bhukh lag nahī rahī thī<br/>ān ambā tenen tānun inte karv ered</td>
+<td>नन्ना गाटो तिनमकि बारित्तेके कर्वस्मकि<br/>नेनु अन्नम तिन्नलेदु एनदुकनटे आकलिगा लेदु<br/>ऐ डिड नाट ईट फूड बिकास ऐ वास नाट हंगी<br/>मैंने खाना नहीं खाया क्योंकि भूख लग नहीं रही थी<br/>आन अंबा तिनेन तानुञ् Inte karv ered</td>
+</tr>
+<tr>
+<td>331.</td>
+<td>వోర్ నాకున్ పాతోర్ బారిత్తెకె వోర్ సోంగ్నె మత్తోర్<br/>→ అతను నన్నుకొట్టాడు ఎందుకయె అతను కోపంలో ఉండే<br/>హీ హిట్ మీ బికాస్ హీ వాస్ ఇంగ్లీ<br/>ఉస్నె ముఝే మారా క్యోన్కి వహ క్రోధ్ మే థా<br/>అమ్ద్ అన్ కుడుక్తెంద్ తానుజ్ ఇంతె రగ్గడ్ అండెంద్</td>
+<td>vör nākun pātōr bāritteke vör sōngne mattōr<br/>atanu nannu koṭṭādu endu kaṇṭe atanu kōpanlō undē<br/>→ He hit me because he was angry<br/>usne mujhē mārā kyōnki vah krōdh mē thā<br/>amd an kuḍuktend tānun inte raggaḍ anṭend</td>
+<td>वोर नाकुन पातोर बारित्तेके वोर सोंग्ने मत्तोर<br/>अतनु ननु कोट्टाडु एनदु కనटे अतनु कोपंलो उनडे<br/>ही हिट मी बिकास ही वास ऐंग्री<br/>→ उसने मुझे मारा क्योंकि वह क्रोध में था<br/>अम्द अन कुडुकतेनद तानुङ इनते रग्गड अनडेनद</td>
+</tr>
+<tr>
+<td>332.</td>
+<td>కిడ్కి వాట్స్ి మంత బారిత్తెకె జోర్తె పిర్ వాసెర్ మంత<br/>→ కిటికి పెట్టి ఉంది ఎందు కంటె వర్షం జోరుగ వస్తుంది<br/>ద విండో ఇస్ క్లోస్ట్ బికాస్ ఇట్ వాస్ రేనింగ్ హెవిలీ<br/>ఖిఢకీ బంద్ హై క్యోన్కి జోర్ సే వర్షా హో రహీ థీ<br/>కిడికిక్ పుసుత్ అన్సద్ తానుజ్ ఇంతె వాన వర్సనంసద్</td>
+<td>kiḍki vātsi manta bāritteke jörte pir vāser manta<br/>kitiki peṭṭi undi endu kaṇṭe varṣam jōruga vastundi<br/>→ The window is closed because it was raining heavily<br/>khirṅkī band hai kyōnki zōr sē varṣā hō rahī thī<br/>kiḍikik pusut ansad tānun inte vāna varsa nansad</td>
+<td>కిడకివాట్స్ि మనతా వారित्तेకే జోర్తె పిర్ వాసెర్ మనతా<br/>किटିକି पेट्टि उनदि एनदु कनటె वर्षम जोरुगा वस्तुनदि<br/>→ खिड़की बंद है क्योंकि ज़ोर से वर्षा हो रही थी<br/>కిడిక్కिक पुसुत అనసద్ తానుñ Inte vāna varsa nansad</td>
+</tr>
+<tr>
+<td>333.</td>
+<td>మొకర్తెకె<br/>→ ఒక వేల<br/>ఇఫ్…దెన్<br/>అగర్ … తో<br/>మోక పట్టె... ఒకొవెల</td>
+<td>mokarteke<br/>oka vēla<br/>→ If…then<br/>agar... tō<br/>mōka paṭṭe … okovela</td>
+<td>मोकर्तेके<br/>ओका वेला<br/>इफ्...दैन<br/>अगर... तो<br/>मोका पट्टे ।।। ओकोवेला</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<br><br>
+<div class="page-body-container">
+<div class="table"><table>
+<tbody>
+<tr>
+<td>334.</td>
+<td>మొకర్తెకె మనోజ్ వాతెకె తేజల్ దాయర్<br/>➥ ఒక వేల మజోజ్ వస్తె తేజ వెళ్ళచ్చు<br/>ఇఫ్ మనోజ్ కమ్స్ దెన్ తేజా విల్ గో<br/>అగర్ మనోజ్ ఆయేగా తో తేజా జాఏగీ<br/>ఒకొ వేల మనోజ్ వత్తె రామి సెసద్</td>
+<td>mokarteke manoj vāteke tējal dāyar<br/>oka vēla majoj vaste tēja vellaccu<br/>➥If Manoj comes then Teja will go<br/>agar manoj ayēgā tō tējā jāegī<br/>oko vēla manoj vatte rāmi sesad</td>
+<td>మోకర్తెకె మనోజ్ వాతేకే తెలజ్ దైర<br/>ఒకా వెలా మనోజ్ వస్తే తేజా వెళ్లచ్చి<br/>ఇఫ మనోజ్ comes then Teja will go<br/>agar manoj ayēgā tō tējā jāegī<br/>oko vēla manoj vatte rāmi sesad</td>
+</tr>
+<tr>
+<td>335.</td>
+<td>మొకర్తెకె పిర్ వాతెకె కోర్ పూరంతోర్<br/>➥ ఒక వేల వర్షం వస్తే అతను తడుస్తాడు<br/>ఇఫ్ ఇట్ రేంస్ దెన్ హీ విల్ గెట్ వెట్<br/>అగర్ వర్షా హుఈ తో వహ్ భీగేగా<br/>ఒకొ వేల వాన వత్తె అమ్ద్ బోక్సంద్</td>
+<td>mokarteke pir vāteke vör pūrantōr<br/>oka vēla varṣam vaste atanu taḍustādu<br/>➥If it rains then he will get wet<br/>agar varṣā huī tō vah bhīgēgā<br/>oko vēla vāna vatte amd bōksand</td>
+<td>మోకర్తెకె పિર వాతేకే వోర్ పూరనతొర<br/>ఒకా వెలా వర్షమ్ వస్తే అతను తడస్తాదు<br/>ఇఫ ఇట్ రెన్స్ దెన్ హీ విల గెట్ వెట్<br/>తరాగ వర్షా హుయి तो వహ్ భీగేగా<br/>ఒకో వేలా వానా వత్తె అమ్ద్ బోక్సన్ద</td>
+</tr>
+<tr>
+<td>336.</td>
+<td>మొకర్తెకె నిమ్మె సెయ్య్తై సొత్తెకె వెయ్నె యెవంతి<br/>➥ ఒక వేల నీవు సైకిల్ తో వెళ్ళుతె తొందర చేరు తారు<br/>ఇఫ్ యూ గో బైసైకిల్ దెన్ యూ విల్ అరైవ్ సూనర్<br/>అగర్ తుమ్ సాఇకిలే సేజొగే తో జల్దీ పహుచోగే<br/>ఒకొ వేల సైకిలుత్ సెద్దె జల్ది గదిసతి</td>
+<td>mokarteke nimme seykalte sotteke veyeni yevanti<br/>oka vēla nīvu saikil tō veḷḷute tondara cēru tāru<br/>➥If you go by cycle then you will arrive sooner<br/>agar tum sāikil sē jāogē tō jaldī pahucōgē<br/>oko vēla saikilut sedde jaldi gadisati</td>
+<td>మోకర్తెకె నిమ్మే సెయ్కళ్తే సోత్తుకే వెయ్‌నే యెవన్తి<br/>ఒకా వెలా నీవు సైకిల్ తో వెళ్ఱుతు తొందర చేరు తారు<br/>ఇఫ యు గో బై cycle then you will arrive sooner<br/>agar tum sāikil sē jāogē tō jaldī pahucōgē<br/>oko vēla saikilut sedde jaldi gadisati</td>
+</tr>
+<tr>
+<td>337.</td>
+<td>బస్కే... అస్కే<br/>➥ ఎప్పుడు... అప్పుడు<br/>వెన్···దెన్<br/>జబ్ ··· తబ్<br/>ఎపుడ్ … ఆ యపుడ్</td>
+<td>baskē... askē<br/>eppuḍu... appuḍu<br/>→When…then<br/>jab … tab<br/>epuḍ … ā yapuḍ</td>
+<td>బస్కే I|I అస్కే<br/>ఎప్పుడు I|I అప్పుడు<br/>వెన్…దెన్<br/>→जब … तब<br/>ఎపుడ I|I ఆ యపుడ</td>
+</tr>
+<tr>
+<td>338.</td>
+<td>నిమ్మె బస్కే గాటొ తత్తెకె అస్కే నన్న కొత్తంగ్ సీంతోన్<br/>➥ నీవు ఎప్పుడు అన్నం తెస్తే అప్పుడు నేను డబ్బులిస్తాను<br/>వెన్ యూ బ్రింగ్ ద ఫూడ్ దెన్ ఐ విల్ పే<br/>జబ్ తుమ్ ఖానా లాఓగే తబ్ మై పైసా దూగా<br/>నీ ఎపుడ్ అంబా కొత్త అప్వుడ్ మల్ల బాకి సిసత్</td>
+<td>nimme baskē gāto tatteke askē nanna kottang sīnton<br/>nivu eppuḍu annam teste appuḍu nēnu ḍabbulistānu<br/>→When you bring the food then I will pay<br/>jab tum khānā lāogē tab mai paisā dūgā<br/>nī epuḍ ambā kotte apuḍ malla bāki sisat</td>
+<td>నిమ్మె బస్కే గాటో తత్తెకే అస్కే నన్నా కోత్తంగ సీనతోన్<br/>నీవిు ఎప్పుడు అన్నం తెస్టు అప్పుడు నెను ḍabbulistānu<br/>వేవ్ యూ బ్రింగ్ ద ఫూడ్ దెన్ ఐ విల్ పే<br/>→When you bring the food then I will pay<br/>jab tum khānā lāogē tab mai paisā dūgā<br/>nī epuḍ ambā kotte apuḍ malla bāki sisat</td>
+<td>నిమ్మె బస్కే గాటో తత్తెకే అస్కే నన్నా కోత్తంగ సీనతోన్<br/>నీవిు ఎప్పుడు అన్నం తెస్టు అప్పుడు నెను ḍabbulistānu<br/>వేవ్ యూ బ్రింగ్ ద ఫూడ్ దెన్ ఐ విల్ పె<br/>→जब तुम खाना लाओगे तब मैं पैसा दूँगा<br/>నీ ఎపుడ అంబా కొటే అప్పుడు మల్లా బాలి ససిత</td>
+</tr>
+</tbody>
+</table></div>
+<p class="page-number">79</p>
+</div>
+<br><br>
+<div class="page-body-container">
+<div class="centered-block"><header class="header">గోండి ➥ తెలుగు<br/>
+ఇంగ్లిష్ హింది కొలామి<br/>
+<br/>
+Gondi ➥ English<br/>
+Telugu Hindi Kolami<br/>
+<br/>
+గोंडि ➥ हिन्दी<br/>
+तेलुगु अंग्रेजी कोलामि<br/>
+<br/>
+80</header></div>
+<div class="table"><table>
+<thead>
+<tr>
+<th>గోండి ➥ తెలుగు<br>ఇంగ్లిష్ హిందీ కొలామి</br></th>
+<th>Gondi ➥ English<br>Telugu Hindi Kolami</br></th>
+<th>గोंडि ➥ हिन्दी<br>तेलुगु ఇంగ్లీజీ కోలామి</br></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>339. బస్కే పిర్ వాతెకె అస్కే తరస్క్ వాంతంగ్<br>➥ ఎప్పుడు వర్షం కురిస్తే అప్పుడు పాములు వస్తాయి<br>వెన్ ఇట్ రేంస్ దెన్ స్నేక్స్ కమ్<br>జబ్ వర్షా హోతీహై తబ్ సాపో నికత్తెహై<br>వాన వత్తి పాము వర్సా</br></br></br></br></td>
+<td>baskē pir vāteke askē tarask vāntang<br>eppuḍu varśam kuristē appuḍu pāmulu vastāyi<br>➥When it rains then snakes come<br/>jab varsā hōtī hai tab sāpō nikalte hai<br/>vāna vatte pāmu varsā</br></br></td>
+<td>బస్కే పిర్ వాతేకే అస్కే తరస్క్ వాంతంగ<br/>ఎప్పుడు సంవరమ్ కురిస్తే అప్పుడు పాములూ వస్తాయీ<br/>వైన ఇట్ రెన్స్ దెన్ స్నేక్స్ కమ్<br/>◢जब वर्षा होती हैं तब साँपों ਨਿਕਲते हैं<br/>वाना वत्ते पामु वर्सा</td>
+</tr>
+<tr>
+<td>340. బస్కే పోడ్డ్ పెసియంత అస్కే వానై దాంతేర్<br/>➥ ఎప్పుడు సూర్యుడు వస్తాడు అప్పుడు పొలాలకువెళ్ళుతారు<br/>వెన్ ద సన్ రైసెస్ దెన్ దేయ్ గో టూ ద ఫీల్డ్<br/>జబ్ సూరజ్ ఉఠతా హై, తబ్ వే ఖేత్ మే జాతే హై<br/>ఎపుడ్ పొద్ కురితె అపుడ్ కెన్‌వైసెసర్</td>
+<td>baskē pōdd pesiyanta askē vāvṭe dāntēr<br/>eppuḍu sūryuḍu vastādu appuḍu polālaku veḷḷutāru<br/>◢When the sun rises then they go to the field<br/>jab sūraj uṭhāhai, tab vē khēt mē jātē hai<br/>epuḍ pod kurite apuḍ kenvai sesar</td>
+<td>बस्के पोड्द पेसियनता अस्के वाव्टे दानतेर<br/>एप्पुडु सूर्युडु वस्ताडु अप्पुडु पोलालकु वेळळुतारु<br/>వెన్ ద सन रेंस देन देय गो टू द फील्ड<br/>◢जब सूरज उठता है, तब वे खेत मे जाते हैं<br/>एपुड पोद कुरिते अपुड केन्वै सेसर</td>
+</tr>
+<tr>
+<td>341. बति<br/>➥ కాని<br/>बट<br/>లేకిన్<br/>गनि</td>
+<td>bati<br/>kāni<br/>◢But<br/>lēkin<br/>gani</td>
+<td>बति<br/>कानि<br/>बट<br/>◢लेकिन<br/>गनि</td>
+</tr>
+<tr>
+<td>342. నన్న కావడ్ కెహ్తోన్ బతి కుంజి రొప్పో మత్త<br/>➥నేను తలుపువేశాను కాని తాళ్ళం చేవి లోపల ఉంది<br/>ఐ క్లోస్ట్ ద డోర్ బట్ ద కీ వాస్ ఇన్ సైడ్<br/>మైంనే దర్వాజా బంద్ కియా లేకిన్ చాబీ అందర్ థీ<br/>ఆన్ కవడ్ తప్తన్ గని కెయ్ లొపా అన్సద్</td>
+<td>nanna kāvaḍ kehtōn bati kunji roppō matta<br/>nēnu talupu vēsānu kāni tāllam cēvi lōpala undi<br/>◢I closed the door but the key was inside<br/>mainnē darvāzā band kiyā lēkin cābī andar thī<br/>ān kavad taptan gani key lopā ansad</td>
+<td>नन्ना कावड केह्तोन बति कुनजि रोप्पो मत्ता<br/>नेनु तलुपु वेशानु कानि ताळ्मम चेवि लोपला उनदि<br/>ऐ क्लोस्ट द डोर बट द की वास इन सैड<br/>◢मैंने दरवाज़ा बंद किया लेकिन चाबी अंदर थी<br/>आन कवड तप्तन गनि केय लोपा असद</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<br><br>
+<div class="page-body-container">
+<div class="table"><table>
+<tbody>
+<tr>
+<td>343.</td>
+<td>వోర్ “వాక” ఇత్తోర్ బతి వాయ్యకి<br/>➥ అతను వాస్త అని అన్నాడు కాని రాలేదు<br/>హీసెడ్ “ఐ విల్ కమ్”, బట్ డిడ్ నాట్ కమ్<br/>ఉస్నె కహా “మై ఆుంగా” లేకిన్ వహ్ నహీ ఆయా<br/>అమ్ద్ వర్సత్ ఇంతెంద్ గని వరె తేంద్</td>
+<td>vör “vāka” ittōr bati vāymaki<br/>atanu vāsta ani annāḍu kāni rālēdu<br/>➥He said “I will come”, but did not come<br/>usne kahā “mai aūngā” lēkin vah nahī āyā<br/>amd varsat intend gani vare tēnd</td>
+<td>वोर “वाक” इत्तोर बति वायमकि<br/>अतनु वास्ता अनि अन्नाडु कानि रालेदु<br/>ही सौड “ऐ विल कम”, बट डिड नाट कम<br/>➥उसने कहा “मैं आउंगा” लेकिन वह नहीं आया<br/>अम्द वर्सत इनतेनद गनि वरे तेनद</td>
+</tr>
+<tr>
+<td>344.</td>
+<td>నన్న పాల్ ఉంటోన్ బతి కల్ ఉనోన్<br/>➥నేను పాలు త్రాగుతాను కాని సారాయి త్రాగను<br/>ఐ డ్రింక్ మిల్క్ బట్ ఐ డోంట్ డ్రింక్ లికర్<br/>మై దూధ్ పీతా హూ లేకిన్ దారు నహీ పీతా<br/>ఆన్ పాల్ ఉసత్ గని కల్ ఉనెన్</td>
+<td>nanna pāl uṇṭōn bati kal unon<br/>nēnu pālu trāgutānu kāni sārāyi trāganu<br/>➥I drink milk but I don’t drink liquor<br/>mai dūdh pītā hū lēkin dāru nahī pītā<br/>ān pāl usat gani kal unen</td>
+<td>नन्ना पाल उनटोन बति कल उनोन<br/>नेनु पाल त्रागुतानु कानि सारायि त्रागनु<br/>ऐ ड्रिंक मिल्क बट ऐ डोंट ड्रिंक लिकर<br/>➥मैं दूध पीता हूँ लेकिन दारु नहीं पीता<br/>आन पाल उसत गनि कल उनेन</td>
+</tr>
+</tbody>
+</table></div>
+<div class="table"><table>
+<thead>
+<tr>
+<th>సర్వనామ పదాల ప్రయోగము</th>
+<th>Possessive Pronouns</th>
+<th>సంబంధవాచక సర్వनाम</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>345. వేర్ మావొర్ కాండి<br/>➥ ఇతను మా కుమారుడు<br/>దిస్ ఇన్ ఆవర్ సాన్<br/>యహ్ హమారా బేటా హై<br/>అమ్ద్ అమె కీకె</td>
+<td>vēr māvor kāṇḍi<br/>itanu mā kumāruḍu<br/>➥This is our son<br/>yah hamārā bēṭā hai<br/>amd ame kīke</td>
+<td>వెర మావోర్ కానడి<br/>ఇతను మా కుమార్డు<br/>దिस इस आवर सान<br/>➥यह हमारा बेटा है<br/>अम्द अमे कीके</td>
+</tr>
+<tr>
+<td>346. వీర్ మావుర్ కాండిర్<br/>➥ వీరు మా కుమారులు<br/>దీస్ ఆర్ ఆవర్ సాంస్<br/>యే హమారే బేటే హై<br/>ఇవ్ర్ అమె కీకే</td>
+<td>vīr māvur kāṇḍir<br/>vīru mā kumārulu<br/>➥These are our sons<br/>yē hamārē bēṭē hai<br/>ivr ame kīkē</td>
+<td>वीर मावुर कानडिर<br/>वीरु मा कुमारुलु<br/>दीस आर आवर सांस<br/>➥ये हमारे बेटे हैं<br/>इव्र अमे कीके</td>
+</tr>
+</tbody>
+</table></div>
+<p class="page-number">81</p>
+</div>
+</body>
+</html>

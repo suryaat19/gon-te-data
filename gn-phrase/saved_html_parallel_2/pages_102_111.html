@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html lang="te-IN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+body {
+    padding: 0 !important;
+    margin: 0 !important;
+    background-color: white !important;
+    width: 100% !important;
+    font-family: serif;
+}
+
+.page-body-container {
+    background-color: white;
+    width: 210mm;
+    margin: 0 auto;
+    padding: 20mm 15mm;
+    box-sizing: border-box;
+    min-height: 100vh;
+}
+
+p.paragraph, .paragraph, .block, .quote, .ordered-list, .unordered-list,
+.advertisement, .answer, .contact-info, .index, .options,
+.reference, .unknown, .sidebar, .footnote {
+    text-align: justify !important;
+    text-align-last: left !important;
+    text-justify: inter-word !important;
+    font-size: inherit !important;
+    line-height: 1.3 !important;
+    margin: 0 0 12pt 0 !important;
+    text-indent: 18pt !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box;
+}
+
+.quote, .ordered-list, .unordered-list, .sidebar, .footnote {
+    text-indent: 0 !important;
+}
+
+.multi-column-row { font-size: 12pt; }
+.multi-column-row.cols-1 { font-size: 12pt; }
+.multi-column-row.cols-2 { font-size: 11pt; gap: 18pt; }
+.multi-column-row.cols-3 { font-size: 10pt; gap: 16pt; }
+.multi-column-row.cols-4 { font-size: 9pt; gap: 12pt; }
+
+.page-body-container > p.paragraph,
+.page-body-container > .paragraph {
+    font-size: 12pt !important;
+}
+
+h1.chapter-title {
+    font-size: 30pt !important;
+    line-height: 1.1 !important;
+    margin: 0 0 12pt 0 !important;
+    text-align: center !important;
+    font-weight: bold;
+}
+
+h2.section-title, h2.headline {
+    font-size: 18pt !important;
+    line-height: 1.1 !important;
+    margin: 12pt 0 8pt 0 !important;
+    text-align: center !important;
+    font-weight: bold;
+}
+
+h3.sub-section-title, h3.sub-headline,
+h4.subsub-section-title, h4.subsub-headline {
+    font-size: 13pt !important;
+    line-height: 1.25 !important;
+    margin: 12pt 0 4pt 0 !important;
+    text-align: center !important;
+    font-weight: bold;
+}
+
+.multi-column-row {
+    width: 100% !important;
+    margin: 12pt 0 !important;
+    display: grid;
+}
+
+.column-block {
+    text-align: left !important;
+    text-align-last: left !important;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    min-width: 0;
+    overflow-wrap: break-word;
+    width: 100%;
+}
+
+.column-block p {
+    text-indent: 0 !important;
+    margin-bottom: 8pt !important;
+    font-size: inherit !important;
+}
+
+.column-block p br {
+    display: none;
+}
+
+.centered-block {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin: 12pt 0;
+}
+
+.centered-block > * {
+    text-align: center !important;
+    font-size: 13pt !important;
+    max-width: 100% !important;
+    margin: 0 auto !important;
+    text-indent: 0 !important;
+}
+
+.table table {
+    width: 100% !important;
+    margin: 18pt 0 !important;
+    border-collapse: collapse;
+    border: 1.5pt solid #333;
+    table-layout: fixed;
+    font-size: 11pt;
+    line-height: 1.2;
+}
+
+.table table td,
+.table table th {
+    word-break: normal;
+    overflow-wrap: break-word;
+    padding: 6pt;
+    font-size: inherit;
+    border: 0.5pt solid #333;
+    text-align: center;
+}
+
+.table table td:first-child,
+.table table th:first-child {
+    text-align: left;
+}
+
+.table table td:not(:first-child),
+.table table th:not(:first-child) {
+    white-space: nowrap;
+    text-align: right;
+}
+
+.column-block .table table {
+    width: 100% !important;
+    table-layout: fixed;
+    margin: 12pt 0;
+    border-collapse: collapse;
+    border: 1.5pt solid #333;
+}
+
+.column-block .table table td,
+.column-block .table table th {
+    word-break: break-word;
+    padding: 6pt;
+    font-size: 10pt;
+    border: 0.5pt solid #333;
+    text-align: center;
+}
+
+.column-block .table table td:first-child,
+.column-block .table table th:first-child {
+    text-align: left;
+}
+
+.column-block .table table td:not(:first-child),
+.column-block .table table th:not(:first-child) {
+    white-space: nowrap;
+    text-align: right;
+}
+
+.quote {
+    font-size: 13pt !important;
+    margin: 0 0 0 0 !important;
+    padding: 0 20px !important;
+    font-style: italic;
+    border-left: 3px solid #ccc;
+    text-align: justify !important;
+    text-indent: 0 !important;
+}
+
+.ordered-list, .unordered-list {
+    font-size: inherit !important;
+    margin: 0 0 0 0 !important;
+    padding-left: 40px !important;
+    text-align: justify !important;
+    text-indent: 0 !important;
+}
+
+.sub-ordered-list, .sub-unordered-list {
+    font-size: inherit !important;
+    margin: 0 0 0 0 !important;
+    padding-left: 60px !important;
+    text-align: justify !important;
+    text-indent: 0 !important;
+}
+
+.subsub-ordered-list, .subsub-unordered-list {
+    font-size: inherit !important;
+    margin: 0 0 0 0 !important;
+    padding-left: 80px !important;
+    text-align: justify !important;
+    text-indent: 0 !important;
+}
+
+.image, .chart, .diagram, .photograph {
+    margin: 16px auto;
+    text-align: center;
+    max-width: 100% !important;
+}
+
+.image img, .chart img, .diagram img, .photograph img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    border: 1px solid #ddd;
+}
+
+.chart {
+    border: 2px solid #4a90d9;
+    padding: 8px;
+    background-color: #f8fafc;
+}
+
+.diagram {
+    border: 2px solid #6b7280;
+    padding: 8px;
+    background-color: #f9fafb;
+}
+
+.photograph {
+    border: 2px solid #059669;
+    padding: 4px;
+    background-color: #f0fdf4;
+}
+
+.image-caption {
+    font-style: italic;
+    margin: 8px auto;
+    text-align: center;
+    max-width: 100% !important;
+}
+
+.header, .footer {
+    font-size: 13pt !important;
+    margin: 12px auto;
+    text-align: center;
+    max-width: 100% !important;
+}
+
+.sidebar {
+    font-size: inherit !important;
+    margin: 12px auto;
+    padding: 10px;
+    background-color: #f5f5f5;
+    text-align: justify !important;
+    text-indent: 0 !important;
+}
+
+.footnote {
+    font-size: inherit !important;
+    margin: 8px auto;
+    padding-left: 20px;
+    text-align: justify !important;
+    text-indent: 0 !important;
+}
+
+hr.footnote-separator {
+    border: none;
+    border-top: 1px solid #999;
+    width: 40%;
+    margin: 16px 0 8px 0;
+}
+
+a.footnote-ref {
+    color: inherit;
+    text-decoration: none;
+}
+
+a.footnote-ref:hover {
+    text-decoration: underline;
+}
+
+.advertisement, .answer, .contact-info, .index, .options,
+.reference, .unknown {
+    font-size: inherit !important;
+    margin: 0 0 12pt 0 !important;
+    text-align: justify !important;
+}
+
+.author, .dateline, .flag, .formula, .jumpline,
+.page-number, .folio, .website-link,
+.first-level-question, .second-level-question, .third-level-question {
+    font-size: inherit !important;
+    margin: 12px auto;
+    text-align: center;
+    max-width: 100% !important;
+    text-indent: 0 !important;
+}
+    </style>
+</head>
+<body>
+<div class="page-body-container">
+<div class="table"><table>
+<tbody>
+<tr>
+<td>437.</td>
+<td>నాకున్ యేతున్ సాటి ఉంది బోర్వెల్ పహ్జె సాబ్<br/>➥ నాకు నీళ్ళ కోసం ఒక బోర్ పంపు కావాలి సార్<br/>ఐ నీడ్ అ బోర్-వెల్ ఫోర్ వాటర్, సర్<br/>ముఝే పానీ కే లియే ఏక్ బోరవేల్ చాహియే, సాహేబ్<br/>అనుజ్ ఈరుజ్ సటి ఒకొ బోర్వెల్ పాజే</td>
+<td>nākun yētun sāṭi undi bōrvel pahje sāb<br/>nāku nīḷla kōsam oka bōr pampu kāvāli sār<br/>➥I need a bore-well for water, sir<br/>mujhē pānī kē liyē ēk bōravēl cāhiyē, sāhēb<br/>anuñ īruñ saṭi oko bōrvel pājē</td>
+<td>నాకున్ యెతున్ సాટિ उनदि बोर्वेल पह्जे साब<br/>नाकु नीळा कोसम ओका बोर पंपु कावालि सार<br/>ऐ नीड अ बोर-वैल फोर वाटर, सर<br/>➥मुझे पानी के लिये एक बोरवेल चाहिये, साहेब<br/>अनुङ ईरुङ सटि ओको बोर्वेल पाजे</td>
+</tr>
+<tr>
+<td>438.</td>
+<td>हौ, कीकट मెంजे<br/>➥ हा! चेद्दम<br/>यెస్, वी शुड डू इट.<br/>ठीक, हम् दे सक्तैहा<br/>हौ, इदरेञ्ज</td>
+<td>ho, kīkaṭ menje<br/>hā! cēddam<br/>➥Yes, we should do it.<br/>tīḻik, ham dē sakte hai<br/>ho, idareṅ</td>
+<td>हो, कीकट मेनजे<br/>हा! चेद्दम<br/>योस, वी शुड डू इट।<br/>➥ठीक, हम दे सकते हैं<br/>हो, इदरेङ</td>
+</tr>
+<tr>
+<td>439.</td>
+<td>हौ, साब् बय् चोकोट आंत<br/>➥అవును సార్ చాల మంచిది<br/>యెస్, సర్, దెట్ వుడ్ బీ వెరి గుడ్.<br/>జీ సాహేబ్, వహ్ బహుత్ బడీ క్ṣా హోగీ<br/>ఆయ్ సార్ కూబ్ సోయ్</td>
+<td>ho, sāb bay cokot ānta<br/>avunu sār cāla mancidi<br/>➥Yes, sir, that would be very good.<br/>jī sāhēb, vah bahut badī kṛpā hōgī<br/>ay sār kūb sōy</td>
+<td>हो, साब बय चोकोट आनता<br/>అవును సార चाలా మంచిది<br/>యెస, సర, దెట్ వుడ బీ వెరి గుడ।<br/>➥जी साहेब, वह बहुत बडी कृपा होगी<br/>आय सार कूब सोय</td>
+</tr>
+</tbody>
+</table></div>
+<div class="table"><table>
+<thead>
+<tr>
+<th>సర్పంచుతో మాట్లాడుట</th>
+<th>Speaking With The Sarpanch</th>
+<th>सरपंच से बातचीत</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>440. సర్పంచ్ సాబ్, రామ్ రామ్!<br/>➥సర్పంచ్ సార్ నమస్కారం!<br/>హెలో సర్పన్చ్, సర్!<br/>సరపన్చ్ సాహేబ్!<br/>సర్పంచ్ సాబ్, రాం రాం!</td>
+<td>sarpanc sāb, rām rām!<br/>sarpanc sār namaskāram!<br/>➥Hello Sarpanch, sir!<br/>sarapanc sāhēb!<br/>sarpanc sāb, rām rām!</td>
+<td>सरपंच साब, राम राम!<br/>सरपंच सार नमस्कारम!<br/>హెలో సర్పంచ, సర!<br/>➥సరపంచ సాहेब!<br/>సరపంచ साब, राम राम!</td>
+</tr>
+</tbody>
+</table></div>
+<p class="page-number">103</p>
+</div>
+<br><br>
+<div class="page-body-container">
+<div class="table"><table>
+<thead>
+<tr>
+<th>గోండి ➥ తెలుగు<br/>ఇంగ్లిష్ హిందీ కోలామి</th>
+<th>Gondi ➥ English<br/>Telugu Hindi Kolami</th>
+<th>గोंडि ➥ हिन्दी<br/>तेलुगु अंग्रेजी कोलामि</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>441. హొ, రామ్ రామ్!<br/>➥హా! నమస్కారం<br/>యెస్,హేలో<br/>హా, బతాఇయే<br/>హొ రాం,రాం</td>
+<td>ho, rām rām!<br/>hā! namaskāram<br/>Yes, hello<br/>hā, batāiyē<br/>ho rām,rām</td>
+<td>हो, राम राम!<br/>हा! नमस्कारम<br/>यैस, हेलो<br/>हाँ, बताइये<br/>हो राम,राम</td>
+</tr>
+<tr>
+<td>442. సమ్దిర్ మిరట్ చొకొట్ మంతిట్?<br/>➥ మీరందరు మంచిగా ఉన్నార?<br/>ఇస్ ఎవరీవన్(అఫ్ యూ ఆల్) వెల్?<br/>కయా ఆప్ సభీ కుశల్ హైన్?<br/>సదర్ సోయ్ అన్నతిరా?</td>
+<td>samdir mirat chokot mantit?<br/>mīrandaru mancigā unnāra?<br/>→Is everyone(of you all) well?<br/>kayā āp sabhī kushal hain?<br/>sadar sōy ansatirā?</td>
+<td>सम्दिर मिरट चोकोट मनतिट?<br/>मीरनदरु मंचीगा उन्नारा?<br/>→ls everyone(of you all) well?<br/>kayā āp sabhī kushal hain?<br/>sadar sōy ansatirā?</td>
+</tr>
+<tr>
+<td>443. హొ సాబ్, ఇంకెట్క్తె మొమొట్ సమ్దిర్ చొకొటె<br/>➥ అవును సార్ మేమందరము ఇప్పటికి మంచిదే<br/>యెస్, సర్, అంటిల్ నౌ వీ ఆర్ ఆల్ వెల్<br/>జీ హా, అబ్ తక్ హమ్ సభీ కుశల్ పూర్వక్ హై<br/>ఆయ్ సార్ సదర్ ఇండితుజ్ సోయ్ అన్నతుం</td>
+<td>ho sāb, inkēṭkte momoṭ samdir chokote<br/>avunu sār mēmandaramu ippatiḳi mancidē<br/>→Yes, sir, until now we are all well<br/>jī hā, ab tak ham sabhī kushal pūrvak hai<br/>āy sār sadar indituṇ sōy ansatum</td>
+<td>हो साब, इंकेट्क्ते मोमोट सम्दिर चोकोटे<br/>అవును सार मेमनदरमु इप्पटिकि मंचिदे<br/>योस, सर, अंटिल नौ वी आर आल वेल<br/>→जी हाँ, अब तक हम सभी कुशल पूर्वक हैं<br/>आय सार सदर इनडितुङ सोय अंसतुम</td>
+</tr>
+<tr>
+<td>444. सर्पంచ్ साब्, निम्मे?<br/>➥ सर्पంచ్ सा‌र మీరు?<br/>एंड यू, सर्पन्च, सर?<br/>और्, सरपन्स साहेब, ऑप् कैसे हाइ?<br/>सर्पंच साब् नी?</td>
+<td>sarpanc sāb, nimme?<br/>sarpanc sār mīru?<br/>→And you, Sarpanch, sir?<br/>aur, sarapanc sāhēb, āp kaisē hain?<br/>sarpanc sāb nī?</td>
+<td>सरपंच साब, निम्मे?<br/>सरपंच सार मीरु?<br/>→And you, Sarpanch, sir?<br/>aur, sarapanc sāhēb, āp kaisē hain?<br/>sarpanc sāb nī?</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<br><br>
+<div class="page-body-container">
+<div class="table"><table>
+<tbody>
+<tr>
+<td>445.</td>
+<td>నన్న గిర్ చొకొటె ఇంకెట్కెతె<br/>➥నేను కూడ మంచిదే ఇప్పటికి<br/>ఐ టూ ఎమ్ వెల్, అంటిల్ నౌ<br/>మై భీ భలా చంగా హూ, అభి తక్<br/>ఆన్గిన సోయ్ ఇండితూజ్</td>
+<td>nanna gir kokoṭe iṅkeṭkete<br/>nēnu kūḍa mancidē ippaṭiki<br/>➥I too am well, until now<br/>mai bhī bhalā caṅgā hū, abhī tak<br/>āngina sōy inditūṉ</td>
+<td>నన్నా గిర్ చోకోటే ఇంకెట్కేతె<br/>నెను కూడా మంచిదే ఇప్పటికి<br/>ऍ टू ऐम वेल, अंटिल नौ<br/>➥मैं भी भला चंगा हूँ, अभी तक<br/>आन्‌गिना सोय इनडितूङ</td>
+</tr>
+<tr>
+<td>446.</td>
+<td>సర్పంచ్ సాబ్, నీ తోడొ రండ్ మూంద్<br/>గొహ్టింగ్ వడ్క్వల్ మంత<br/>➥ సర్పంచ్ సార్ నీతో రెండు మూడు<br/>మాటలు మాట్లాడేది ఉంది<br/>సర్పంచ్ సర్, ఐహెవ్ టూ తాల్క్ విద్ యూ అబౌట్<br/>టూ ఓర్ త్రీతింగ్స్<br/>సరపంచ్ సాహేబ్, ముఝె అప్పె కుఛ్ బాతే కరనీ హై<br/>ఇన్ వెంట ఇందీ గొట్టిక్ ముడెకడ్ అన్‌డద్</td>
+<td>sarpanc sāb, nī tōḍo ranḍ mūnd<br/>goḥting vaḍkval manta<br/>sarpanc sār nītō renḍu mūḍu<br/>māṭalu māṭlaḍedi undi<br/>➥Sarpanch sir, I have to talk with you about<br/>two or three things<br/>sarapanc sāhēb, mujhē āpse kuch bātē karanī hai<br/>in veṇta indī goṭṭik muḍekad anḍad</td>
+<td>सरपंच साब, नी तोडो रनड मूनद<br/>गोहिटिंग वडकवल मनता<br/>सरपंच सार नीतो रेनडु मूडु<br/>माटलु माट्लडेदि उनदि<br/>सर्पन् सर, ऐ हैव टू ताल्क विद यू अबौट<br/>टू ओर त्री तिंग्स<br/>➥सरपंच साहेब, मुझे आपसे कुछ बातें करनी हैं<br/>इन वेनटा इनदी गोट्टिक मुडेकद अनडद</td>
+</tr>
+<tr>
+<td>447.</td>
+<td>हొ बतल् बहान वेह<br/>➥हा! ఏమి చెప్పండి<br/>యెస్, టెల్ మీ వాట్ ఇట్ ఇస్<br/>హా, బతాఇయే క్యా బాత్ హై<br/>ఏ! తానెద ఇడ్డ</td>
+<td>ho batal bahan veha<br/>hā! ēmi ceppandī<br/>➥Yes, tell me what it is<br/>hā, batāiyē kyā bāt hai<br/>ē! tāned iḍḍ</td>
+<td>हो बतल बहन वेहा<br/>हा! एमि चेप्पनडि<br/>येस, टेल मी वाट इट इस<br/>➥हाँ, बताइये क्या बात है<br/>ए! तानेद इड्ड</td>
+</tr>
+<tr>
+<td>448.</td>
+<td>మావ నాటె బతతయ్ సుద్రన్ సిల్లె<br/>➥మా ఊరు పరిశుబ్రత గురించి<br/>ఇన్ ఆవర్ విలేజ్ దేర్ ఇస్ నో డవెలప్ మెంట్<br/>హమారే గాంవ్ మే కోఈ తరక్కీ నహీ హో రహీహై<br/>అమె ఊర్‌తా సుద్రనుజ్ వాలడ్</td>
+<td>māva nāṭe batatay sudran sille<br/>mā ūru pariśubrata gurinci<br/>➥In our village there is no development<br/>hamārē gānv mē kōi tarakkī nahī hō rahī hai<br/>ame ūrtā sudranuṅ vālaḍ</td>
+<td>मावा नाटे बततय सुद्रन सिल्ले<br/>मा ऊरु परिशुब्रता गुरिंचि<br/>इन आवर विलेज देर इस नो डवेलप मेंट<br/>➥हमारे गांव में कोई तरक्की नहीं हो रही है<br/>अमे ऊर्ता सुद्रनुङ वालड</td>
+</tr>
+</tbody>
+</table></div>
+<p class="page-number">105</p>
+</div>
+<br><br>
+<div class="page-body-container">
+<div class="centered-block"><header class="header">గోండి ➥ తెలుగు Gondi ➥ English गोंडि ➥ हिन्दी 106<br/>
+ఇంగ్లిష్ హింది కొలామి Telugu Hindi Kolami तेलुगु अंग्रेजी कोलामि</header></div>
+<div class="table"><table>
+<tbody>
+<tr>
+<td>449.</td>
+<td>మీవ నాటె బచ్చొంగ్ రొహ్కు మంతంగ్?<br>➥ మీ ఊరిలో ఎన్ని ఇండ్లు ఉన్నాయి?<br/>హౌ మెని హౌసిస్ ఆర్ దేర్ ఇన్ యోర్ విలెజ్?<br/>తుమ్హూరే గాంవ్ మే కిత్నె ఘర్ హైన్?<br/>ఇమె ఊరున్ ఎన్ని న్నిగ్ ఎల్లక్ అన్న?</br></td>
+<td>mīva nāṭe baccong rohku mantang?<br/>mī ūrilō enni indlu unnāyi?<br/>➥How many houses are there in your village?<br/>tumhārē gānv mē kitne ghar hain?<br/>ime ūrun ennig ellak ansa?</td>
+<td>మీవా నాటే బచ్చొంగ్ రోహ్కు మనతంగ?<br/>मी ऊरिलो एनि इनడ్లు उन्నాయి?<br/>→How many houses are there in your village?<br/>हौ मेनि हौसिस आर देर इन योर विलेज?<br/>➥तुम्हारे गांव में कितने घर हैं?<br/>इमे ऊरुण एनिंग एल्लक अंसा?</td>
+</tr>
+<tr>
+<td>450.</td>
+<td>మావ నాటె సాట్ రొహ్కు మంతంగ్<br/>➥ మా ఊరిలో అర్వై ఇండ్లు కలవు<br/>దేర్ ఆర్ సిక్స్ టీ హౌసిస్ ఇన్ ఆవర్ విలెజ్<br/>హమారే గాంవ్ మే సార్ మకాన్ హై<br/>అమె ఊరున్ సాట్ ఎల్లక్ అన్న</td>
+<td>māva nāṭe sāṭ rohku mantang<br/>mā ūrilō arvai indlu kalavu<br/>➥There are sixty houses in our village<br/>hamārē gānv mē sāṭ makān hai<br/>ame ūrun sāṭ ellak ansa</td>
+<td>మావా నాటే సాట రోహ్కు మనతంగ<br/>मा ऊरिलो अर्वै इनड्लु कलवु<br/>देर आर सिक्स टी हौसिस इन आवर విలెజ<br/>➥हमारे गांव में साठ मकान हैं<br/>अमे ऊरुण साट एल्लक అంसा</td>
+</tr>
+<tr>
+<td>451.</td>
+<td>మీవ నాటె సమ్రి సుద్రన్త కీకట్<br/>➥ మీ ఊరిలో అంత అభివృద్ధి చేయుదం<br/>ఇన్ యోర్ విలెజ్ వీ శుడ్ డవెలప్ ఎవరీథింగ్<br/>తుమ్హూరే గాంవ్ మే హమ్ తరక్కీ జరూర్ లాయేంగే<br/>ఇమె ఉరున్ సిమ్మన సక్కన కన్నడ్</td>
+<td>mīva nāṭe samdi sudranta kīkaṭ<br/>mī ūrilō anta abhivrddhi cēyudam<br/>➥In your village we should develop everything<br/>tumhārē gānv mē ham tarakkī jarūr lāyēngē<br/>ime urun simmana sakkana kannad</td>
+<td>मीवा नाटे सम्दि सुद्रन्ता कीकट<br/>मी ऊरिलो अनता अभिवृढि चेयुदम<br/>इन योर विलेज वी शुड डवెలप ऐवरीथिंग<br/>➥तुम्हारे गांव में हम तरक्की जरूर लायेंगे<br/>इमे उरुन सिम्मना सक्कना कन्नड</td>
+</tr>
+<tr>
+<td>452.</td>
+<td>మీవ నాటె సడక్ వాటు సీకట్<br/>➥ మీ ఊరిలో రోడ్డు వేయిద్దం<br/>ఇన్ యోర్ విలెజ్ వీ శుడ్ మేక్ ద రోడ్<br/>तुమ్హూరే गांవ్ మే సడక్ బననీ చాహియే<br/>ఇమె ఊరుజ్ సడక్ తప్నడ్</td>
+<td>mīva nāṭe saḍak vāṭu sīkaṭ<br/>mī ūrilō rōḍḍu vēyiddam<br/>➥In your village we should make the road<br/>tumhārē gānv mē saḍak bananī cāhiyē<br/>ime ūruṅ saḍak tapnaḍ</td>
+<td>मीवा नाटे सडक वाटु सीकट<br/>मी ऊरिलो रोड्डु वेयिद्म<br/>इन योर विलेज वी शुड मेक द रोड<br/>➥तुम्हारे गांव में सडक बननी चाहिये<br/>इमे ऊरुण सडक तप्नड</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<br><br>
+<div class="page-body-container">
+<div class="table"><table>
+<tbody>
+<tr>
+<td>453.</td>
+<td>మీవ నాటె యేతున్ లాసి కుహి కాచు సీకట్<br/>➥ మీఊరిలో నీరు కోసం బావి తవ్విపిద్దం<br/>ఇన్ యోర్ విలెజ్ వీ శుడ్ డిగ్ అవెల్ ఫోర్ వాటర్<br/>తుమ్హూరే గాంవ్ మే పానీ కీ వ్యవస్థా కే కియే<br/>యక్ కువా ఖోదనా చాహియే<br/>ఇమె ఊరున్ ఈరుజ్ సటి నువ్వి తవ్వెజ్</td>
+<td>miva nāṭe yētun lāsi kuhi kācu sīkaṭ<br/>mūrilō nīru kōsam bāvi tavvipiddam<br/>↳In your village we should dig a well for water<br/>tumhārē gānv mē pānī ki vyavasthā kē kiyē<br/>yak kuvā khodanā cāhiyē<br/>ime ūrun īruṇ saṭi nuvvi tavveṇ</td>
+<td>मीवा नाटे येतुन लासि कुहि काचु सीकट<br/>मीऊरिलो नीरु कोसम बावि तव्विपिद्दम<br/>इन योर विलेज वी शुड डिग अ वेल फोर वाटर<br/>tumhārē gānv mē pānī ki vyavasthā kē kiyē<br/>yak kuvā khodanā cāhiyē<br/>ime ūrun īruṇ saṭi nuvvi tavveṇ<br/>इमे ऊरुण ईरुङ सटि नुवुि तव्वेङ</td>
+</tr>
+<tr>
+<td>454.</td>
+<td>మీవ నాటె కరబ్ యేర్ సౌందన్ సాటి కాల్వ దొహుసీకట్<br/>➥ మీ ఊరిలో మురికి నీరు వేళ్ళడానికి కాలువలు నిర్మిద్దం<br/>ఇన్ యోర్ విలెజ్ వీ శుడ్ కంప్స్ట్రక్ట్ అ డ్రేన్ ఫోర్ వేస్ట్ వాటర్<br/>తుమ్హూరే గాంవ్ మే గందే పానీ కే లియే నాలే బననీ చాహియే<br/>ఇమె ఊరుజ్ కరబ్ ఈర్ సెరెజ్ ముర్కి కాల్వ తవ్ గన్నడ్</td>
+<td>miva nāṭe karab yēr sondan sāti kālva dohusikaṭ<br/>mī urilō muriki nīru vēllādāniki kāluvalu nirmiddam<br/>↳In your village we should construct a drain for wastewater<br/>tumhārē gānv mē gandē pānī kē liyē nāle banani cāhiyē<br/>ime ūrun karab īr seren murki kālva tav gannad</td>
+<td>मीवा नाटे करब येर सोनदन साटि काल्वा दोहुसीकट<br/>मी ऊरिलो मुरिकि नीरु वेळ्लाडानिंकी कालुवलु निर्मिड्डम<br/>इन योर विलेज वी शुड कंस्ट्रक्ट अ ड्रेन फॉर वेस्ट वाटर<br/>in your village we should construct a drain for wastewater<br/>tumhārē gānv mē gandē pānī kē liyē nāle banani cāhiyē<br/>ime ūrun karab īr sereṇ murki kālva tav gannad<br/>इमे ऊरुङ करब ईर सेरेङ मुर्कि काल्वा तव गन्नड</td>
+</tr>
+<tr>
+<td>455.</td>
+<td>మీవ నాటె కరంట్ వయిర్ ఉమ్కుట్<br/>➥ మీ ఊరిలో కరంట్ కోసం వైర్ తీసుకుందం<br/>ఇన్ యోర్ విలెజ్ వీ శుడ్ పుట్ అప్(పుల్) ఇలెక్ట్రిక్ వైర్స్<br/>తుమ్హూరే గాంవ్ మే బిజలీ కీ లాఇన్ ఆనీ చాహియే<br/>ఇమె ఊరుజ్ కరెంటుజ్ సటి వాయిర్ కొన్నడ్</td>
+<td>miva nāṭe karaṉṭ vayir umkaṭ<br/>mī urilō karaṉṭ kōsam vair tīsukunddam<br/>↳In your village we should put up(pull) electric wires<br/>tumhārē gānv mē bijalī kī lāin ānī cāhiyē<br/>ime ūrun kareṇtuṅ saṭi vāyir konnaḍ</td>
+<td>मीवा नाटे करनट वयिर उमकट<br/>मी ऊरिलो करनट कोसम वैर तीसुकुनद्दम<br/>इन योर विलेज वी शुड पुट अप(পুল) इलेक्ट्रिक वैर्स<br/>in your village we should put up(pull) electric wires<br/>tumhārē gānv mē bijali kī lāin ānī cāhiyē<br/>ime ūrun kareṇtuṅ saṭi vāyir konnaḍ<br/>हो साब, नी हिन्दल इव काम्क किकाṭ<br/>avunu sār nī tarapuna ī panulanni cēddam<br/>Yes sir, with your help let us do all this work.<br/>jī sāhēb, āpakī sahāyatā se yah sab kām ham karē<br/>ho sab invālaḍ i panik idarnaḍ</td>
+</tr>
+<tr>
+<td>456.</td>
+<td>హో సాబ్, నీ హిందల్ ఇవ్ కామ్కే కీకట్<br/>➥ అవును సార్ నీ తరఫున ఈ పనులన్ని చేద్దం<br/>యెస్ సర్, విద్ యోర్ హెల్ప్ లెట్ అస్ డూ ఆల్ దిస్ వర్క్.<br/>జి సాహెబ్, ఆపకీ సహాయతా సేయహ్ సబ్ కామ్ హమ్ కరే<br/>హో సాబ్ ఇన్వాలడ్ ఈ పనిక్ ఇదర్నడ్</td>
+<td>ho sāb, nī hindal iv kāmk kīkaṭ<br/>avunu sār nī tarapuna ī panulanni cēddam<br/>↳Yes sir, with your help let us do all this work.<br/>jī sāhēb, āpakī sahāyatā sē yah sab kām ham karē<br/>ho sab invālad i panik idarnaḍ</td>
+<td>हो साब, नी हिनदल इव काम्क कीकट<br/>అవును సార నీ తరపున ఇ పంచులని చెద్దమ<br/>येस सर, विद योर हेल्प लेट अस डू आल दिस वर्क।<br/>जस सर, विद योर हेल्प लेट अस डू आल दिस वर्क।<br/>हो साब इन्वालड ई पनिक इदर्नड</td>
+</tr>
+</tbody>
+</table></div>
+<p class="page-number">107</p>
+</div>
+<br><br>
+<div class="page-body-container">
+<div class="centered-block"><header class="header">గోండి ➥ తెలుగు<br/>
+ఇంగ్లిష్ హింది కొలామి<br/>
+<br/>
+Gondi ➥ English<br/>
+Telugu Hindi Kolami<br/>
+<br/>
+గोंडि ➥ हिन्दी<br/>
+तेलुगु अंग्रेजी कोलामि<br/>
+<br/>
+108</header></div>
+<div class="table"><table>
+<thead>
+<tr>
+<th></th>
+<th>పోలీసులతో మాట్లాడుట</th>
+<th>In Trouble With The Police</th>
+<th>पुलिस से बातचीत</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>457.</td>
+<td>యే దాద, లింగున రోన్ బేకె మంత?<br>➥ అన్న లింగు ఇళ్లు ఎటు ఉన్నది?<br>హేబ్రదర్, విచ్ వే ఇస్ లింగున్ హౌస్?<br>భాఈ సాహేబ్, లింగూ కా ఘర్ కిస్ తరఫ్ మేహై?<br>దాద, లింగునె ఎల్ల ఎదె అన్సద్?</br></br></br></br></td>
+<td>yē dāda, linguna rōn bēke manta?<br>anna lingu iḷlu eṭu unnadi?<br>→Hey brother, which way is Lingu’s house?<br>bhāī sāhēb, liṅgū kā ghar kis taraph mē hai?<br>dāda, lingune ella ede ansad?</br></br></br></br></td>
+<td>ये दादा, लिंगునా రోన్ బేకే మనతా?<br>అన్నా లింగు ఇల్లు ఎటు ఉన్నది?<br/>హె బ్రదర్, విచ వె ఈ లింగుస హౌస?<br/>→భై సాహేబ్, లింగూ కా घर किस तरफ में है?<br/>दादा, లింగునె ఎల్లా ఎదే అంసద?</br></td>
+</tr>
+<tr>
+<td>458.</td>
+<td>వోన రోన్ హక్కె మంత, పోలీస్ సాబ్<br/>➥ అతని ఇల్లు అటు ఉంది పోలీస్ సార్<br/>హిస్ హౌస్ ఇన్ దెట్ వే, పోలీస్ సర్<br/>ఉధర్ హై, పోలీస్ సాహేబ్<br/>అమ్నె ఎల్ల అదె అన్సద్. పోలిస్ సార్</td>
+<td>vōna rōn hakke manta, polīs sāb<br/>atani illu aṭu undi pōlis sār<br/>→His house is that way, police sir<br/>udhar hai, pōlis sāhēb<br/>amne ella ade ansad. pōlis sār</td>
+<td>वोना रोन हक्के मनता, पोलीस साब<br/>अतनि इल्लु अटु उनदि पोलिस सार<br/>हिस हौस इस देट वे, पोलीस सर<br/>→उधर है, पोलीस साहेब<br/>अम्ने एल्ला अदे अंसद। पुलिस सार</td>
+</tr>
+<tr>
+<td>459.</td>
+<td>बॉय, लिంగు दादल मंतोर?<br/>➥ అక్క, लिంగు అన్న ఉన్నార?<br/>सिस्टर, इन लिంగు ब्रदर हीर?<br/>बहिन जी, लिंगू भाई घर् पర్ हाइ क्वा?<br/>बॉय लिంగు दादक अनसदा?</td>
+<td>bāyi, lingu dādal mantōr?<br/>akka, lingu anna unnāra?<br/>→Sister, is Lingu brother here?<br/>bahin jī, liṅgū bhāī ghar par hai kyā?<br/>bāyi lingu dādak ansandā?</td>
+<td>बायि, लिंगु दादल मनतोर?<br/>अक्वा, लिंगु अन्ना उन्नारा?<br/>सिस्टर, इस लिंगु ब्रदर हीर?<br/>→बहिन जी, लिंगू भाई घर पर है क्या?<br/>बायि लिंगु दादक अंसनदा?</td>
+</tr>
+<tr>
+<td>460.</td>
+<td>हॉ पोलीस साब्, मंतोर<br/>➥ అవును పోలీస్ సార్ ఉన్నారు<br/>యెస్, పోలీస్ సర్, హీ ఇన్ హీర్<br/>జీ హా, వహ్ ఘర్ పర్ హై<br/>ఆయ్ పోలీస్ సాబ్ అంసద్</td>
+<td>ho polīs sāb, mantōr<br/>avunu pōlis sār unnāru<br/>→Yes, police sir, he is here<br/>jī hā, vah ghar par hai<br/>āy polis sāb ansad</td>
+<td>हो पोलीस साब, मनतोर<br/>అవును पोलिस सार उन्नారు<br/>यैस, पोलीस सर, ही इस हीर<br/>→जी हाँ, वह घर पर है<br/>आय पोलिस साब अंसद</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<br><br>
+<div class="page-body-container">
+<div class="table"><table>
+<tbody>
+<tr>
+<td>461.</td>
+<td>లింగు దాద, నిమ్మె బహ్రి వా<br/>➥ లింగు అన్నయ్య నీవు బయటికి రా<br/>లింగు బ్రదర్, కమ్ ఆబ్ట్ సైడ్<br/>లింగూ బాహర్ ఆ జాఓ<br/>లింగు నీ వాకా వా</td>
+<td>lingu dāda, nimme bahri vā<br/>lingu annayya nīvu bayaṭiki rā<br/>↳Lingu brother, come outside<br/>liŋgū bāhar ā jāō<br/>lingu nī vākā vā</td>
+<td>లింగు दादा, నిమ్మె బహ్రి వా<br/>లింగు అన్నయ్యా నీవు బయటికి రా<br/>లింగు బ్రదర్, come outside<br/>↳Lingu brother, come outside<br/>liŋgū bāhar ā jāō<br/>lingu nī vākā vā</td>
+</tr>
+<tr>
+<td>462.</td>
+<td>సాబ్, నిమ్మె మా రోన్ బారి వాతి?<br/>➥ సార్ మీరు మా ఇంటికి ఎందుకు వచ్చారు?<br/>సర్, వైహెవ్ యూ కమ్ టూ మై హౌస్?<br/>సొహేబ్, ఆప్ మేరే ఘర్ పర్ క్యో ఆయేహైన్?<br/>సార్ నీ ఆమె ఎల్లవై తానుజ్ వత్తి?</td>
+<td>sāb, nimme mā rōn bāri vāti?<br/>sār mīru mā iṇṭiki enduku vaccāru?<br/>↳Sir, why have you come to my house?<br/>sāhēb, āp mērē ghar par kyō āyē hain?<br/>sār nī ame ellavai tānuṉ vatti?</td>
+<td>साब, निम्मे मा रोन बारि वाति?<br/>सार मीरु मा इनटिकि एनदुकु वञ्चारु?<br/>↳Sir, why have you come to my house?<br/>sar, vai haev yoo kam tu mai haus?<br/>↳साहेब, आप मेरे घर पर क्यों आये हैं?<br/>सार नी अमे एल्लवै तानुङ बत्ति?</td>
+</tr>
+<tr>
+<td>463.</td>
+<td>నిన్నె జంగు అని నిమ్మె జడగ కీతిట్ బెర్రే<br/>➥ నిన్న జంగుతో నీవు గోడవ చేసారటా<br/>యెస్టర్డే జంగు ఎండ్ యూ సీమ్డ్ టూహెవ్ హెడ్ అఫైట్<br/>సునాహైకి కల్ జంగూ ఔర్ తుహ్మారే బీచ్ మే లడాఈహుఈ<br/>ఒకొడ్ జంగు నీ కొట్లాటిరెటె</td>
+<td>ninne jangu ani nimme jaḍaga kīṭiṭ berrē<br/>ninna jangutō nīvu gōdava cēsāratā<br/>↳Yesterday Jangu and you seemed to have had a fight<br/>sunā hai ki kal jāngū aur tumhārē bic mē laḍāī huī<br/>okoḍ jangu nī koṭlātirete</td>
+<td>నినే జంగు అని నిమ్మె జడగా కీతిట బెర్రే<br/>నిన్నా జంగుతో నీవు గోడవా చెసారటా<br/>యెస్టర్డే జంగు ఎండ్ యూ సీమ్డ్ టూ హెవ్ హెడ్ అ ఫేట్<br/>↳Yesterday Jangu and you seemed to have had a fight<br/>sunā hai ki kal jāngū aur tumhārē bic mē laḍāī huī<br/>okoḍ jangu nī koṭlātirete</td>
+</tr>
+<tr>
+<td>464.</td>
+<td>హో పోలీస్ సాబ్, కీతోం<br/>➥ అవును పోలీస్ సార్ చేసాము<br/>యెస్ పోలీస్ సర్, వీ డిడ్<br/>జీ సాహేబ్, హమ్ లడే<br/>ఆయ్ పోలీస్ సార్ కొట్లాటమి</td>
+<td>ho polīs sāb, kītōm<br/>avunu pōlis sār cēsāmu<br/>↳Yes police sir, we did<br/>jī sāhēb, ham laḍē<br/>āy pōlis sār koṭlātami</td>
+<td>हो पोलीस साब, कीतोम<br/>అవును पुलिस सार चेसामு<br/>यैस पोलीस सर, वी डिड<br/>↳जी साहेब, हम लडे<br/>आय पोलिस सार कोट्लाटमि</td>
+</tr>
+<tr>
+<td>465.</td>
+<td>జంగు నీవ పొర్రొ పిరాది పోలీస్ స్టేసన్ తే సీతోర్<br/>➥ జంగు నీ మీద పోలీస్ స్టేషన్ లో పిర్యాదు చేసాడు<br/>జంగుహెన్ ఫైల్డ్ అ కంప్లెంట్ అబౌట్ యూ ఎట్ ద పోలీస్ స్టేషన్<br/>జంగూనే తుహ్మారే విరుథ్ పోలీస్ స్టేషన్ మే రిపోర్ట్ కియేహై<br/>జంగు ఇన్ పొదె పిరది పోలీస్ స్టేషనుత్ సీమ్‌తెర్</td>
+<td>jangu niva porro pirādi polīs stēsan tē sītōr<br/>jangu nī mida pōlis stēshan lō pyirādu cēsādu<br/>↳Jangu has filed a complaint about you at the police statior<br/>jaṅgu nī tumhārē viruddh pōlis stēshan mē ripoṛt kiyē hai<br/>jangu in pode piradi pōlis stēsanut sīyter</td>
+<td>జంగు నీవా పోర్్రో పిరాది పోలీస్ స్టేసన్ తే సీతోర్<br/>జంగు నీ మితా పొలిస్ స్టేశాన లో పిరియాడు చెసాడు<br/>↳Jangu has filed a complaint about you at the police statior<br/>jaṅgu hēs făld అ కంప్లెంట్ అబౌట్ యూ ఎట్ ది పోలీస్ స్టేషన్<br/>↳జంగు నే మీకు వ్యతిరేకంగా పోలీస్ స్టేషన్లో రిపోర్ట్ కియే హై<br/>జంగు ఇన్ పోదె పిరది పోలీస్ స్టేషనుత్ సీయ్‌తెర్</td>
+</tr>
+</tbody>
+</table></div>
+<p class="page-number">109</p>
+</div>
+<br><br>
+<div class="page-body-container">
+<div class="centered-block"><header class="header">గోండి ➥ తెలుగు Gondi ➥ English गोंडि ➥ हिन्दी 110<br/>
+ఇంగ్లిష్ హింది కొలామి Telugu Hindi Kolami तेलुगु अंग्रेजी कोलामि</header></div>
+<div class="table"><table>
+<thead>
+<tr>
+<th>గోండి ➔ తెలుగు<br>ఇంగ్లిష్ హింది కోలామి</br></th>
+<th>Gondi ➔ English<br/>Telugu Hindi Kolami</th>
+<th>గोंडि ➔ हिन्दी<br/>तेलुगु अंग्रेजी కోలామి</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>466. బతత్ లాసి నా పొరొ పిరాది సీతోర్?<br/>➥ దేని కోసం నా పైన పిర్యాదు చేసాడు?<br/>వాట్ డిడ్ హీ కంప్లేన్ అబౌట్ మీ ఫోర్‌?<br/>ఉస్నె క్యా రిపోర్ట్ కియ్‌?<br/>తానుజ్ వాలడ్ అన్ పొదె పిరది సీయ్‌తెర్?</td>
+<td>batat lāsi nā porro pirādi sītōr?<br/>dēni kōsam nā paina pyirādu cēsāḍu?<br/>What did he complain about me for?<br/>usne kyā ripōrṭ kiy?<br/>tānuñ vālaḍ an pode piradi sīyter?</td>
+<td>बतत लासि ना पोरो पिरादि सीतोर?<br/>देनि कोसम ना पैना पिर्यादु चेसाडु?<br/>वाट डिड ही कंप्लेन अबौट मी फोर?<br/>उसने क्या रिपोर्ट किया?<br/>तानुङ वालङ अन पोदे पिरदि सीय़तेर?</td>
+</tr>
+<tr>
+<td>467. निम्मे बेर्रेवोन पाति<br/>➥ నీవు అతన్ని కొట్టవాట<br/>ఇట్ సిమ్స్ దెట్ యూ హిట్ హిమ్<br/>ఐసా లగతా హై కి తుమ్నె ఉసే మారా<br/>నీ వెటె అమ్మున్ దన్‌ప్తివా</td>
+<td>nimme berrē vōn pāti<br/>nīvu atanni koṭṭavāṭa<br/>it seems that you hit him<br/>aisā lagatā hai ki tumne usē mārā<br/>nī vete amnun danptivā</td>
+<td>నిम्मे బెర్రె వోన పాతి<br/>నీవు అతంని కోట్టవాటా<br/>इट सीम्स దેટ యు హిట్ హిమ్<br/>aisā lagatā hai ki tumne usē mārā<br/>नी वेटे अमुन दान्तिवā</td>
+</tr>
+<tr>
+<td>468. నిమ్మె వోన్ బారి పాతి?<br/>➥ నీవు అతన్ని ఎందుకు కొట్టావు?<br/>వైడిడ్ యూ హిట్ హిమ్?<br/>తుమ్నె ఉసే కయో మారా?<br/>నీ అమ్నున్ తానుజ్ కుడ్‌తీ?</td>
+<td>nimme vōn bāri pāti?<br/>nīvu atanni enduku koṭṭāvu?<br/>Why did you hit him?<br/>tumne usē kayō mārā?<br/>nī ammun tānuñ kuṭṭi?</td>
+<td>నిम्मे వోన బార్ि పాతి?<br/>నీవు అతంని ఎన్దुकु కోట్టాवु?<br/>वै डिड यू हिट हिम?<br/>तुमने उसे क्यों मारा?<br/>नी अम्न तानुङ कुड्डी?</td>
+</tr>
+<tr>
+<td>469. వోర్‌ నాకున్ పాతోర్ ఇంజేర్, నన్న వోన్ పాతోన్<br/>➥ అతను నన్ను కొట్టాడు నేను అతన్ని కొట్టాను<br/>హి హిట్ మీ సో ఐ హిట్ హిమ్.<br/>ఉస్నె ముఝే మారా తో మైంనే భీ ఉసే మారా<br/>అమ్ద్ అన్ కుడుక్ తేంద్ ఆన్ అమ్నున్ కుడ్క్‌తాన్</td>
+<td>vör nākun pātor injēr, nanna vōn pātōn<br/>atanu nannu koṭṭādu nēnu atanni koṭṭānu<br/>→He hit me so I hit him.<br/>usne mujhē mārā tō mainnē bhī usē mārā<br/>amd an kuḍuk tēnd ān amnun kuḍktān</td>
+<td>వోర్ నాకున పాతోర్ ఇన్జెర, నన్నా వోన పాతోన్<br/>అతును ననును కోట్టాడ్రు నెను అతన్ని కొట్టాను<br/>హీ హిట్ మీ సో ఐ హిట్ హిమ్.<br/>उसने मुझे मारा तो मैंने भी उसे मारा<br/>अमद अन कुडुक तेन्द आन अमुन कुड्टकान</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<br><br>
+<div class="page-body-container">
+<div class="table"><table>
+<tbody>
+<tr>
+<td>470.</td>
+<td>నిమ్మె వోన్ బతతె పాతి?<br/>➥ నీవు అతన్ని దేనితో కొట్టావు?<br/>వాట్ డిడ్ యూ హిట్ హిమ్ విద్?<br/>తుమ్నె కిస్ వస్తూసే ఉసే మారా?<br/>నీ అమ్నున్ తామడ్ కుడుక్తీ?</td>
+<td>nimme vön batate pāti?<br/>nīvu atanni dēnitō koṭṭāvu?<br/>What did you hit him with?<br/>tumne kis vastū sē usē mārā?<br/>nī amnun tāmaḍ kuḍuktī?</td>
+<td>నిమ్మె వోన బతతే పాతి?<br/>నీవు అంనిం దెన్టిో కోట్టాवु?<br/>వాట్ డిడ యూ హిట్ హిమ్ విద్?<br/>●మీరున కిస్ వస్తు సే ఉసే మారా?<br/>నీ అమ్రున్ తామడ్ కుడుక్తీ?</td>
+</tr>
+<tr>
+<td>471.</td>
+<td>నన్న వోన్ కెయై పాతోన్<br/>➥నేను అతన్ని చేతితో కొట్టాను<br/>ఐ హిట్ హిమ్ విద్ మై హేండ్<br/>మైంచే ఉసే హాథ్ సే మారా<br/>ఆన్ అమ్నున్ కెయ్యడ్ కుడుక్తన్</td>
+<td>nanna vön keyde pātōn<br/>nēnu atanni cētitō koṭṭānu<br/>→I hit him with my hand<br/>mainnē usē hāth sē mārā<br/>ān amnun keyyaḍ kuḍuktan</td>
+<td>నన్నా వోన కేయదే పాతోన్<br/>నేను అంనిం చెతితో కోట్టాను<br/>ఎ హిట్ హిమ్ విద్ మే హేండ్<br/>●నేనును అతను చే నుండి మారా<br/>ఆన్ అమ్నున్ కెయ్యడ్ కుడుక్తన</td>
+</tr>
+<tr>
+<td>472.</td>
+<td>నిమ్మె వోన్ బగ పాతి?<br/>➥ నీవు అతన్ని ఎక్కడ కొట్టావు?<br/>వేర్ డిడ్ యూ హిట్ హిమ్?<br/>తుమ్నె ఉసే కహాపర్ మారా?<br/>నీ అమ్నున్ ఎత్తి కుడుక్తీ?</td>
+<td>nimme vön baga pāti?<br/>nīvu atanni ekkada koṭṭāvu?<br/>→Where did you hit him?<br/>tumne usē kahā par mārā?<br/>nī amnun etti kuḍukti?</td>
+<td>నిమ్మె వోన బగా పాతి?<br/>నీవు అంనిం ఒక్కడా కోట్టాवु?<br/>వెర డిడ యూ హిట్ హిమ్?<br/>●మీరున ఉసే కాహ పర మారా?<br/>నీ అమ్రున్ ఎత్తి కుడుక్తీ?</td>
+</tr>
+<tr>
+<td>473.</td>
+<td>నన్న వోన్ కొర్వితగ పాతోన్<br/>➥నేను అతన్ని చేంప మీద కొట్టాను<br/>ఐ హిట్ హిమ్ ఆన్ హిస్ చీక్<br/>మైంచే ఉస్ గాల్ పర్ మారా<br/>ఆన్ అమ్నె సెంపతి కుడుక్తన్</td>
+<td>nanna vön korvitaga pātōn<br/>nēnu atanni cēmpa mīda koṭṭānu<br/>→I hit him on his cheek<br/>mainnē us gāl par mārā<br/>ān amne sempati kuḍuktan</td>
+<td>నన్నా వోన కోర్వితగా పాతోన్<br/>నేను అంనిం చెంపా మీదా కోట్టాను<br/>ఎ హిట్ హిమ్ ఆన హిస్ చీక్<br/>●నేనును ఆ గాల్ పర మారా<br/>ఆన్ అమ్నె సెంపతి కుడుక్తన్</td>
+</tr>
+<tr>
+<td>474.</td>
+<td>నిమ్మె వోన్ బతత్ హిందల్ పాతి?<br/>➥ నీవు అతన్ని దేని వల్ల కొట్టావు?<br/>ఫోర్ వాట్ రీసన్ డిడ్ యూ హిట్ హిమ్?<br/>కిన్ కారథ్ సే ఉసే మారా?<br/>నీ అమ్నున్ తానుజ్ సటి కుడుక్తీ?</td>
+<td>nimme vön batat hindal pāti?<br/>nīvu atanni dēni valla koṭṭāvu?<br/>→For what reason did you hit him?<br/>kis kāran sē usē mārā?<br/>nī ammunu tānuñ saṭi kuḍukti?</td>
+<td>నిమ్మె వోన బతత హిందల్ పాతి?<br/>నీవు అంనిం దెని వల్లా కోట్టాवु?<br/>ఫోర వాట్ రీసన్ డిడ యూ హిట్ హిమ్?<br/>●किस कारण से उसे मारा?<br/>నీ అమ్రున్ తానూ సటి కుడుక్తీ?</td>
+</tr>
+</tbody>
+</table></div>
+<footer class="footer">111</footer>
+</div>
+<br><br>
+<div class="page-body-container">
+<div class="table"><table>
+<thead>
+<tr>
+<th>గోండి ➥ తెలుగు<br/>ఇంగ్లిష్ హింది కొలామి</th>
+<th>Gondi ➥ English<br/>Telugu Hindi Kolami</th>
+<th>गोंडि ➥ हिन्दी<br/>तेलुगु अंग्रेजी कोलामि</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>475. నావంగ్ కొత్తంగ్ సియ్యకి ఇంజేర్ పాతోన్<br/>➥ నా పైసలు ఇవ్వలెదని కొట్టాను<br/>హీ డిడ్ నాట్ గివ్ మీ మై మనీ సో ఐ హిట్ హిమ్<br/>ఉస్నె మేరాపైసా నహీ దియా ఇసలియే మైంనే ఉపయోగించే మారా<br/>అనె బాకి సీయ్యెతి విస కుడ్క్తాన్</td>
+<td>nāvang kottang siymaki injēr pātōn<br/>nā paisalu ivvaledani koṭṭānu<br/>→He did not give me my money so I hit him<br/>usne mērā paisā nahī diyā isaliyē mainnnē usē mārā<br/>ane bāki sīyyeti visa kuḍktān</td>
+<td>नावंग कोत्तंग सियमकि इनजेर पातोन<br/>ना पैसलु इव्वलेदनि कोट्टानु<br/>ही डिड नाट गिव मी मै मनी सो ऐ हिट हिम<br/>उसने मेरा पैसा नहीं दिया इसलिये मैंने उसे मारा<br/>अने बाकि सीय्येति विसा कुड्कतान</td>
+</tr>
+<tr>
+<td>476. ఇంకె నా సంగ వా, పోలీస్ స్టేషన్ దాకట్<br/>➥ ఇప్పుడు నాతో రా! పోలీస్ స్టేషన్ వెళ్ దాం<br/>నౌ కమ్ విద్ మీ, లెట్స్ గో టూ ద పోలీస్ స్టేషన్<br/>మేరే సాథ్ ఆఓ, పోలీస్ స్టేషన్ జాయేంగే<br/>పంజీ అన్ వెంట సెమ్ పోలీస్ స్టేషన్ సెన్నం</td>
+<td>iŋke nā sanga vā, polīs stēsan dākaṭ<br/>ippuḍu nātō rā! polīs stēsan veḷdām<br/>→Now come with me, let’s go to the police station<br/>mērē sāth aō, polīs stēshan jāyēngē<br/>paṇñi an veṇṭa sem polīs stēsan sennam</td>
+<td>ఇంకే నా సంగా వా, पोलीस स्टेसन दाकट<br/>इप्पुडु नातौ रा! पुलिस स्टेषन वेळ्दाम<br/>नौ कम विद मी, लेट्स गो टू द पोलीस स्टेषन<br/>→मेरे साथ आओ, पोलीस स्टेशन जायेंगे<br/>पंङि अन वेनटा सेम पोलिस स्टेषन सेन्नम</td>
+</tr>
+<tr>
+<td>477. हो साब्, नी संग वांथोन<br/>➥ అవును సార్ నీతో వస్తాను<br/>యెస్ సర్, ఐ విల్ కమ్ విద్ యూ<br/>జీ సాహేబ్ మై ఆఉంగా<br/>అయ్ సార్ ఇన్ వెంట వర్సత్</td>
+<td>ho sāb, nī sanga vāntōn<br/>avunu sār nītō vastānu<br/>→Yes sir, I will come with you<br/>jī sāhēb mai aūngā<br/>ay sār in veṇṭa varsat</td>
+<td>हो साब, नी संगा वानतोन<br/>अवुनु सार नीतो वस्तानु<br/>येस सर, ऐ विल कम विद यू<br/>→जी साहेब मैं आउंगा<br/>अय सार इन वेनटा वर्सत</td>
+</tr>
+</tbody>
+</table></div>
+<div class="table"><table>
+<thead>
+<tr>
+<th>బజారు వెళ్ళెటప్పుడు మాట్లాడె మాటలు</th>
+<th>Speaking At The Market</th>
+<th>बाजार के बातचीत</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>బెయే, నిమ్ హాటుం సోన్<br/>➥ అమ్మ నువ్వు అంగడికి వెళ్ళు<br/>మదర్, యూ గో టూ ద మార్కెట్<br/>మా జీ ఆప్ బఝార్ జాఈయే<br/>అమ్మ నీ అజుడి సే</td>
+<td>beyē, nim hāṭum son<br/>amma nuvvu angaḍiki veḷlu<br/>➥Mother, you go to the market<br/>mā jī āp bajhār jāīyē<br/>amma nī aṇaḍi sē</td>
+<td>बेये, निम हाटुम सोन<br/>अम्मा नुव्वु अंगडिकि वेळ्ळु<br/>मदर, यू गो टू द मार्केट<br/>➥माँ जी आप बझार जाईये<br/>अम्मा नी अङडि से</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</body>
+</html>

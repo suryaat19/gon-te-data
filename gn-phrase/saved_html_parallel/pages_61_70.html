@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html lang="te-IN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+body {
+    padding: 0 !important;
+    margin: 0 !important;
+    background-color: white !important;
+    width: 100% !important;
+    font-family: serif;
+}
+
+.page-body-container {
+    background-color: white;
+    width: 210mm;
+    margin: 0 auto;
+    padding: 20mm 15mm;
+    box-sizing: border-box;
+    min-height: 100vh;
+}
+
+p.paragraph, .paragraph, .block, .quote, .ordered-list, .unordered-list,
+.advertisement, .answer, .contact-info, .index, .options,
+.reference, .unknown, .sidebar, .footnote {
+    text-align: justify !important;
+    text-align-last: left !important;
+    text-justify: inter-word !important;
+    font-size: inherit !important;
+    line-height: 1.3 !important;
+    margin: 0 0 12pt 0 !important;
+    text-indent: 18pt !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box;
+}
+
+.quote, .ordered-list, .unordered-list, .sidebar, .footnote {
+    text-indent: 0 !important;
+}
+
+.multi-column-row { font-size: 12pt; }
+.multi-column-row.cols-1 { font-size: 12pt; }
+.multi-column-row.cols-2 { font-size: 11pt; gap: 18pt; }
+.multi-column-row.cols-3 { font-size: 10pt; gap: 16pt; }
+.multi-column-row.cols-4 { font-size: 9pt; gap: 12pt; }
+
+.page-body-container > p.paragraph,
+.page-body-container > .paragraph {
+    font-size: 12pt !important;
+}
+
+h1.chapter-title {
+    font-size: 30pt !important;
+    line-height: 1.1 !important;
+    margin: 0 0 12pt 0 !important;
+    text-align: center !important;
+    font-weight: bold;
+}
+
+h2.section-title, h2.headline {
+    font-size: 18pt !important;
+    line-height: 1.1 !important;
+    margin: 12pt 0 8pt 0 !important;
+    text-align: center !important;
+    font-weight: bold;
+}
+
+h3.sub-section-title, h3.sub-headline,
+h4.subsub-section-title, h4.subsub-headline {
+    font-size: 13pt !important;
+    line-height: 1.25 !important;
+    margin: 12pt 0 4pt 0 !important;
+    text-align: center !important;
+    font-weight: bold;
+}
+
+.multi-column-row {
+    width: 100% !important;
+    margin: 12pt 0 !important;
+    display: grid;
+}
+
+.column-block {
+    text-align: left !important;
+    text-align-last: left !important;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    min-width: 0;
+    overflow-wrap: break-word;
+    width: 100%;
+}
+
+.column-block p {
+    text-indent: 0 !important;
+    margin-bottom: 8pt !important;
+    font-size: inherit !important;
+}
+
+.column-block p br {
+    display: none;
+}
+
+.centered-block {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin: 12pt 0;
+}
+
+.centered-block > * {
+    text-align: center !important;
+    font-size: 13pt !important;
+    max-width: 100% !important;
+    margin: 0 auto !important;
+    text-indent: 0 !important;
+}
+
+.table table {
+    width: 100% !important;
+    margin: 18pt 0 !important;
+    border-collapse: collapse;
+    border: 1.5pt solid #333;
+    table-layout: fixed;
+    font-size: 11pt;
+    line-height: 1.2;
+}
+
+.table table td,
+.table table th {
+    word-break: normal;
+    overflow-wrap: break-word;
+    padding: 6pt;
+    font-size: inherit;
+    border: 0.5pt solid #333;
+    text-align: center;
+}
+
+.table table td:first-child,
+.table table th:first-child {
+    text-align: left;
+}
+
+.table table td:not(:first-child),
+.table table th:not(:first-child) {
+    white-space: nowrap;
+    text-align: right;
+}
+
+.column-block .table table {
+    width: 100% !important;
+    table-layout: fixed;
+    margin: 12pt 0;
+    border-collapse: collapse;
+    border: 1.5pt solid #333;
+}
+
+.column-block .table table td,
+.column-block .table table th {
+    word-break: break-word;
+    padding: 6pt;
+    font-size: 10pt;
+    border: 0.5pt solid #333;
+    text-align: center;
+}
+
+.column-block .table table td:first-child,
+.column-block .table table th:first-child {
+    text-align: left;
+}
+
+.column-block .table table td:not(:first-child),
+.column-block .table table th:not(:first-child) {
+    white-space: nowrap;
+    text-align: right;
+}
+
+.quote {
+    font-size: 13pt !important;
+    margin: 0 0 0 0 !important;
+    padding: 0 20px !important;
+    font-style: italic;
+    border-left: 3px solid #ccc;
+    text-align: justify !important;
+    text-indent: 0 !important;
+}
+
+.ordered-list, .unordered-list {
+    font-size: inherit !important;
+    margin: 0 0 0 0 !important;
+    padding-left: 40px !important;
+    text-align: justify !important;
+    text-indent: 0 !important;
+}
+
+.sub-ordered-list, .sub-unordered-list {
+    font-size: inherit !important;
+    margin: 0 0 0 0 !important;
+    padding-left: 60px !important;
+    text-align: justify !important;
+    text-indent: 0 !important;
+}
+
+.subsub-ordered-list, .subsub-unordered-list {
+    font-size: inherit !important;
+    margin: 0 0 0 0 !important;
+    padding-left: 80px !important;
+    text-align: justify !important;
+    text-indent: 0 !important;
+}
+
+.image, .chart, .diagram, .photograph {
+    margin: 16px auto;
+    text-align: center;
+    max-width: 100% !important;
+}
+
+.image img, .chart img, .diagram img, .photograph img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    border: 1px solid #ddd;
+}
+
+.chart {
+    border: 2px solid #4a90d9;
+    padding: 8px;
+    background-color: #f8fafc;
+}
+
+.diagram {
+    border: 2px solid #6b7280;
+    padding: 8px;
+    background-color: #f9fafb;
+}
+
+.photograph {
+    border: 2px solid #059669;
+    padding: 4px;
+    background-color: #f0fdf4;
+}
+
+.image-caption {
+    font-style: italic;
+    margin: 8px auto;
+    text-align: center;
+    max-width: 100% !important;
+}
+
+.header, .footer {
+    font-size: 13pt !important;
+    margin: 12px auto;
+    text-align: center;
+    max-width: 100% !important;
+}
+
+.sidebar {
+    font-size: inherit !important;
+    margin: 12px auto;
+    padding: 10px;
+    background-color: #f5f5f5;
+    text-align: justify !important;
+    text-indent: 0 !important;
+}
+
+.footnote {
+    font-size: inherit !important;
+    margin: 8px auto;
+    padding-left: 20px;
+    text-align: justify !important;
+    text-indent: 0 !important;
+}
+
+hr.footnote-separator {
+    border: none;
+    border-top: 1px solid #999;
+    width: 40%;
+    margin: 16px 0 8px 0;
+}
+
+a.footnote-ref {
+    color: inherit;
+    text-decoration: none;
+}
+
+a.footnote-ref:hover {
+    text-decoration: underline;
+}
+
+.advertisement, .answer, .contact-info, .index, .options,
+.reference, .unknown {
+    font-size: inherit !important;
+    margin: 0 0 12pt 0 !important;
+    text-align: justify !important;
+}
+
+.author, .dateline, .flag, .formula, .jumpline,
+.page-number, .folio, .website-link,
+.first-level-question, .second-level-question, .third-level-question {
+    font-size: inherit !important;
+    margin: 12px auto;
+    text-align: center;
+    max-width: 100% !important;
+    text-indent: 0 !important;
+}
+    </style>
+</head>
+<body>
+<div class="page-body-container">
+<div class="table"><table>
+<thead>
+<tr>
+<th>గోండి ➥ తెలుగు<br/>ఇంగ్లిష్ హింది కొలామి</th>
+<th>Gondi ➥ English<br/>Telugu Hindi Kolami</th>
+<th>गोंडि ➥ हिन्दी<br/>तेलुगु अंग्रेजी कोलामि</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>260. బగ నోయ్యల్ సురు ఆత?<br/>➥ ఎక్కడ నొప్పి మొదలైంది?<br/>వేర్ డిడ్ ద పేన్ స్టార్ట్?<br/>దర్ద్ కిస్ భాగ్ పర్ శురూ హుఆ?<br/>ఎత్తి ఒయ్యెకద్ బూడ్ ఎద్దిన్?</td>
+<td>baga nöyval suru āta?<br/>ekkaḍa noppi modalaindi?<br/>➥Where did the pain start?<br/>dard kis bhāg par shurū huā?<br/>etti oyyekad būḍ eddin?</td>
+<td>బగా నోయ్వల్ సురు ఆతా?<br/>ఎక్కడా నోప్పి మోదలైంది?<br/>వెర డిడ ద పెన్ స్టార్ట?<br/>➥దర్ద్ కిస్ భాగ్ పర శూరు హుఆ?<br/>ఎత్తి ఒయ్యెకద్ బూడ్ ఎద్దిన్?</td>
+</tr>
+<tr>
+<td>261. ఇంకె బగ నోసేర్ మంత?<br/>➥ ఎక్కడ నొప్పి ఉంది?<br/>వేర్ ఇన్ ఇట్ పేనింగ్ నౌ?<br/>అభీ కహాపర్ దర్ద్ హో రహాహై?<br/>ఎత్తి ఒయ్సద్?</td>
+<td>iŋke baga nösēr manta?<br/>ekkaḍa noppi undi?<br/>➥Where is it paining now?<br/>abhī kahā par dard hō rahā hai?<br/>etti oysad?</td>
+<td>ఇంకే బగా నోసెర్ మనతా?<br/>ఎక్కడా నోప్పి అవిది?<br/>వెర ఈ ఇట్ పెనింగ్ నౌ?<br/>➥अभी कहां पर दर्द हो रहा है?<br/>ఎత్తి ఓయస్ద?</td>
+</tr>
+<tr>
+<td>262. బహన్ నోసేర్ మంత?<br/>➥ ఎట్లా నొస్తుంది?<br/>వాట్ ఇన్ ద పేన్ వైక్?<br/>దర్ద్ కైసే హో రహాహై?<br/>ఎనాజ్ ఒయ్సద్?</td>
+<td>bahan nösēr manta?<br/>etlā nostundi?<br/>➥What is the pain like?<br/>dard kaisē hō rahā hai?<br/>enān oysad?</td>
+<td>బహన్ నోసెర్ మనతా?<br/>ఎట్లా నోస్తునది?<br/>वाट इस द पेन लैक?<br/>➥दर्द कैसे हो रहा है?<br/>ఎనాఙ్ ఓయస్ద?</td>
+</tr>
+<tr>
+<td>263. నీవ మేందొల్ నోంతకీ? చుబ్బ-చుబ్బ ఆంత?<br/>➥ నీ శరీరము ఉబ్బి నట్టు అనిపిస్తుందా?<br/>లేదా ముళ్ళు గుచ్చినట్లు అనిపిస్తుంది?<br/>ఇన్ ఇట్ శార్ప్ పేన్(తోర్న్-లైక్),<br/>ఓర్ ఇన్ ఇట్ డల్ పేన్(అవైడ్ ఏరీఅ)?<br/>దర్ద్ ఏక్ హీ జగహ్ పర్ హై, యాఫైలా హుఆహై?<br/>ఇనె మేన్ ఒయ్సదా?బగబగ ఎర్పదా?</td>
+<td>nīva mēndol nöntakī? cubba-cubba ānta?<br/>nī śarīramu ubbi naṭṭu anipistundā?<br/>Iēdā muḷlu guccinatuḷu anipistundā?<br/>➥Is it sharp pain(thorn-like),<br/>or is it dull pain(a wide area)?<br/>dard ēk hī jagah par hai, yā phailā huā hai?<br/>ine mēn oysadā?bagabaga ersadā?</td>
+<td>నీవా మెనదొల నోనతకీ? చుబ్బా-చుబ్బా ఆనతా?<br/>నీ శరీరము ఉబ్బి నట్టూ అనిపిస్తునదా?<br/>Iēdā muḷlu guccinatuḷu anipistundā?<br/>➥Is it sharp pain(thorn-like),<br/>or is it dull pain(a wide area)?<br/>dard ek hī jagah par hai, yā phailā huā hai?<br/>ine mēn oysadā?bagabaga ersadā?</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<br><br>
+<div class="page-body-container">
+<div class="table"><table>
+<tbody>
+<tr>
+<td>264.</td>
+<td>నీకున్ బస్కే-బస్కే హీన్ అంత?<br/>➥ నీకు ఎప్పుడెప్పుడు ఇలా అవుతుందా?<br/>డస్ ఇట్ హర్ట్ ఆల్ ద టైమ్, ఓర్ ఆఫ్ ఎండ్ ఆన్?<br/>దర్ద్ హమేశా హోతాహై యా కభీ-కభీ హోతాహై?<br/>ఇనుజ్ ఎపుడ్-ఎపుడ్ ఇనజ్ ఎర్సద్?</td>
+<td>nīkun baskē-baskē hīn ānta?<br/>nīku eppuḍeppuḍu ilā avutundā?<br/>➥Does it hurt all the time, or off and on?<br/>dard hamēshā hōtā hai yā kabhī-kabhī hōtā hai?<br/>inuñ epuḍ-epuḍ inaṅ ersad?</td>
+<td>నీకున్ బస్కే-బస్కే హీన్ అంతా?<br/>నీకు అప్పుడెప్పుడు ఇలా అవుతునదా?<br/>డస్ ఇట్ హర్ట్ ఆల ద టామ్, ఓర్ ఆఫ్ ఎండ్ ఆన?<br/>➥దర్ద్ ఎల్లప్పుడూ होता है या कभी-कभी होता है?<br/>ఇనుఙ్ ఎపుడ్-ఎపుడ్ ఇనజ్ ఎర్సద్?</td>
+</tr>
+<tr>
+<td>265.</td>
+<td>నోనెకే నీకున్ జోప్ వాంత?<br/>➥ నొప్పితో నీకు నిద్ర వస్తుందా?<br/>కెన్ యూ స్లీప్ విద్ ద పేన్?<br/>దర్ద్ హోనేసే నీంద్ ఆతిహై క్యా?<br/>నోప్పినడ్ ఇనుజ్ మజ్ వర్సదా?</td>
+<td>nōnekē nīkun jōp vānta?<br/>noppitō nīku nidra vastundā?<br/>➥Can you sleep with the pain?<br/>dard hōnē sē nīnd āti hai kyā?<br/>nōppinaḍ inuñ maṇ varsadā?</td>
+<td>నోనేకే నీకున్ జోప वानता?<br/>నోప్పితో నీకు నిద్రా వస్తునదా?<br/>కెన యూ స్లీప్ విద్ ద పెన్?<br/>➥दर्द होने से नींद आती है क्या?<br/>నోప్పినడ ఇన్ుఙ్ మజ్ వర్సదా?</td>
+</tr>
+<tr>
+<td>266.</td>
+<td>నీకున్ బహన్ యెడ్కి వాత?<br/>➥ నీకు ఎలా జ్వరము వచ్చింది?<br/>హౌ డిడ్ యూగెట్ ఫీవర్?<br/>ఆప్పో బుఖార్ కైసేహుఆ?<br/>ఇనుజ్ ఎనజ్ వెస్స సుంతిన్?</td>
+<td>nīkun bahan yeḷki vāta?<br/>nīku elā jvaramu vaccindi?<br/>➥How did you get fever?<br/>āpkō bukhār kaisē huā?<br/>inuñ enaṅ vessa suntin?</td>
+<td>నీకున్ బహన్ యెడకి వాతా?<br/>నీకు ఎలా జ్వరము వజ్జినది?<br/>హౌ డిడ్ యూ గెట్ ఫీవర్?<br/>➥आपको बुखार कैसे हुआ?<br/>ఇనుఙ్ ఎనఁజ వేషా సంతుని?</td>
+</tr>
+<tr>
+<td>267.</td>
+<td>నీకున్ బస్కే-బస్కే యెడ్కి వాత?<br/>➥ నీకు జ్వరము ఎప్పుడెప్పుడు వచ్చింది?<br/>వెన్ డూ యూగెట్ ద ఫీవర్?<br/>బుఖార్ శురూ కబ్ హుఆ?<br/>ఇనుజ్ ఎపుడెపుడ వెస్స వత్తిన్?</td>
+<td>nīkun baskē-baskē yeḷki vāta?<br/>nīku jvaramu epubuḍpuḍu vaccindi?<br/>➥When do you get the fever?<br/>bukhār shurū kab huā?<br/>inuñ epuḍpuḍa vessa vattin?</td>
+<td>నీకున్ బస్కే-బస్కే యెడకి వాతా?<br/>నీకు జ్వరము ఎప్పుడెప్పుడు వజ్జినది?<br/>వెన్ డూ యు గెట్ ది ఫీవర్?<br/>➥बुखार शुरू कब हुआ?<br/>ఇనుఙ్ ఎపుడెపుडा వెషా వట్టిన?</td>
+</tr>
+<tr>
+<td>268.</td>
+<td>నీకున్ బహన్ చక్కర్ వాంత?<br/>➥ నీకు ఎలా ఛక్కర్ వస్తుంది?<br/>వాట్ కైండ్ ఆఫ్ డిసినస్ డూ యూహెవ్?<br/>కిన్ తరీకే కా చక్కర్ హో రహాహైన్?<br/>ఇనుజ్ ఎనజ్ జీజ వర్సద్?</td>
+<td>nīkun bahan kakkar vānta?<br/>nīku elā chakkar vastundi?<br/>➥What kind of dizziness do you have?<br/>kis tarīkē kā kakkar hō rahā hain?<br/>inuñ enaṅ jīna varsad?</td>
+<td>నీకున్ बहन चक्कर वानता?<br/>నీకు ఎలా छक्कर వస్తునది?<br/>वाट कैंड अफ डिसिनस डू यू हैव?<br/>➥किस तरीके का चक्कर हो रहा हैं?<br/>ఇనుఙ్ एनङ जीजा वर्सद?</td>
+</tr>
+</tbody>
+</table></div>
+<p class="page-number">63</p>
+</div>
+<br><br>
+<div class="page-body-container">
+<div class="table"><table>
+<thead>
+<tr>
+<th>గోండి ➥ తెలుగు<br/>ఇంగ్లిష్ హిందీ కొలామి</th>
+<th>Gondi ➥ English<br/>Telugu Hindi Kolami</th>
+<th>గोंडि ➥ हिन्दी<br/>तेलुगु अंग्रेजी కోలామి</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>269. నిమ్మె ఇద్ నొప్పిత్ సాటి బతల్-బతల్ కీతి?<br/>➥ నీవు ఈ నొప్పి కోసం ఏం ఏమి చేశావు?<br/>వాట్ రెమెడీస్ హేవ్ యూ ఆత్రేడి ట్రైడ్?<br/>అప్నె కౌన్ సీ దవాఇయా లీ?<br/>నీ నొప్పిజ్ సటి తాగత్తి?</td>
+<td>nimme id noppit sāṭi batal-batal kīti?<br/>nivu ī noppi kōsam ēm ēmi cēsāvu?<br/>➥What remedies have you already tried?<br/>āpne kaun sī davāiyā lī?<br/>nī noppin saṭi tāgatti?</td>
+<td>nimme id noppit saati batal-batal kiiti?<br/>niwü e noppı koşam ēm ēmi cēsāvu?<br/>➥What remedies have you already tried?<br/>āpne kaun sī davāiyā lī?<br/>nī noppin saṭi tāgatti?</td>
+</tr>
+<tr>
+<td>270. నిమ్మె గోలింగ్ మింగ్ తి కీ?<br/>➥ నీవు గోలి(మాత్ర) మ్రింగావ?<br/>డిడ్ యూ టేక్(స్వాల్‌) ద టెబ్లేట్స్?<br/>ఆప్ గోలియా ఖాయే క్యా?<br/>నీ గొరె మిజ్ తివా?</td>
+<td>nimme gōling mingti kī?<br/>nivu gōli(mātra) mringāva?<br/>➥Did you take(swallow) the tablets?<br/>āp gōliyā khāyē kyā?<br/>nī gore miṉ tivā?</td>
+<td>nimme goling mingti ki?<br/>nivu golí(mātra) mringāva?<br/>➥Did you take(swallow) the tablets?<br/>āp gōliyā khāyē kyā?<br/>nī gore miṉ tivā?</td>
+</tr>
+<tr>
+<td>271. నిమ్మె గోలింగ్ బారి మింగ్ మకి?<br/>➥ నీవు గోలి(మాత్ర) ఎందుకు మ్రింగ లేదు?<br/>వై డిడ్ యూ నాట్ టేక్(స్వాల్‌) ద టెబ్లేట్స్?<br/>ఆప్ గోలియా క్యో నహీ ఖాయే?<br/>నీ గొరె తానుజ్ మీజెతి?</td>
+<td>nimme gōling bāri ming maki?<br/>nivu gōli(mātra) enduku mringa lēdu?<br/>➥Why did you not take(swallow) the tablets?<br/>āp gōliyā kyō nahī khāyē?<br/>nī gore tānuñ miṇeti?</td>
+<td>nimme goling barı ming maki?<br/>niwü golí(mātra) enduk uringa ledu?<br/>➥Why did you not take(swallow) the tablets?<br/>vai diḍu naṭ tak(swalo) da teblėts?<br/>➥You took(swallo) da teblėts?<br/>ni wore tānuṅ meḻeti?</td>
+</tr>
+<tr>
+<td>272. నిమ్మె టానిక్ మర్ర ఉట్టి?<br/>➥ నీవు టానిక్(మందు) త్రాగినావ?<br/>డిడ్ యూ డ్రింక్ ద సిరప్/టానిక్?<br/>ఆప్ దవాఈ పీయే క్యా?<br/>నీ టానిక్ ఉండివా?</td>
+<td>nimme tānik marra utṭi?<br/>nivu tānik(mandu) trāgināva?<br/>➥Did you drink the syrup/tonic?<br/>āp davāī pīyē kyā?<br/>nī tānik unḍivā?</td>
+<td>nimme tānik marra utṭi?<br/>niwü tānik(mandu) traiginava?<br/>➥Did you drink the syrup/tonic?<br/>āp davāī pīyē kyā?<br/>nī tānik unḍivā?</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<br><br>
+<div class="page-body-container">
+<div class="table"><table>
+<tbody>
+<tr>
+<td>273.</td>
+<td>నిమ్మె టానిక్ మర్ర బారి ఉన్మకి?<br/>↳ నీవు టానిక్(మందు) ఎందుకు త్రాగలేదు?<br/>వై డిడ్ యూ నాట్ డ్రింక్ ద సీరప్/టానిక్?<br/>ఆప్ దవాఈ క్యో నహీ పియే?<br/>నీ టానిక్ మల్ల తానుజ్ ఉనెతి?</td>
+<td>nimme ṭānik marra bāri unmaki?<br/>nivu ṭānik(mandu) enduku trāgalēdu?<br/>→ Why did you not drink the syrup/tonic?<br/>āp davāi kyō nahī piyē?<br/>nī ṭānik malla tānuñ uneti?</td>
+<td>నిమ్మె టానిక్ మర్ర బార్ఇ ఉనమకి?<br/>నీవు టానిక్(మనదు) ఎన్దుకు త్రాగలెడు?<br/>వై డిడ్ యూ నాట్ డ్రింక్ ది సీరప్/టానిక్?<br/>→ Why did you not drink the syrup/tonic?<br/>āp davāi kyō nahī piyē?<br/>nī ṭānik malla tānuñ uneti?</td>
+</tr>
+<tr>
+<td>274.</td>
+<td>నీకున్ మొదొల్ బస్కే-బస్కే హీన్ ఆత?<br/>↳ నీకు మొదలు ఎప్పుడెప్పుడు ఇలా అయింది?<br/>హౌ మెని టైమ్స్ హెన్ ఇట్ హెపండ్ లైక్ దిస్ బీఫోర్?<br/>ఇన్ తరహ్ పహలే కిత్నె బార్ హుఆ?<br/>ఇనుజ్ పేలె ఎపుడ్-ఎపుడ్ ఇనజ్ ఎంద్?</td>
+<td>nīkun modol baskē-baskē hīn āta?<br/>nīku modalu eppuḍppuḍu ilā ayindi?<br/>→ How many times has it happened like this before?<br/>is tarah pahalē kitne bār huā?<br/>inun pēle epuḍ-epuḍ inan end?</td>
+<td>నీకున్ మోదొల బస్కే-బస్కే హీన్ आता?<br/>నీకు మోదలు ఎప్పుడెప్పుడ్రు ఇలా అయిండి?<br/>హౌ మెని ట్యామ్స్ హెస్ ఇట్ హెపండ్ లెక్ दिस बीफोर?<br/>→ This طرح پہلے کتنے بار हुआ?<br/>ఇనుఙ్ పేలె ఎపుడ-ఎపుడ ఇన్ఙ్ ఎనద?</td>
+</tr>
+<tr>
+<td>275.</td>
+<td>బహన్ కీతెకె నీవ నొయ్యల్ కమ్మి ఆయార్?<br/>↳ ఏమి చేస్తే నీ నొప్పి తగ్గును?<br/>వాట్ మేక్స్ యూ ఫీల్ బెటర్ ఓర్ వర్స్?<br/>క్యార్కనెసే ఆప్కో అచ్ఛా లగ్నే లగతాహై?<br/>ఎనజ్ ఎద్దె ఇన్నెత్ కమ్మి ఎరాద్?</td>
+<td>bahan kīteke niva noyval kammi āyār?<br/>ēmi cēste nī noppi taggunu?<br/>→ What makes you feel better or worse?<br/>kyā karne sē āpkō achā lagne lagatā hai?<br/>enañ edde inet kammi erād?</td>
+<td>బహన కీతేకే నీవా నోయ్వల్ కమ్మి ఆయార్‌?<br/>एमि चेस्ते नी नोप्पि तग्नुतु?<br/>वाट मेक्स यू फील बेटर ओर वर्स?<br/>→ क्या करने से आपको अच्छा लगने लगता है?<br/>एनङ एद्दे इंनेत कम्मि एराद?</td>
+</tr>
+<tr>
+<td>276.</td>
+<td>నీకున్ బగటల్ బహన్ యెడ్కి సురు ఆత?<br/>↳ నీకు ఎక్కడి నుండి ఎట్లా జ్వరము వచ్చింది?<br/>హౌ ఎండ్ వెన్ డిడ్ యోర్ సిక్ నెస్ బిగిన్?<br/>యహ్ బీమారీ కబ్ ఔర్ కైసే శురూ హుఈ?<br/>ఇనుజ్ ఎత్తతన ఎనాజ్ వెస్స సురువ్ ఎద్దిన్?</td>
+<td>nīkun bagaṭal bahan yeḍki suru āta?<br/>nīku ekkadi nuṇdi etlā jvaramu vaccindi?<br/>→ How and when did your sickness begin?<br/>yah bīmārī kab aur kaisē shurū huī?<br/>inuñ ettata na enāñ vessa suruv eddin?</td>
+<td>నీकुन बगटल बहन येडकि सुरु आता?<br/>నీకు ఎక్కిడి नुनडि एट్లా జ్వరము वज्जनदि?<br/>हौ ऐंड वेन डिड योर सिक नैस बिगिन?<br/>→ यह बीमारी कब और कैसे शुरू हुई?<br/>इनुङ एत्तना एनाङ वेषा सुरव एद्दिन?</td>
+</tr>
+<tr>
+<td>277.</td>
+<td>నీకున్ మొదొల్ బస్కే హీన్ ఆసి మత్త?<br/>↳ నీకు ఇంతకు ముందు ఎప్పుడైన ఇలా వచ్చిందా?<br/>హెవ్ యూహెచ్ దేస్ సేమ్ ట్రబుల్ బీఫోర్?<br/>ఐసా తకలీఫ్ పహలే కభీ తుమ్హే హుఆ క్యా?<br/>ఇనుజ్ పేలె ఎపుడ్ ఇనాజ్ ఎతండిన్?</td>
+<td>nīkun modol baskē hīn āsi matta?<br/>nīku intaku mundu eppuḍaina ilā vaccindā?<br/>→ Have you had this same trouble before?<br/>aisā takaliph pahalē kabhī tumhē huā kyā?<br/>inuñ pēle epuḍ inañ etanḍin?</td>
+<td>नीकुन मोदोल बस्के हीन आसि मत्ता?<br/>नीकु इनतकु मुनुदु एप्पुडैना इला वञ्चिनदा?<br/>हैव यू हेड दिस सेम ट्रबल बीफोर?<br/>→ ऐसा तकलीफ पहले कभी तुम्हें हुआ क्या?<br/>इनुङ पेले एपुड इनाङ एतनडिन?</td>
+</tr>
+</tbody>
+</table></div>
+<p class="page-number">65</p>
+</div>
+<br><br>
+<div class="page-body-container">
+<div class="centered-block"><header class="header">గోండి ➥ తెలుగు Gondi ➥ English गोंडि ➥ हिन्दी 66 तेलुगु अंग्रेजी कोलामि<br/>
+ఇంగ్లిష్ హింది కొలామి Telugu Hindi Kolami</header></div>
+<div class="table"><table>
+<thead>
+<tr>
+<th>గండీ → తెలుగు<br>ఇంగ్లిష్ హింది కొలామి</br></th>
+<th>గోడీ → English<br/>Telugu Hindi Kolami</th>
+<th>గాడి → हिन्दी<br/>तेलुगु अंग्रेजी कोलामि</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>278. మీ నాటె బోనె హీన్ ఆసి మత్త?<br/>➥ మీ ఊరిలో ఇంతకు ముందు ఇలా ఎవరికైన ఉండేనా?<br/>హెస్ ఎనీవన్ ఎల్స్ ఇన్ యోర్ ఫెమిలీ ఓర్ విలెజ్ హెడ్ ఇట్?<br/>తుమ్హూరే పరివార్ యా గాంవ్ మే కిసీ ఔర్ కో<br/>యహ్ బీమారీ హుఆ క్యా?<br/>ఇమె ఉరున్ ఇదుజ్ తొలె ఇనజ్ ఎనుజెన ఎతండినా?</td>
+<td>mī nāṭe bōne hīn āsi matta?<br/>mī ūrilō intaku mundu ilā evarikaina undēnā?<br/>Has anyone else in your family or village had it?<br/>tumhārē parivār yā gānv mē kisī aur kō<br/>yah bimārī huā kyā?<br/>ime urun iduñ tole inaṅ enuṇena etanḍinā?</td>
+<td>मी नाटे बोने हीन आसि मत्ता?<br/>मी ऊरिलो इनतकु मुनदु इला एवरिकैया उंडॆना?<br/>Has anyone else in your family or village had it?<br/>tumhārē parivār yā gānv mē kisī aur kō<br/>yah bimārī huā kyā?<br/>ime urun iduñ tole inaṅ enuṇena etanḍinā?</td>
+</tr>
+<tr>
+<td>279. నిమ్మె బగ మందంతి?<br/>➥ నీవు ఎక్కడ ఉంటావు?<br/>వేర్ డూ యూ లివ్?<br/>ఆప్ కహా రహ్తాహైన్?<br/>నీ ఎత్తి అనసతి?</td>
+<td>nimme baga mandanti?<br/>nivu ekkaḍa uṉtāvu?<br/>→Where do you live?<br/>āp kahā rahte hain?<br/>nī etti ansati?</td>
+<td>నిమ్మె బగా మనదనతి?<br/>నీవు ఎక్కుడాuntāvu?<br/>→Where do you live?<br/>బెర డూ యు లివ?<br/>→आप कहां रहते हैं?<br/>नी एत्ति असति?</td>
+</tr>
+<tr>
+<td>280. నిమ్మెట్ అన్వల్ యేర్ బగటల్ తరంతిట్?<br/>➥ మీరు త్రాగే నీరు ఎక్కడి నుండి తెస్తారా?<br/>వేర్ డూ యూ ఆల్ గెట్ యోర్ డ్రింక్కింగ్ వాటర్ ఫ్రమ్?<br/>ఆప్ పీనే కా పానీ కహాసే లాతేహైన్?<br/>నీర్ ఉనెక ఈర్ ఎత్త తన కొర్సతిర్?</td>
+<td>nimmeṭ unval yēr bagaṭal tarantiṭ?<br/>mīru trāgē nīru ekkaḍi nuṇdi testārā?<br/>āp pīnē kā pānī kahā sē lātē hain?<br/>nīr unaṅka īr etta tana korsatir?</td>
+<td>నిమ్మెట్ ఉంవల్ యెర బగటల్ తరనటిట?<br/>మీరు త్రాగే నీరు ఎక్కిడి నున్డి టెస్తారా?<br/>Where do you all get your drinking water from?<br/>ber doo y ul gaut yor drincking waater frum?<br/>nīr unaṅka īr etta tana korsatir?</td>
+</tr>
+<tr>
+<td>281. నిమ్మెట్ అన్వల్ యేర్ కుహితల్ తరంతిట్?<br/>➥ మీరు త్రాగే నీరు బావి నుండి తెస్తారా?<br/>డూయూఆల్ గెట్ యోర్ డ్రింక్కింగ్ వాటర్ ఫ్రమ్ ఎన్ ఓపెన్ వెల్?<br/>క్యా ఆప్ సభీ పినే కా పానీ(ఖులే ముంహ్<br/>వాలీ) కుంచేసే లాతేహైన్?<br/>నీర్ ఉనెక ఈర్ నువ్వి తన కొర్సతిరా?</td>
+<td>nimmeṭ unval yēr kuhital tarantiṭ?<br/>mīru trāgē nīru bavi nuṇdi testārā?<br/>kyā aṃ sabhī pīnē kā pānī(khulē munh<br/>vālī) kunvē sē lātē hain?<br/>nīr unaṅka īr nuvvi tana korsatirā?</td>
+<td>నిమ్మెట్ ఉంవల్ యెర కుహితల్ తరనటిట?<br/>మీరు త్రాగే నీరు బావి నున్డి టెస్తారా?<br/>Do you all get your drinking water from an open well?<br/>kya aṃ sabhī pīnē kā pānī(khulē munh<br/>vālī) kunvē sē lātē hain?<br/>nīr unaṅka īr nuvvi tana korsatir?</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<br><br>
+<div class="page-body-container">
+<div class="table"><table>
+<tbody>
+<tr>
+<td>282.</td>
+<td>నిమ్మెట్ ఉన్వల్ యేర్ బోరింగ్న తరంతిట్?<br/>➥ మీరు త్రాగే నీరు బోరింగ్ నుండి తెస్తారా?<br/>డూ యూ ఆల్ గెట్ యోర్ డ్రింక్ింగ్ వాటర్ ఫ్రమ్ అబోర్ వెల్?<br/>క్యా ఆప్ సభీ పీనే కా పానీ బోరవేల్ సే లాతే హైన్?<br/>నీర్ ఉనెక ఈర్ బోరింగ్ తన కొర్సతిరా?</td>
+<td>nimmeṭ unval yēr bōringna tarantiṭ?<br/>mīru trāgē nīru bōring nuḍi testārā?<br/>→ Do you all get your drinking water from a bore well?<br/>kyā āp sabhī pīnē kā pāni bōravēl sē lātē hain?<br/>nīr uneka īr bōring tana korsatirā?</td>
+<td>నిమ్మెట్ ఉంవల్ యెర బోరింగా తరనతిట?<br/>మీరు త్రాగే నీరు బోరింగ్ను తరంతిట?<br/>→ Do you all get your drinking water from a bore well?<br/>Do you all get your drinking water from a bore well?<br/>kyā āp sabhī pīnē kā pāni bōravēl sē lātē hain?<br/>nīr uneka īr bōring tana korsatirā?</td>
+<td>నిమ్మెట్ ఉంవల్ యెర బోరింగా తరనతిట?<br/>మీరు త్రాగే నీరు బ్రోరింగ్ను తరంతిట?<br/>→ Do you all get your drinking water from a pond?<br/>Do you all get your drinking water from a pond?<br/>kyā āp sabhī pīnē kā pāni tālab sē lātē hain?<br/>nīr uneka īr bōring tana korsatirā?</td>
+</tr>
+<tr>
+<td>283.</td>
+<td>నిమ్మెట్ ఉన్వల్ యేర్ డోబిత తరంతిట్?<br/>➥ మీరు త్రాగే నీరు గుంత నుండి తెస్తారా?<br/>డూ యూ ఆల్ గెట్ యోర్ డ్రింక్ింగ్ వాటర్ ఫ్రమ్ అపాండ్?<br/>క్యా ఆప్ సభీ పీనే కా పానీ తాలాబ్ సే లాతే హైన్?<br/>నీర్ ఉనెక ఈర్ డోబితద్ కోర్సతిరా?</td>
+<td>nimmeṭ unval yēr dōbita tarantiṭ?<br/>mīru trāgē nīru gunta nuḍi testārā?<br/>→ Do you all get your drinking water from a pond?<br/>kyā āp sabhī pīnē kā pāni tālab sē lātē hain?<br/>nīr uneka īr dōbitad korsatirā?</td>
+<td>నిమ్మెట్ ఉంవల్ యెర డోబిటా తరనతిట?<br/>మీరు త్రాగే నీరు గునతా నునడి త్తార?<br/>→ Do you all get your drinking water from a pond?<br/>kyā āp sabhī pīnē kā pāni tālab sē lātē hain?<br/>nīr uneka īr dōbitad korsatirā?</td>
+<td>నిమ్మెట్ ఉంవల్ యెర డోబిటా తరనతిట?<br/>మీరు త్రాగే నీరు గునతా నునడి త్తార?<br/>→ Do you all get your drinking water from a pond?<br/>Do you all get your drinking water from a pond?<br/>kyā āp sabhī pīnē kā pāni tālab sē lātē hain?<br/>nīr uneka īr selmatad korsatirā?</td>
+</tr>
+<tr>
+<td>284.</td>
+<td>అడ్ డోబితగ మీన్క్ మంతంగ్?<br/>➥ ఆ గుంతలో చేపలు ఉన్నాయా?<br/>ఆర్ దేర్ ఎనీ లివింగ్ ఫిశ్ ఇన్ ద పాండ్?<br/>ఉన్ తాలాబ్ మే జిందే మఛలిహై క్యా?<br/>ఆ డోబిత్ కయ్యె అన్నవా?</td>
+<td>ad dōbitaga mīnk mantang?<br/>ā guntalō cēpalu unnāyā?<br/>→ Are there any living fish in the pond?<br/>us tālab mē jindē machali hai kyā?<br/>ā dōbit kayye ansavā?</td>
+<td>అద డోబితగా మీన్క్ మనతంగ?<br/>ఆ గునతలో చెపలు ఉన్నాయా?<br/>ఆర్ దెర్ ఎనీ లివింగ్ ఫిష్ ఇన్ ద పాండ్?<br/>us tālab mē jindē machali hai kyā?<br/>ā dōbit kayye ansavā?</td>
+<td>అద డోబితగా మీన్క్ మనతంగ?<br/>ఆ గునతలో చెపలు ఉన్నాయా?<br/>ఆర్ దెర్ ఎనీ లివింగ్ ఫిష్ ఇన్ ద పాండ్?<br/>→ उस तालाब मे जिंदे मछलि हैं क्या?<br/>आ डोबित काय्ये अंसवा?</td>
+</tr>
+<tr>
+<td>285.</td>
+<td>నిమ్మెట్ ఉన్వల్ యేర్ చెల్మెత తరంతిట్?<br/>➥ మీరు త్రాగే నీరు(చల్మ) నుండి తెస్తారా?<br/>డూ యూ ఆల్ గెట్ యోర్ డ్రింక్ింగ్ వాటర్ ఫ్రమ్ వాటర్ హోల్?<br/>క్యా ఆప్ సభీ పీనే కా పానీ ఝరోఖేసే లాతే హైన్?<br/>నీర్ ఉనెక ఈర్ సెల్మతద్ కోర్సతిరా?</td>
+<td>nimmeṭ unval yēr celmeta tarantiṭ?<br/>mīru trāgē nīru(calma) nuḍi testārā?<br/>→ Do you all get your drinking water from water hole?<br/>kyā āp sabhī pīnē kā pāni jharōkhē sē lātē hain?<br/>nīr uneka īr selmatad korsatirā?</td>
+<td>నిమ్మెట్ ఉంవల్ యెర చెల్మెతా తరనతిట?<br/>మీరు త్రాగే నీరు(చల్మా) నునడి త్తార?<br/>→ Do you all get your drinking water from water hole?<br/>Do you all get your drinking water from water hole?<br/>kyā āp sabhī pīnē kā pāni jharōkhē sē lātē hain?<br/>nīr uneka īr selmatad korsatirā?</td>
+<td>నిమ్మెట్ ఉంవల్ యెర చెల్మెతా తరనతిట?<br/>మీరు త్రాగే నీరు(చల్మా) నునడి త్తార?<br/>→ Do you all get your drinking water from water hole?<br/>Do you all get your drinking water from water hole?<br/>kyā āp sabhī pīnē kā pāni jharōkhē sē lātē hain?<br/>nīr uneka īr selmatad korsatirā?</td>
+</tr>
+<tr>
+<td>286.</td>
+<td>నిమ్మెట్ ఉన్వల్ యేర్ కుడేడ్త తరంతిట్?<br/>➥ మీరు త్రాగే నీరు వాగు నుండి తెస్తారా?<br/>డూ యూ ఆల్ గెట్ యోర్ డ్రింక్ింగ్ వాటర్ ఫ్రమ్ అ రివర్?<br/>క్యా ఆప్ సభీ పీనే కా పానీ నదీసే లాతే హైన్?<br/>నీర్ ఉనెక ఈర్ వంతతద్ కోర్సతిరా?</td>
+<td>nimmeṭ unval yēr kuḍeṭta tarantiṭ?<br/>mīru trāgē nīru vāgu nuḍi testārā?<br/>→ Do you all get your drinking water from a river?<br/>kyā āp sabhī pīnē kā pāni nadī sē lātē hain?<br/>nīr uneka īr vantatad korsatirā?</td>
+<td>నిమ్మెట్ ఉంవల్ యెర కుడెడ్తా तरనతిట?<br/>మీరు త్రాగే నీరు వాగు నునడి త్తార?<br/>→ Do you all get your drinking water from a river?<br/>Do you all get your drinking water from a river?<br/>kyā āp sabhī pīnē kā pāni nadī sē lātē hain?<br/>nīr uneka īr vantatad korsatirā?</td>
+<td>నిమ్మెట్ उंवल यెర कुडेड्ता तरनतिट?<br/>मीरु त्रागे नीरु वागु नुनडि तेस्तारा?<br/>→ Do you all get your drinking water from a river?<br/>Do you all get your drinking water from a river?<br/>kyā āp sabhī pīnē kā pāni nadī sē lātē hain?<br/>nīr uneka īr vantatad korsatirā?</td>
+</tr>
+</tbody>
+</table></div>
+<p class="page-number">67</p>
+</div>
+<br><br>
+<div class="page-body-container">
+<div class="centered-block"><header class="header">గోండి ➥ తెలుగు Gondi ➥ English गोंडि ➥ हिन्दी 68 तेलुगु अंग्रेजी कोलामि<br/>
+ఇంగ్లిష్ హింది కొలామి Telugu Hindi Kolami</header></div>
+<div class="table"><table>
+<thead>
+<tr>
+<th>గోండి ➔ తెలుగు<br>ఇంగ్లిష్ హింది కోలామి</br></th>
+<th>Gondi ➔ English<br/>Telugu Hindi Kolami</th>
+<th>गोंडि ➔ हिन्दी<br/>तेलुगु अंग्रेजी कोलामि</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>287. నిమ్మెట్ ఉన్వల్ యేర్ తడాయిత తరంతిట్?<br/>➥ మీరు త్రాగే నీరు చెరువు నుండి తెస్తారా?<br/>డూ యూ ఆల్ గెట్ యోర్ డ్రింక్కింగ్ వాటర్ ఫ్రమ్<br/>అ డేమ్/రెసవ్వార్?<br/>క్యా ఆప్ సభీ పీనే కా పానీ డేమ్ సే లాతే హైన్?<br/>నీర్ ఉనెక ఈర్ సెరువ్ తద్ కొర్సతిరా?</td>
+<td>nimmet unval yër taḍāyita tarantit?<br/>mīru trāgē nīru ceruvu nundī testārā?<br/>→Do you all get your drinking water from<br/>a dam/reservoir?<br/>kyā āp sabhī pinē kā pānī dēm sē lātē hain?<br/>nīr uneka īr servv tad korsatirā?</td>
+<td>నిమ్మెట్ ఉంవల్ యెర తడాయితా తరనతిట?<br/>మీరు త్రాగే నీరు చెరువు నునడి తెస్తారా?<br/>డూ యూ ఆల్ గెట్ యోర్ డ్రिंकంగ్ వాటర్ ఫ్రమ్<br/>అ డెమ్/రెసవ్వార్?<br/>kyā āp sabhī pinē kā pānī dēm sē lātē hain?<br/>nīr uneka īr servv tad korsatirā?</td>
+</tr>
+<tr>
+<td>288. నిమ్మెట్ బస్కెన్ పిర్ద యేర్ ఉట్టిట్?<br/>➥ మీరు ఎప్పుడైన వర్షం నీరు త్రాగరా?<br/>డూ యూ సమ్ టైమ్స్ డ్రింక్ రేన్ వాటర్?<br/>క్యా ఆప్ కభీ-కభీ బారిశ్ కా పానీ పీతేహైన్?<br/>నీర్ ఎపుడెన వాన ఈర్ ఉన్డిరా?</td>
+<td>nimmet baskēn pirda yër uṭṭit?<br/>mīru eppuḍaina varṣam nīru trāgarā?<br/>→Do you sometimes drink rain water?<br/>kyā āp kabhī-kabhī bārish kā pānī pītē hain?<br/>nīr epuḍena vāna īr undirā?</td>
+<td>నిమ్మెట్ బస్కెన్ పిర్దా యెర ఉట్టిట్?<br/>మీరు ఎప్పుడైనా వరṣam nīru tragarā?<br/>→Do you sometimes drink rain water?<br/>Dro யூ சம டேம்ஸ் டிரின் ரேన్ வாட்டர்?<br/>kyā āp kabhī-kabhī bārish kā pānī pītē hain?<br/>nīr epuḍena vāna īr undirā?</td>
+</tr>
+<tr>
+<td>289. మీవ నాటె యేత టాకి మంత?<br/>➥ మీ ఊరిలో నీళ్ళ ట్యాంకు ఉందా?<br/>ఇస్ దేర్ అ వాటర్ త్యంక్ ఇన్ యోర విలెజ్?<br/>ఆప్ కే గాంప్ మే పానీ కా టాస్కీ హై క్యా?<br/>ఇమె ఊరున్ ఈరా టాకి అన్నదా?</td>
+<td>miva nāte yēta tāki manta?<br/>mīūrilō nīlla tyānkundu undā?<br/>→Is there a water tank in your village?<br/>āp kē gānv mē pānī kā tānkī hai kyā?<br/>ime ūrun īr ṭāki ansadā?</td>
+<td>మీవా నాటే యెతా టాకి మనతా?<br/>మీ ऊरिलो नीळ्ला ट्यांकु उनदा?<br/>इस देर अ वाटर त्यंक इन योर विलेज?<br/>is there a water tank in your village?<br/>āp kē gānv mē pānī kā tānkī hai kyā?<br/>ime ūrun īr ṭāki ansadā?</td>
+</tr>
+<tr>
+<td>290. అద్ కుడేడ్తగ(లవ్దితగ) మీన్స్ మంతంగ్?<br/>➥ ఆ వాగులో చేపలు ఉన్నాయా?<br/>ఆర్ దేర్ ఎనీ లివింగ్ ఫిశ్ ఇన్ ద పాండ్/రివర్?<br/>తాలాబ్/నదీమే జిందే మఛలి హై క్యా?<br/>ఆ వంతత్ కయ్యె అనసవా?</td>
+<td>ad kuḍēṭtaga(lavḍitaga) mīnk mantang?<br/>ā vāgulō cēpalu unnāyā?<br/>→Are there any living fish in the pond/river?<br/>tālāb/nadī mē jindē machali hai kyā?<br/>ā vantat kayye ansavā?</td>
+<td>ad kuḍēṭtaga(lavḍitaga) mīnk mantang?<br/>ఆ వాగులో చేపలు ఉన్నాయా?<br/>ఆర్ దేర్ ఎనీ లివింగ్ ఫిశ్ ఇన్ ద పాండ్/రివర్?<br/>tālāb/nadī mē jindē machali hai kyā?<br/>ā vantat kayye ansavā?</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<br><br>
+<div class="page-body-container">
+<div class="table"><table>
+<tbody>
+<tr>
+<td>291.</td>
+<td>నిమ్మె ఉండే బేమారితల్ చొకొట్ అయ్యకి<br/>➥ మీరు ఇంకా జబ్బు నుండి కోలుకోలేదు<br/>యూహెవ్ నాట్ యెట్ రెకవరెద్ ఫ్రమ్ యోర్ ఇల్నెస్<br/>ఆపకీ బీమారీ కమ్ నహీ హుఆ క్యా<br/>నీ ఇంక బేమరి తన సోయ్ ఎరెతివా</td>
+<td>nimme unḍē bēmārital cokot aymaki<br/>mīru iŋkā jabbu nunḍi kōlukōlēdu<br/>➥You have not yet recovered from your illness<br/>āpakī bīmārī kam nahī huā kyā<br/>nī iŋka bēmari tana sōy etrivā</td>
+<td>నిమ్మె उनडे बेमारितल चोकोट अयమకి<br/>మీరు ఇంకా జబ్బు నುನడి కొలుకోలెదు<br/>यू हैव नाट येट रेकवरेद फ्रम योर इल्नेस<br/>➥आपकी बीमारी कम नहीं हुआ क्या<br/>नी इंका बेమరి तना सोय एरेतिवा</td>
+</tr>
+<tr>
+<td>292.</td>
+<td>జీవతున్ సాటి నిమ్మె బీడి ఉన్వల్ బంద్ కీమ్<br/>➥మీరు పోగ తాగడం మాని వేయాలి<br/>ఫోర్ హెల్త్, యూ మస్ట్ రీఫ్రేన్ ఫ్రమ్ స్మోకింగ్<br/>అచ్ఛే స్వాస్థ్ కే లియే ధూమ్రాపాన్ న్ కరే<br/>నీర్ బీడి ఉనెకద్ మద్దెజ్</td>
+<td>jīvatun sāṭi nimme bīḍi unval band kīm<br/>mīru poga tagaḍam māni vēyāli<br/>➥For health, you must refrain from smoking<br/>acchē svasth kē liyē dhūmapān n karē<br/>nīr bīḍi unekad maddeṅ</td>
+<td>जीवतुन साटि निम्मे बीडि उंवल बनद कीम<br/>मीरु पोगा तागडम मानि वेयालि<br/>फोर हैल्ट, यू मस्ट रीफ्रेन फ्रम स्मोकिंग<br/>➥अच्छे स्वास्थ के लिये धूम्रपान न करें<br/>नीर बीडि उनेकद मद्देङ</td>
+</tr>
+<tr>
+<td>293.</td>
+<td>वोन దవాఖన తగ సెరిక్ కీతోర్<br/>➥అతనిని ఆస్పత్రిలో చేర్చారు<br/>హీ వాస్ అడ్మిటెడ్ టూ ద హాస్పిటల్<br/>ఉంహే ఆస్పతాల్ మే భరతీ కియా గయా<br/>అమ్నున్ దవకనెత్ సెరిక్ కత్తెర్</td>
+<td>vōn davākhana taga serik kītōr<br/>atanini āpatrilō cērcāru<br/>➥He was admitted to the hospital<br/>unhē aspatāl mē bharatī kiyā gayā<br/>amnun davakanet serik katter</td>
+<td>वोन दवाखना तगा सेरिक कीतोर<br/>अतनिनि आस्पत्रिलो चेर्चारु<br/>ही वास अड्डिटेड टू द हास्पिटल<br/>➥उन्हें अस्पताल में भरती किया गया<br/>अम्नुन दवकनेत सेरिक कत्तेर</td>
+</tr>
+</tbody>
+</table></div>
+<div class="table"><table>
+<thead>
+<tr>
+<th>ప్రశ్నించుట</th>
+<th>Asking Questions</th>
+<th>प्रश्न पूछना</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>294. బోర్ నెయున్ పాతోర్?<br/>➥ ఎవరు కుక్కని కొట్టారు?<br/>హూ హిట్ ద డాగ్?<br/>కిస్నె కుత్తే కో మారా?<br/>ఏంద్ ఆతెన్ కుడుక్తెంద?</td>
+<td>bōr neydun pātōr?<br/>evaru kukkani koṭṭāru?<br/>➥Who(sg) hit the dog?<br/>kisne kuttē kō mārā?<br/>ēnd āten kuḍuktend?</td>
+<td>bor neyduan pator?<br/>ఎవరు కుక్కని కోట్టారు?<br/>హూ హిట్ ది డాగ్‌?<br/>➥किसने कुत्ते को मारा?<br/>ఎన్ద आतेन कुडुక్తేనద?</td>
+</tr>
+</tbody>
+</table></div>
+<footer class="footer">69</footer>
+</div>
+<br><br>
+<div class="page-body-container">
+<div class="centered-block"><header class="header">గోండి ➥ తెలుగు Gondi ➥ English गोंडि ➥ हिन्दी 70<br/>
+ఇంగ్లిష్ హింది కొలామి Telugu Hindi Kolami तेलुगु अंग्रेजी कोलामि</header></div>
+<div class="table"><table>
+<thead>
+<tr>
+<th>గోండి ➔ తెలుగు<br>ఇంగ్లిష్ హింది కొలామి</br></th>
+<th>Gondi ➔ English<br/>Telugu Hindi Kolami</th>
+<th>గोंडि ➔ हिन्दी<br/>तेलुगु अंग्रेजी కోలామి</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>295. బోర్-బోర్ గాటొ తిత్తేర్?<br/>➥ ఎవరెవ్వరు అన్నం తిన్నారు?<br/>హూ ఏట్ ద ఫ్రూడ్?<br/>కింహాంనే ఖానా ఖాయా?<br/>ఏర్ ఏర్ అంబా తిందెర్?</td>
+<td>bör-bör gāto tittēr?<br/>➥Who(pl) ate the food?<br/>kinhōnnē khānā khāyā?<br/>ēr ēr ambā tinder?</td>
+<td>బోర్-బోర్ గాటో तित్తెర్?<br/>ఎవరేవ్వరు అన్నం తిన్నారూ?<br/>➥Who(pl) ate the food?<br/>kihōnnē khānā khāyā?<br/>ēr ēr ambā tinder?</td>
+</tr>
+<tr>
+<td>296. మనోజ్ బదెన్ / బోన్ పాతోర్?<br/>➥మనోజ్ దేనిని/ఎవరిని కొట్టారు?<br/>వాట్ / హూమ్ డిడ్ మనోజ్ హిట్?<br/>మనోజ్ నే కిస్కో మారా?<br/>మనోజ్ ఏదున్ / ఏనున్ కుడుక్ తెంద్?</td>
+<td>manoj baden / bön pātör?<br/>manoj dēnini/evarini koṭṭāru?<br/>➥What / whom did Manoj hit?<br/>manoj nē kiskō mārā?<br/>manoj ēdun / ēnun kuḍuktend?</td>
+<td>मनोज बदेन / बोन पातोर?<br/>मनोज देनिनि/एवरिनि कोट्टारु?<br/>वाट / हूम डिड मनोज हिट?<br/>➥What / whom did Manoj hit?<br/>manoj nē kiskō mārā?<br/>manoj ēdun / ēnun kuḍuktend?</td>
+</tr>
+<tr>
+<td>297. తేజ బదెన్ / బోన్ పాత?<br/>➥తేజ దేనిని/ఎవరిని కొట్టింది?<br/>వాట్ / హూమ్ డిడ్ తేజా హిట్?<br/>తేజా నే కిస్కో మారీ?<br/>తేజ ఏదున్ / ఏనున్ కుడుక్తిన్?</td>
+<td>tēja baden / bön pāta?<br/>tēja dēnini/evarini koṭṭindi?<br/>➥What / whom did Teja hit?<br/>tējā nē kiskō mārī?<br/>tēja ēdun / ēnun kuḍuktin?</td>
+<td>तेजा बदेन / बोन पाता?<br/>तेजा देनिनि/एवरिनि कोट्टिनदि?<br/>वाट / हूम डिड तेजा हिट?<br/>➥Teja ने किसको मारी?<br/>तेजा एदुन / एनुन कुडुक्तिन?</td>
+</tr>
+<tr>
+<td>298. మనోజ్ కొత్తంగ్ బోన్ సీతోర్?<br/>➥మనోజ్ ఎవరికి డబ్బులిచ్చాడు?<br/>టూ హూమ్ డిడ్ మనోజ్ గివ్ ద మనీ?<br/>మనోజ్ నేపైసా కిస్కో దియా?<br/>మనోజ్ బాకి ఏనుజ్ సీతెండ్‌?</td>
+<td>manoj kottang bön sītör?<br/>manoj evariki dabbuliccādu?<br/>➥To whom did Manoj give the money?<br/>manoj nē paisā kiskō diyā?<br/>manoj baki ēnuñ sītend?</td>
+<td>मनोज कोत्तंग बोन सीतोर?<br/>मनोज एवरिकि डब्बुलिच्चाडु?<br/>टू हूम डिड मनोज गिव द मनी?<br/>➥मनोज ने पैसा किसको दिया?<br/>मनोज बाकि एनुङ सीतेनद?</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<br><br>
+<div class="page-body-container">
+<div class="table"><table>
+<tbody>
+<tr>
+<td>299.</td>
+<td>మనోజ్ నెయున్ బాపె పాతోర్?<br/>→ మనోజ్ కుక్కని దేనితో కొట్టాడు?<br/>విద్ వాట్ డిడ్ మనోజ్ హిట్ ద డాగ్?<br/>మనోజ్ నే కుత్తే కోకిషె మారా?<br/>మనోజ్ అతెన్ తానడ్ కుడుక్తెంద?</td>
+<td>manōj neydun bāpe pātōr?<br/>manōj kukkani dēnitō koṭṭādu?<br/>→With what did Manoj hit the dog?<br/>manōj nē kuttē kō kise mārā?<br/>manōj aten tānaḍ kuḍuktend?</td>
+<td>मनोज नेयदुन बापे पातोर?<br/>मनोज कुक्कनि देनितो कोट्टाडु?<br/>विद वाट डिड मनोज హిట్ द डाग?<br/>→मनोज ने कुत्ते को किससे मारा?<br/>मनोज अतेन तानड कुడుक्तेनद?</td>
+</tr>
+<tr>
+<td>300.</td>
+<td>वोर बోన్ हिंदल काम येत्थोर?<br/>→అతను ఎవరి తరుపున పని తీసుకున్నాడు?<br/>విద్ హూమ్ డిడ్ హీగెట్ ద వర్క్ డన్?<br/>ఉస్నె కింసె కామ్ కరాయా?<br/>అమ్ద్ ఏర్ వాలడ్ పని ఏక్తెంద?</td>
+<td>vör bōn hindal kām yēttōr?<br/>atanu evari tarupuna pani tīsukunnādu?<br/>→With whom did he get the work done?<br/>usne kinse kām karāyā?<br/>amd ērvālaḍ pani ēktend?</td>
+<td>वोर बोन हिनदल काम येत्तोర?<br/>अतनु ఎవरि तरुपुना पनि तीसुकुन्नाडु?<br/>विद हूम डिड ही गेट द वर्क डन?<br/>→उसने किससे काम कराया?<br/>अम्द एर्वालड पनि एक्तेनद?</td>
+</tr>
+<tr>
+<td>301.</td>
+<td>मनोज్ బొనోర్ కాండి?<br/>→మనోజ్ ఎవరి కొడుకు/కుమారుడు?<br/>హూస్ బొయ్ ఇన్ మనోజ్?<br/>మనోజ్ కిస్కా లర్కహై?<br/>మనోజ్ ఏనె పోరక?</td>
+<td>manōj bonōr kāndī?<br/>manōj evari koḍuku/kumāruḍu?<br/>→Whose(sg) boy is Manoj?<br/>manōj kiskā lärkā hai?<br/>manōj ēne pōrak?</td>
+<td>मनोज బోనోర్ कानడి?<br/>मनोज ఎవరి కోడ్రు/కుమార్డు?<br/>हूस बोय इस मनोज?<br/>→मनोज किसका लड़का है?<br/>मनोज एने पोरक?</td>
+</tr>
+<tr>
+<td>302.</td>
+<td>ఇవ్ పొంటిల్క్ బోనంగ్?<br/>→ఈ కలములు ఎవరివి?<br/>హూస్ పెంస ఆర్ దీస్?<br/>యే కినకీ కలమే హైన్?<br/>ఈ పొంట్లిక్క ఏనె?</td>
+<td>iv poṇṭilk bōnang?<br/>ī kalamulu evarivi?<br/>→Whose(pl) pens are these?<br/>yē kinakī kamamē hain?<br/>ī poṇṭilik ēne?</td>
+<td>इव पोन्टिल्क बोनंग?<br/>ई कलमुलु ఎవర్రివి?<br/>हूस पेंस आर दीस?<br/>→ये किनकी कलमें हैं?<br/>ई पोन्टిల్लक ఎనే?</td>
+</tr>
+<tr>
+<td>303.</td>
+<td>ಮನೋಜ್ ನೆಯುನ್ ಬಗ ಪಾತೋರ್?<br/>→ಮನోజ್ కుక్కನಿ ಎಲ್ಲಿ ಕೊಟ್ಟాడు?<br/>ವೇರ್ ಡಿಡ್ ಮನೋಜ್ హిట్ ದ ಡಾರ್?<br/>ಮನోజ್ ನೇ ಕುತ್ತೆ ಕೋಕಹಾ ಪರ್ ಮಾರಾ?<br/>ಮನోజ್ ಆತెన్ ಎತ್ತಿ ಕುಡುಕ್ತೆಂದ?</td>
+<td>manōj neydun baga pātōr?<br/>manōj kukkani ekkaḍa koṭṭādu?<br/>→Where did Manoj hit the dog?<br/>manōj nē kuttē kō kahā par mārā?<br/>manōj āten etti kuḍuktend?</td>
+<td>मनोज नेयदुन बगा पातोर?<br/>मनोज कुक्कनि एक्कडा कोट्टाडु?<br/>વેર ಡಿಡ್ मनोज హిట్ ದ ಡಾಗ?<br/>→मनोज ने कुत्ते को कहाँ पर मारा?<br/>मनोज आतेन एत्ति कुडುಕ್ತೆಂದ?</td>
+</tr>
+</tbody>
+</table></div>
+<p class="page-number">71</p>
+</div>
+</body>
+</html>

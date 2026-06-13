@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html lang="te-IN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+body {
+    padding: 0 !important;
+    margin: 0 !important;
+    background-color: white !important;
+    width: 100% !important;
+    font-family: serif;
+}
+
+.page-body-container {
+    background-color: white;
+    width: 210mm;
+    margin: 0 auto;
+    padding: 20mm 15mm;
+    box-sizing: border-box;
+    min-height: 100vh;
+}
+
+p.paragraph, .paragraph, .block, .quote, .ordered-list, .unordered-list,
+.advertisement, .answer, .contact-info, .index, .options,
+.reference, .unknown, .sidebar, .footnote {
+    text-align: justify !important;
+    text-align-last: left !important;
+    text-justify: inter-word !important;
+    font-size: inherit !important;
+    line-height: 1.3 !important;
+    margin: 0 0 12pt 0 !important;
+    text-indent: 18pt !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box;
+}
+
+.quote, .ordered-list, .unordered-list, .sidebar, .footnote {
+    text-indent: 0 !important;
+}
+
+.multi-column-row { font-size: 12pt; }
+.multi-column-row.cols-1 { font-size: 12pt; }
+.multi-column-row.cols-2 { font-size: 11pt; gap: 18pt; }
+.multi-column-row.cols-3 { font-size: 10pt; gap: 16pt; }
+.multi-column-row.cols-4 { font-size: 9pt; gap: 12pt; }
+
+.page-body-container > p.paragraph,
+.page-body-container > .paragraph {
+    font-size: 12pt !important;
+}
+
+h1.chapter-title {
+    font-size: 30pt !important;
+    line-height: 1.1 !important;
+    margin: 0 0 12pt 0 !important;
+    text-align: center !important;
+    font-weight: bold;
+}
+
+h2.section-title, h2.headline {
+    font-size: 18pt !important;
+    line-height: 1.1 !important;
+    margin: 12pt 0 8pt 0 !important;
+    text-align: center !important;
+    font-weight: bold;
+}
+
+h3.sub-section-title, h3.sub-headline,
+h4.subsub-section-title, h4.subsub-headline {
+    font-size: 13pt !important;
+    line-height: 1.25 !important;
+    margin: 12pt 0 4pt 0 !important;
+    text-align: center !important;
+    font-weight: bold;
+}
+
+.multi-column-row {
+    width: 100% !important;
+    margin: 12pt 0 !important;
+    display: grid;
+}
+
+.column-block {
+    text-align: left !important;
+    text-align-last: left !important;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    min-width: 0;
+    overflow-wrap: break-word;
+    width: 100%;
+}
+
+.column-block p {
+    text-indent: 0 !important;
+    margin-bottom: 8pt !important;
+    font-size: inherit !important;
+}
+
+.column-block p br {
+    display: none;
+}
+
+.centered-block {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin: 12pt 0;
+}
+
+.centered-block > * {
+    text-align: center !important;
+    font-size: 13pt !important;
+    max-width: 100% !important;
+    margin: 0 auto !important;
+    text-indent: 0 !important;
+}
+
+.table table {
+    width: 100% !important;
+    margin: 18pt 0 !important;
+    border-collapse: collapse;
+    border: 1.5pt solid #333;
+    table-layout: fixed;
+    font-size: 11pt;
+    line-height: 1.2;
+}
+
+.table table td,
+.table table th {
+    word-break: normal;
+    overflow-wrap: break-word;
+    padding: 6pt;
+    font-size: inherit;
+    border: 0.5pt solid #333;
+    text-align: center;
+}
+
+.table table td:first-child,
+.table table th:first-child {
+    text-align: left;
+}
+
+.table table td:not(:first-child),
+.table table th:not(:first-child) {
+    white-space: nowrap;
+    text-align: right;
+}
+
+.column-block .table table {
+    width: 100% !important;
+    table-layout: fixed;
+    margin: 12pt 0;
+    border-collapse: collapse;
+    border: 1.5pt solid #333;
+}
+
+.column-block .table table td,
+.column-block .table table th {
+    word-break: break-word;
+    padding: 6pt;
+    font-size: 10pt;
+    border: 0.5pt solid #333;
+    text-align: center;
+}
+
+.column-block .table table td:first-child,
+.column-block .table table th:first-child {
+    text-align: left;
+}
+
+.column-block .table table td:not(:first-child),
+.column-block .table table th:not(:first-child) {
+    white-space: nowrap;
+    text-align: right;
+}
+
+.quote {
+    font-size: 13pt !important;
+    margin: 0 0 0 0 !important;
+    padding: 0 20px !important;
+    font-style: italic;
+    border-left: 3px solid #ccc;
+    text-align: justify !important;
+    text-indent: 0 !important;
+}
+
+.ordered-list, .unordered-list {
+    font-size: inherit !important;
+    margin: 0 0 0 0 !important;
+    padding-left: 40px !important;
+    text-align: justify !important;
+    text-indent: 0 !important;
+}
+
+.sub-ordered-list, .sub-unordered-list {
+    font-size: inherit !important;
+    margin: 0 0 0 0 !important;
+    padding-left: 60px !important;
+    text-align: justify !important;
+    text-indent: 0 !important;
+}
+
+.subsub-ordered-list, .subsub-unordered-list {
+    font-size: inherit !important;
+    margin: 0 0 0 0 !important;
+    padding-left: 80px !important;
+    text-align: justify !important;
+    text-indent: 0 !important;
+}
+
+.image, .chart, .diagram, .photograph {
+    margin: 16px auto;
+    text-align: center;
+    max-width: 100% !important;
+}
+
+.image img, .chart img, .diagram img, .photograph img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    border: 1px solid #ddd;
+}
+
+.chart {
+    border: 2px solid #4a90d9;
+    padding: 8px;
+    background-color: #f8fafc;
+}
+
+.diagram {
+    border: 2px solid #6b7280;
+    padding: 8px;
+    background-color: #f9fafb;
+}
+
+.photograph {
+    border: 2px solid #059669;
+    padding: 4px;
+    background-color: #f0fdf4;
+}
+
+.image-caption {
+    font-style: italic;
+    margin: 8px auto;
+    text-align: center;
+    max-width: 100% !important;
+}
+
+.header, .footer {
+    font-size: 13pt !important;
+    margin: 12px auto;
+    text-align: center;
+    max-width: 100% !important;
+}
+
+.sidebar {
+    font-size: inherit !important;
+    margin: 12px auto;
+    padding: 10px;
+    background-color: #f5f5f5;
+    text-align: justify !important;
+    text-indent: 0 !important;
+}
+
+.footnote {
+    font-size: inherit !important;
+    margin: 8px auto;
+    padding-left: 20px;
+    text-align: justify !important;
+    text-indent: 0 !important;
+}
+
+hr.footnote-separator {
+    border: none;
+    border-top: 1px solid #999;
+    width: 40%;
+    margin: 16px 0 8px 0;
+}
+
+a.footnote-ref {
+    color: inherit;
+    text-decoration: none;
+}
+
+a.footnote-ref:hover {
+    text-decoration: underline;
+}
+
+.advertisement, .answer, .contact-info, .index, .options,
+.reference, .unknown {
+    font-size: inherit !important;
+    margin: 0 0 12pt 0 !important;
+    text-align: justify !important;
+}
+
+.author, .dateline, .flag, .formula, .jumpline,
+.page-number, .folio, .website-link,
+.first-level-question, .second-level-question, .third-level-question {
+    font-size: inherit !important;
+    margin: 12px auto;
+    text-align: center;
+    max-width: 100% !important;
+    text-indent: 0 !important;
+}
+    </style>
+</head>
+<body>
+<div class="page-body-container">
+<div class="centered-block"><header class="header">గోండి ➥ తెలుగు Gondi ➥ English गोंडि ➥ हिन्दी 12<br/>
+ఇంగ్లిష్ హిందీ కొలామి Telugu Hindi Kolami तेलुगु अंग्रेजी कोलामि</header></div>
+<div class="table"><table>
+<thead>
+<tr>
+<th></th>
+<th>అడుగుట</th>
+<th>Ownership Questions</th>
+<th>పూచనే కీ बात</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>44.</td>
+<td>ఇద్ బతల్?<br>➥ ఇది ఏమిటి?<br/>వాట్ ఇన్ దిస్?<br/>యహ్ క్యాహై?<br/>ఇద్ తానెద్?</br></td>
+<td>id batal?<br/>idi ēmiṭi?<br/>➥What is this?<br/>yah kyā hai?<br/>id tāned?</td>
+<td>ఇద బతల్?<br/>ఇది ఎమిటి?<br/>वाट इस दिस?<br/>➥ఇది ఏమి హా?<br/>ఇద తానెద?</td>
+</tr>
+<tr>
+<td>45.</td>
+<td>అద్ బతల్?<br/>➥ అది ఏమిటి?<br/>వాట్ ఇన్ దెట్?<br/>వహ్ క్యాహై?<br/>అద్ తానెద్?</td>
+<td>ad batal?<br/>adi ēmiti?<br/>➥What is that?<br/>vah kyā hai?<br/>ad tāned?</td>
+<td>అద బతల్?<br/>అది ఎమిటి?<br/>వాట్ ఈ దెట్?<br/>➥वह क्या है?<br/>అద తానెద?</td>
+</tr>
+<tr>
+<td>46.</td>
+<td>అద్ చెప్పుల్ / సెర్పుం<br/>➥ అది చెప్పు<br/>దెట్ ఇన్ అ స్లిపర్<br/>వహ్ చప్పల్ హై<br/>అద్ కెర్రి</td>
+<td>ad ceppul / serpum<br/>adi ceppu<br/>➥That is a slipper<br/>vah cappal hai<br/>ad kerri</td>
+<td>అద చెప్పుల / సెర్పుమ<br/>అది చెప్పు<br/>దెట్ ఈస్ అ స్లిపర్<br/>➥वह चप्पल है<br/>అద కేర్రి</td>
+</tr>
+<tr>
+<td>47.</td>
+<td>అద్ చెప్పుల్ / సెర్పుం బోన?<br/>➥ ఆ చెప్పు ఎవరిది?<br/>హూస్ స్లిపర్ ఇస్ దెట్?<br/>వహ్ కిస్కా చప్పల్ హై?<br/>అద్ కెర్రి ఏనెత్?</td>
+<td>ad ceppul / serpum bōna?<br/>ā ceppu evaridi?<br/>➥Whose slipper is that?<br/>vah kiskā cappal hai?<br/>ad kerri ēnet?</td>
+<td>అద చెప్పుల / సెర్పుమ బోనా?<br/>ఆ చేప్పు ఎవరిది?<br/>హూస్ స్లిపర్ ఈ దెట్?<br/>➥वह किसका చప్పల్ హా?<br/>అద కేర్రి ఎనెత?</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<br><br>
+<div class="page-body-container">
+<div class="table"><table>
+<tbody>
+<tr>
+<td>48.</td>
+<td>అద్ నావ<br/>➥ అది నాది?<br/>దెట్ ఇన్ మైన్<br/>వహ్ మేరాహై<br/>ఆ కెర్రీ అన్నెట్/అద్ అన్నెట్</td>
+<td>ad nāva<br/>adi nādi?<br/>➥That is mine<br/>vah mērā hai<br/>ā kerri annet/ad annet</td>
+<td>అద నావా<br/>అది నాది?<br/>దెట్ ఈస్ మెన్<br/>➥वह मेरा है<br/>ఆ కేర్్రి అంనేత్/అద అంనేత</td>
+</tr>
+<tr>
+<td>49.</td>
+<td>అద్ వోన?<br/>➥ అది ఆయనదా?<br/>ఇన్ దెట్ హిస్?<br/>క్యా వహ్ ఉసీ కా హై?<br/>అద్ అమ్నెత్?</td>
+<td>ad vōna?<br/>adi āyanadā?<br/>➥Is that his?<br/>kyā vah usī kā hai?<br/>ad amnet?</td>
+<td>అద వోనా?<br/>అది అయానదా?<br/>ఈస్ దెట్ హిస్?<br/>➥क्या वह उसी का है?<br/>అద అమ్నేత?</td>
+</tr>
+<tr>
+<td>50.</td>
+<td>నావంగ్ బవ్ చెప్పుల్క్ / సెర్పుక్?<br/>➥ నా చెప్పులు ఏవి?<br/>విచ్ స్లిపర్ ఇన్ మైన్?<br/>మేరా చప్పల్ కాన్ సాహై<br/>అనెకెర్రీ ఎదా?</td>
+<td>nāvang bav ceppulk / serpuk?<br/>nā ceppulu ēvi?<br/>➥Which slipper is mine?<br/>mērā cappal kaun sā hai<br/>ane kerrik edā?</td>
+<td>నావంగ బవ చెప్పుల్క్ / సెర్పుక్?<br/>నా చెప్పుల ఎవి?<br/>విచ్ స్లిపర్ ఈస్ మెన్?<br/>➥मेरा चप्पल कौन सा है<br/>అనే కెర్్రిక్ ఎదా?</td>
+</tr>
+<tr>
+<td>51.</td>
+<td>అద్ సుంగున?<br/>➥ ఇది సుంగు దా?<br/>ఇన్ దెట్ సుంగుస్?<br/>క్యా వహ్ సుంగు కా హై?<br/>ఇద్ సుంగు నెతా?</td>
+<td>ad sunguna?<br/>idi sungu dā?<br/>➥Is that Sungu’s?<br/>kyā vah sungu kā hai?<br/>id sungu netā?</td>
+<td>అద సుంగునా?<br/>ఇది సుంగు దా?<br/>ఈస్ దెట్ సుంగస్?<br/>➥क्या वह सुंगु का है?<br/>ఇద్ సుంగు नेता?</td>
+</tr>
+<tr>
+<td>52.</td>
+<td>ఇద్ బాతల్ మంత?<br/>➥ఇది ఎలాగ ఉంది?<br/>వాట్ కైండ్ ఇస్ ఇట్?<br/>యహ్ కిస్ తరహ్ కా హై?<br/>ఇద్ ఎనింగ్ అన్సడ్?</td>
+<td>id bātal manta?<br/>idi elāga undi?<br/>➥What kind is it?<br/>yah kis tarah kā hai?<br/>id enang ansad?</td>
+<td>ఇద బాతల్ మనతా?<br/>ఇది ఎలాగా उनदि?<br/>वाट कैंड इस इट?<br/>➥यह किस तरह का है?<br/>ఇద్ ఎన్గ అంసद?</td>
+</tr>
+</tbody>
+</table></div>
+<footer class="footer">13</footer>
+</div>
+<br><br>
+<div class="page-body-container">
+<div class="table"><table>
+<thead>
+<tr>
+<th>గోండి ➥ తెలుగు<br/>ఇంగ్లిష్ హింది కొలామి</th>
+<th>Gondi ➥ English<br/>Telugu Hindi Kolami</th>
+<th>గोंडि ➥ हिन्दी<br/>तेलुगु अंग्रेजी కోలామి</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>53. ఇద్ తాన్ మొడిత<br/>➥ ఇది దాని లాగ ఉంది<br/>ఇట్ ఇన్ లైక్ దెట్ వన్<br/>యహ్ ఉస్కె జైసాహై<br/>ఇద్ అద్లాజ్ అన్సద్</td>
+<td>id tān moḍita<br/>idi dāni lāga undi<br/>➥It is like that one<br/>yah uske jaisā hai<br/>id adlāñ ansad</td>
+<td>इद तान मोडिता<br/>इदि दानि लागा उनदि<br/>इट इस लैक दैट वन<br/>➥यह उसके जैसा है<br/>इद अद्लाङ अंसद</td>
+</tr>
+<tr>
+<td>54. అడ్ బగ మంత?<br/>➥ అది ఎక్కడ ఉంది?<br/>వేర్ ఇన్ ఇట్?<br/>వహ్ కహాహై?<br/>అద్ ఎత్తి అన్సద్?</td>
+<td>ad baga manta?<br/>adi ekkaḍa undi?<br/>➥Where is it?<br/>vah kahā hai?<br/>ad etti ansad?</td>
+<td>अद बगा मनता?<br/>अदि एक्कडा उनदि?<br/>बेर इस इट?<br/>➥वह कहाँ है?<br/>अद एत्ति अंसद?</td>
+</tr>
+<tr>
+<td>55. అడ్ ఇగ్గేనె మంత<br/>➥ అది ఇక్కడ ఉంది<br/>ఇట్ ఇన్ హీర్<br/>वह् यही पर हाइ<br/>అద్ ఇత్తి అన్సద్</td>
+<td>ad iggēne manta<br/>adi ikkāda undi<br/>➥It is here<br/>vah yahī par hai<br/>ad itti ansad</td>
+<td>अद इग्गेने मनता<br/>अदि इक्कडा उनदि<br/>इट इस हीर<br/>➥वह यहीं पर है<br/>अद इत्ति अंसद</td>
+</tr>
+<tr>
+<td>56. रोत् पोर्रొ मंत?<br/>➥ అది ఇల్లు మీద ఉన్నది<br/>ఇస్ ఇన్ ఆన్ ద రూఫ్?<br/>क्या वహ్ ఛత్ పర్ हाइ?<br/>ಎಲ್ಲ ಪೊದೆ ಅನ್ಸದ್?</td>
+<td>rōt porro manta?<br/>adi illu mīda unnadi<br/>➥Is it on the roof?<br/>kyā vah chat par hai?<br/>ella pode ansad?</td>
+<td>रोत पोर्रो मनता?<br/>अदि इल्लु मीदा उन्नदि<br/>इस इट आन द रूफ?<br/>➥क्या वह छत पर है?<br/>एल्ला पोदे अंसद?</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<br><br>
+<div class="page-body-container">
+<div class="table"><table>
+<thead>
+<tr>
+<th></th>
+<th>ఆదేశాలిచుట్ట</th>
+<th>Giving Instructions</th>
+<th>हुकुम देना</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>57.</td>
+<td>గాటొ తిన్ / తిన్న<br/>➥ భోజనం చేయండి / భోజనం చేయవద్దు<br/>ఈట్ ఫૂડ / డోంట్ ఈట్<br/>ఖానా ఖాఓ / ఖానా మత్ ఖాఓ<br/>అంబా తిన్/తిన్నెమ్</td>
+<td>gāṭo tin / tinma<br/>bhōjanam cēyanḍi / bhōjanam cēyavaddu<br/>➥Eat food / don’t eat<br/>khānā khāō / khānā mat khāō<br/>ambā tin/tinnem</td>
+<td>గాటో తిన / తినమా<br/>భోజనమ చెయన్డి / భోజనమ చెయవద్దు<br/>ఈట్ ఫుడ్ / డోన్ట్ ఈట్<br/>ఖానా ఖాఓ / खाना मत खाओ<br/>అంబా తిన్/తినెమ్</td>
+</tr>
+<tr>
+<td>58.</td>
+<td>యేర్ ఉన్ / ఉన్మ<br/>➥ నీళ్ళు త్రాగండి / నీళ్ళు త్రాగవద్దు<br/>డ్రింక్ వాటర్ / డోంట్ డ్రింక్<br/>పానీ పీఓ / పానీ మత్ పీఓ<br/>ఈర్ ఉన్/ఉన్నెమ్</td>
+<td>yēr un / unma<br/>nīllu trāganḍi / nīllu trāgavaddu<br/>➥Drink water / don’t drink<br/>pānī pīō / pānī mat pīō<br/>ir un/unnem</td>
+<td>येर उन / उनमा<br/>నీళ్ఱు త్రాగన్డి / నీళ్ఱు త్రాగవద్దు<br/>డ్రింక్ వాటర్ / డోన్ట్ డ్రింక్<br/>నీర్ ఉన్/ఉన్నెమ్</td>
+</tr>
+<tr>
+<td>59.</td>
+<td>ఇద్ కేంజ / కేంజ్మ<br/>➥ ఇది వినండి / వినవద్దు<br/>లిసెన్ టూ దిస్ / డోంట్ లిసెన్<br/>యే సునో / యే మత్ సునో<br/>ఇద్ విన్ / విన్నెమ్</td>
+<td>id kēnja / kēnjma<br/>idi vinanḍi / vinavaddu<br/>➥Listen to this / don’t listen<br/>yē sunō / yē mat sunō<br/>id vin / vinnem</td>
+<td>इद केनजा / केनज्మా<br/>इदि विननडि / विनवद्दु<br/>लिसैन टू दिस / डोंट लिसेन<br/>➥ये सुनो / ये मत सुनो<br/>इद विन / विन्नेम</td>
+</tr>
+<tr>
+<td>60.</td>
+<td>సో / సొన్న<br/>➥వెళ్లండి / వెళ్లకండి<br/>గో / డోంట్ గో<br/>జాట / మత్ జాట<br/>సే / సెన్నెమ్</td>
+<td>so / sonma<br/>vellanḍi / vellakandı<br/>➥Go / don’t go<br/>jāō / mat jāō<br/>sē / sennem</td>
+<td>सो / सोनमा<br/>वेळ్లనడి / वेळ్लकనడి<br/>गो / डोंट गो<br/>➥जाओ / मत जाओ<br/>से / सेंनेम</td>
+</tr>
+</tbody>
+</table></div>
+<p class="page-number">15</p>
+</div>
+<br><br>
+<div class="page-body-container">
+<div class="centered-block"><header class="header">గోండి ➥ తెలుగు<br/>
+ఇంగ్లిష్ హింది కొలామి<br/>
+<br/>
+Gondi ➥ English<br/>
+Telugu Hindi Kolami<br/>
+<br/>
+గोंडि ➥ हिन्दी<br/>
+तेलुगु अंग्रेजी कोलामि<br/>
+<br/>
+16</header></div>
+<div class="table"><table>
+<thead>
+<tr>
+<th>గోండి ➔ తెలుగు<br>ఇంగ్లిష్ హింది కొలామి</br></th>
+<th>Gondi ➔ English<br>Telugu Hindi Kolami</br></th>
+<th>గोंडि ➔ हिन्दी<br>तेलुगु अंग्रेजी कोलामि</br></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>61. నిల / నిల్మ<br>➥ నిలబడుము / నిలబడవద్దు<br>స్టేండ్ అప్ / డోంట్ స్టేండ్<br>ఖడే హో జాఓ / ఖడే మత్ హో<br>ఇల్ / ఇల్నెమ్</br></br></br></br></td>
+<td>nila / nilma<br>nilabaḍumu / nilabaḍavaddu<br>Stand up / don’t stand<br/>khaḍē hō jāō / khaḍē mat hō<br/>il / ilnem</br></br></td>
+<td>నిలా / నిల్మా<br/>నిల్బడ్రుము / నిల్బడవద్దు<br/>స్టెండ అప్ / డొంట్ స్టెండ<br/>ఖాḍē హొ జొ / ఖాḍē మాట హొ<br/>il / ilnem</td>
+</tr>
+<tr>
+<td>62. ఉద్ద / ఉద్మ<br/>➥ కూర్చోండి / కూర్చోవద్దు<br/>సిట్ / డోంట్ సిట్<br/>బైరో / మత్ బైరో<br/>ఉద్ద / ఉద్నెమ్</td>
+<td>udda / udma<br/>kūrcoṇḍi / kūrcoṣvadu<br/>Sit / don’t sit<br/>baithō / mat baithō<br/>udd / udnem</td>
+<td>ఉద్దా / ఉదమా<br/>కూర్చోన్డి / కూర్చోవద్దు<br/>సిట / డొంట్ సిట<br/>బైథో / మాట బాతిఁౘో<br/>udd / udnem</td>
+</tr>
+<tr>
+<td>63. హక్కె సూడ / సూడ్మ<br/>➥ అక్కడ చూడండి / అక్కడ చూడొద్దు<br/>లుక్ దేర్ / డోంట్ లుక్ దేర్<br/>ఉధర్ దేఖో / ఉధర్ మత్ దేఖో<br/>అదె ఓల్ / ఓల్నెమ్</td>
+<td>hakke sūḍa / sūḍma<br/>akkada cūḍanḍi / akkaḍa cūḍoddu<br/>➥Look there / don’t look there<br/>udhar dēkhō / udhar mat dēkhō<br/>ade oḷ / olnem</td>
+<td>హక్కి సూడా / సూడ్మా<br/>అక్కడా చూడన్డి / అక్కుడా చూడోద్దు<br/>లુક దేర / డొంట్ లુક దేర<br/>ఉధర దేఖో / ఉధర మాట దేఖో<br/>ade ఓl / ఓల్నెమ్</td>
+</tr>
+<tr>
+<td>64. హిక్కె సూడ / సూడ్మ<br/>➥ ఇక్కడ చూడండి / ఇక్కడ చూడొద్దు<br/>లుక్ హీర్ / డోంట్ లుక్ హీర్<br/>ఇధర్ దేఖో / ఇధర్ మత్ దేఖో<br/>ఇదె ఓల్ / ఓల్నెమ్</td>
+<td>hikkē sūḍa / sūḍma<br/>ikkada cūḍanḍi / ikkaḍa cūḍoddu<br/>➥Look here / don’t look here<br/>idhar dēkhō / idhar mat dēkhō<br/>ide oḷ / olnem</td>
+<td>హిక్కె సూడా / సూడ్మా<br/>ఇక్కడా చూడన్డి / ఇక్కడా చూడోద్దు<br/>లુક హీర్ / డొంట్ లુક హీర్<br/>ఇధర దేఖో / ఇధర మాట దేఖో<br/>ఇదే ఓల్ / ఓల్నెమ్</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<br><br>
+<div class="page-body-container">
+<div class="table"><table>
+<tbody>
+<tr>
+<td>65.</td>
+<td>గాటొ అట్ట / అట్మ<br/>➥ భోజనము వండుము / వండవద్దు<br/>కుక్ ఫ్రూడ్ / డోంట్ కుక్<br/>ఖానా పకాఓ / ఖానా మత్ పకాఓ<br/>అంబా వెయి గల్ / వెయి గన్నెమ్</td>
+<td>gāṭo aṭṭa / aṭma<br/>bhōjanamu vanḍumu / vanḍavaddu<br/>→Cook food / don’t cook<br/>khānā pakāō / khānā mat pakāō<br/>ambā veyi gal / veyi gannem</td>
+<td>గాటో అట్టా / అట్మా<br/>భోజను వనడుము / వనడవద్దు<br/>కुक ఫుడ్ / డౌంట్ కుక్<br/>ఖానā पकाओ / खाना मत पकाओ<br/>अंबा वेयि गल / वेयि गनेम</td>
+</tr>
+<tr>
+<td>66.</td>
+<td>బహ్రి సొ / సొన్మ<br/>➥ బయటకు వెళ్లండి / బయటకు వెళ్ళద్దు<br/>గో ఆఫ్ట్ / డోంట్ గో ఆఫ్ట్<br/>బాహర్ జాఓ / బాహర్ మత్ జాఓ<br/>వాకాసె / సెన్నెమ్</td>
+<td>bahri so / sonma<br/>bayaṭaku vellaṇḍi / bayaṭaku vellaḍdu<br/>→Go out / don’t go out<br/>bāhar jāō / bāhar mat jāō<br/>vākāse / sennem</td>
+<td>बह्नि सो / सोनमा<br/>बयटकु वेळलनडि / बयटकु वेळळदु<br/>गो आवट / डोंट गो आवट<br/>→बाहर जाओ / बाहर मत जाओ<br/>वाकासे / सेंनेम</td>
+</tr>
+<tr>
+<td>67.</td>
+<td>ఇగ్గే నర్మ / నరుమ్మ<br/>➥ ఇక్కడ నిద్రపొండి / ఇక్కడ నిద్రపోవద్దు<br/>స్లీప్ హీర్ / డోంట్ స్లీప్ హీర్<br/>యహా సో / యహా మత్ సో<br/>ఇత్తి మడియ్ / మడినెమ్</td>
+<td>iggē narma / narumma<br/>ikkaḍa nidraponḍi / ikkaḍa nidrapovaddu<br/>→Sleep here / don’t sleep here<br/>yahā sō / yahā mat sō<br/>itti maḍiy / maḍinem</td>
+<td>इग्गे नर्मा / नरुम्मा<br/>इक्कडा निद्रपोनडि / इक्कडा నిద్రपोवद्दु<br/>स्लीप हीर / डोंट स्लीप हीर<br/>→यहाँ सो / यहाँ मत सो<br/>इत्ति मडिय / मडिनेम</td>
+</tr>
+<tr>
+<td>68.</td>
+<td>నిమ్ వోन् సంగ వడ్క / వడ్కమ<br/>➥ ఆయనతో మీరు మాట్లాడండి / ఆయనతో<br/>మాట్లాడవద్దు<br/>స్పీక్ విద్ హిమ్ / డోంట్ స్పీక్ విద్ హిమ్<br/>ఉస్కె సాథ్ బాత్ కరో / బాత్ మత్ కరో<br/>నీ అమ్న్ వెంట ముడ్ / ముడ్‌నెమ్</td>
+<td>nim vōn sanga vaḍka / vaḍkma<br/>āyanatō mīru māḷādaṇdi / āyanatō<br/>māṭlāḍa vaddu<br/>→Speak with him / don’t speak with him<br/>uske sāth bāt karō / bāt mat karō<br/>nī amn veṇṭa muḍ / muṇnem</td>
+<td>निम वोन संगा वडका / वड्कमा<br/>आयनतो मीरु माट्लाडनडि / आयनतो<br/>माट्लाडा वद्दु<br/>स्पीक विद हिम / डोंट स्पीक विद हिम<br/>→उसके साथ बात करो / बात मत करो<br/>नी अम्न वेनटा मुड / मुड्नेम</td>
+</tr>
+</tbody>
+</table></div>
+<p class="page-number">17</p>
+</div>
+<br><br>
+<div class="page-body-container">
+<div class="centered-block"><header class="header">గోండి ➥ తెలుగు<br/>
+ఇంగ్లిష్ హింది కొలామి<br/>
+<br/>
+Gondi ➥ English<br/>
+Telugu Hindi Kolami<br/>
+<br/>
+గोंडि ➥ हिन्दी<br/>
+तेलुगु अंग्रेजी कोलामि<br/>
+<br/>
+18</header></div>
+<div class="table"><table>
+<thead>
+<tr>
+<th>గోండి ➥ తెలుగు<br>ఇంగ్లిష్ హింది కొలామి</br></th>
+<th>Gondi ➥ English<br>Telugu Hindi Kolami</br></th>
+<th>గोंडि ➥ हिन्दी<br>तेलुगु अंग्रेजी कोलामि</br></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>69.</td>
+<td>రొప్పో వా<br>➥ లోపలకి రండి<br>కమ్ ఇన్<br>అందర్ ఆఓ<br>లోపా వా</br></br></br></br></td>
+<td>roppō vā<br>lōpalaki ranḍi<br>➥Come in<br/>andar aõ<br/>lōpā vā</br></br></td>
+<td>రోప్పో వా<br/>లోపలకి రనడి<br/>कम इन<br/>➥अंदर आओ<br/>लोपा वा</td>
+</tr>
+<tr>
+<td>70.</td>
+<td>జర దీర<br/>➥ కొంతసేపు ఆగండి<br/>వేట్ అ లిటల్<br/>జరా యహా ఠహ్రో<br/>జరమాన్</td>
+<td>jara dīra<br/>konta sēpu āganḍi<br/>➥Wait a little<br/>zarā yahā ṭahrō<br/>jaramān</td>
+<td>జరా దీరా<br/>కోనता సెపు आगनडि<br/>वेट అ లిటల్<br/>➥ज़रा यहाँ ठहरो<br/>जरमान</td>
+</tr>
+<tr>
+<td>71.</td>
+<td>వెయ్నె!<br/>➥ త్వరగా<br/>క్విక్లీ!<br/>జల్దీసే!<br/>సప్పన!</td>
+<td>veyne!<br/>tvaragā<br/>➥Quickly!<br/>jaldi sē!<br/>sappana!</td>
+<td>वेयने!<br/>त्वरगा<br/>क्विकली!<br/>➥जल्दी से!<br/>सप्पना!</td>
+</tr>
+<tr>
+<td>72.</td>
+<td>హిక్కే వా<br/>➥ ఇక్కడికి రండి<br/>కమ్ హీర్<br/>ఇధర్ ఆఓ<br/>ఇదె వా</td>
+<td>hikkē vā<br/>ikkadiki ranḍi<br/>➥Come here<br/>idhar aõ<br/>ide vā</td>
+<td>हिक्के वा<br/>इक्कडिकि रनडि<br/>कम हीर<br/>➥इधर आओ<br/>इदे वा</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<br><br>
+<div class="page-body-container">
+<div class="table"><table>
+<tbody>
+<tr>
+<td>73.</td>
+<td>హక్కె సో<br/>➥ అక్కడికి వెళ్లండి<br/>గో దేర్<br/>ఉధర్ జూఓ<br/>అదసే</td>
+<td>hakke sō<br/>akkadiki veḷlanḍi<br/>Go there<br/>udhar jāo<br/>ade sē</td>
+<td>హక్కి సో<br/>అక్కడికీ వెళ్లనడి<br/>గో देर<br/>➥ఉధర जाओ<br/>అదే సె</td>
+</tr>
+<tr>
+<td>74.</td>
+<td>తాన్ సూడ<br/>➥ దానిని చూడండి<br/>లుక్ ఎట్ దెట్<br/>వహ్ దేఖో<br/>అదున్ ఓల్</td>
+<td>tān sūḍa<br/>dānini cūḍanḍi<br/>Look at that<br/>vah dēkhō<br/>adun oḷ</td>
+<td>तान सूडा<br/>दानिनि चूडनडि<br/>ಲುಕ್ ಆಟ್ ದೆಟ<br/>➥वह देखो<br/>अदुन ओल</td>
+</tr>
+<tr>
+<td>75.</td>
+<td>ನಾವ ಕೇಂಜ<br/>➥ ನಾನು ಹೇಳೇದಿ ವಿನಂಡಿ<br/>ಲಿನೆಸ್ ಟೂ ಮೀ<br/>ಮುಝೆ ಸುನೋ<br/>ಅನ್ನೆತ್ ವಿಂಡ್ರ</td>
+<td>nāva kēnja<br/>nēnu ceppēdi vinanḍi<br/>➥Listen to me<br/>mujhē sunō<br/>annet viṇdr</td>
+<td>ನಾವಾ ಕೆನ್ಜಾ<br/>ನೆನು ಚೆಪ್ಪೆದಿ ವಿನನಡಿ<br/>ಲಿಸೆನ್ ಟೂ ಮೀ<br/>➥ମୋତେ सुनो<br/>ಅಂನೇತ ವಿನಡ್ರ</td>
+</tr>
+<tr>
+<td>76.</td>
+<td>ದಬ್ ಮನ್<br/>➥ ನಿಶಬ್ದವಾಗಿ ಉండుಮು<br/>ಬೀಕ್ವೈಯೇಟ್<br/>ಚುಪ್ ರಹೋ<br/>ಸುಯ್ ಅನ್</td>
+<td>dab man<br/>niśabdangā undumu<br/>➥Be quiet<br/>cup rahō<br/>suy an</td>
+<td>दब मन<br/>ನಿಶಬ್ದಂಗಾ ಉಂಡುಮು<br/>ಬೀ ಕ್ಕೇಯಟ್<br/>➥ಚುಪ ರಹೋ<br/>ಸುಯ ಅನ</td>
+</tr>
+<tr>
+<td>77.</td>
+<td>ಆಗ/ದೀರ<br/>➥ ಆಗು<br/>ಸ್ಟಾವ್<br/>ರುಕೋ<br/>ಮಾನ್</td>
+<td>āga/dīra<br/>āgu<br/>stop<br/>rukō<br/>mān</td>
+<td>आग/दीरा<br/>ಆಗು<br/>స్టాప్<br/>➥रुको<br/>ಮಾನ</td>
+</tr>
+</tbody>
+</table></div>
+<p class="page-number">19</p>
+</div>
+<br><br>
+<div class="page-body-container">
+<div class="table"><table>
+<thead>
+<tr>
+<th>గోండి ➥ తెలుగు<br/>ఇంగ్లిష్ హింది కొలామి</th>
+<th>Gondi ➥ English<br/>Telugu Hindi Kolami</th>
+<th>గोंडि ➥ हिन्दी<br/>तेलुगु अंग्रेजी కోలామి</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>78. దీరట్<br/>➥ ఆగండి<br/>వేట్<br/>ఇంతజార్<br/>మాన్డ్ర్</td>
+<td>dīraṭ<br/>āganḍi<br/>Wait<br/>intazār<br/>māndr</td>
+<td>దీరట<br/>ఆగన్డి<br/>వెట్<br/>ఇంతज़ार<br/>మాన్డ్్ర్</td>
+</tr>
+<tr>
+<td>79. వోన్ సుట్ కీమ్<br/>➥ ఆయనను వదిలిపెట్టండి<br/>లెట్ హిమ్ గో<br/>ఉసే ఛోడో<br/>అమనున్ సాయుర్</td>
+<td>vōn suṭ kīm<br/>āyananu vadili peṭṭanḍi<br/>Let him go<br/>usē chōḍō<br/>amnun sāyur</td>
+<td>వోన్ సుట కీమ్<br/>ఆయన్ను వదిల్లి పెట్టన్డి<br/>లెట్ హిమ్ గో<br/>లెట్ హిమ్ గో<br/>అమ్నన్ సాయిరు</td>
+</tr>
+<tr>
+<td>80. వోన్ తక్లీబ్ కియ్య<br/>➥ ఆయనను బౌదపెట్టకండి<br/>డోంట్ ట్రబల్ హిమ్<br/>ఉసే పరేశాన్ మత్ కరో<br/>అమ్యుజ్ తక్లీబ్ కన్నెమ్</td>
+<td>vōn taklīb kiym<br/>āyananu bādapeṭṭakanḍi<br/>Let’s trouble him<br/>usē parēshān mat karõ<br/>amnuṇ taklib kannem</td>
+<td>వోన్ తక్లీబ్ కియమా<br/>ఆయన్ను బాదపెట్టకని<br/>డొంట్ ట్రబల్ హిమ్<br/>ఉసే పరేశాన్ మత్ కరో<br/>అమ్నున్ తక్లిబ్ కన్నెమ్</td>
+</tr>
+<tr>
+<td>81. అద్ ఇట్మ<br/>➥ దానిని ముట్టవద్దు<br/>డోంట్ టచ్ దెట్<br/>ఉసే మత్ చూఓ<br/>ఇదున్ పుడ్క నెమ్</td>
+<td>ad iṭma<br/>dānini muṭṭavadu<br/>Let’s touch that<br/>usē mat chūō<br/>idun puḍk nem</td>
+<td>అద ఇటమా<br/>ದಾನిని ముట్టవద్దు<br/>డొంట్ టచ్ దెట్<br/>ఉసే మత చూఓ<br/>ఇదున్ పుడ్క నేమ</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<br><br>
+<div class="page-body-container">
+<div class="table"><table>
+<tbody>
+<tr>
+<td>82.</td>
+<td>ఇంకె కీమ్<br/>➥ ఇప్పుడు చేయండి<br/>డూ ఇట్ నౌ<br/>అభీ కరో<br/>ఇండి ఇదరుర్</td>
+<td>iṅke kīm<br/>ippuḍu ceyanḍi<br/>→Do it now<br/>abhī karō<br/>inḍi idarur</td>
+<td>ఇంకే కీమ్<br/>ఇప్పుడు చెయన్డి<br/>డూ ఇట్ నౌ<br/>अभी करो<br/>इनडि इदरुर</td>
+</tr>
+<tr>
+<td>83.</td>
+<td>మల్ల కీమ్<br/>➥ తరువాత చేయండి<br/>డూ ఇట్ లేటర్<br/>బాద్ మే కరో<br/>మల్ల ఇదరుర్</td>
+<td>malla kīm<br/>taruvāta ceyanḍi<br/>→Do it later<br/>bād mē karō<br/>malla idarur</td>
+<td>मल्ला कीम<br/>तरुवाता चेयनडि<br/>डू इट लेटर<br/>बाद में करो<br/>मल्ला इदरुर</td>
+</tr>
+<tr>
+<td>84.</td>
+<td>ఇహిన్ కీమ్<br/>➥ ఇలాగు చేయండి<br/>డూ ఇట్ లైక్ దిస్<br/>ఇసే ఐసా కరో<br/>ఇనాజ్ ఇదారుర్</td>
+<td>ihin kīm<br/>ilāgu ceyanḍi<br/>→Do it like this<br/>isē aisā karō<br/>ināñ idarur</td>
+<td>इहिन कीम<br/>इलागु चेयनडि<br/>डू इट లैक दिस<br/>इसे ऐसा करो<br/>इनाङ इदारुर</td>
+</tr>
+<tr>
+<td>85.</td>
+<td>అహన్ కియ్య<br/>➥ అలాగు చేయవద్దు<br/>డూ నాట్ డూ ఇట్ లైక్ దెట్<br/>ఇసే ఐసా మత్ కరో<br/>అనాజ్ ఇదర్ నెర్</td>
+<td>ahan kiyma<br/>alāgu ceyavaddu<br/>→Do not do it like that<br/>isē aisā mat karō<br/>anāñ idar ner</td>
+<td>अहन कियमा<br/>अलागु चेयवदु<br/>डू नाट डू इट लैक देट<br/>इसे ऐसा मत करो<br/>अनाङ इदर नेर</td>
+</tr>
+<tr>
+<td>86.</td>
+<td>సొంజి తా<br/>➥ వెళ్ళి తీసుకురా<br/>గో ఎండ్ బ్రింగ్ ఇట్<br/>జాకర్ ఉసే లాఓ<br/>సెత్ కో</td>
+<td>sonji tā<br/>veḷḷi tisukurā<br/>→Go and bring it<br/>jākar usē lāō<br/>set kō</td>
+<td>सोनजि ता<br/>वेळ్లి तीसुकुरा<br/>गो ऐंड ब्रिंग इट<br/>जाकर उसे लाओ<br/>सेत को</td>
+</tr>
+</tbody>
+</table></div>
+<p class="page-number">21</p>
+</div>
+</body>
+</html>

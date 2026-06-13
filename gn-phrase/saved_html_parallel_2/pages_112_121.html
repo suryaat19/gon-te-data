@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="te-IN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+body {
+    padding: 0 !important;
+    margin: 0 !important;
+    background-color: white !important;
+    width: 100% !important;
+    font-family: serif;
+}
+
+.page-body-container {
+    background-color: white;
+    width: 210mm;
+    margin: 0 auto;
+    padding: 20mm 15mm;
+    box-sizing: border-box;
+    min-height: 100vh;
+}
+
+p.paragraph, .paragraph, .block, .quote, .ordered-list, .unordered-list,
+.advertisement, .answer, .contact-info, .index, .options,
+.reference, .unknown, .sidebar, .footnote {
+    text-align: justify !important;
+    text-align-last: left !important;
+    text-justify: inter-word !important;
+    font-size: inherit !important;
+    line-height: 1.3 !important;
+    margin: 0 0 12pt 0 !important;
+    text-indent: 18pt !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box;
+}
+
+.quote, .ordered-list, .unordered-list, .sidebar, .footnote {
+    text-indent: 0 !important;
+}
+
+.multi-column-row { font-size: 12pt; }
+.multi-column-row.cols-1 { font-size: 12pt; }
+.multi-column-row.cols-2 { font-size: 11pt; gap: 18pt; }
+.multi-column-row.cols-3 { font-size: 10pt; gap: 16pt; }
+.multi-column-row.cols-4 { font-size: 9pt; gap: 12pt; }
+
+.page-body-container > p.paragraph,
+.page-body-container > .paragraph {
+    font-size: 12pt !important;
+}
+
+h1.chapter-title {
+    font-size: 30pt !important;
+    line-height: 1.1 !important;
+    margin: 0 0 12pt 0 !important;
+    text-align: center !important;
+    font-weight: bold;
+}
+
+h2.section-title, h2.headline {
+    font-size: 18pt !important;
+    line-height: 1.1 !important;
+    margin: 12pt 0 8pt 0 !important;
+    text-align: center !important;
+    font-weight: bold;
+}
+
+h3.sub-section-title, h3.sub-headline,
+h4.subsub-section-title, h4.subsub-headline {
+    font-size: 13pt !important;
+    line-height: 1.25 !important;
+    margin: 12pt 0 4pt 0 !important;
+    text-align: center !important;
+    font-weight: bold;
+}
+
+.multi-column-row {
+    width: 100% !important;
+    margin: 12pt 0 !important;
+    display: grid;
+}
+
+.column-block {
+    text-align: left !important;
+    text-align-last: left !important;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    min-width: 0;
+    overflow-wrap: break-word;
+    width: 100%;
+}
+
+.column-block p {
+    text-indent: 0 !important;
+    margin-bottom: 8pt !important;
+    font-size: inherit !important;
+}
+
+.column-block p br {
+    display: none;
+}
+
+.centered-block {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin: 12pt 0;
+}
+
+.centered-block > * {
+    text-align: center !important;
+    font-size: 13pt !important;
+    max-width: 100% !important;
+    margin: 0 auto !important;
+    text-indent: 0 !important;
+}
+
+.table table {
+    width: 100% !important;
+    margin: 18pt 0 !important;
+    border-collapse: collapse;
+    border: 1.5pt solid #333;
+    table-layout: fixed;
+    font-size: 11pt;
+    line-height: 1.2;
+}
+
+.table table td,
+.table table th {
+    word-break: normal;
+    overflow-wrap: break-word;
+    padding: 6pt;
+    font-size: inherit;
+    border: 0.5pt solid #333;
+    text-align: center;
+}
+
+.table table td:first-child,
+.table table th:first-child {
+    text-align: left;
+}
+
+.table table td:not(:first-child),
+.table table th:not(:first-child) {
+    white-space: nowrap;
+    text-align: right;
+}
+
+.column-block .table table {
+    width: 100% !important;
+    table-layout: fixed;
+    margin: 12pt 0;
+    border-collapse: collapse;
+    border: 1.5pt solid #333;
+}
+
+.column-block .table table td,
+.column-block .table table th {
+    word-break: break-word;
+    padding: 6pt;
+    font-size: 10pt;
+    border: 0.5pt solid #333;
+    text-align: center;
+}
+
+.column-block .table table td:first-child,
+.column-block .table table th:first-child {
+    text-align: left;
+}
+
+.column-block .table table td:not(:first-child),
+.column-block .table table th:not(:first-child) {
+    white-space: nowrap;
+    text-align: right;
+}
+
+.quote {
+    font-size: 13pt !important;
+    margin: 0 0 0 0 !important;
+    padding: 0 20px !important;
+    font-style: italic;
+    border-left: 3px solid #ccc;
+    text-align: justify !important;
+    text-indent: 0 !important;
+}
+
+.ordered-list, .unordered-list {
+    font-size: inherit !important;
+    margin: 0 0 0 0 !important;
+    padding-left: 40px !important;
+    text-align: justify !important;
+    text-indent: 0 !important;
+}
+
+.sub-ordered-list, .sub-unordered-list {
+    font-size: inherit !important;
+    margin: 0 0 0 0 !important;
+    padding-left: 60px !important;
+    text-align: justify !important;
+    text-indent: 0 !important;
+}
+
+.subsub-ordered-list, .subsub-unordered-list {
+    font-size: inherit !important;
+    margin: 0 0 0 0 !important;
+    padding-left: 80px !important;
+    text-align: justify !important;
+    text-indent: 0 !important;
+}
+
+.image, .chart, .diagram, .photograph {
+    margin: 16px auto;
+    text-align: center;
+    max-width: 100% !important;
+}
+
+.image img, .chart img, .diagram img, .photograph img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    border: 1px solid #ddd;
+}
+
+.chart {
+    border: 2px solid #4a90d9;
+    padding: 8px;
+    background-color: #f8fafc;
+}
+
+.diagram {
+    border: 2px solid #6b7280;
+    padding: 8px;
+    background-color: #f9fafb;
+}
+
+.photograph {
+    border: 2px solid #059669;
+    padding: 4px;
+    background-color: #f0fdf4;
+}
+
+.image-caption {
+    font-style: italic;
+    margin: 8px auto;
+    text-align: center;
+    max-width: 100% !important;
+}
+
+.header, .footer {
+    font-size: 13pt !important;
+    margin: 12px auto;
+    text-align: center;
+    max-width: 100% !important;
+}
+
+.sidebar {
+    font-size: inherit !important;
+    margin: 12px auto;
+    padding: 10px;
+    background-color: #f5f5f5;
+    text-align: justify !important;
+    text-indent: 0 !important;
+}
+
+.footnote {
+    font-size: inherit !important;
+    margin: 8px auto;
+    padding-left: 20px;
+    text-align: justify !important;
+    text-indent: 0 !important;
+}
+
+hr.footnote-separator {
+    border: none;
+    border-top: 1px solid #999;
+    width: 40%;
+    margin: 16px 0 8px 0;
+}
+
+a.footnote-ref {
+    color: inherit;
+    text-decoration: none;
+}
+
+a.footnote-ref:hover {
+    text-decoration: underline;
+}
+
+.advertisement, .answer, .contact-info, .index, .options,
+.reference, .unknown {
+    font-size: inherit !important;
+    margin: 0 0 12pt 0 !important;
+    text-align: justify !important;
+}
+
+.author, .dateline, .flag, .formula, .jumpline,
+.page-number, .folio, .website-link,
+.first-level-question, .second-level-question, .third-level-question {
+    font-size: inherit !important;
+    margin: 12px auto;
+    text-align: center;
+    max-width: 100% !important;
+    text-indent: 0 !important;
+}
+    </style>
+</head>
+<body>
+<div class="page-body-container">
+<div class="table"><table>
+<tbody>
+<tr>
+<td>479.</td>
+<td>హొ, దాక మెంజె<br/>➥ అవును వెల్తాను<br/>ఓ కే, యెస్, ఐ విల్ గో<br/>రీక్ హై, మై జాఊంగీ<br/>ఆయ్ సెసతున్</td>
+<td>ho, dāka menje<br/>avunu veltānu<br/>➥OK, yes, I will go<br/>ṭhīk hai, mai jāūngī<br/>āy sesatun</td>
+<td>हो, दाका मेनजे<br/>అవुनु వెల్తాను<br/>ओ के, यैस, ऐ विल गो<br/>➥ठीक है, मै जाऊंगी<br/>आय सेसतुन</td>
+</tr>
+<tr>
+<td>480.</td>
+<td>నిమ్మె హాటుం కీసి తర్<br/>➥ నువ్వు అంగడి చేసి తీసుకు రా<br/>యూ డూ ద శాపింగ్ ఎండ్ బ్రింగ్<br/>ఆప్ బఝార్ కర్కే లే ఆఈయే<br/>నీ అజడిసెత్ కో</td>
+<td>nimme hātum kīsi tar<br/>nuvvu angaḍi cēsi tīsuku rā<br/>➥You do the shopping and bring<br/>āp bajhār karkē lē āiyē<br/>nī aṇaḍi set kō</td>
+<td>నిమ్మె హాటుమ కీసి तर<br/>नुव्वు అంగడి చెసి తీసుకు రా<br/>యూ డూ ద షాపింగ్ ఎండ్ బ్రింగ్<br/>➥आप बझार करके ले आईये<br/>नी अणडि सेट को</td>
+</tr>
+<tr>
+<td>481.</td>
+<td>हొ, తర్క మెంజె<br/>➥ అవును, తెస్తాను<br/>ఓ కే, యెస్, ఐ విల్ బ్రింగ్<br/>రీక్ హై, మై లాఊంగీ<br/>ఆయ్ కొర్సుతున్</td>
+<td>ho, tarka menje<br/>avunu, testānu<br/>➥OK, yes, I will bring<br/>ṭhīk hai, mai lāūngī<br/>āy korsatun</td>
+<td>हो, तर्का मेनजे<br/>అవును, तेस्ताను<br/>ओ के, यैस, ऐ विल ब्रिंग<br/>➥ठीक है, मै लाऊंगी<br/>आय कोर्सतुन</td>
+</tr>
+<tr>
+<td>482.</td>
+<td>నీకున్ బతల్ తర్క కోకొ?<br/>➥ నీకు ఏమి కావాలి బాబు?<br/>వాట్ విల్ ఐ బ్రింగ్ ఫోర్ యూ, సాన్?<br/>మై తుమ్మారే లియే క్యా లాఊ బేటా?<br/>ఇనుజ్ తానే పాజే?</td>
+<td>nīkun batal tarka kōko?<br/>nīku ēmi kāvāli bābu?<br/>➥What will I bring for you, son?<br/>mai tumhārē liyē kyā lāū bētā?<br/>inuñ tānē pājē?</td>
+<td>నీकुन बतल तर्का कोको?<br/>నీकु एमि कावालि बाबु?<br/>वाट विल ऐ ब्रिंग फोर यू, सान?<br/>➥मै तुम्हारे लिये क्या लाऊं बेटा?<br/>इनुङ ताने पाजे?</td>
+</tr>
+<tr>
+<td>483.</td>
+<td>నాకున్ పాటి అని లिकन కోలా తర్<br/>➥ నాకు పలక మరియు బలపం తీసుకురా<br/>బ్రింగ్ స్లేట్ ఎండ్ చోక్ పీసెస్ ఫోర్ మీ<br/>మేరే లియే ఇక్ పాటీ ఔర్ పేంసీల్ లేకే ఆనా<br/>అనుజ్ పట్టె అని లिकन సుమ్ముత్ కో</td>
+<td>nākun pāṭi ani likan kōlā tar<br/>nāku palaka mariyu balapam tīsukurā<br/>➥Bring a slate and chalk pieces for me<br/>mērē liyē ik pāṭi aur pēnsil lēkē ānā<br/>anuñ paṭṭe ani likan summut kō</td>
+<td>नाकुन पाटि अनि लिकन कोला तर<br/>नाकु पलका मरियु बलपम तीसुकुरा<br/>ब्रिंग अ स्लेट ऐंड चोक पीसस फोर मी<br/>➥मेरे लिये इक पाटी और पेन्सील लेके आना<br/>अनुङ पट्टे अनि लिकन सुम्मुत् को</td>
+</tr>
+</tbody>
+</table></div>
+<p class="page-number">113</p>
+</div>
+<br><br>
+<div class="page-body-container">
+<div class="centered-block"><header class="header">గోండి ➥ తెలుగు Gondi ➥ English गोंडि ➥ हिन्दी 114<br/>
+ఇంగ్లిష్ హింది కొలామి Telugu Hindi Kolami तेलुगु अंग्रेजी कोलामि</header></div>
+<div class="table"><table>
+<thead>
+<tr>
+<th>గోండి ➥ తెలుగు<br>ఇంగ్లిష్ హిందీ కొలామి</br></th>
+<th>Gondi ➥ English<br/>Telugu Hindi Kolami</th>
+<th>गोंडि ➥ हिन्दी<br/>तेलुगु अंग्रेजी कोलामि</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>484. హొ, తర్క మెంజె<br/>➥అవును, తెస్తాను<br/>ఓకే, యెస్, ఐ విల్ బ్రింగ్<br/>ఠీక్ హై, లాఊంగీ<br/>ఆయ్ కొర్సతున్</td>
+<td>ho, tarka menje<br/>avunu, testānu<br/>➥OK, yes, I will bring<br/>ṭhīk hai, lāūngī<br/>āy korsatun</td>
+<td>हो, तर्का मेनजे<br/>అవును, तेस्तानु<br/>ओ के, यैस, ऐ विल ब्रिंग<br/>ठीक है, लाऊंगी<br/>आय कोर्सतुन</td>
+</tr>
+<tr>
+<td>485. నిమ్మె హాటుం కీసి వెయ్నె వా<br/>➥ నీవు అంగడి చేసి తొందర తిరిగి రా<br/>యూ డూ ద శాపింగ్ ఎండ్ కమ్ క్విక్లీ<br/>ఆప్ బఝార్ కర్కే తురంత్ వాపస్ ఆఈయే<br/>నీ అజడి కత్ జల్ది మలయుత్ వా</td>
+<td>nimme hātum kīsi veyne vā<br/>nivu angadi cēsi tondara tirigi rā<br/>You do the shopping and come quickly<br/>āp bajhār karkē turant vāpas aīyē<br/>nī anaḍi kat jaldi Malayut vā</td>
+<td>నిम्मे हाटुम कीसि वेय्ने वा<br/>नीवु अंगडि చెసి तोనదరా తిరిగి రా<br/>यू डू द शापिंग ऐंड कम క్విక్లీ<br/>आप बझार करके तुरंत वापस आईये<br/>नी अङडि कत जल्दि मलयुत वा</td>
+</tr>
+<tr>
+<td>486. हొ కోको, वांत्ोन<br/>➥ అవును, బాబు వస్తాను<br/>యెస్ సాన్, ఐ విల్ కమ్<br/>ठीक हाइ बेटा, మై జల్దీ వాपस आऊंगी<br/>आय बापु वर्सर्</td>
+<td>ho kōko, vāntōn<br/>avunu, bābu vastānu<br/>➥Yes son, I will come<br/>ṭhīk hai bētā, mai jaldī vāpas aīŋgī<br/>āy bāpu varsat</td>
+<td>हो कोको, वानतोन<br/>अवुनु, बाबु वस्तानु<br/>योस सान, ऐ विल कम<br/>ठीक है बेटा, मै जल्दी वापस आऊंगी<br/>आय बापु वर्सत</td>
+</tr>
+<tr>
+<td>487. యే దాద, సాడ కాండిర పాటి తొహ<br/>➥ అన్నయ్య బడి పిల్లల పలక చూయించండి<br/>హేబ్రదర్, శోమీ అ స్కూల్ బొయ్స్ స్లేట్<br/>భైయ్యా జరా పాఠశాలా పాటీ దిఖాఓ<br/>ఏ దాద పోరకెరె పట్టె ఇడ్</td>
+<td>yē dāda, sāḍa kāndira pāṭi toha<br/>annayya baḍi pillala palaka cūyincandi<br/>➥Hey brother, show me a schoolboy’s slate<br/>bhaiyyā jarā pāṭhashālā pāṭi dikhāō<br/>ē dāda pōrakere paṭte idḍ</td>
+<td>ये दादा, साडा कानडिरा पाटि तोहा<br/>అన్నയ്യാ బడి పిల్లలా పలుకా చ్యూయించనడి<br/>हे ब्रदर, शो मी अ स्कूल बोय्स स्लेट<br/>➥భైయ్యా जरा पाठशाला पाटी दिखाओ<br/>ए दादा पोरकेरे पट्टे इड्ड</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<br><br>
+<div class="page-body-container">
+<div class="table"><table>
+<tbody>
+<tr>
+<td>488.</td>
+<td>బాయి, ఇవ్ పాటింగ్ సూడ<br/>➥ అమ్మ ఈ పలకలు చూడండి<br/>సిస్టర్, లుక్ ఎట్ దీస్ స్లేట్స్<br/>బహనజీ, యహ్ పాటీ దేఖీయే<br/>బాయి ఈ పట్టెలున్ ఓలుర్</td>
+<td>bāyi, iv pāṭing sūḍa<br/>amma ī palakalu cūḍanḍi<br/>Sister, look at these slates<br/>bahanaḻi, yah pāṭi dēkhiyē<br/>bāyi i pāṭṭelun oḷur</td>
+<td>బాయి, ఇవ్ పాటింగ్ సూడా<br/>అమ్మా ఇ్ పలకലു చూడ్నడి<br/>సిస్టర్, లుక్ ఎట్ దీస్ స్లేట్స్<br/>సిస్టర్, లుక్ ఎట్ దీస్ స్లేట్స్<br/>భానుజై, యహ్ పాటీ దేఖీయే<br/>bāyi i pāṭṭelun oḷur</td>
+</tr>
+<tr>
+<td>489.</td>
+<td>ఇద్ పాటిత బచ్చోర్ దర, దాద?<br/>➥ ఈ పలక ధర ఎంత అన్నయ?<br/>వాట్ ఇన్ ద కాస్ట్ ఆఫ్ దిస్ ప్లేట్, బ్రదర్?<br/>ఖైయ్యా, ఇస్ పాటీ కా దామ్ క్యాహై?<br/>ఈ పట్టెనె దర ఎంతే, దాద?</td>
+<td>id pāṭita baccor dara, dāda?<br/>ī palaka dhara enta annaya?<br/>➡️What is the cost of this slate, brother?<br/>bhaiyyā, is pāṭi kā dām kyā hai?<br/>ī paṭṭene dara entē, dāda?</td>
+<td>ఇద పాటితా బచ్చోర్ దరా, దాదా?<br/>ఇం పలకా ధరా ఎన్తా అన్నయా?<br/>➡️What is the cost of this slate, brother?<br/>bhaiyyā, is pāṭi kā dām kyā hai?<br/>ī paṭṭene dara entē, dāda?</td>
+</tr>
+<tr>
+<td>490.</td>
+<td>తాన దహ రుపియంగ్, బాయి<br/>➥ అది పది రూపాయలు అమ్మ<br/>ఇట్స్(కాస్ట్ ఇన్) టెన్ రుపీస్, సిస్టర్<br/>బహనజీ, యహ్ దస రుపయా కా హై<br/>అద్దె ధర పది రుపియ, బాయి</td>
+<td>tāna daha rupiyang, bāyi<br/>adi padi rūpāyalu amma<br/>tgts(cost is) ten Rupees, sister<br/>bahanaḻi, yah das rupayā kā hai<br/>adne dhara padi rupiya, bāyi</td>
+<td>ताना दहा रुपियंग, बायि<br/>अदि पदि रूपायलु अम्मा<br/>इट्स(कास्ट इस) टेन रुपीस, सिस्टर<br/>➡️Its(cast is) टेन रुपीस, सिस्टर<br/>➡️बहनजी, यह दस रुपया का है<br/>अद्रे धरा पदि रुपिया, बायि</td>
+</tr>
+<tr>
+<td>491.</td>
+<td>ఉండే దుస్త్రా తొహ, దాద, కమ్మి దరత<br/>➥ వేరే చూయించండి తక్కువ ధరయ్<br/>శో మీ ఎనదర్, బ్రదర్, అఫ్ లోవర్ కాస్ట్<br/>ఖైయ్యా, ముఝే కమ్ దామవాలా పాటీ దిఖాఈయే<br/>దాద, మారోకొద్ కమ్మి ధరతద్ ఇడ్డ్</td>
+<td>undē dusro toha, dāda, kammi darata<br/>vērē cūyincanḍi takkuva daray<br/>➡️Show me another, brother, of lower cost<br/>bhaiyyā, mujhē kam dāmavālā pāṭi dikhāiyē<br/>dāda, mārōkod kammi daratad iḍḍ</td>
+<td>उनडे दुस्रो तोहा, दादा, कम्मि दरता<br/>वेरे चूयिंचनडि तक्कुवा धरय<br/>शो मी ऐनदर, ब्रदर, अफ लोवर कास्ट<br/>➡️Show me another, brother, of lower cost<br/>शो मी ऐनदर, ब्रदर, अफ लोवर कास्ट<br/>➡️भैय्या, मुझे कम दामवाला पाटी दिखाईये<br/>दादा, मारोकोद कम्मि धरतद इड्ड</td>
+</tr>
+<tr>
+<td>492.</td>
+<td>कम्मि दरत सिलाई, बॉय<br/>➥ తక్కువ ధరయ్ లేవు అమ్మ<br/>देर आर नन् ऑफ लोवर कास्ट, सिस्टम<br/>बहनजी, कम दामवాలే पाटी उपलभ्ध नही हाइ<br/>कम्मि ధరतद् तोतेद, बాయి</td>
+<td>kammi darata sille, bāyi<br/>takkuva daray lēvu amma<br/>➡️There are none of lower cost, sister<br/>bahanaḻi, kam dāmavālē pāṭi upalabdh nahī hai<br/>kammi daratad tōted, bāyi</td>
+<td>कम्मि दरता सिल्ले, बायि<br/>तक्कुवा धरय लेवु अम्मा<br/>देर आर नन अफ लोवर कास्ट, सिस्टम<br/>➡️There are none of lower cost, sister<br/>➡️बहनजी, कम दामवाले पाटी उपलब्ध नही है<br/>कम्मि धरतद तोतेद, बायि</td>
+</tr>
+</tbody>
+</table></div>
+<p class="page-number">115</p>
+</div>
+<br><br>
+<div class="page-body-container">
+<div class="centered-block"><header class="header">గోండి ➥ తెలుగు	Gondi ➥ English	गोंडि ➥ हिन्दी	116<br/>
+ఇంగ్లిష్ హింది కొలామి	Telugu Hindi Kolami	तेलुगु अंग्रेजी कोलामि</header></div>
+<div class="table"><table>
+<tbody>
+<tr>
+<td>493.</td>
+<td>దుస్రా దుకనతగ కమ్మి దరత పాటి మందర్(పుట్టర్), దాద?<br>➥ వేరే దుకాణంలో తక్కువ ధర పలకాలు దొరుకుతాయ?<br/>విల్ దేర్ బీ స్లేట్స్ అఫ్ లెస్ కాస్ట్ ఇన్ ఆదర్ శాప్స్, బ్రదర్?<br/>క్యా దుసరే దుకాన్ మే కమ్ దామ్ కే పాటీ మిలేంగే?<br/>మారోకొ దుకనుత్ కమ్మి ధరత పుట్సవా, దాద?</br></td>
+<td>dusro dukantaga kammi darata pāti mandar(puṭtar), dāda?<br/>vērē dukāņanlō takkuva dhara palakālu dorukutāya?<br/>Will there be slates of less cost in other shops, brother?<br/>kyā dusarē dukān mē kam dām kē pātī milēngē?<br/>mārōko dukanut kamti dharata puṭsavā, dāda?</td>
+<td>vesu dukantaga kommi darata pați mandar(puṭṭar), dada?<br/>vere dukāṇḷo takkuva dhara palakalu doorukutāya?<br/>bil der bi slates af las kaust in andar shaaps, brader?<br/>mārōko dukanut kamti dharata puṭsavā, dāda?</td>
+</tr>
+<tr>
+<td>494.</td>
+<td>బతలెయ్, బాయి<br/>➥ ఏమో అమ్మ<br/>హూకెన్సే(వాట్ ఎవర్), సిస్టర్<br/>జీ, నహీ మాలూమ్<br/>తానెదొ, బాయి</td>
+<td>bataley, bāyi<br/>ēmō amma<br/>→Who can say(whatever), sister<br/>jī, nahī mālūm<br/>tānedo, bāyi</td>
+<td>batleay, bayi<br/>ఎమో అమ్మా<br/>హూ కెన్ సె(వాట్ ఎ్వర), సిస్టర్<br/>జీ, నీహీ మాలూమ్<br/>తానెదో, బయి</td>
+</tr>
+<tr>
+<td>495.</td>
+<td>తేన దర రండ్ రుప్యంగ్ కమ్మి కీమ్, దాద<br/>➥ ఈ పలక ధర రెండు రూపాయలు తగ్గించండి అన్నయ్య<br/>మేక్ ఇట్స్ కాస్ట్ టూ రుపీస్ లోవర్, బ్రదర్<br/>ఖైయ్యా, ఇన్పాటీ కా దామ్ దోరుపయాసే కమ్ కిజియే<br/>ఈ పట్టెనె ధర ఇందీ రుపియ కమ్మికల్, దాద</td>
+<td>tēna dara ranḍ rupyang kammi kīm, dāda<br/>Ī palaka dhara rendu rūpāyalu taggincanḍi annayya<br/>→Make its cost two Rupees lower, brother<br/>phaiyyā, is pātī kā dām dō rupayā sē kam kijiyē<br/>ī paṭṭene dhara indī rupiya kammikal, dāda</td>
+<td>teena dara ranḍ rupyang kommi kiim, daada<br/>Ī palaka dha raṉḍu rūpāyalu taggiñcanḍi annayya<br/>eṃ palaka dhara renadru roypāyalu taggiñdanidi annayya<br/>mek its kaast to rupees lover, brader<br/>bhaiyyā, is pātī kā dām dō rupaya se kam kijiyē<br/>ī paṭṭene dhara indī rupiya kammikal, dāda</td>
+</tr>
+<tr>
+<td>496.</td>
+<td>తేన దర ఉంది రుప్యంగ్ గిర్ కమ్మి ఆయొ, బాయి<br/>➥ దీని ధర ఒక రూపాయి కూడ తక్కువ కాదు అమ్మ<br/>ఇట్స్ కాస్ట్ ఇన్ నాట్ ఈవన్ వన్ రుపీ లెస్, సిస్టర్<br/>బహనజీ, ఇన్పాటీ కా దామ్ ఇక్ రుపయా భీకమ్ నహీ హోగా<br/>ఈ పట్టెనె ధర రుపియగిన కమ్మి ఎరెద్, అమ్మ</td>
+<td>tēna dara undi rupyang gir kammi āyo, bāyi<br/>dīni dhara oka rūpāyi kūḍa takkuva kādu amma<br/>→Its cost is not even one Rupee less, sister<br/>bahanaḻi, is pātī kā dām ik rupayā bhī kam nahī hōga<br/>ī paṭṭene dhara rupiyagina kammi ered, amma</td>
+<td>teena dura unadi rupyang gir kommi ayo, bayi<br/>దీని ధరా ఓకా రూపాయి కూడా తక్కువా కాడు అమ్మా<br/>its cost is not even one Rupee less, sister<br/>itsts kaast is nat eevan van rupi lēs, sister<br/>భానుజై, is pātī kā dām ik rupayā bhī kam nahī hōgā<br/>ī paṭṭene dhara rupiyagina kammi ered, amma</td>
+<td>teena dura unadi rupyang gir kommi ayo, bayi<br/>దిని ధరా ఓకా రూపాయి కూడా తక్కువా కాదు అమ్మా<br/>its cost is not even one Rupee less,<br/>its kaast is nat eevan van rupi lēs, syster<br/>bahanji, is paṭṭene dhara rupiyagina kammi ered, amma<br/>eṃ pāṭṭene dhara rupiyagina kommi ered, amma</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<br><br>
+<div class="page-body-container">
+<div class="table"><table>
+<tbody>
+<tr>
+<td>497.</td>
+<td>సియ్వి దాద, నా కాండిన్ సాటి<br/>➥ ఇయండి అన్నయ్య నా కొడుకు కోసం<br/>ప్లీస్ బ్రదర్, ఇన్ ఇట్ ఫోర్ మై సాన్<br/>కృపయా కర్కే దిజీయే ఖైయ్యా, మేరే బచ్చే కే లియే<br/>సియ్ దాద, అన్నె కీకెజ్ సట్టి</td>
+<td>siyvi dāda, nā kāndin sāṭi<br/>iyaṇḍi annayya nā koḍuku kōsam<br/>Please brother, is it for my son<br/>krpayā karkē dijiyē bhaiyyā, mērē baccē kē liyē<br/>siy dāda, anne kikeṉ saṭi</td>
+<td>సియ్వి दादा, నా కాన్డన్ సాటి<br/>ఇయన్డి అన్నయ్యా నా కోడ్రుకో సోసమ<br/>ప్లీస్ బ్రదర్, ఈ ఇట్ ఫర్ మై సన్<br/>krpayā karkē dijiyē bhaiyyā, mērē baccē kē liyē<br/>siy dāda, anne kikeṉ saṭi</td>
+</tr>
+<tr>
+<td>498.</td>
+<td>వాయొ బాయి, నిమ్మె సొన్!<br/>➥ రాదు అమ్మ మీరు వెళ్ళండి!<br/>నో సిస్టర్, యూ గో!<br/>నహీ బహనజీ, ఆప్ జాఈయే!<br/>వరెడ్ బాయి, నీసె!</td>
+<td>vāyo bāyi, nimme son!<br/>rādu amma miru velḷandi!<br/>◢ No sister, you go!<br/>nahī bahanajī, āp jāiyē!<br/>vaṛed bāyi, nī se!</td>
+<td>వాయో బై, నిమ్మె सोन!<br/>రాదు అమ్మా మీరు వెళ్లండడి!<br/>నో సిస్టర్, యూ గో!<br/>◢ नही बहनजी, आप जाईये!<br/>వరేద్ బాయి, నీ సె!</td>
+</tr>
+<tr>
+<td>499.</td>
+<td>కమ్మి దరతంగ్ పాటింగ్ బస్కే వానుంగ్ కోమ్టి, దాద<br/>➥ తక్కువ ధరయి పలకలు ఎప్పుడు వస్తాయి అన్నయ్య?<br/>వెన్ విల్ స్లేట్స్ ఆఫ్ లోవర్ కాస్ట్ కమ్, బ్రదర్?<br/>ఖైయ్యా, కమ్ దామ్కే పాటీ కబతక్ ఆయేంగేన్?<br/>కమ్మి ధరతా పట్టె ఎపుడ్ వర్సా, దాద</td>
+<td>kammi daratang pāting baskē vānung kōmti, dāda<br/>takkuva dharyi palakalu eppuḍu vastāyi annayya?<br/>◢ When will slates of lower cost come, brother?<br/>bhaiyā, kam dām kē pāṭi kabatak āyēngēn?<br/>kammi dharatā paṭte epuḍ varsā, dāda</td>
+<td>కమ్మి దరతంగ పాటింగ్ బస్కే వानुంగ కోమ్టి, దాద<br/>తక్కువా ధర్యి పలకల్యు ఎప్పుడు వస్తాయీ అన్నయ్యా?<br/>వెన్ విల్ స్లేట్స్ ఆఫ్ లోవర్ కాస్ట్ కమ్, బ్రదర్?<br/>◢ భైయ్యా, kam dam kē pāṭi kabatak āyēngēn?<br/>kammı dharatā paṭte epuḍ varsā, dāda</td>
+</tr>
+<tr>
+<td>500.</td>
+<td>మర్ల హాటుం కమ్మి దరతంగ్ పాటింగ్<br/>వాంతంగ్. బాయి, అస్కే వా<br/>➥ వచ్చె అంగడికి తక్కువ ధరయి పలకలు<br/>వస్తాయి అమ్మ అప్పుడు రండి<br/>నెట్క్స్ మార్కెట్ డేస్టెట్స్ ఆఫ్ లోవర్ కాస్ట్ ఆర్ కమింగ్. సిస్టర్, కమ్ దెన్<br/>అగలే సప్తాహ్ కే బఝూర్ మే కమ్ దామ్కే పాటీ<br/>ఆయేంగేన్, ఆప్ తబ్ ఆఈఏగా<br/>వరెక్ అజడిజ్ కమ్మి ధరత పట్టె వర్స అప్పుడ్ వా, బాయి!</td>
+<td>marla hātum kammi daratang pāting<br/>vāntang. bāyi, askē vā<br/>vacce angadiki takkuva dharyi palakalu<br/>vastāyi amma appuḍu ranḍi<br/>◢ Next market day slates of lower cost are coming. Sister, come then<br/>agalē saptāh ke bajhār mē kam dām kē pāṭi<br/>āyēngēn, āp tab āīgā<br/>vareka aanaḍiṉ kammi dharata paṭte varsa appuḍu vā, bāyi!</td>
+<td>మల్ని హాటుము కమ్మి దరతంగ పాటింగ్<br/>ವಾನతంగ। బైయి, అస్కే వా<br/>వచ్చే అంగడికి తక్కువా ధర్యి పలకల్యు<br/>వస్తాయి అమ్మా అప్పుడు రన్డి<br/>◢ Next market day slates of lower cost are coming. Sister, come then<br/>next market de slates of లోవర్ కాస్ట్ ఆర్ కమింగ్। సిస్టర్, कम देन<br/>◢अगले सप्ताह के बझार में कम दाम के पाटी<br/>आयेंगें, आप तब आईएगा<br/>vareka anaḍiṉ kammi dharata paṭte varsa appuḍu vā, bāyi!</td>
+</tr>
+</tbody>
+</table></div>
+<p class="page-number">117</p>
+</div>
+<br><br>
+<div class="page-body-container">
+<div class="centered-block"><header class="header">గోండి ➥ తెలుగు	Gondi ➥ English	गोंडि ➥ हिन्दी	118<br/>
+ఇంగ్లిష్ హింది కొలామి	Telugu Hindi Kolami	तेलुगु अंग्रेजी कोलामि</header></div>
+<div class="table"><table>
+<thead>
+<tr>
+<th>గోండి ➥ తెలుగు<br>ఇంగ్లిష్ హిందీ కొలామి</br></th>
+<th>Gondi ➥ English<br/>Telugu Hindi Kolami</th>
+<th>गोंडि ➥ हिन्दी<br/>तेलुगु अंग्रेजी కోలామి</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>501. బతల్ పహ్జే, బాయి? వెహ!<br/>➥ ఏమి కావలమ్మ? చెప్పండి!<br/>వాట్ డూ యూ వంట్ సిస్టర్?టెల్!<br/>బతాఇమే బహనజీ, ఆస్కో క్యా చాహియే?<br/>తానె పాజె? అమ్మ ఇడ్డ్!</td>
+<td>batal pahje, bāyi? veha!<br/>ēmi kāvalamma? ceppanḍi!<br/>→What do you want sister? Tell!<br/>batāiyē bahanajī, āpko kyā cāhiye?<br/>tāne pāje? amma idḍ!</td>
+<td>बतल पह्जे, బయి? వెహా!<br/>एमि कावलम्मा? चेप्पनडि!<br/>वाट डू यू वंट सिस्टर? टेल!<br/>➥बताइये बहनजी, आपको क्या चाहिये?<br/>ताने पाजे? अम्मा इड्ड!</td>
+</tr>
+<tr>
+<td>502. యేదాద, రగలిక్ మిర్చంగ్ బహన్ కిలో?<br/>➥ అన్నయ ఎండు మిర్పా కాయలు ఎట్ల కిలో?<br/>హే బ్రదర్, హౌ మచ్ అ కిలో ఫోర్ ద రెడ్ చిలీస్?<br/>ఖైయ్యా, లాల్ మిర్చైకైసా కిలోహై?<br/>దాద, ఆర్త మిర్సా ఎనాజ్ కిలో?</td>
+<td>yē dāda, ragalik mircang bahan kilō?<br/>annaya enḍu mirpā kāyalu etla kilō?<br/>→Hey brother, how much a kilo for the red chillies?<br/>bhaiyyā, lāl mircī kaisā kilō hai?<br/>dāda, ārta mirsā enāñ kilo?</td>
+<td>ये दादा, रगलिक मिर्चंग बहन किलो?<br/>अन्नया एनडु मिरपा कायलु एट्ला किलो?<br/>→Hey brother, how much a kilo for the red chillies?<br/>हे ब्रदर, हो मच अ किलो फोर द रेड चिलीस?<br/>➥भैय्या, लाल मिर्ची कैसा किलो है?<br/>दादा, आर्ता मिर्सा एनाङ किलो?</td>
+</tr>
+<tr>
+<td>503. మిర్చంగ్ 20 వీస రుప్యంగ్ కిలో. వా, యేత!<br/>➥ మిర్పా కాయలు 20 రూపాలు కిలో అమ్మ<br/>రండి తీసుకొండి!<br/>చిలీస్ ఆర్ ట్వెంటీ రుపీస్ అ కిలో. కమ్, టేక్!<br/>బీస్ రుపయా కిలో హై ఆఈయే, లిజియే!<br/>మిర్స్ ఇర్వె రుపియ కిలో వర్ సుమ్ముర్</td>
+<td>mircang 20 visa rupyang kilō. vā, yēta!<br/>mirpā kāyalu 20 rūpālu kilō amma<br/>randi tīsukonḍi!<br/>→Chillies are twenty Rupees a kilo. Come, take!<br/>bīs rupayā kilō hai āiyē, lijiyē!<br/>mirsa irve rupiya kilo var summur</td>
+<td>मिर्चंग २० वीसा रुप्यंग किलो। वा, येता!<br/>मिरपा कायलु २० रूपालु किलो अम्मा<br/>रनडि तीसुकोनडि!<br/>चिलीस आर ट्वेंटी रुपीस अ किलो। कम, टेक!<br/>➥बीस रुपया किलो है आईये, लिजिये!<br/>मिर्सा इर्वे रुपिया किलो वर सुम्मुर</td>
+</tr>
+<tr>
+<td>504. ఉంది కిలో సీమ్, దాద<br/>➥ ఒక కిలో ఇవ్వండి అన్న<br/>గివ్ వన్ కిలో, బ్రదర్<br/>ఇక్ కిలో దిజీయే, ఖైయ్యా<br/>ఒకో కిల్ొ సియ్దాద</td>
+<td>undi kilō sīm, dāda<br/>oka kilō ivvanḍi anna<br/>→Give one kilo, brother<br/>ik kilō dijiyē, bhaiyyā<br/>oko kilo siydāda</td>
+<td>उनदि किलो सीम, दादा<br/>ओका किलो इव्वनडि अन्ना<br/>गिव वन किलो, ब्रदर<br/>➥इक किलो दिजीये, भैय्या<br/>ओको किलो सियदादा</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<br><br>
+<div class="page-body-container">
+<div class="table"><table>
+<tbody>
+<tr>
+<td>505.</td>
+<td>లసూన్కు పావ్ కిలో సీమ్<br/>➥ ఎల్లి గడ్డలు పావ్ కిలో ఇవ్వండి<br/>గివ్ క్వాటర్ అఫ అ కిల్ొ అఫ గార్లిక్<br/>పావ్ కిలో లసన్ దిజీయే<br/>లసౌండ్ పావ్ కిల్ొ సియ్యుర్</td>
+<td>lasūnku pāv kilō sīm<br/>elli gaḍḍalu pāv kilō ivvaṇdi<br/>➥Give quarter of a kilo of garlic<br/>pāv kilō lasan dijiyē<br/>lasond pāv kilō siyyur</td>
+<td>లసూన్కు పావ కిలో సీమ్<br/>ఎల్లి గడ్డలు పావ కిలో ఇవ్వన్డి<br/>గీవ్ క్వాటర్ అఫ అ కిలో అఫ గార్లిక్<br/>➥పావ కిలో లసన్ దిజీయే<br/>లసోన్డ పావ కిలో సీయ్యూర్</td>
+</tr>
+<tr>
+<td>506.</td>
+<td>ఉల్లింగ్ అర్ధొ కిలో సీమ్<br/>➥ ఉల్లి గడ్డలు అర్ధ/సగం కిలో ఇవ్వండి<br/>గివ్ హాఫ్ అ కిల్ొ అఫ అనియంస్<br/>ప్యాజ్ ఆధా కిలో దిజీయే<br/>ఉల్లిక్ పావ్ కిల్ొ సియ్యుర్</td>
+<td>ulling ardo kilō sīm<br/>ulli gaḍḍalu arda/sagam kilō ivvaṇdi<br/>➥Give half a kilo of onions<br/>pyāj ādhā kilō dijiyē<br/>ullik pāv kilō siyyur</td>
+<td>ఉల్లింగ అర్దో కిలో సీమ్<br/>ఉల్లి గడ్డలు అర్ధ/సగమ కిలో ఇవ్వన్డి<br/>గీవ్ హాఫ్ అ కిలో అఫ అనियंस<br/>➥प्याज आधा కిలో దిజీయే<br/>ఉల్లిక్ పావ కిలో సీయ్యూర్</td>
+</tr>
+<tr>
+<td>507.</td>
+<td>కమ్మ పావ్ కిలో సీమ్<br/>➥ పసుప పావ్ కిలో ఇవ్వండి<br/>గివ్ క్వాటర్ అఫ అ కిల్ొ అఫర్ టర్మెరిక్ ట్యూమరిక్<br/>పావ్ కిలో హలదీ దిజీయే<br/>పసప్ పావ్ కిల్ొ సియ్యుర్</td>
+<td>kamka pāv kilō sīm<br/>pasupa pāv kilō ivvaṇdi<br/>➥Give quarter of a kilo of turmeric<br/>pāv kilō haladī dijiyē<br/>pasap pāv kilō siyyur</td>
+<td>कमका पाव किलो सीम<br/>పసుपा पाव किलो इव्वనडि<br/>గీవ్ క్వాटर अफ अ किलो अफ टर्मरिक ट्यूమరిक<br/>➥पाव किलो हलदी दिजीये<br/>पसप पाव किलो सिय्युर</td>
+</tr>
+<tr>
+<td>508.</td>
+<td>బచ్చొంగ్ కొత్తంగ్ ఆతంగ్, దాద?<br/>➥ ఎన్ని రూపాయలు అయినాయి అన్న?<br/>హౌ మచ్(మనీ) ఇన్ ఇట్, బ్రదర్?<br/>అబ్ కూల్ కితనా రుపయా హుఆహై, ఖైయ్యా?<br/>ఎన్ని రుపియ ఎద్దె, దాద?</td>
+<td>baccong kottang ātang, dāda?<br/>enni rūpāyalu ayināyi anna?<br/>➥How much(money) is it, brother?<br/>ab kūl kitanā rupayā huā hai, bhaiyyā?<br/>enni rupiya edde, dāda?</td>
+<td>बच्चोंग कोत्तंग आतंग, दादा?<br/>एंनि रूपायलु अयिनायि अन्ना?<br/>हौ मच(मनी) इस इट, ब्रदर?<br/>अब कूल कितना रुपया हुआ है, भैय्या?<br/>एंनि रुपिया एद्दे, दादा?</td>
+</tr>
+</tbody>
+</table></div>
+<p class="page-number">119</p>
+</div>
+<br><br>
+<div class="page-body-container">
+<div class="centered-block"><header class="header">గోండి ➥ తెలుగు	Gondi ➥ English	गोंडि ➥ हिन्दी	120<br/>
+ఇంగ్లిష్ హింది కొలామి	Telugu Hindi Kolami	तेलुगु अंग्रेजी कोलामि</header></div>
+<div class="table"><table>
+<thead>
+<tr>
+<th>గోండి ➔ తెలుగు<br>ఇంగ్లిష్ హింది కోలామి</br></th>
+<th>Gondi ➔ English<br/>Telugu Hindi Kolami</th>
+<th>గोंडि ➔ हिन्दी<br/>तेलुगु अंग्रेजी कोलामि</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>509. సమ్దినంగ్ జుమ్ల కీసి చాలిస్(40) రుప్యంగ్<br/>ఆతంగి. బాయి, సీమ్!<br/>➥ మొత్తం(40) రూపాలు అయినాయి అమ్మ. ఇవ్వండి!<br/>అల్టుగెదర్ ఇట్ కమ్స్ టూ ఫోర్టి(40) రుపిన్, సిస్టర్. గివ్!<br/>బహనజీ, ఆప్ కూల్ చాలీస్ రుపయా దిజీయే!<br/>సిమ్మన(40) సాలిస్ రుపియ ఎద్దె సియ్ అమ్మ!</td>
+<td>samdinang jumla kīsi cālis(40) rupyang<br/>ātang. bāyi, sīm!<br/>mottam(40) rūpālu ayināyi amma. ivvanḍi!<br/>Altogether it comes to forty(40) Rupees, Sister. Give!<br/>bahanajī, āk kūl cālis rupayā dijiyē!<br/>simmana(40) sālis rupiya edde siy amma!</td>
+<td>सम्दिनंग जुम्ला कीसि चालिस(४०) रुप्यंग<br/>आतंग। बायि, सीम!<br/>मोत्तम(४०) रूपालु अयिनायि अम्मा। इव्वनडि!<br/>आल्टुगैदर इट कम्स टू फोर्टि(४०) रुपीस, सिस्टर। गिव!<br/>भहनजी, आप कूल चालीस रुपया दिजीये!<br/>सिम्मना(४०) सालिस रुपिया एद्दे सिय अम्मा!</td>
+</tr>
+<tr>
+<td>510. दाद ఇద్దे पन्नस(50) रुष्यन लोट दह<br/>रुప్యங் மலுசி சீம்<br/>➥ அன்ன తీసు கொண்டி(50) రూపాలు నోటు, పది<br/>రూపాలు తిరిగి ఇవ్వండి<br/>బ్రదర్, దిస్ ఇన్ అ ఫిఫ్టీ(50) రుపి నోట్, గివ్<br/>టెన్(10) రుపిన్ బెక్<br/>ఖైయ్యా, యే లిజీయే పచాస్ రుపయే కా నోట్ ఔర్<br/>దస్ రుపయా వాపస్ కిజీయే<br/>దాద ఇద్ పన్నస్ రుపియల నొట్ పది రుపియ<br/>మాలపుత్ సియ్</td>
+<td>dāda idde pannas(50) rupyana lōṭ daha<br/>rupyang malusi sīm<br/>anna tīsu konḍi(50) rūpālu nōṭu, padi<br/>rūpālu tirigi ivvanḍi<br/>↳ Brother, this is a fifty(50) Rupee note, give<br/>ten(10) Rupees back<br/>bhaiyyā, yē lijiyē pacās rupayē kā nōṭ aur<br/>das rupayā vāpas kijiyē<br/>dāda id pannas rupiyala noṭ padi rupiya<br/>mālaput siy</td>
+<td>दादा इद्दे पन्नस(५०) रुप्यना लोट दहा<br/>रुप्यंग मलुसि सीम<br/>अन्ना तीसु कोनडि(५०) रूपालु नोटु, पदि<br/>रूपालु तिरिगि इव्वनडि<br/>ब्रदर, दिस इस अ फिफ्ट(५०) रुपी नोट, गिव<br/>टेन(१०) रुपीस बैंक<br/>بھائیہ، یے لجیئے پچاس روپے کا نوٹ اور<br/>दस रुपया वापस किजीये<br/>दादा इद पन्नस रुपियला नोट पदि रुपिया<br/>मालपुत सिय</td>
+</tr>
+<tr>
+<td>511. हो, बಾಯಿ, सींतोन<br/>➥ అవును అమ్మ ఇస్తాను<br/>యెస్, సిస్టర్, ఐ విల్ గివ్<br/>ఠీక్ హై బహానజీ, దే దూంగా<br/>ఆయ్ బాయి సీసత్</td>
+<td>ho, bāyi, sīnton<br/>avunu amma istānu<br/>↳Yes, sister, I will give<br/>ṭhīk hai bahanajī, dē dūngā<br/>āy bāyi sīsat</td>
+<td>हो, बायि, सीनतोन<br/>अवुनु अम्मा इस्तानु<br/>योस, सिस्टर, ऐ विल गिव<br/>ठीक है बहनजी, दे दूंगा<br/>आय बायि सीसत</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<br><br>
+<div class="page-body-container">
+<div class="table"><table>
+<tbody>
+<tr>
+<td>512.</td>
+<td>యే దుకనదార్ దాద!<br/>➥ కిరాణ సౌకరి అన్న!<br/>హే శాప్ కీపర్ బ్రదర్!<br/>అజీ దుకానదార్ ఖైయ్యా!<br/>ఓ దుకనదార్ దాద</td>
+<td>yē dukandār dāda!<br/>kirāna saukari anna!<br/>Hey shopkeeper brother!<br/>ajī dukānadār bhaiyyā!<br/>ō dukandār dāda</td>
+<td>ये दुकन्दार दादा!<br/>किराणा सौकरि अन्ना!<br/>हे शाप कीपर ब्रदर!<br/>अजी दुकानदार भैय्या!<br/>ओ दुकन्दार दादा</td>
+</tr>
+<tr>
+<td>513.</td>
+<td>హా! బతల్ పహ్నె, బాయి?<br/>➥ హా అమ్మ ఏమి కావాలి?<br/>యెస్! వాట్ డూ యూ వంట్, సిస్టర్?<br/>హా బహన్, క్యా చాహియే?<br/>ఏ బాయి తానెడ్ పాజే?</td>
+<td>ha! batal pahje, bāyi?<br/>hā amma ēmi kāvāli?<br/>→Yes! What do you want, sister?<br/>hā bahan, kyā cāhiyē?<br/>ē bāyi tāned pājē?</td>
+<td>हा! बतल पह्जे, बायि?<br/>हा अम्मा एमि कावालि?<br/>येस! वाट ड्रू यू वंट, सिस्टर?<br/>हाँ बहन, क्या चाहिये?<br/>ए बायि तानेद पाजे?</td>
+</tr>
+<tr>
+<td>514.</td>
+<td>ఉంది కిలో నుంగ్ నియ్ సీమ్<br/>➥ ఒక కిలో నువ్వుల/మంచి నూనె ఇవ్వండి<br/>గివ్ వన్ కిలో అఫ్ సెసమి ఒయిల్<br/>మురే ఇక్ కిలో తిలీ కా తేల్ దిజియే<br/>ఒకొ కిలో నువ్వుల నూనె సియ్యుర్</td>
+<td>undi kilō nung niy sīm<br/>oka kilō nuvvula/manci nūne ivvanḍi<br/>→Give one kilo of sesame oil<br/>mujhē ik kilō tilī kā tēl dijiyē<br/>oko kilo nuvvula nūne siyyur</td>
+<td>उनदि किलो तुंग निय सीम<br/>ओका किलो नुव्वुल/मंचि नूने इव्वनडि<br/>गिव वन किलो अफ सॅसमि ओंयिल<br/>→मुझे इक किलो तिली का तेल दिजीये<br/>ओको किलो नुवुला नूने सिய்யुर</td>
+</tr>
+<tr>
+<td>515.</td>
+<td>ఉంది కిలో సాకుర్ సీమ్<br/>➥ ఒక కిలో చక్కెర ఇవ్వండి<br/>గివ్ వన్ కిలో అఫ్ శుగర్<br/>ఇక్ కిలో శక్కర్ దిజియే<br/>ఒకొ కిలో సక్కోర్ సియ్యుర్</td>
+<td>undi kilō sākur sīm<br/>oka kilō cakkera ivvanḍi<br/>→Give one kilo of sugar<br/>ik kilō shakkar dijiyē<br/>oko kilo sakkor siyyur</td>
+<td>उनदि किलो साकुर सीम<br/>ओका किलो चक्केरा इव्वनडि<br/>गिव वन किलो अफ शुगर<br/>→इक किलो शक्कर दिजीये<br/>ओको किलो सक्कोर सिయ్యुर</td>
+</tr>
+<tr>
+<td>516.</td>
+<td>ఉంది కిలో జొన్నంగ్ సీమ్<br/>➥ ఒక కిలో జొన్నలు ఇవ్వండి<br/>గివ్ వన్ కిలో మిలెట్<br/>ఇక్ కిలో జుఆరీ దిజియే<br/>ఒకొ కిలో సొన్న సియ్యుర్</td>
+<td>undi kilō jonnang sīm<br/>oka kilō jonnalu ivvanḍi<br/>→Give one kilo of millet<br/>ik kilō juārī djiyē<br/>oko kilo sonna siyyur</td>
+<td>उनदि किलो जोन्नंग सीम<br/>ओका किलो जोन्नलु इव्वनडि<br/>गिव वन किलो अफ मिलेंट<br/>→इक किलो जुआरी दिजीये<br/>ओको किलो सोन्ना सिय్యुर</td>
+</tr>
+</tbody>
+</table></div>
+<footer class="footer">121</footer>
+</div>
+<br><br>
+<div class="page-body-container">
+<div class="centered-block"><header class="header">గోండి ➥ తెలుగు Gondi ➥ English गोंडि ➥ हिन्दी 122<br/>
+ఇంగ్లిష్ హింది కొలామి Telugu Hindi Kolami तेलुगु अंग्रेजी कोलामि</header></div>
+<div class="table"><table>
+<thead>
+<tr>
+<th>గోండి ➥ తెలుగు<br>ఇంగ్లిష్ హిందీ కొలామి</br></th>
+<th>Gondi ➥ English<br/>Telugu Hindi Kolami</th>
+<th>గोंडि ➥ हिन्दी<br/>तेलुगु अंग्रेजी కోలామి</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>517. ఉంది కిలోపెరెక్ సీమ్<br/>➥ ఒక కిలో బియ్యం ఇవ్వండి<br/>గివ్ వన్ కిలో అఫ్ రైస్<br/>ఇక్ కిలో చావల్ డిజీయే<br/>ఒకొ కిలో బియ్యం సియ్యుర్</td>
+<td>undi kilō perek sīm<br/>oka kilō biyyam ivvandi<br/>↳Give one kilo of rice<br/>ik kilō cāval dijiyē<br/>oko kilo biyyam siyyur</td>
+<td>उनदि किलो पेरेक सीम<br/>ओका किलो बिय्यम इव्वनडि<br/>गिव वन किलो अफ रैस<br/>↳इक किलो चावल दिजीये<br/>ओको किलो बिय्यम सिय्युर</td>
+</tr>
+<tr>
+<td>518. ఉంది కిలో तూరి డारी సీమ్<br/>➥ एक किलो कंदी पప్పు ఇవ్వండి<br/>గివ్ వన్ కిలో अफ़ तूर दाल<br/>इक् किलो तुवर दाल दिजीये<br/>ஒகொ கிலோ தொகரி டாரி சிய்யுர்</td>
+<td>undi kilō tūri ḍāri sīm<br/>oka kilō kandi pappu ivvandi<br/>↳Give one kilo of tur dhal<br/>ik kilō tuvar dāl dijiyē<br/>oko kilo togari ḍāri siyyur</td>
+<td>उनदि किलो तूरि डारि सीम<br/>ओका किलो कनदि पप्पु इव्वनडि<br/>गिव वन किलो अफ तूर दाल<br/>↳इक किलो तुवर दाल दिजीये<br/>ओको किलो तोगरि डारि सिय్యुर</td>
+</tr>
+<tr>
+<td>519. ఉండే దుస్రా బతల్ పహ్జా, బాయి?<br/>➥ ఇంకా ఏమి కావాలి చెప్పండి అమ్మ?<br/>ఇన్ దేర్ ఎనీతింగ్ ఎల్స్ యూ వంట్, సిస్టర్?<br/>ఔర్ కుచ్ చాహీయే, బహనజీ?<br/>ఇంక తానె పాజె అమ్మ?</td>
+<td>undē dusro batal pahje, bāyi?<br/>iṅkā ēmi kāvāli ceppandī amma?<br/>↳Is there anything else you want, sister?<br/>aur kuch cāhīyē, bahanajī?<br/>iṅka tāne pāje amma?</td>
+<td>उनडे दुस्रो बतल पह्जे, बायि?<br/>ఇంకా మి కావాళి చెప్పండి అమ్మా?<br/>ఈకా ఎమి కావాలి చెప్పనడి అమ్మా?<br/>इस देर ऐनीतिंग ऐल्स यू వంట్, సిస్టర్?<br/>↳और कुछ चाहीये, बहनजी?<br/>ఇంకా ताने पाजे अम्मा?</td>
+</tr>
+<tr>
+<td>520. ఉంది యేర్ తుంగ్వల్ సాబున్ సీమ్<br/>➥ ఒక స్నానం చేసే సబ్బు ఇవ్వండి<br/>గివ్ వన్ బేదింగ్ సోప్<br/>ఇక్ నహానే కా సాబున్ దిజీయే<br/>ఒకొద్ ఈర్ ఒడెక సబೂನ್ సియ్యుర్</td>
+<td>undi yēr tungval sābun sīm<br/>oka snānam cēse sabbu ivvandi<br/>↳Give one bathing soap<br/>ik nahānē kā sābun dijiyē<br/>okod īr oḍeka sabūn siyyur</td>
+<td>उनदि येर तुंग्वल साबुन सीम<br/>ओका स्नानम चेसे सब्बु इव्वనడి<br/>गिव वन बेदिंग सोप<br/>↳इक नहाने का साबुन दिजीये<br/>ओकोद ईर ओडेका सबून सिय्युर</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</body>
+</html>

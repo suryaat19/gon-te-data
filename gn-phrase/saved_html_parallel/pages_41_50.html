@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html lang="te-IN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+body {
+    padding: 0 !important;
+    margin: 0 !important;
+    background-color: white !important;
+    width: 100% !important;
+    font-family: serif;
+}
+
+.page-body-container {
+    background-color: white;
+    width: 210mm;
+    margin: 0 auto;
+    padding: 20mm 15mm;
+    box-sizing: border-box;
+    min-height: 100vh;
+}
+
+p.paragraph, .paragraph, .block, .quote, .ordered-list, .unordered-list,
+.advertisement, .answer, .contact-info, .index, .options,
+.reference, .unknown, .sidebar, .footnote {
+    text-align: justify !important;
+    text-align-last: left !important;
+    text-justify: inter-word !important;
+    font-size: inherit !important;
+    line-height: 1.3 !important;
+    margin: 0 0 12pt 0 !important;
+    text-indent: 18pt !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box;
+}
+
+.quote, .ordered-list, .unordered-list, .sidebar, .footnote {
+    text-indent: 0 !important;
+}
+
+.multi-column-row { font-size: 12pt; }
+.multi-column-row.cols-1 { font-size: 12pt; }
+.multi-column-row.cols-2 { font-size: 11pt; gap: 18pt; }
+.multi-column-row.cols-3 { font-size: 10pt; gap: 16pt; }
+.multi-column-row.cols-4 { font-size: 9pt; gap: 12pt; }
+
+.page-body-container > p.paragraph,
+.page-body-container > .paragraph {
+    font-size: 12pt !important;
+}
+
+h1.chapter-title {
+    font-size: 30pt !important;
+    line-height: 1.1 !important;
+    margin: 0 0 12pt 0 !important;
+    text-align: center !important;
+    font-weight: bold;
+}
+
+h2.section-title, h2.headline {
+    font-size: 18pt !important;
+    line-height: 1.1 !important;
+    margin: 12pt 0 8pt 0 !important;
+    text-align: center !important;
+    font-weight: bold;
+}
+
+h3.sub-section-title, h3.sub-headline,
+h4.subsub-section-title, h4.subsub-headline {
+    font-size: 13pt !important;
+    line-height: 1.25 !important;
+    margin: 12pt 0 4pt 0 !important;
+    text-align: center !important;
+    font-weight: bold;
+}
+
+.multi-column-row {
+    width: 100% !important;
+    margin: 12pt 0 !important;
+    display: grid;
+}
+
+.column-block {
+    text-align: left !important;
+    text-align-last: left !important;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    min-width: 0;
+    overflow-wrap: break-word;
+    width: 100%;
+}
+
+.column-block p {
+    text-indent: 0 !important;
+    margin-bottom: 8pt !important;
+    font-size: inherit !important;
+}
+
+.column-block p br {
+    display: none;
+}
+
+.centered-block {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin: 12pt 0;
+}
+
+.centered-block > * {
+    text-align: center !important;
+    font-size: 13pt !important;
+    max-width: 100% !important;
+    margin: 0 auto !important;
+    text-indent: 0 !important;
+}
+
+.table table {
+    width: 100% !important;
+    margin: 18pt 0 !important;
+    border-collapse: collapse;
+    border: 1.5pt solid #333;
+    table-layout: fixed;
+    font-size: 11pt;
+    line-height: 1.2;
+}
+
+.table table td,
+.table table th {
+    word-break: normal;
+    overflow-wrap: break-word;
+    padding: 6pt;
+    font-size: inherit;
+    border: 0.5pt solid #333;
+    text-align: center;
+}
+
+.table table td:first-child,
+.table table th:first-child {
+    text-align: left;
+}
+
+.table table td:not(:first-child),
+.table table th:not(:first-child) {
+    white-space: nowrap;
+    text-align: right;
+}
+
+.column-block .table table {
+    width: 100% !important;
+    table-layout: fixed;
+    margin: 12pt 0;
+    border-collapse: collapse;
+    border: 1.5pt solid #333;
+}
+
+.column-block .table table td,
+.column-block .table table th {
+    word-break: break-word;
+    padding: 6pt;
+    font-size: 10pt;
+    border: 0.5pt solid #333;
+    text-align: center;
+}
+
+.column-block .table table td:first-child,
+.column-block .table table th:first-child {
+    text-align: left;
+}
+
+.column-block .table table td:not(:first-child),
+.column-block .table table th:not(:first-child) {
+    white-space: nowrap;
+    text-align: right;
+}
+
+.quote {
+    font-size: 13pt !important;
+    margin: 0 0 0 0 !important;
+    padding: 0 20px !important;
+    font-style: italic;
+    border-left: 3px solid #ccc;
+    text-align: justify !important;
+    text-indent: 0 !important;
+}
+
+.ordered-list, .unordered-list {
+    font-size: inherit !important;
+    margin: 0 0 0 0 !important;
+    padding-left: 40px !important;
+    text-align: justify !important;
+    text-indent: 0 !important;
+}
+
+.sub-ordered-list, .sub-unordered-list {
+    font-size: inherit !important;
+    margin: 0 0 0 0 !important;
+    padding-left: 60px !important;
+    text-align: justify !important;
+    text-indent: 0 !important;
+}
+
+.subsub-ordered-list, .subsub-unordered-list {
+    font-size: inherit !important;
+    margin: 0 0 0 0 !important;
+    padding-left: 80px !important;
+    text-align: justify !important;
+    text-indent: 0 !important;
+}
+
+.image, .chart, .diagram, .photograph {
+    margin: 16px auto;
+    text-align: center;
+    max-width: 100% !important;
+}
+
+.image img, .chart img, .diagram img, .photograph img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    border: 1px solid #ddd;
+}
+
+.chart {
+    border: 2px solid #4a90d9;
+    padding: 8px;
+    background-color: #f8fafc;
+}
+
+.diagram {
+    border: 2px solid #6b7280;
+    padding: 8px;
+    background-color: #f9fafb;
+}
+
+.photograph {
+    border: 2px solid #059669;
+    padding: 4px;
+    background-color: #f0fdf4;
+}
+
+.image-caption {
+    font-style: italic;
+    margin: 8px auto;
+    text-align: center;
+    max-width: 100% !important;
+}
+
+.header, .footer {
+    font-size: 13pt !important;
+    margin: 12px auto;
+    text-align: center;
+    max-width: 100% !important;
+}
+
+.sidebar {
+    font-size: inherit !important;
+    margin: 12px auto;
+    padding: 10px;
+    background-color: #f5f5f5;
+    text-align: justify !important;
+    text-indent: 0 !important;
+}
+
+.footnote {
+    font-size: inherit !important;
+    margin: 8px auto;
+    padding-left: 20px;
+    text-align: justify !important;
+    text-indent: 0 !important;
+}
+
+hr.footnote-separator {
+    border: none;
+    border-top: 1px solid #999;
+    width: 40%;
+    margin: 16px 0 8px 0;
+}
+
+a.footnote-ref {
+    color: inherit;
+    text-decoration: none;
+}
+
+a.footnote-ref:hover {
+    text-decoration: underline;
+}
+
+.advertisement, .answer, .contact-info, .index, .options,
+.reference, .unknown {
+    font-size: inherit !important;
+    margin: 0 0 12pt 0 !important;
+    text-align: justify !important;
+}
+
+.author, .dateline, .flag, .formula, .jumpline,
+.page-number, .folio, .website-link,
+.first-level-question, .second-level-question, .third-level-question {
+    font-size: inherit !important;
+    margin: 12px auto;
+    text-align: center;
+    max-width: 100% !important;
+    text-indent: 0 !important;
+}
+    </style>
+</head>
+<body>
+<div class="page-body-container">
+<div class="centered-block"><header class="header">గోండి ➥ తెలుగు Gondi ➥ English गोंडि ➥ हिन्दी 42<br/>
+ఇంగ్లిష్ హింది కొలామి Telugu Hindi Kolami तेलुगु अंग्रेजी कोलामि</header></div>
+<div class="table"><table>
+<thead>
+<tr>
+<th>గోండి ➔ తెలుగు<br>ఇంగ్లిష్ హింది కొలామి</br></th>
+<th>Gondi ➔ English<br/>Telugu Hindi Kolami</th>
+<th>గोंडि ➔ हिन्दी<br/>तेलुगु अंग्रेजी కోలామి</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>174. యెద్ది బయ్ తెరంత<br/>➥ ఎండ చాలా వేడిగాఉంది<br/>ఇట్ ఇన్ వెరి హాట్ ఇన్ ద సన్<br/>ధూప్ మే బహుత్ గర్మీ లగతీ హై<br/>ఉబ్బ కూబ్ వేండి అన్సద్</td>
+<td>yeddi bay teranta<br/>enda cālā vēdigāundi<br/>➥It is very hot in the sun<br/>dhūp mē bahut garamī lagatī hai<br/>ubba kūb vēndi ansad</td>
+<td>येद्दि बय तेरनता<br/>एनडा चाला वेडिगाउनदि<br/>इट इस वेरि हाट इन द सन<br/>➥धूप मे बहुत गरमी लगती है<br/>उब्बा कूब वेनडि अंसद</td>
+</tr>
+<tr>
+<td>175. नेंड् पुन्नक मंत<br/>➥ నేడు पूर्णिमा निండుగా ఉన్నాడు<br/>ద మూన్ ఇన్ ఫుల్ టుడే<br/>ऑజ్ पुर्रध्निमा हाइ<br/>इनेड पुनम अंसद</td>
+<td>nēnd punnak manta<br/>nēḍu pūrṇima niṉdugā unnādu<br/>➥The moon is full today<br/>āj purraṇimā hai<br/>ined punama ansad</td>
+<td>नेनड पुन्नक मनता<br/>नेडु पूर्णिमा निनडुगा उन्नाडु<br/>द मून इस फुल टुडे<br/>➥आज पुर्रणिमा है<br/>इनेड पुनमा अंसद</td>
+</tr>
+<tr>
+<td>176. नेंड् वडी जोर्ते वासेर मंत<br/>➥ ఈ రోజు గాలి చాలా బలంగా వస్తుంది<br/>ద విండ్ ఇన్ వెరి స్ట్రాంగ్ టుడే<br/>ऑజ్ హవా జోర్ సే చల్ రహీ హై<br/>ఇనెడ్ గాలి జొడరనడ్ అన్స్ద</td>
+<td>nēṅḍ vaḍi jōrte vāser manta<br/>ī rōju gāli cāla balangā vastundi<br/>➥The wind is very strong today<br/>āj havā jōr sē cal rahī hai<br/>ineḍ gāli joḍaranad ansad</td>
+<td>नेनड वडि जोर्ते वासेर मनता<br/>ई रोजु गालि चाला बलंगा वस्तुनदि<br/>द विंड इस वेरि स्ट्रांग टुडे<br/>➥आज हवा जोर से चल रही है<br/>इनेड गालि जोडरनड अंसद</td>
+</tr>
+<tr>
+<td>177. సరి చిక్ల ఆత<br/>➥ దారీ చాలా బురదగా ఉంది<br/>ద రోడ్ ఇన్ మడీ<br/>సడక్ కీచడ్ సే భరీ హై<br/>పావ్ కుబ్ బురద అన్స్ద</td>
+<td>sari cikla āta<br/>dāri cālā buradagā undi<br/>➥The road is muddy<br/>saḍak kīcaḍ sē bharī hai<br/>pāv kub burada ansad</td>
+<td>सरि चिक्ला आता<br/>दारि चाला बुरदगा उनदि<br/>द रोड इस मडी<br/>➥सडक कीचड से भरी है<br/>पाव कुब बुरदा अंसद</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<br><br>
+<div class="page-body-container">
+<div class="multi-column-row cols-3" style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr));">
+<div class="column-block" style="grid-column: 1;">
+<p class="paragraph">178. నేండ్ సరి వత్త<br/>
+➥ దారి మంచిగా ఎండినది<br/>
+ద రోడ్ ఇస్ డ్రై టుడే<br/>
+ఆజ్ సడక్ సూఖీ హై<br/>
+ఇనెడ్ పావ్ అర్తిన్</p>
+</div>
+<div class="column-block" style="grid-column: 2;">
+<p class="paragraph">nēnḍ sari vatta<br/>
+dāri mancigā enḍinadi<br/>
+→The road is dry today<br/>
+āj saḍak sūkhī hai<br/>
+ineḍ pāv artin</p>
+</div>
+<div class="column-block" style="grid-column: 3;">
+<p class="paragraph">नेनड सरि वत्ता<br/>
+दारि मंचिगा एनडिनदि<br/>
+द रोड इस ड्रै टुडे<br/>
+➥आज सडक सूखी है<br/>
+इनेड पाव अर्तिन</p>
+</div>
+</div>
+<div class="table"><table>
+<thead>
+<tr>
+<th>కొనుట, అమ్ముట</th>
+<th>Buying And Selling</th>
+<th>క్రయ-విక్రయ</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>179. కేరెంగ్ వొమ్తి?<br>➥ నీవు అరటిపండ్లు అమ్మినావా?<br>ఆర్ యూసెలింగ్ బనానాస్?<br>క్యా ఆప్కేలే బేచ్ రహేహైన్?<br>నీ కేరె వీటివా?</br></br></br></br></td>
+<td>kēreng vomti?<br>nīvu aratipanḍlu ammināvā?<br>➥Are you selling bananas?<br>kyā āp kēlē bēc rahē hain?<br>nī kēre vītivā?</br></br></br></br></td>
+<td>కెరెంగ వోమ్తి?<br>నీవు అరటిపనḍlu अम्मिనావా?<br>➥Are you selling bananas?<br>ఆర్ యూ సెలింగ్ बनानास?<br>➥क्या आप केले बेच रहे हैं?<br/>నీ కెరె వీటివా?</br></br></br></br></td>
+</tr>
+<tr>
+<td>180. నిహ్గా బచ్చొంగ్ మంతంగ్?<br/>➥ నీ దగ్గర ఎన్ని ఉన్నాయి?<br/>హౌమెని డూ యూహెవ్?<br/>ఆప్కె పాస్ కిత్నె హై?<br/>ఇన్నతి ఎన్నిగ్ అన్న?</td>
+<td>nihga baccong mantang?<br/>nī daggara enniunnāyi?<br/>➥How many do you have?<br/>āpke pās kitne hai?<br/>innati ennig ansa?</td>
+<td>నిహ్గా బచ్చొంగ్ మనతంగ?<br/>నీ దగ్గరా ఎంనిఉన్నాయि?<br/>HOW MANY DO YOU HAVE?<br/>HOW MANY DO YOU HAVE?<br/>మీకు पास कितने है?<br/>ఇన్నితి ఎంనిగి అంసా?</td>
+</tr>
+<tr>
+<td>181. నహ్గా ఇచుంగ్స మంతంగ్<br/>➥ నా దగ్గర కొన్ని ఉన్నాయి<br/>ఐహెచ్ అలిటల్<br/>మేరే పాస్ థోడీ సిహై<br/>అన్నతి కొన్నిగి అన్న</td>
+<td>nahga icungsa mantang<br/>nā daggara konni unnāyi<br/>➥I have a little<br/>mērē pās thōḍī sī hai<br/>annati konnigi ansa</td>
+<td>నహ్గా ఇచుంగ్సా मनतंग<br/>నా దగ్గరా कोंनि उन्नायि<br/>ऐ हैव अ लिटल<br/>➥मेरे पास थोडी सी हैं<br/>अन्नति कोंनिगि अंसा</td>
+</tr>
+</tbody>
+</table></div>
+<footer class="footer">43</footer>
+</div>
+<br><br>
+<div class="page-body-container">
+<div class="centered-block"><header class="header">గోండి ➥ తెలుగు Gondi ➥ English गोंडि ➥ हिन्दी 44<br/>
+ఇంగ్లిష్ హింది కొలామి Telugu Hindi Kolami तेलुगु अंग्रेजी कोलामि</header></div>
+<div class="table"><table>
+<thead>
+<tr>
+<th>గోండి ➔ తెలుగు<br>ఇంగ్లిష్ హింది కొలామి</br></th>
+<th>Gondi ➔ English<br/>Telugu Hindi Kolami</th>
+<th>గोंडि ➔ हिन्दी<br/>तेलुगु अंग्रेजी కోలామి</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>182. నహ్గ వెల్లె మంతంగ్<br/>➥ నా దగ్గర చాలా ఉన్నాయి<br/>ఐహెవ్ ప్లెంటీ<br/>మేరే పాస్ బహుత్ హై<br/>అన్నతి పెల్లెగ్ అన్న</td>
+<td>nahga velle mantang<br/>nā daggara cālā unnāyi<br/>➥I have plenty<br/>mērē pās bahut hai<br/>annati pelleg ansa</td>
+<td>నహ్గా వెल्ले మనతంగ<br/>నా దగ్గరా చాలా ఉన్నాయె<br/>ఎ హేవ ప్లెంటీ<br/>➥ਮੇਰੇ پاس ਬਹੁਤ ਹੈ<br/>అన్నతి పెల్లేగ అંસા</td>
+</tr>
+<tr>
+<td>183. నా కేరెనింగ్ సమ్మి మార్తంగ్<br/>➥ నా అరటిపండ్లు మొత్తం అయిపోయినాయి<br/>మై బనానాస్ ఆర్ ఆల్ ఫినిష్ట్<br/>మేరే పూరే కేలే సమాప్ట్ హో చుకేహై<br/>అన్నే సిమ్మన తీర్తెచ్</td>
+<td>nā kēreng samdi mārtang<br/>nā aratipanḍlu mottam ayipōyināyi<br/>➥My bananas are all finished<br/>mērē pūrē kēlē samāpt hō cukē hai<br/>annē simmana tīrtev</td>
+<td>నా కెరెంగ్ సమ్ది మార్గం<br/>నా అరటిపండ్లు మొత్తం అయిపోయినాయి<br/>నా అరటిపాన్డ్రు మోత్తం అయిపోయినియాయ్<br/>మె్ సృష్టినాస్ ఆర్ ఆల్ ఫినిష్ట్<br/>➥मेरे पूरे केले समाप्त हो चुके हैं<br/>అన్నే సిమ్మనా తీర్తెచ్</td>
+</tr>
+<tr>
+<td>184. అవ్ పండింగ్ ఆందుంగ్?<br/>➥ అవి పండి నాయా?<br/>ఆర్ దోస్ ఫ్రూట్ రైప్?<br/>క్యా వే ఫల్ పకేహైన్?<br/>అదా పండ్ తెవా?</td>
+<td>av paṇḍing āndung?<br/>avi paṇḍi nāyā?<br/>➥Are those fruit ripe?<br/>kyā vē phal pakē hain?<br/>adā paṇḍ tevā?</td>
+<td>अव पनडिंग आनदुंग?<br/>अवि पनडि नाया?<br/>आर दोस फ्रूट रैप?<br/>➥क्या वे फल पके हैं?<br/>अदा पनड तेवा?</td>
+</tr>
+<tr>
+<td>185. తేన బచ్చోర్ దర?<br/>➥ దీని ధర ఎంత?<br/>వాట్ ఇన్ దేర్ రేట్?<br/>ఇన్కే క్యా డామ్ హై?<br/>ఇద్నె ధర ఎంత?</td>
+<td>tēna baccōr dara?<br/>dini dhara enta?<br/>➥What is their rate?<br/>inkē kyā dām hai?<br/>idne dhara ente?</td>
+<td>तेना बच्चोर दरा?<br/>दीनि धरा एनता?<br/>वाट इस देर रेट?<br/>➥इनके क्या दाम है?<br/>इद्ने धरा एनते?</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<br><br>
+<div class="page-body-container">
+<div class="table"><table>
+<tbody>
+<tr>
+<td>186.</td>
+<td>నన్న ఇద్ యేతన<br/>➥నేను దీనిని కొనాలని అనుకుంటున్నాను<br/>ఐ వంట్ టూ బై దిస్<br/>మై ఇసే ఖరీద్నా చాహ్తా / చాహ్తీ హూ<br/>ఆన్ ఇదున్ సుమ్మెజ్ ఇసత్</td>
+<td>nanna id yētana<br/>nēnu dīnini konālani anukuṇṭunnānu<br/>➥I want to buy this<br/>mai isē kharīdnā cāhtā / cāhtī hū<br/>ān idun summeṅ isat</td>
+<td>నన్నా ఇద येतనా<br/>నెను దీనినि कोनालनि అనుకునటున్నాను<br/>ऐ वंट टू बै दिस<br/>➥मैं इसे खरीदना चाहता / चाहती हूँ<br/>आन इदुन सुम्मेङ इसत</td>
+</tr>
+<tr>
+<td>187.</td>
+<td>నన్న ఇద్ యేతొన్<br/>➥నాకు దీనిని కొనాలని లేదు<br/>ఐ డూ నాట్ వంట్ టూ బై దిస్<br/>మై ఇసే ఖరీద్నా నహీ చాహ్తా / చాహ్తీ హూ<br/>ఆన్ ఇద్ సుమ్మెన్</td>
+<td>nanna id yēton<br/>nāku dīnini konālani lēdu<br/>➥I do not want to buy this<br/>mai isē kharīdnā nahī cāhtā / cāhtī hū<br/>ān id summen</td>
+<td>నन्ना ఇద येतोन<br/>నాಕು దీనిని కోనాలని లెదు<br/>ऐ डू नाट वंट टू बै दिस<br/>➥मैं इसे खरीदना नहीं चाहता / चाहती हूँ<br/>आन इद सुम्मेन</td>
+</tr>
+</tbody>
+</table></div>
+<div class="table"><table>
+<thead>
+<tr>
+<th>ఆశ్చర్యార్థకము</th>
+<th>Exclamations</th>
+<th>చిల్లಾಹట</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>188. ఏమ్!</td>
+<td>ēy!</td>
+<td>ఏయ!</td>
+</tr>
+<tr>
+<td>➥ అరె!</td>
+<td>are!</td>
+<td>అరే!</td>
+</tr>
+<tr>
+<td>హే!</td>
+<td>➥Hey!</td>
+<td>హె!</td>
+</tr>
+<tr>
+<td>అరే!</td>
+<td>arē!</td>
+<td>➥అరే!</td>
+</tr>
+<tr>
+<td>ఏయ్!</td>
+<td>ēy!</td>
+<td>ఏయ!</td>
+</tr>
+<tr>
+<td>189. బయ్ చొకొట్!</td>
+<td>bay cokot!</td>
+<td>బయ చోకోట్!</td>
+</tr>
+<tr>
+<td>➥చాలా బాగుంది!</td>
+<td>cālā bāgundi!</td>
+<td>చాలా బాగునది!</td>
+</tr>
+<tr>
+<td>ఎక్సెలేంట్!</td>
+<td>➥Excellent!</td>
+<td>ఎక్సెలెంట్!</td>
+</tr>
+<tr>
+<td>బహుత్ ఖూబ్!</td>
+<td>bahut khūb!</td>
+<td>➥ਬਹੁਤ ଖୁବ୍!</td>
+</tr>
+<tr>
+<td>కూబ్ సోయ్!</td>
+<td>kūb sōy!</td>
+<td>కूब సోయ!</td>
+</tr>
+</tbody>
+</table></div>
+<footer class="footer">45</footer>
+</div>
+<br><br>
+<div class="page-body-container">
+<div class="centered-block"><header class="header">గోండి ➥ తెలుగు Gondi ➥ English गोंडि ➥ हिन्दी 46 तेलुगु अंग्रेजी कोलामि<br/>
+ఇంగ్లిష్ హింది కొలామి Telugu Hindi Kolami</header></div>
+<div class="table"><table>
+<thead>
+<tr>
+<th>గోండి ➔ తెలుగు<br>ఇంగ్లిష్ హింది కొలామి</br></th>
+<th>Gondi ➔ English<br/>Telugu Hindi Kolami</th>
+<th>గोंडि ➔ हिन्दी<br/>तेलुगु अंग्रेजी కోలామి</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>190. బయ్ కూసి!<br/>➥ చాలా సంతోషమైన విషయం!<br/>హౌ జొయ్ ఫుల్!<br/>వాహ్! ఖుశీ కీ బాత్ హై<br/>కూబ్ కూసి!</td>
+<td>bay kūsi!<br/>cālā santōṣamaina viṣayam!<br/>➥How joyful!<br/>vāh! khushī kī bāt hai<br/>kūb kūsi!</td>
+<td>బయ కూసి!<br/>చాలా సనతోజమైనా విṣayam!<br/>హౌ జొయ్ ఫుల్!<br/>➥వాహ! ଖୁସି కీ వాట్ హై<br/>కूब కూసి!</td>
+</tr>
+<tr>
+<td>191. వెల్లె పరిసాన్!<br/>➥ చాలా విచారించవలసిన విషయం!<br/>హౌ స్యడ్!<br/>ఉఫ్! కిత్నె దుఖ్ కీ బాత్ హై<br/>కూబ్ పరిసాన్?</td>
+<td>velle parisān!<br/>cālā vicārincavalasina viṣayam!<br/>➥How sad!<br/>uph! kitne dukh kī bāt hai<br/>kūb parisān?</td>
+<td>వెल्ले పరిసాన!<br/>చాలా విచారించవలసినా విషయం!<br/>హౌ స్యడ!<br/>➥ఉఫ! ఎంతే దుఖ్ కీ వాట్ హై<br/>కూబ్ పరిసాన?</td>
+</tr>
+<tr>
+<td>192. పేన్ద దయ!<br/>➥ దేవుని దయ!<br/>త్యంక్ గాడ్!<br/>ధంయవాద్ ప్రభూ!<br/>దెయ్యం నె దయ!</td>
+<td>pēnda daya!<br/>dēvuni daya!<br/>➥Thank God!<br/>dhanyavād prabhū!<br/>deyyam ne daya!</td>
+<td>పెన్దా దయా!<br/>దేవుని దయా!<br/>త్యంక్ గాడ్!<br/>➥ధన్యవాద ప్రభూ!<br/>దెయ్యమ్ నే దయా!</td>
+</tr>
+<tr>
+<td>193. పేన్ద ఆసిర్వద్నె!<br/>➥ దేవుని దయ వలన!<br/>బై గాడ్స్ గ్రేస్!<br/>ఈశ్వర్ కీ కృపాసే!<br/>దెయ్యం నె అసిర్వాద!</td>
+<td>pēnda āsirvadne!<br/>dēvuni daya valana!<br/>➥By God’s grace!<br/>ishvar kī krpā sē!<br/>deyyam ne asirvād!</td>
+<td>పెన్దా ఆస్రివద్నే!<br/>దేవుని దయా వలనా!<br/>బై గాడ్స్ గ్రేస్!<br/>➥దేవుని దయా సె!<br/>దెయ్యమ్ నే అస్రివాద్!</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<br><br>
+<div class="page-body-container">
+<div class="table"><table>
+<tbody>
+<tr>
+<td>194.</td>
+<td>బయ్ చొకొట్ కీతేర్!<br/>➥ అద్భుతంగా చేశారు!<br/>డన్ వన్ డర్ ఫులీ!<br/>ఖూబసూరత్ కామ్!<br/>కూబ్ సోయ్ ఇదర్‌తెర్!</td>
+<td>bay cokoṭ kītēr!<br/>adbhutangā cēśāru!<br/>Done wonderfully!<br/>khūbasūrat kām!<br/>kūb sōy idarter!</td>
+<td>బయ చోకోట కీతేర్!<br/>అద్భుతంగా చేశారు!<br/>డన్ వన్ డర్ ఫులీ!<br/>➥ఖూబసూరత్ କାମ!<br/>కूब సోయ్ ఇదర్‌తెర్!</td>
+</tr>
+<tr>
+<td>195.</td>
+<td>బత సోబతే!<br/>➥ అతి సుందరం!<br/>హౌ బియుటిఫుల్!<br/>సుందర్!<br/>కూబ్ సోయ్ / తాసొబనడ్</td>
+<td>bata sōbatē!<br/>ati sundaram!<br/>➥How beautiful!<br/>sundar!<br/>kūb sōy / tāsobanaḍ</td>
+<td>बता सोबते!<br/>అతి సుందరమ్!<br/>హౌ బ్రియటఫుల!<br/>➥సుందర!<br/>కूब సోయ / తాసొబనడ</td>
+</tr>
+<tr>
+<td>196.</td>
+<td>బయ్ సోబత!<br/>➥ ఎంత అందమయింది!<br/>వెరినైస్!<br/>కితనా అచ్ఛాహై!<br/>కూబ్ సోయ్!</td>
+<td>bay sōbata!<br/>enta andamayindi!<br/>➥Very nice!<br/>kitanā acchā hai!<br/>kūb sōytā!</td>
+<td>బయ సోబతా!<br/>ఎన్తా అనడంయినది!<br/>వెరి నైస!<br/>➥कितना अच्छा है!<br/>కूब సోయ్‌తా!</td>
+</tr>
+<tr>
+<td>197.</td>
+<td>అంత! ఇంకె దబ్ మన్!<br/>➥ చాల్లెండి!/ఇక ఆపండి!<br/>ఎనుఫ్! నౌ కీప్ క్వైయెట్!<br/>శాంత్ రహియే!<br/>ఎర్సద్ ఇండి సుయ్యన్</td>
+<td>ānta! inke dab man!<br/>callenḍi!/ika āpanḍi!<br/>➥Enough! Now keep quiet!<br/>shānt rahiyē!<br/>ersad indi suyyan</td>
+<td>ఆనతా! ఇంకే దబ మన్!<br/>చాల్లేనడి!/ఇకా ఆపనడి!<br/>ఎనుఫ! నౌ కీప్ క్వైయెట్!<br/>➥శాంత రహिये!<br/>ఎర్సద్ ఇన్డి సుయ్యన్</td>
+</tr>
+<tr>
+<td>198.</td>
+<td>హిక్కే కేంజ!<br/>➥ ఇదిగో!<br/>లిసెన్‌ హీర్!<br/>సునియే!<br/>ఇదె విన్!</td>
+<td>hikkē kēnja!<br/>idigō!<br/>➥Listen here!<br/>suniyē!<br/>ide vin!</td>
+<td>హ్విక్కే కెనజా!<br/>ఇదిగో!<br/>లిసెన్ హీర్!<br/>➥सुनिये!<br/>ఇదే విన్!</td>
+</tr>
+</tbody>
+</table></div>
+<p class="page-number">47</p>
+</div>
+<br><br>
+<div class="page-body-container">
+<div class="table"><table>
+<thead>
+<tr>
+<th>గోండి ➥ తెలుగు<br/>ఇంగ్లిష్ హిందీ కొలామి</th>
+<th>Gondi ➥ English<br/>Telugu Hindi Kolami</th>
+<th>గोंडि ➥ हिन्दी<br/>तेलुगु अंग्रेजी कोलामि</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>199. బత మానం సెల్లె!<br/>➥ ఎంత అవమానకరం!<br/>హౌ డిన్ గ్రేస్ఫుల్!<br/>కిత్నె హీ శరమ్ కీ బాత్ హై!<br/>తా సిర్మింది!</td>
+<td>bata mānam selle!<br/>enta avamānakaram!<br/>ent aavamānakaram!<br/>kita ne hī sharam kī bāt hai!<br/>tā sirmindi!</td>
+<td>बता मानम सेल्ले!<br/>एनता अवमानकरम!<br/>हौ डिस ग्रेस्फुल!<br/>कितने ही शरम की बात है!<br/>ता सिर्मनदि!</td>
+</tr>
+<tr>
+<td>200. बत వేరినల్!<br/>➥ ఎంత భయంకరం!<br/>హౌ టెరిబల్!<br/>కిత్నె హీ దర్దనాక్ బాత్ హై!<br/>ఎంతె అర్రి వన్ననజ్!</td>
+<td>bata vērinal!<br/>enta bhayaṅkaram!<br/>ent aharam!<br/>kitne hī dardanāk bāt hai!<br/>ente arri vannanāñ!</td>
+<td>बता वेरినల్!<br/>एनता भयंकरम!<br/>हौ टेरिबल!<br/>कितने ही दर्दनाक बात है!<br/>एनते अर्रि वन्ननङ!</td>
+</tr>
+<tr>
+<td>201. వెయ్నే ఆయి!<br/>➥ తర్వగా కానివ్వండి!<br/>మేక్ హెస్ట్!<br/>జలదీ కీజియే!<br/>సప్పన ఎక్కడ్/జల్ది ఎక్కద్!</td>
+<td>veyne āyi!<br/>tarvagā kānivvanḍi!<br/>mak haste!<br/>jaladī kijiyē!<br/>sappana ekkad/jaldi ekkad!</td>
+<td>वेय़ने आयि!<br/>तर्वगा कानिव्वनडि!<br/>मेक हेस्ट!<br/>जलदी कीजिये!<br/>सप्पना एक्कद्/जल्दि एक्कद!</td>
+</tr>
+<tr>
+<td>202. కరల్!<br/>➥ నిజంగా!<br/>రియలీ!<br/>సచ్ మేన్!<br/>కరెయ్!</td>
+<td>karal!<br/>nijangā!<br/>➥ Really!<br/>sac mēn!<br/>karey!</td>
+<td>करल!<br/>निजंगा!<br/>रियली!<br/>सच में!<br/>करेय!</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<br><br>
+<div class="page-body-container">
+<div class="table"><table>
+<tbody>
+<tr>
+<td>203.</td>
+<td>హొ అచ్చొరే!<br/>➥అవును అంతే!<br/>యెస్, ఇట్ ఇన్!<br/>హా<br/>ఆయ్ అంతెయ్!</td>
+<td>ho accorē!<br/>avunu antē!<br/>➥Yes, it is!<br/>hā<br/>āy antey!</td>
+<td>हो अच्चోरे!<br/>అవ్రును అనతే!<br/>యొస, ఇట ఈస్!<br/>➥हाँ<br/>आय अनतेय!</td>
+</tr>
+<tr>
+<td>204.</td>
+<td>హొ నన్నయ్ మేయ్తోన్!<br/>➥హుర్రా! నేను గెలిచాను!<br/>హురా! ఐ హెవ్ వన్!<br/>మై జీత్ గయా!<br/>ఆయ్ అని గెల్తన్!</td>
+<td>ho nannay mēyon!<br/>hurrā! nēnu gelicānu!<br/>➥Hurrah! I have won!<br/>mai jīt gayā!<br/>āy āni geltan!</td>
+<td>हो नन्नय मेय्తोन!<br/>హుర్రా! నెను గెలిచాను!<br/>హురా! ఎ హెవ్ వన్!<br/>➥मैं जीत गया!<br/>आय आनि गेల్तन!</td>
+</tr>
+<tr>
+<td>205.</td>
+<td>బత్తంగ్ వడ్కంతి!<br/>➥ఎంత అర్థరహితము!/పిచ్చి వాగుడు!<br/>వాట్ నాన్ సెన్స్ యూ స్పీక్!<br/>కితనీ మూర్ఖతా కీ బాత్ కర్ రహేహై<br/>తానె ముడ్సతి!</td>
+<td>battang vaḍkanti!<br/>enta artharahitamu!/picci vāguḍu!<br/>➥What nonsense you speak!<br/>kitanī mūrkhatā kī bāt kar rahē hai<br/>tāne muṭsati!</td>
+<td>बत्तंग वडकनति!<br/>एनता अर्थरहितमु!/पिज्धि वागुडु!<br/>वाट नान सेंस यू स्पीक!<br/>➥कितनी मूर्खता की बात कर रहे हैं<br/>ताने मुडसति!</td>
+</tr>
+</tbody>
+</table></div>
+<div class="table"><table>
+<thead>
+<tr>
+<th>కూర్చోని మాట్లాడుట</th>
+<th>General Chat</th>
+<th>बातचीत</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>206. నాకున్ కర్ వస్తా<br/>➥ నాకు ఆకలేస్తుంది<br/>ఐ ఎమ్ హంగ్రీ<br/>ముఝే భూఖ్ లగ్ రహీహై<br/>అనుజ్ కర్వ్ ఎద్దిన్</td>
+<td>nākun kar vastā<br/>nāku ākalēstundi<br/>➥I am hungry<br/>mujhē bhūkh lag rahī hai<br/>anuñ karv eddin</td>
+<td>nakuṉ kar vasta<br/>naku आकलेस्तुनदि<br/>ऐ ऐम हंग्री<br/>➥मुझे भूख लग रही है<br/>अनुङ कर्व एद्दिन</td>
+</tr>
+</tbody>
+</table></div>
+<p class="page-number">49</p>
+</div>
+<br><br>
+<div class="page-body-container">
+<div class="centered-block"><header class="header">గోండి ➥ తెలుగు Gondi ➥ English गोंडि ➥ हिन्दी 50<br/>
+ఇంగ్లిష్ హింది కొలామి Telugu Hindi Kolami तेलुगु अंग्रेजी कोलामि</header></div>
+<div class="table"><table>
+<thead>
+<tr>
+<th>గోండి ➥ తెలుగు<br>ఇంగ్లిష్ హింది కొలామి</br></th>
+<th>Gondi ➥ English<br/>Telugu Hindi Kolami</th>
+<th>గोंडि ➥ हिन्दी<br/>तेलुगु अंग्रेजी కోలామి</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>207. యేర్ వట్క వస్తా<br/>➥ నాకు దాహం వేస్తుంది<br/>ఐ ఎమ్ తర్టీ<br/>ముషే ప్యాస్ లగ్ రహీహై<br/>ఈర్ అడ్‌తివ</td>
+<td>yēr vaṭka vastā<br/>nāku dāham vēstundi<br/>➥I am thirsty<br/>mujhē pyās lag rahī hai<br/>īr aḍtiva</td>
+<td>యెర వట్కా వస్తా<br/>నాకు దార్హ వెస్టునది<br/>ऐ ऐम तर्स्टी<br/>➥मुझे प्यास लग रही है<br/>ईर अद्तिवा</td>
+</tr>
+<tr>
+<td>208. నన్న హట్టె మాతోన్<br/>➥నేను అలసి పోయాను<br/>ఐ ఎమ్ టైర్డ్<br/>మై థక్ గయా / గయీ హూ<br/>ఆన్ ఆలయ్టన్</td>
+<td>nanna haṭṭe mātōn<br/>nēnu alasi pöyānu<br/>➥I am tired<br/>mai thak gayā / gayī hū<br/>ān alaytan</td>
+<td>నన్నా హట్టే మాతోన్<br/>నెను అలసి పోయాను<br/>ऐ ऐम टैर्ड<br/>➥मैं थक गया / गयी हूँ<br/>आन अलय्तन</td>
+</tr>
+<tr>
+<td>209. నన్న చహ ఉంటోన్<br/>➥నేను టీ(ఛాయ) త్రాగుతాను<br/>ఐ(విల్) డ్రింక్ టీ<br/>మై చాయ్ పీఊంగా<br/>ఆన్ సాయ్ ఉసత్</td>
+<td>nanna caha uṇṭōn<br/>nēnu tī(chāya) trāgutānu<br/>➥I(will) drink tea<br/>mai cāy pīūngā<br/>ān sāy usat</td>
+<td>नन्ना चहा उनटोन<br/>नेनु टी(छाया) त्रागुतानु<br/>ऐ(विल) ड्रिंक टी<br/>➥मैं चाय पीऊंगा<br/>आन साय उसत</td>
+</tr>
+<tr>
+<td>210. జేవున్(గాటొ) తయార్ ఆత<br/>➥ భోజనము(అన్నము) తయారైంది<br/>ద మీల్(రైస్) ఇస్ రెడి<br/>భోజన్(ఖానా) తైయార్ హై<br/>అంబ వెయితిన్</td>
+<td>jēvun(gāṭo) tayār āta<br/>bhōjanamu(annamu) tayāraindi<br/>➥The meal(rice) is ready<br/>bhōjan(khānā) taiyār hai<br/>amba veyitin</td>
+<td>जेवुन(गाटो) तयार आता<br/>भोजनमु(अन्नमु) తయారैनदि<br/>द मील(रैस) इस रेडि<br/>➥भोजन(खाना) तैयार है<br/>अंबा वेयितिन</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<br><br>
+<div class="page-body-container">
+<div class="table"><table>
+<tbody>
+<tr>
+<td>21.1. ఇంకె రోన్ దాకట్<br/>➥ ఇప్పుడు ఇంటికి వెళ్ళుదాము<br/>లెట్ అస్ గో హోమ్ నౌ<br/>చలో అబ్ హమ్ ఘర్ జాయేంగే<br/>ఇండి ఎల్లవైసెన్నడ్</td>
+<td>iŋke rōn dākaṭ<br/>ippuḍu iṇṭiki veḷḷudāmu<br/>Let us go home now<br/>calō ab ham ghar jāyēngē<br/>inḍi ellavai sennaḍ</td>
+<td>ఇంకే రోన దాకట్<br/>ఇప్పుడు ఇన్టికి వెళ్లుదాము<br/>లెట్ అస గో హోమ్ నూ<br/>చలో అవ్ హమ్ ఘర్ జాయేంగే<br/>ఇన్డి ఎల్లవై సెన్నడ</td>
+</tr>
+<tr>
+<td>21.2. ఇద్ యేత<br/>➥ ఇది తీసుకో<br/>టేక్ దిస్<br/>యహ్ లీజియే<br/>ఇద్ ఏక్</td>
+<td>id yēta<br/>idi tīsukō<br/>Take this<br/>yah lijiyē<br/>id ēk</td>
+<td>ఇద యెతా<br/>ఇది తీసుకో<br/>టెక్ दिस<br/>ఇది లీजिये<br/>ఇద ఒక</td>
+</tr>
+<tr>
+<td>213. ఇద్ నిహ్గా ఇర<br/>➥ ఇది నీ దగ్గర ఉంచుకో<br/>యూ కీప్ ఇట్ విద్ యూ<br/>ఆప్ అప్నె పాస్ రఖ్ లీజియే<br/>ఇద్ ఇన్నతి ఇడ్</td>
+<td>id nihga ira<br/>idi nī daggara uncukō<br/>You keep it with you<br/>āp apne pās rakh lijiyē<br/>id innati id</td>
+<td>ఇద నిహ్గా ఇరా<br/>ఇది నీ దగ్గరా ఉంఛుకో<br/>యు కీప్ ఇట్ విద్ యూ<br/>మీరు अपने पास रख लीजिये<br/>ఇద ఇన్నితి ఇడ</td>
+</tr>
+<tr>
+<td>214. ఇద్ చహ గోడ్ మంత<br/>➥ ఇది ఛాయ తియ్యగా ఉంది<br/>దిస్ టీ ఇస్ స్వీట్<br/>యహ్ చాయ్ మీఠి హై<br/>ఇద్ సాయ్ తిర్రె అంసద్</td>
+<td>id caha gõḍ manta<br/>idi chaya tiyyagā undi<br/>This tea is sweet<br/>yah cāy miṯhī hai<br/>id sāy tirre ansad</td>
+<td>ఇద చహా గోడ మనతా<br/>ఇది छाया तिయ్యగా उनदि<br/>दिस टी इस स्वीट<br/>यह चाय मीठी है<br/>इद साय तिर्रे अंसद</td>
+</tr>
+<tr>
+<td>215. ఇద్ యేర్ కినన్ మంత<br/>➥ ఈ నీళ్ళు చల్లగా ఉన్నాయి<br/>దిస్ వాటర్ ఇస్ కోల్డ్<br/>యహ్ పానీ ఠండాహై<br/>ఈ ఈర్ కినాన్ అన్సద్</td>
+<td>id yēr kinan manta<br/>ñi niḷlu callagā unnāyi<br/>This water is cold<br/>yah pānī ṭhanḍā hai<br/>tīr kinān ansad</td>
+<td>ఇద येर किनन मनता<br/>ई नीळ्ळु चल्लगा उन्नायि<br/>इस वाटर इस कोल्ड<br/>यह पानी ठंडा है<br/>ई ईर किनान अंसद</td>
+</tr>
+</tbody>
+</table></div>
+<p class="page-number">51</p>
+</div>
+</body>
+</html>

@@ -3,9 +3,8 @@ import zipfile
 from pypdf import PdfReader, PdfWriter
 from sarvamai import SarvamAI
 
-# --- CONFIGURATION ---
 PDF_PATH = "DICTIONARY 2 MAIN.pdf"
-API_KEY = "sk_dniy9j3k_tSFYu3cVAX0Yyw7P7J8JBM1O"
+API_KEY = "ENTER YOUR API KEY HERE"
 PAGES_PER_CHUNK = 10
 HTML_STORAGE_DIR = "saved_html_chunks"
 

@@ -1,0 +1,717 @@
+<!DOCTYPE html>
+<html lang="te-IN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+body {
+    padding: 0 !important;
+    margin: 0 !important;
+    background-color: white !important;
+    width: 100% !important;
+    font-family: serif;
+}
+
+.page-body-container {
+    background-color: white;
+    width: 210mm;
+    margin: 0 auto;
+    padding: 20mm 15mm;
+    box-sizing: border-box;
+    min-height: 100vh;
+}
+
+p.paragraph, .paragraph, .block, .quote, .ordered-list, .unordered-list,
+.advertisement, .answer, .contact-info, .index, .options,
+.reference, .unknown, .sidebar, .footnote {
+    text-align: justify !important;
+    text-align-last: left !important;
+    text-justify: inter-word !important;
+    font-size: inherit !important;
+    line-height: 1.3 !important;
+    margin: 0 0 12pt 0 !important;
+    text-indent: 18pt !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box;
+}
+
+.quote, .ordered-list, .unordered-list, .sidebar, .footnote {
+    text-indent: 0 !important;
+}
+
+.multi-column-row { font-size: 12pt; }
+.multi-column-row.cols-1 { font-size: 12pt; }
+.multi-column-row.cols-2 { font-size: 11pt; gap: 18pt; }
+.multi-column-row.cols-3 { font-size: 10pt; gap: 16pt; }
+.multi-column-row.cols-4 { font-size: 9pt; gap: 12pt; }
+
+.page-body-container > p.paragraph,
+.page-body-container > .paragraph {
+    font-size: 12pt !important;
+}
+
+h1.chapter-title {
+    font-size: 30pt !important;
+    line-height: 1.1 !important;
+    margin: 0 0 12pt 0 !important;
+    text-align: center !important;
+    font-weight: bold;
+}
+
+h2.section-title, h2.headline {
+    font-size: 18pt !important;
+    line-height: 1.1 !important;
+    margin: 12pt 0 8pt 0 !important;
+    text-align: center !important;
+    font-weight: bold;
+}
+
+h3.sub-section-title, h3.sub-headline,
+h4.subsub-section-title, h4.subsub-headline {
+    font-size: 13pt !important;
+    line-height: 1.25 !important;
+    margin: 12pt 0 4pt 0 !important;
+    text-align: center !important;
+    font-weight: bold;
+}
+
+.multi-column-row {
+    width: 100% !important;
+    margin: 12pt 0 !important;
+    display: grid;
+}
+
+.column-block {
+    text-align: left !important;
+    text-align-last: left !important;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    min-width: 0;
+    overflow-wrap: break-word;
+    width: 100%;
+}
+
+.column-block p {
+    text-indent: 0 !important;
+    margin-bottom: 8pt !important;
+    font-size: inherit !important;
+}
+
+.column-block p br {
+    display: none;
+}
+
+.centered-block {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin: 12pt 0;
+}
+
+.centered-block > * {
+    text-align: center !important;
+    font-size: 13pt !important;
+    max-width: 100% !important;
+    margin: 0 auto !important;
+    text-indent: 0 !important;
+}
+
+.table table {
+    width: 100% !important;
+    margin: 18pt 0 !important;
+    border-collapse: collapse;
+    border: 1.5pt solid #333;
+    table-layout: fixed;
+    font-size: 11pt;
+    line-height: 1.2;
+}
+
+.table table td,
+.table table th {
+    word-break: normal;
+    overflow-wrap: break-word;
+    padding: 6pt;
+    font-size: inherit;
+    border: 0.5pt solid #333;
+    text-align: center;
+}
+
+.table table td:first-child,
+.table table th:first-child {
+    text-align: left;
+}
+
+.table table td:not(:first-child),
+.table table th:not(:first-child) {
+    white-space: nowrap;
+    text-align: right;
+}
+
+.column-block .table table {
+    width: 100% !important;
+    table-layout: fixed;
+    margin: 12pt 0;
+    border-collapse: collapse;
+    border: 1.5pt solid #333;
+}
+
+.column-block .table table td,
+.column-block .table table th {
+    word-break: break-word;
+    padding: 6pt;
+    font-size: 10pt;
+    border: 0.5pt solid #333;
+    text-align: center;
+}
+
+.column-block .table table td:first-child,
+.column-block .table table th:first-child {
+    text-align: left;
+}
+
+.column-block .table table td:not(:first-child),
+.column-block .table table th:not(:first-child) {
+    white-space: nowrap;
+    text-align: right;
+}
+
+.quote {
+    font-size: 13pt !important;
+    margin: 0 0 0 0 !important;
+    padding: 0 20px !important;
+    font-style: italic;
+    border-left: 3px solid #ccc;
+    text-align: justify !important;
+    text-indent: 0 !important;
+}
+
+.ordered-list, .unordered-list {
+    font-size: inherit !important;
+    margin: 0 0 0 0 !important;
+    padding-left: 40px !important;
+    text-align: justify !important;
+    text-indent: 0 !important;
+}
+
+.sub-ordered-list, .sub-unordered-list {
+    font-size: inherit !important;
+    margin: 0 0 0 0 !important;
+    padding-left: 60px !important;
+    text-align: justify !important;
+    text-indent: 0 !important;
+}
+
+.subsub-ordered-list, .subsub-unordered-list {
+    font-size: inherit !important;
+    margin: 0 0 0 0 !important;
+    padding-left: 80px !important;
+    text-align: justify !important;
+    text-indent: 0 !important;
+}
+
+.image, .chart, .diagram, .photograph {
+    margin: 16px auto;
+    text-align: center;
+    max-width: 100% !important;
+}
+
+.image img, .chart img, .diagram img, .photograph img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    border: 1px solid #ddd;
+}
+
+.chart {
+    border: 2px solid #4a90d9;
+    padding: 8px;
+    background-color: #f8fafc;
+}
+
+.diagram {
+    border: 2px solid #6b7280;
+    padding: 8px;
+    background-color: #f9fafb;
+}
+
+.photograph {
+    border: 2px solid #059669;
+    padding: 4px;
+    background-color: #f0fdf4;
+}
+
+.image-caption {
+    font-style: italic;
+    margin: 8px auto;
+    text-align: center;
+    max-width: 100% !important;
+}
+
+.header, .footer {
+    font-size: 13pt !important;
+    margin: 12px auto;
+    text-align: center;
+    max-width: 100% !important;
+}
+
+.sidebar {
+    font-size: inherit !important;
+    margin: 12px auto;
+    padding: 10px;
+    background-color: #f5f5f5;
+    text-align: justify !important;
+    text-indent: 0 !important;
+}
+
+.footnote {
+    font-size: inherit !important;
+    margin: 8px auto;
+    padding-left: 20px;
+    text-align: justify !important;
+    text-indent: 0 !important;
+}
+
+hr.footnote-separator {
+    border: none;
+    border-top: 1px solid #999;
+    width: 40%;
+    margin: 16px 0 8px 0;
+}
+
+a.footnote-ref {
+    color: inherit;
+    text-decoration: none;
+}
+
+a.footnote-ref:hover {
+    text-decoration: underline;
+}
+
+.advertisement, .answer, .contact-info, .index, .options,
+.reference, .unknown {
+    font-size: inherit !important;
+    margin: 0 0 12pt 0 !important;
+    text-align: justify !important;
+}
+
+.author, .dateline, .flag, .formula, .jumpline,
+.page-number, .folio, .website-link,
+.first-level-question, .second-level-question, .third-level-question {
+    font-size: inherit !important;
+    margin: 12px auto;
+    text-align: center;
+    max-width: 100% !important;
+    text-indent: 0 !important;
+}
+    </style>
+</head>
+<body>
+<div class="page-body-container">
+<div class="table"><table>
+<tbody>
+<tr>
+<td>393.</td>
+<td>బెయే గాటొ అట్త<br/>➥ అమ్మ అన్నం వండింది<br/>మదర్ హెస్ కుక్డ్ ఫుడ్<br/>మానే ఖానా పకాయాహై<br/>అమ్మ అంబా వెయ్గత్తిన్</td>
+<td>beyē gāto aṭṭa<br/>amma annam vanḍindi<br/>Mother has cooked food<br/>mā nē khānā pakāyā hai<br/>amma ambā veygattin</td>
+<td>బెయే గాటో అట్సెర మంత<br/>➥ అమ్మ అన్నం వంట చేస్తుంది<br/>మదర్ ఇస్ కుకింగ్ ఫూడ్<br/>మాజీ ఖానా పకా రహీహై<br/>అమ్మ అంబా వెయ్గల్స నంసద్</td>
+<td>బెయే గాటో అట్సెర మనతా<br/>అమ్మా అన్నమ వన్టా చెస్తునిది<br/>మదర్ ఈ కుకింగ్ ఫూడ్<br/>➥माँ जी खाना पका रही हैं<br/>అమ్మా అంబా వెయ్గల్సా నంసద్</td>
+</tr>
+<tr>
+<td>394.</td>
+<td>బెయే గాటొ సక్కెడల్ అట్సేర మంత<br/>➥ అమ్మ అన్నం ఫ్రొద్దునుండి వంట చేస్తుంది<br/>సింస్ మోర్నింగ్ మదర్ హెస్ బీన్ కుకింగ్ ఫూడ్<br/>సుబహ్ సే మా ఖానా పకా రహీహై<br/>అమ్మ అంబా తొల్లినిత్ వెయ్గల్సద్</td>
+<td>beyē gāto sakkedal aṭṭeṛ manta<br/>amma annam phroddunundi vanṭa cēstundi<br/>Since morning mother has been cooking food<br/>subah sē mā khānā pakā rahī hai<br/>amma ambā tollinit veygalsad</td>
+<td>బెయే గాటో సక్కిడల అట్సెర మనతా<br/>అమ్మా అన్నమ ఫ్రోదునన్డి వన్టా చెస్తునిది<br/>సిల్స్ మోర్నింగ్ మదర్ హెస్ బీన్ కుకింగ్ ఫూడ్<br/>సుబహ్ సే మా ఖానా పకా రహీహై<br/>అమ్మ అంబా తొల్లినిత్ వెయ్గల్సద్</td>
+<td>బెయే గాటో సక్కిడల అట్సెర మనతా<br/>అమ్మా అన్నమ ఫ్రోదునన్డి వన్టా చెస్తునిది<br/>సిల్స్ మోర్నింగ్ మదర్ హేస్ బీన్ కుకింగ్ ఫూడ్<br/>➥सुबह से माँ खाना पका रही है<br/>అమ్మా అంబా तोల్లినిత వెయ్గల్సద్</td>
+</tr>
+<tr>
+<td>395.</td>
+<td>బెయే గాటొ అట్వల్ కియార్<br/>➥ అమ్మ అన్నం పండుటకు తెయారు చేస్తది<br/>మదర్ విల్ యూజులీ కుక్ ఫూడ్<br/>మా ఖానా పకాయా కరేగీ<br/>అమ్మ అంబా వెయ్గలెజ్ తాయర్ కల్సద్</td>
+<td>beyē gāto aṭṭval kiyār<br/>amma annam vanḍutaku teyāru cēstadi<br/>Mother will usually cook food<br/>mā khānā pakāyā karēgī<br/>amma ambā veygalenī tāyar kalsad</td>
+<td>బెయే గాటో అట్వల్ कियार<br/>అమ్మా అన్నమ వన్డుటకు తైయారు చెస్తది<br/>మదర్ విల్ యూజులీ కుక్ ఫూడ్<br/>➥माँ खाना पकाया करेगी<br/>అమ్మా అంబా వెయ్గలెజ్ తాయర్ కలసద్</td>
+<td>బెయే గాటో అట్వల్ कियार<br/>అమ్మా అన్నమ వన్డుటకు తైయారు చెస్తది<br/>మదర్ విల్ యూజులీ కుక్ ఫూడ్<br/>➥माँ खाना पकाया करेगी<br/>అమ్మా అంబా వెయ్గలెఙ్ తాయర్ కలసద్</td>
+</tr>
+<tr>
+<td>396.</td>
+<td>బెయే గాటొ అట్టర్<br/>➥ అమ్మ వంట చేస్తది<br/>మదర్ విల్ కుక్ ఫూడ్<br/>మా ఖానా పకాయేంగీ<br/>అమ్మ వెయ్గల్సద్</td>
+<td>beyē gāto aṭṭar<br/>amma vanṭa cēstadi<br/>Mother will cook food<br/>mā khānā pakāyēngī<br/>amma veygalsad</td>
+<td>బెయే గాటో అట్టర్<br/>అమ్మా वनटा चेస్తदि<br/>మదర్ విల్ కుక్ ఫૂડ<br/>➥माँ खाना पकायेंगी<br/>अम्मा वेय्गलसद</td>
+<td>బెये गाटो अट्टर<br/>अम्मा वनटा चेस्तदि<br/>मदर विल कुक फूड<br/>➥माँ खाना पकायेंगी<br/>अम्मा वेय्गलसद</td>
+</tr>
+<tr>
+<td>397.</td>
+<td>బెయే గాటొ అట్టర్<br/>➥ అమ్మ వంట చేస్తది<br/>మదర్ విల్ కుక్ ఫూడ్<br/>मा खाना पकायेंगी<br/>అమ్మ వెయ్గల్సద్</td>
+<td>beyē gāto aṭṭar<br/>amma vanṭa cēstadi<br/>Mother will cook food<br/>mā khānā pakāyēngī<br/>amma veygalsad</td>
+<td>बेये गाटो अट्टर<br/>अम्मा वनटा चेस्तदि<br/>मदर विल कुक फूड<br/>➥माँ खाना पकायेंगी<br/>अम्मा वेय्गलसद</td>
+<td>बेये गाटो अट्टर<br/>अम्मा वनटा चेस्तदि<br/>मदर विल कुक फूड<br/>➥माँ खाना पकायेंगी<br/>अम्मा वेय्गलसद</td>
+</tr>
+</tbody>
+</table></div>
+<p class="page-number">93</p>
+</div>
+<br><br>
+<div class="page-body-container">
+<div class="centered-block"><header class="header">గోండి ➥ తెలుగు Gondi ➥ English गोंडि ➥ हिन्दी 94<br/>
+ఇంగ్లిష్ హింది కొలామి Telugu Hindi Kolami तेलुगु अंग्रेजी कोलामि</header></div>
+<div class="multi-column-row cols-3" style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr));">
+<div class="column-block" style="grid-column: 1;">
+<p class="paragraph">398. రెండ్ నేక్నెకె బెయేన గాటొ అట్వల్ అంత<br/>
+అమ్మ వంట రెండు గంటలకు పూర్తి<br/>
+అయితేది<br/>
+బైటూ ఓ క్లాక్ మదర్ విల్ హెవ్ కుడ్ లంచ్<br/>
+దో బజే తక్ మా ఖానా పకా చుకీ హోగీ<br/>
+అమ్మనె వెయ్గలెకద్ ఇందీ గంటలెర్సద్</p>
+</div>
+<div class="column-block" style="grid-column: 2;">
+<p class="paragraph">renḍ nēkneke beyēna gāto aṭval ānta<br/>
+amma vaṇṭa renḍu gaṇṭalaku pūrti ayitadi<br/>
+By two O’clock mother will have cooked lunch<br/>
+dō bajē tak mā khānā pakā cukī hōgī<br/>
+ammane veygalekad indī gaṇṭalersad</p>
+</div>
+<div class="column-block" style="grid-column: 3;">
+<p class="paragraph">रेनड नेक्नेके बेयेना गाटो अट्वल आनता<br/>
+अम्मा वनटा रेनडु गनटलकु पूर्ति अयितदि<br/>
+बै टू ओ क्लाक मदर विल हैव कुक्ड लन्च<br/>
+➥दो बजे तक माँ खाना पका चुकी होगी<br/>
+अम्मने वेय्गलेकद इनदी गनटलेर्सद</p>
+</div>
+</div>
+<div class="table"><table>
+<thead>
+<tr>
+<th>వెళ్ళి పోతారు(భవిష్యత్కాలము)</th>
+<th>Going(Future Tense)</th>
+<th>जाना(भविष्यकाल)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>399. నన్న దాంతోన్<br>➥నేను వెళ్తాను<br>ఐ విల్ గో<br>మై జాఊంగ / జాఊంగి<br>ఆన్ సెసత్</br></br></br></br></td>
+<td>nanna dāntōn<br>nēnu veḷtānu<br>➥I will go<br>mai jāūngā / jāūngī<br>ān sesat</br></br></br></br></td>
+<td>నన్నా दानतोन<br>నెను వెళ్తాను<br>ऐ विल गो<br>➥मैं जाऊँगा / जाऊँगी<br>आन सेसत</br></br></br></br></td>
+</tr>
+<tr>
+<td>400. మొమొట్ దాంతోం<br>➥మేము వెళ్తాము<br>వీ విల్ గో(విదౌట్ యూ)<br/>హమ్ జాఏంగే<br/>ఆమ్ సెసతుం</br></br></td>
+<td>momoṭ dāntōm<br/>mēmu veḷtāmu<br/>➥We will go(without you)<br/>ham jāēngē<br/>ām sesatum</td>
+<td>मोमोट दानतोम<br/>मेमु वेळतामु<br/>वी विल गो(विदौट यू)<br/>➥हम जाएंगे<br/>आम सेसतुम</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<br><br>
+<div class="page-body-container">
+<div class="table"><table>
+<tbody>
+<tr>
+<td>401.</td>
+<td>మరట్ దాంతట్<br/>➥ మనం వెళ్తాము<br/>వీ ఆల్ విల్ గో(విద్ యూ)<br/>హమ్ సబ్ జాఏంగే<br/>నేండ్ సెసతుం</td>
+<td>maraṭ dāntaṭ<br/>manam veḷtāmu<br/>➥We all will go(with you)<br/>ham sab jāēngē<br/>nēṇḍ sesatum</td>
+<td>मरट दानतट<br/>मनम वेळतामु<br/>वी आल विल गो(विद यू)<br/>हम सब जाएंगे<br/>नेनड सेसतुम</td>
+</tr>
+<tr>
+<td>402.</td>
+<td>నిమ్మె దాంతి<br/>➥ నీవు వెళ్తావు<br/>యూ విల్ గో(విదౌట్ మీ / అస్)<br/>ఆప్ జాఏంగే<br/>నీ సెసతివా</td>
+<td>nimme dānti<br/>nīvu veḷtāvu<br/>➥You will go(without me / us)<br/>āp jāēngē<br/>nī sesativā</td>
+<td>నిम्मे दानति<br/>నీవు వెళ్తాवु<br/>యు విల గో(విదౌట్ మీ / అస)<br/>आप जाएंगे<br/>नी సెసతివా</td>
+</tr>
+<tr>
+<td>403.</td>
+<td>మిమ్మెట్ దాంతిట్<br/>➥ మీరు / మీరందరు వెళ్తారు<br/>యూ ఆల్ విల్ గో<br/>ఆప్ సబ్ జాఏంగే<br/>నీర్ సదర్ సెసతిరా</td>
+<td>mimmeṭ dāntiṭ<br/>mīru / mīrandaru veḷtāru<br/>➥You all will go<br/>āp sab jāēngē<br/>nīr sadar sesatirā</td>
+<td>మిమ్మెట్ दानतिట<br/>మీరు / మీరనదరు వెళ్తారూ<br/>యు ఆల విల్ గో<br/>आप सब जाएंगे<br/>नीर सदर सेसतिरा</td>
+</tr>
+<tr>
+<td>404.</td>
+<td>వోర్ దాంతోర్<br/>➥ ఆయన / అతను వెళ్తాడు<br/>హీ విల్ గో<br/>వహ్ జాఏగా<br/>అమ్ద్ సెసంద్</td>
+<td>vōr dāntōr<br/>āyana / atanu veḷtāḍu<br/>➥He will go<br/>vah jāēgā<br/>amd sesand</td>
+<td>वोर दानतोर<br/>आयना / अतनु वेळताडु<br/>ही विल गो<br/>वह जाएगा<br/>अम्द सेसनद</td>
+</tr>
+<tr>
+<td>405.</td>
+<td>అద్ దాంత<br/>➥ ఆమె వెళ్తుంది<br/>శ్రీ / ఇట్ విల్ గో<br/>వహ్ జాఏగీ<br/>అద్ సెసద్</td>
+<td>ad dānta<br/>āme veḷtundi<br/>➥She / it will go<br/>vah jāēgī<br/>ad sesad</td>
+<td>अद दानता<br/>आमे वेळतुनदि<br/>शी / इट विल गो<br/>वह जाएगी<br/>अद सेसद</td>
+</tr>
+</tbody>
+</table></div>
+<p class="page-number">95</p>
+</div>
+<br><br>
+<div class="page-body-container">
+<div class="table"><table>
+<thead>
+<tr>
+<th>గోండి ➥ తెలుగు<br/>ఇంగ్లిష్ హింది కొలామి</th>
+<th>Gondi ➥ English<br/>Telugu Hindi Kolami</th>
+<th>गोंडि ➥ हिन्दी<br/>तेलुगु अंग्रेजी कोलामि</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>406. ఊర్ దాంతేర్<br/>➥ వారు వెళ్తారు<br/>దేయ్(మెన్) విల్ గో<br/>వే జాఏంగే<br/>అవ్‌సెసర్</td>
+<td>ūr dāntēr<br/>vāru veḷtāru<br/>They(men) will go<br/>vē jāēngē<br/>avr sesar</td>
+<td>ऊर दानतेर<br/>वारु वेळतारु<br/>देय(मेन) विल गो<br/>वे जाएंगे<br/>अत्र सेसर</td>
+</tr>
+<tr>
+<td>407. అవ్ దాంతంగ్<br/>➥ వారు వెళ్తారు( స్త్రీలు)<br/>దేయ్(లేడీస్) విల్ గో<br/>వే జాఏంగీ<br/>అదా సెసా</td>
+<td>av dāntang<br/>vāru veḷtāru( strīlu)<br/>They(ladies) will go<br/>vē jāēngī<br/>adā sesā</td>
+<td>अव दानतंग<br/>वारु वेळतारु( स्त्रीलु)<br/>देय(लेडीस) विल गो<br/>वे जाएंगें<br/>अदा सेसा</td>
+</tr>
+</tbody>
+</table></div>
+<div class="table"><table>
+<thead>
+<tr>
+<th>వెళ్ళుట(భూతకాలము)</th>
+<th>Going(Past Tense)</th>
+<th>जाना(भूतकाल)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>408. నన్న సొత్తొన్<br/>➥నేను వెళ్లాను<br/>ఐ వెంట్<br/>మై గయా / గయీ<br/>ఆన్ సెద్దన్</td>
+<td>nanna sotton<br/>nēnu veḷlānu<br/>➥I went<br/>mai gayā / gayī<br/>ān seddan</td>
+<td>నన్నా సోత్తోన్<br/>నెను వెళ్లాను<br/>ऐ वेंट<br/>➥मैं गया / गयी<br/>आन सेद्दन</td>
+</tr>
+<tr>
+<td>409. మొమొట్ సొత్తోం<br/>➥మేము వెళ్లాము<br/>వీ వెంట్<br/>హమ్ గయే<br/>ఆమ్ సెద్దం</td>
+<td>momoṭ sottōm<br/>mēmu veḷlāmu<br/>➥We went<br/>ham gayē<br/>ām seddam</td>
+<td>मोमोट सोत्तोम<br/>मेमु वेळलामु<br/>वी वेंट<br/>➥हम गये<br/>आम सेद्दम</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<br><br>
+<div class="page-body-container">
+<div class="table"><table>
+<tbody>
+<tr>
+<td>410.</td>
+<td>మరట్ సొత్తట్<br/>➥ మనం వెళ్లాము<br/>వీ ఆల్ వెంట్<br/>హమ్ సబ్ గయే<br/>నేండ్ సెద్దం</td>
+<td>maraṭ sottaṭ<br/>manam veḷlāmu<br/>We all went<br/>ham sab gayē<br/>nēṇḍ seddam</td>
+<td>मरट सोत्तट<br/>मनम वेळलामु<br/>वी आल वेंट<br/>हम सब गये<br/>नेनड सेद्दम</td>
+</tr>
+<tr>
+<td>411.</td>
+<td>నిమ్మె సొత్తి<br/>➥ నువ్వు వెళ్లావు<br/>యూ వెంట్<br/>ఆప్ గయే<br/>నీ సెత్తండి</td>
+<td>nimme sotti<br/>nuvvu veḷlāvu<br/>You went<br/>āp gayē<br/>nī settanḍi</td>
+<td>నిम्मे సోत्ति<br/>नुव्वు వెళ్లావు<br/>यू वैंट<br/>आप गये<br/>नी सेत्तनडि</td>
+</tr>
+<tr>
+<td>412.</td>
+<td>నిమ్మెట్ సొత్తిట్<br/>➥ మీరు / మీరందరు వెళ్ళారు<br/>యూ ఆల్ వెంట్<br/>ఆప్ సబ్ గయే<br/>నీర్ / నీర్ సదర్ సెద్దిర్</td>
+<td>nimmeṭ sottiṭ<br/>mīru / mīrandaru veḷlāru<br/>You all went<br/>āp sab gayē<br/>nīr / nīrsadar seddir</td>
+<td>నిమ్మెట్ సోत्तिట<br/>मीरु / मीरनदरु वेळळारु<br/>यू आल वेंट<br/>आप सब गये<br/>नीर / नीर्सदर सेद्दिर</td>
+</tr>
+<tr>
+<td>413.</td>
+<td>వోర్ సొత్తోర్<br/>➥ ఆయన / అతను వెళ్లాడు<br/>హీవెంట్<br/>వహ్ గయా<br/>అంద్ సెద్దెంద్</td>
+<td>vōr sottōr<br/>āyana / atanu veḷlādu<br/>He went<br/>vah gayā<br/>and seddend</td>
+<td>वोर सोत्तोर<br/>आयना / अतनु वेळ्लाडु<br/>ही वेंट<br/>वह गया<br/>अनद सेद्देनद</td>
+</tr>
+<tr>
+<td>414.</td>
+<td>అద్ సొత్త<br/>➥ ఆమె వెళ్ళింది<br/>శీ / ఇట్ వెంట్<br/>వహ్ గయీ<br/>అద్ సెద్దిన్</td>
+<td>ad sotta<br/>āme veḷlindi<br/>She / it went<br/>vah gayī<br/>ad seddin</td>
+<td>अद सोत्ता<br/>आमे वेळळनदि<br/>शी / इट वेंट<br/>वह गयी<br/>अद सेद्दिन</td>
+</tr>
+</tbody>
+</table></div>
+<p class="page-number">97</p>
+</div>
+<br><br>
+<div class="page-body-container">
+<div class="table"><table>
+<thead>
+<tr>
+<th>గోండి ➥ తెలుగు<br/>ఇంగ్లిష్ హింది కొలామి</th>
+<th>Gondi ➥ English<br/>Telugu Hindi Kolami</th>
+<th>गोंडि ➥ हिन्दी<br/>तेलुगु अंग्रेजी कोलामि</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>415. ఊర్ సొత్తేర్<br/>➥ వారు వెళ్ళారు<br/>దేయ్ ఆల్(మెన్) వెంట్<br/>వే సబ్ గయే<br/>అవ్ర సెద్దెర్</td>
+<td>ūr sottēr<br/>vāru veḷḷāru<br/>➥They all(men) went<br/>vē sab gayē<br/>avr sedder</td>
+<td>ऊर सोत्तेर<br/>वारु वेळ्ळारु<br/>देय आल(मेन) वेंट<br/>➥वे सब गये<br/>अत्र सेद्देर</td>
+</tr>
+<tr>
+<td>416. అవ్ సొత్తంగ్<br/>➥ వారు వెళ్ళారు(స్త్రీలు)<br/>దేయ్ ఆల్(లేడీస్) వెంట్<br/>వే సబ్ గయీ<br/>అదాసెద్దేవ్</td>
+<td>av sottang<br/>vāru veḷḷāru(strīlu)<br/>➥They all(ladies) went<br/>vē sab gayī<br/>adā seddev</td>
+<td>अव सोत्तंग<br/>वारु वेळ्ळारु(स्त्रीलु)<br/>देय आल(लेडीस) वेंट<br/>➥वे सब गयीं<br/>अदा सेद्देव</td>
+</tr>
+</tbody>
+</table></div>
+<div class="table"><table>
+<thead>
+<tr>
+<th>ఆధికారితో మాట్లాడుట</th>
+<th>Speaking With The P.O.</th>
+<th>पी.ओ. से बातचीत</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>417. చప్రసి దాద, పి. ఓ. సాబ్ నేండ్ రొప్పో మంతోర్?<br/>➥ వాచ్ మేన్ పి. ఓ. సార్ లోపల ఉన్నార<br/>అటెండెంట్, ఇన్ ద పి.ఓ. సర్ ఇన్(సైడ్) టుడే?<br/>చపరాసీ, పీ. ఓ. సోహేబ్ ఆఫీస్ మేహై క్యా?<br/>కొత్తదాద పి.ఓ. లోప అన్నదా?</td>
+<td>caprasi dāda, pi. o. sāb nēṇḍ roppō mantōr?<br/>vāc mēn pi. o. sār lōpala unnāra<br/>➥Attendant, is the P.O. sir in(side) today?<br/>caparāsī, pī. o. sāhēb āphīs mē hai kyā?<br/>kotladāda pi.o. lōpa ansadā?</td>
+<td>chprasi dada, pi. o. sab neనడ రోప్పో మనతోర్?<br/>వాచ్ మెన పి। ఓ। సార లోపలా ఉన్నారా<br/>అటెండెంట్, इस द पि।ఓ। సర ఇన్(సెడ్) తుడె?<br/>➥చपरासी, पी. ओ. साहेब आफीस में है क्या?<br/>కోల్దदादा పి।ఓ। లోపా అంసదా?</td>
+</tr>
+<tr>
+<td>418. హొ, మంతోర్, రొప్పో సొన్<br/>➥ అవును ఉన్నారు లోపలికి వేల్లు<br/>యెస్, హీ ఇస్, గో ఇన్(సైడ్)<br/>హా వహ్ హై, అందర్ జాఇయే<br/>ఆయ్ అన్సంద్ లోపాసె</td>
+<td>ho, mantōr, roppō son<br/>avunu unnāru lōpaliki vēllu<br/>➥Yes, he is, go in(side)<br/>hā vah hai, andar jāiyē<br/>āy ansand lōpāse</td>
+<td>हो, मनतोर, रोप्पो सोन<br/>అవును उन्नారు లోపలికि वेल्लु<br/>योस, ही इस, गो इन्(सैड)<br/>➥हाँ वह है, अंदर जाइये<br/>आय अंसनद लोपासे</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<br><br>
+<div class="page-body-container">
+<div class="table"><table>
+<tbody>
+<tr>
+<td>419.</td>
+<td>రామ్ రామ్ పి ఓ సాబ్<br/>➥నమస్కారం పి. ఓ. సార్<br/>హెలో, పి.ఓ. సర్<br/>నమస్కార్, పి. ఓ. సాహేబ్<br/>రాం రాం పి.ఓ. సార్</td>
+<td>rām rām pi ō sāb<br/>namaskāram pi. ō. sār<br/>Hello, P.O. sir<br/>namaskār, pī. ō. sāhēb<br/>rām rām pi.ō. sār</td>
+<td>राम राम पि ओ साब<br/>नमस्कारम पि। ओ। सार<br/>हेलो, पि।ओ। सर<br/>नमस्कार, पी. ओ. साहेब<br/>राम राम पि।ओ। सार</td>
+</tr>
+<tr>
+<td>420.</td>
+<td>హా! రామ్ రామ్! వా, ఉద్ధ<br/>➥ హా నమస్కారం దా కుర్చో<br/>యెస్, హెలో, కమ్ ఎండ్ సిట్<br/>ఆఇయే బైఠియే<br/>హ! రాం రాం! వా ఉద్ద</td>
+<td>hā! rām rām! vā, udda<br/>hā namaskāram dā kurcō<br/>Yes, hello, come and sit<br/>ayīyē baithiyē<br/>ha! rām rām! vā udd</td>
+<td>हा! राम राम! वा, उद्दा<br/>हा नमस्कारम दा कुर्चो<br/>यैस, हेलो, कम ऐंड सिट<br/>येस, हेलो, कम ऐंड सिट<br/>हा! राम राम! वा उद्द</td>
+</tr>
+<tr>
+<td>421.</td>
+<td>నీవ బత పొరోల్?<br/>➥ నీ పేరేమిటి<br/>వాట్ ఇస్ యోర్ నేమ్?<br/>ఆప్పా నామ్ క్యాహై?<br/>ఇనెపేర్ తానెద్?</td>
+<td>nīva bata porōl?<br/>nī pērēmiṭi<br/>What is your name?<br/>āpkā nām kyā hai?<br/>ine pēr tāned?</td>
+<td>नीवा बता पोरोल?<br/>नी पेरेमिटि<br/>वाट इस योर नेम?<br/>आपका नाम क्या है?<br/>इने पेर तानेद?</td>
+</tr>
+<tr>
+<td>422.</td>
+<td>నావ పేందోర్ సుంగు సాబ్<br/>➥ నా పేరు పేందుర్ సుంగు సార్<br/>సర్, మైనేమ్ ఇస్ పేందూర్ సుంగు<br/>మేరా నామ్ పేందూర్ సుంగు హై సోహేబ్<br/>అనెపేర్ పేందుర్ సుంగు సార్</td>
+<td>nāva pēndor sungu sāb<br/>nā pēru pēndur sungu sār<br/>Sir, my name is Pendur Sungu<br/>mērā nām pēndur suṅgu hai sāhēb<br/>ane pēr pēndur sungu sār</td>
+<td>नावा पेनदोर सुंगु साब<br/>నా పెరు పెనద్రు సుంగు सार<br/>सर, मै नेम इस पेंदूर सुंगु<br/>मेरा नाम पेन्दूर सुंगु है साहेब<br/>अने पेर पेनदुर सुंगु सार</td>
+</tr>
+<tr>
+<td>423.</td>
+<td>నీవ బద్ నార్?<br/>➥ నీది ఎ ఊరు<br/>వాట్ ఇస్[ద నేమ్ అఫ్] యోర్ విలెజ్?<br/>తుమ్ కౌంసె గాంవ్ కే హో?<br/>ఇన్నెట్ ఏ ఊర్?</td>
+<td>nīva bad nār?<br/>nīd i ūru<br/>What is[the name of] your village?<br/>tum kaunse gānv kē hō?<br/>innet ē ūr?</td>
+<td>नीवा बद नार?<br/>नीदि ए ऊरु<br/>वाट इस[द नेम अफ्] योर विलेज?<br/>तुम कौनसे गांव के हो?<br/>इनेत ए ऊर?</td>
+</tr>
+</tbody>
+</table></div>
+<p class="page-number">99</p>
+</div>
+<br><br>
+<div class="page-body-container">
+<div class="centered-block"><header class="header">గోండి ➥ తెలుగు Gondi ➥ English गोंडि ➥ हिन्दी 100<br/>
+ఇంగ్లిష్ హింది కొలామి Telugu Hindi Kolami तेलुगु अंग्रेजी कोलामि</header></div>
+<div class="table"><table>
+<thead>
+<tr>
+<th>గోండి ➥ తెలుగు<br>ఇంగ్లిష్ హింది కొలామి</br></th>
+<th>Gondi ➥ English<br/>Telugu Hindi Kolami</th>
+<th>గोंडि ➥ हिन्दी<br/>तेलुगु अंग्रेजी कोलामि</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>424. నావ రాయిగూడ సాబ్<br/>➥ నాది రాయిగూడ సార్<br/>మై విలెజ్ ఇస్ రైగుడా, సర్<br/>మై రాయగుడా కా హూ, సహేబ్<br/>అన్నెత్ రాయిగూడ సార్</td>
+<td>nāva rāyigūḍa sāb<br/>nādi rāyigūḍa sār<br/>➥My village is Raiguda, sir<br/>mai rāyaguḍā kā hū, sahēb<br/>annet rāyigūḍa sār</td>
+<td>నావా రాయగూడా సాబ<br/>నాది రాయగూడా సార<br/>मै विलेज इस रैगुडा, सर<br/>मै विलेज इस रैगुडा, सर<br/>➥मैं रायगुडा का हूँ, साहेब<br/>अंनेत रायगूडा सार</td>
+</tr>
+<tr>
+<td>425. నీవ బద్ మండల్?<br/>➥ నీది ఎ మండల్<br/>వాట్ ఇస్ యోర్ మండల్?<br/>తుమ్హూరా మండల్ కొనసాహై?<br/>ఇన్నెత్ ఏ మండల్?</td>
+<td>nīva bad mandal?<br/>nīdi e mandal<br/>➥What is your mandal?<br/>tumhārā mandal kaunasā hai?<br/>innet ē mandal?</td>
+<td>నీవా बद मनडल?<br/>नीदि ए मनडल<br/>वाट इस योर मंडल?<br/>➥तुम्हारा मंडल कौनसा है?<br/>इंनेत ए मनडल?</td>
+</tr>
+<tr>
+<td>426. నావ ఇచ్చోడ మండల్ సాబ్<br/>➥ నాది ఇచ్చోడ మండల్ సార్<br/>మై మండల్ ఇన్ ఇఛోడా, సర్<br/>మేరా మండల్ ఇచోడా హై, సహేబ్<br/>అన్నెత్ ఇచ్చోడ మండల్ సార్</td>
+<td>nāva iccōḍa mandal sāb<br/>nādi iccōḍa mandal sār<br/>➥My mandal is Ichoda, sir<br/>mērā mandal icōdā hai, sāhēb<br/>annet iccōḍa mandal sār</td>
+<td>नावा इझ्रोडा मनडल साब<br/>नादि इझ्रोडा मनडल सार<br/>मै मंडल इस इछोडा, सर<br/>➥मेरा मंडल इचोडा है, साहेब<br/>अंनेत इझ्रोडा मनडल सार</td>
+</tr>
+<tr>
+<td>427. నిమ్మె బేకె बहान वाति? वेह!<br/>➥ నీవు ఎందుకు వచ్చావు చెప్పు<br/>వాట్ హెవ్ యూ కమ్ ఫోర్? టెల్!<br/>ఆప్ క్యో ఆయే హైన్? బతాఇయే!<br/>నీ తానుజ్ వత్తి? ఇడ్!</td>
+<td>nimme bēke bahan vāti? veha!<br/>nīvu enduku vaccāvu ceppu<br/>➥What have you come for? Tell!<br/>āp kyō āyē hain? batāiyē!<br/>nī tānuṉ vatti? iḍḍ!</td>
+<td>నిम्मे బేకే बहन वाति? వెహా!<br/>నీవు ఎన్దుకు వచ్ఛాवु చెప్పు<br/>वाट हेव यू कम फोर? టెల్!<br/>➥आप क्यों आये हैं? बताइये!<br/>नी तानुङ वत्ति? इड्ड!</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<br><br>
+<div class="page-body-container">
+<div class="table"><table>
+<tbody>
+<tr>
+<td>428.</td>
+<td>నన్న నిహ్ కామ్ పియ్సి వాతోన్ సాబ్<br/>→నేను మీ దగ్గర పని కోసం వచ్చను సార్<br/>ఐహెవ్ కమ్ అబౌట్ సమ్ వర్క్ టూ బీ డన్, సర్<br/>మై కుఛ్ కామ్ లేకర్ ఆయా హూ, సాహేబ్<br/>సాబ్ ఆన్ ఇన్నతి పని సుమ్ముత్ వత్తన్</td>
+<td>nanna nihga kām piysi vātōn sāb<br/>nēnu mī daggara pani kōsam vaccanu sār<br/>I have come about some work to be done, sir<br/>mai kuch kām lēkar āyā hū, sāhēb<br/>sāb ān innati pani summut vattan</td>
+<td>నన్నా నిహ్గా काम ప్యిస్ వాతోన్ సాబ్<br/>నెను मी दग्गरा पनि कोसम वज्नु सार<br/>ऐ हैव कम अबौट सम वर्क टू बी डन, सर<br/>मैं कुछ काम लेकर आया हूँ, साहेब<br/>साब आन इन्नति पनि सुम्मुत वत्तन</td>
+</tr>
+<tr>
+<td>429.</td>
+<td>हॉ, हौ! నాక్ వెహ<br/>→ హ! హ! నాకు చెప్పండి<br/>యెస్, యెస్, టెల్ మీ.<br/>హా, బతాఇయే<br/>హో, హౌ! అనుజ్ ఇడ్ద్</td>
+<td>ho, ho! nāk veha<br/>ha! ha! nāku ceppanḍi<br/>Yes, yes, tell me.<br/>hā, batāiyē<br/>ho, ho! anuñ iḍḍ</td>
+<td>हो, हो! नाक वेहा<br/>हा! हा! नाकु चेप्पनडि<br/>यैस, यैस, टेल मी।<br/>हाँ, बताइये<br/>हो, हो! अनुङ इड्ड</td>
+</tr>
+<tr>
+<td>430.</td>
+<td>సాబ్ నావ ఇద్ లెహకీత కాగుత్ సూడ<br/>→సార్ నేను వ్రాసిన ధరఖాస్తు చూడు<br/>సర్, లుక్ ఎట్ డిస్(ఎప్టీకేశన్) పేపర్ ఐ హెవ్ రిటెన్.<br/>యహ్ మేరా అర్జ్ హై, దేఖియే<br/>సార్ ఆన్ వాయ్త కాగుద్ ఓల్</td>
+<td>sāb nāva id lehakīta kāgut sūḍa<br/>sār nēnu vrāsina dharakhāstu cūdu<br/>yah mērā arj hai, dēkhiyē<br/>sār ān vāyta kāgud oḷ</td>
+<td>साब नावा इद लेहकीता कागुत सूडा<br/>सार नेनु ब्रासिना धरखास्तु चूडु<br/>सर, लुक ऐट दिस(ऍप्लीकेशन) पेपर ऐ हैव रिटेन।<br/>सर, लुक ऐट दिस(ऍप्लीकेशन) पेपर ऐ हैव रिटेन।<br/>यह मेरा अर्ज है, देखिये<br/>सार आन वाय्ता कागुद ओल</td>
+</tr>
+<tr>
+<td>431.</td>
+<td>हొ, सीమ్<br/>→ అవును ఇవ్వండి<br/>యెస్, గివ్ ఇట్ టూ మీ.<br/>హా, ముఝ్కో దే దీజియే<br/>ఆయ్ సియ్</td>
+<td>ho, sīm<br/>avunu ivvanḍi<br/>Yes, give it to me.<br/>hā, mujhkō dē dijiyē<br/>āy siy</td>
+<td>हो, सीम<br/>అవును ఇవ్వున్डि<br/>येस, गिव इट टू मी।<br/>ह, मुजhkō dē dijiyē<br/>आय सिय</td>
+</tr>
+<tr>
+<td>432.</td>
+<td>నీకున్ బచ్చొంగ్ ఎక్కర్క్ బొమ్మి మంత<br/>→ నీకు ఎన్ని ఎకరములు భూమి ఉంది<br/>హౌ మెని ఎకర్స్ ఆఫ్ ల్యండ్ డూ యూహెవ్?<br/>తుమ్హారే పాస్ కిత్నె ఏకడ్ జమీన్ హైన్?<br/>ఇనుజ్ ఎన్ని తరికల భూమి అన్సద్</td>
+<td>nīkun baccong ekkark bommi manta<br/>nīku enni ekaramulu bhūmi undi<br/>tumhārē pās kitne ēkaḍ jamin hain?<br/>inuñ enni tarikala bhūmi ansad</td>
+<td>नीकु बज्जोంగ एक्कर्क बोम्मि मनता<br/>नीकु एनि एकरमुलु भूमि उनदि<br/>हौ मेनि ऐकर्स अफ ल्यंड डू यू हैव?<br/>tumhārē pās kitne ekad jamin hain?<br/>inuñ enni tarikala bhūmi ansad</td>
+</tr>
+</tbody>
+</table></div>
+<p class="page-number">101</p>
+</div>
+<br><br>
+<div class="page-body-container">
+<div class="centered-block"><header class="header">గోండి ➥ తెలుగు Gondi ➥ English गोंडि ➥ हिन्दी 102<br/>
+ఇంగ్లిష్ హింది కొలామి Telugu Hindi Kolami तेलुगु अंग्रेजी कोलामि</header></div>
+<div class="table"><table>
+<tbody>
+<tr>
+<td>433.</td>
+<td>నాకున్ 10 దహ ఎక్కర్క్ బొమ్మి మంత సాబ్<br>➥ నాకు పది ఎకరములు భూమి ఉంది సార్<br/>ఐహెవ్ 10 ఎకర్స్ ఆఫ్ ల్యండ్, సర్<br/>మేరే పాస్ దస ఏకడ్ జమీన్ హైన్, సాహేబ్<br/>అనుజ్ పది ఎక్కల్ భూమి అన్నద్ సార్</br></td>
+<td>nākun 10 daha ekkark bommi manta sāb<br/>nāku padi ekaramulu bhūmi undi sār<br/>➥I have 10 acres of land, sir<br/>mērē pās das ekaḍ jamīn hain, sāhēb<br/>anuñ padi ekkal bhūmi ansad sār</td>
+<td>నాకున్ 10 दहा एक्र्क बोम्मि मनता साब<br/>नाकु पदि एकरमुलु भूमि उनदि सार<br/>ऐ हैव १० ऐकर्स अफ ल्यंड, सर<br/>➥मेरे पास दस एकड जमीन हैं, साहेब<br/>अनुङ पदि एक्कल भूमि अंसद सार</td>
+</tr>
+<tr>
+<td>434.</td>
+<td>बొम्मि बాతल मंत?<br/>➥भूमि ఎలా ఉంది?<br/>వాట్ టైప్ अफ सोयल इन इट?<br/>కిస్ తరహ్ కీ మిట్టిహై?<br/>భూమి ఎనజ్ అస్సద?</td>
+<td>bommi bātal manta?<br/>bhūmi elā undi?<br/>➥What type of soil is it?<br/>kis tarah kī miṭṭi hai?<br/>bhūmi enaṅ ansad?</td>
+<td>बोम्मि बातल मनता?<br/>भूमि एला उनदि?<br/>वाट टैप अफ सोयिल इस इट?<br/>➥किस तरह की मिट्टी है?<br/>भूमि एनङ अंसद?</td>
+</tr>
+<tr>
+<td>435.</td>
+<td>నావ కానర్ బొమ్మి మంత సాబ్<br/>➥ నాది నల్ల రేగడి ఉంది సార్<br/>మైన్ ఇన్(గుడ్) డాక్ సోయిల్, సర్<br/>మేరా అచ్చా కాలీ మిట్టిహై, సాహేబ్<br/>అన్నెత్ కనర్ భూమి అన్సద్</td>
+<td>nāva kānar bommi manta sāb<br/>nādi nalla rēgadi undi sār<br/>➥Mine is(good) dark soil, sir<br/>mērā acchā kālī miṭṭi hai, sāhēb<br/>annet kanar bhūmi ansad</td>
+<td>नावा कानर बोम्मि मनता साब<br/>नादि नल्ला रेगडि उनदि सार<br/>मैन इस(गुड) डाक सोयिल, सर<br/>➥मेरा अच्छा काली मिट्टी है, साहेब<br/>अंनेत कनर भूमि अंसद</td>
+</tr>
+<tr>
+<td>436.</td>
+<td>నీకున్ బతల్ పహ్జా<br/>➥ నీకు ఏమి కావాలి<br/>వాట్ డూ యూ నీడ్?<br/>తుమ్హే క్యా చాహియే?<br/>ఇనుజ్ తానెద్ పాజే</td>
+<td>nīkun batal pahje<br/>nīku ēmi kāvāli<br/>➥What do you need?<br/>tumhē kyā cāhiyē?<br/>inuñ tāned pājē</td>
+<td>नीकुन बतल पह्जे<br/>नीकु एमि कावालि<br/>वाट डू यू नीड?<br/>➥तुम्हें क्या चाहिये?<br/>इनुङ तानेद पाजे</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</body>
+</html>

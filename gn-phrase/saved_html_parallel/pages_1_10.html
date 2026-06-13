@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html lang="te-IN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+body {
+    padding: 0 !important;
+    margin: 0 !important;
+    background-color: white !important;
+    width: 100% !important;
+    font-family: serif;
+}
+
+.page-body-container {
+    background-color: white;
+    width: 210mm;
+    margin: 0 auto;
+    padding: 20mm 15mm;
+    box-sizing: border-box;
+    min-height: 100vh;
+}
+
+p.paragraph, .paragraph, .block, .quote, .ordered-list, .unordered-list,
+.advertisement, .answer, .contact-info, .index, .options,
+.reference, .unknown, .sidebar, .footnote {
+    text-align: justify !important;
+    text-align-last: left !important;
+    text-justify: inter-word !important;
+    font-size: inherit !important;
+    line-height: 1.3 !important;
+    margin: 0 0 12pt 0 !important;
+    text-indent: 18pt !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box;
+}
+
+.quote, .ordered-list, .unordered-list, .sidebar, .footnote {
+    text-indent: 0 !important;
+}
+
+.multi-column-row { font-size: 12pt; }
+.multi-column-row.cols-1 { font-size: 12pt; }
+.multi-column-row.cols-2 { font-size: 11pt; gap: 18pt; }
+.multi-column-row.cols-3 { font-size: 10pt; gap: 16pt; }
+.multi-column-row.cols-4 { font-size: 9pt; gap: 12pt; }
+
+.page-body-container > p.paragraph,
+.page-body-container > .paragraph {
+    font-size: 12pt !important;
+}
+
+h1.chapter-title {
+    font-size: 30pt !important;
+    line-height: 1.1 !important;
+    margin: 0 0 12pt 0 !important;
+    text-align: center !important;
+    font-weight: bold;
+}
+
+h2.section-title, h2.headline {
+    font-size: 18pt !important;
+    line-height: 1.1 !important;
+    margin: 12pt 0 8pt 0 !important;
+    text-align: center !important;
+    font-weight: bold;
+}
+
+h3.sub-section-title, h3.sub-headline,
+h4.subsub-section-title, h4.subsub-headline {
+    font-size: 13pt !important;
+    line-height: 1.25 !important;
+    margin: 12pt 0 4pt 0 !important;
+    text-align: center !important;
+    font-weight: bold;
+}
+
+.multi-column-row {
+    width: 100% !important;
+    margin: 12pt 0 !important;
+    display: grid;
+}
+
+.column-block {
+    text-align: left !important;
+    text-align-last: left !important;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    min-width: 0;
+    overflow-wrap: break-word;
+    width: 100%;
+}
+
+.column-block p {
+    text-indent: 0 !important;
+    margin-bottom: 8pt !important;
+    font-size: inherit !important;
+}
+
+.column-block p br {
+    display: none;
+}
+
+.centered-block {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin: 12pt 0;
+}
+
+.centered-block > * {
+    text-align: center !important;
+    font-size: 13pt !important;
+    max-width: 100% !important;
+    margin: 0 auto !important;
+    text-indent: 0 !important;
+}
+
+.table table {
+    width: 100% !important;
+    margin: 18pt 0 !important;
+    border-collapse: collapse;
+    border: 1.5pt solid #333;
+    table-layout: fixed;
+    font-size: 11pt;
+    line-height: 1.2;
+}
+
+.table table td,
+.table table th {
+    word-break: normal;
+    overflow-wrap: break-word;
+    padding: 6pt;
+    font-size: inherit;
+    border: 0.5pt solid #333;
+    text-align: center;
+}
+
+.table table td:first-child,
+.table table th:first-child {
+    text-align: left;
+}
+
+.table table td:not(:first-child),
+.table table th:not(:first-child) {
+    white-space: nowrap;
+    text-align: right;
+}
+
+.column-block .table table {
+    width: 100% !important;
+    table-layout: fixed;
+    margin: 12pt 0;
+    border-collapse: collapse;
+    border: 1.5pt solid #333;
+}
+
+.column-block .table table td,
+.column-block .table table th {
+    word-break: break-word;
+    padding: 6pt;
+    font-size: 10pt;
+    border: 0.5pt solid #333;
+    text-align: center;
+}
+
+.column-block .table table td:first-child,
+.column-block .table table th:first-child {
+    text-align: left;
+}
+
+.column-block .table table td:not(:first-child),
+.column-block .table table th:not(:first-child) {
+    white-space: nowrap;
+    text-align: right;
+}
+
+.quote {
+    font-size: 13pt !important;
+    margin: 0 0 0 0 !important;
+    padding: 0 20px !important;
+    font-style: italic;
+    border-left: 3px solid #ccc;
+    text-align: justify !important;
+    text-indent: 0 !important;
+}
+
+.ordered-list, .unordered-list {
+    font-size: inherit !important;
+    margin: 0 0 0 0 !important;
+    padding-left: 40px !important;
+    text-align: justify !important;
+    text-indent: 0 !important;
+}
+
+.sub-ordered-list, .sub-unordered-list {
+    font-size: inherit !important;
+    margin: 0 0 0 0 !important;
+    padding-left: 60px !important;
+    text-align: justify !important;
+    text-indent: 0 !important;
+}
+
+.subsub-ordered-list, .subsub-unordered-list {
+    font-size: inherit !important;
+    margin: 0 0 0 0 !important;
+    padding-left: 80px !important;
+    text-align: justify !important;
+    text-indent: 0 !important;
+}
+
+.image, .chart, .diagram, .photograph {
+    margin: 16px auto;
+    text-align: center;
+    max-width: 100% !important;
+}
+
+.image img, .chart img, .diagram img, .photograph img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    border: 1px solid #ddd;
+}
+
+.chart {
+    border: 2px solid #4a90d9;
+    padding: 8px;
+    background-color: #f8fafc;
+}
+
+.diagram {
+    border: 2px solid #6b7280;
+    padding: 8px;
+    background-color: #f9fafb;
+}
+
+.photograph {
+    border: 2px solid #059669;
+    padding: 4px;
+    background-color: #f0fdf4;
+}
+
+.image-caption {
+    font-style: italic;
+    margin: 8px auto;
+    text-align: center;
+    max-width: 100% !important;
+}
+
+.header, .footer {
+    font-size: 13pt !important;
+    margin: 12px auto;
+    text-align: center;
+    max-width: 100% !important;
+}
+
+.sidebar {
+    font-size: inherit !important;
+    margin: 12px auto;
+    padding: 10px;
+    background-color: #f5f5f5;
+    text-align: justify !important;
+    text-indent: 0 !important;
+}
+
+.footnote {
+    font-size: inherit !important;
+    margin: 8px auto;
+    padding-left: 20px;
+    text-align: justify !important;
+    text-indent: 0 !important;
+}
+
+hr.footnote-separator {
+    border: none;
+    border-top: 1px solid #999;
+    width: 40%;
+    margin: 16px 0 8px 0;
+}
+
+a.footnote-ref {
+    color: inherit;
+    text-decoration: none;
+}
+
+a.footnote-ref:hover {
+    text-decoration: underline;
+}
+
+.advertisement, .answer, .contact-info, .index, .options,
+.reference, .unknown {
+    font-size: inherit !important;
+    margin: 0 0 12pt 0 !important;
+    text-align: justify !important;
+}
+
+.author, .dateline, .flag, .formula, .jumpline,
+.page-number, .folio, .website-link,
+.first-level-question, .second-level-question, .third-level-question {
+    font-size: inherit !important;
+    margin: 12px auto;
+    text-align: center;
+    max-width: 100% !important;
+    text-indent: 0 !important;
+}
+    </style>
+</head>
+<body>
+<div class="page-body-container">
+<div class="centered-block"><header class="header">గోండి ➥ తెలుగు<br/>
+ఇంగ్లిష్ హిందీ కొలామి<br/>
+<br/>
+Gondi ➥ English<br/>
+Telugu Hindi Kolami<br/>
+<br/>
+గोंडि ➥ हिन्दी<br/>
+तेलुगु अंग्रेजी कोलामि<br/>
+<br/>
+2</header></div>
+<div class="table"><table>
+<thead>
+<tr>
+<th></th>
+<th>ముందు మాట్లడుట</th>
+<th>Beginning To Speak</th>
+<th>પહેલે વાત</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1.</td>
+<td>హొ<br>➥అవును<br>యెస్<br>హా<br>ఆయ్</br></br></br></br></td>
+<td>ho<br>avunu<br>➥Yes<br>hā<br>āy</br></br></br></br></td>
+<td>हो<br>అవును<br/>येस<br/>हाँ<br/>आय</br></td>
+</tr>
+<tr>
+<td>2.</td>
+<td>సిల్లె<br/>➥లేదు / కాదు<br/>నో<br/>నహీ<br/>తోతెద్</td>
+<td>sille<br/>lēdu / kādu<br/>➥No<br/>nahī<br/>tōted</td>
+<td>सिल्ले<br/>लेदु / कादु<br/>नो<br/>नहीं<br/>तोतेद</td>
+</tr>
+<tr>
+<td>3.</td>
+<td>రాం! రాం!<br/>➥నమస్కారామండి<br/>హెలో<br/>నమస్తే<br/>రాం రాం</td>
+<td>rām! rām!<br/>namaskāramandi<br/>➥Hello<br/>namastē<br/>rām rām</td>
+<td>राम! राम!<br/>नमस्कारनडि<br/>हेलो<br/>नमस्ते<br/>राम राम</td>
+</tr>
+<tr>
+<td>4.</td>
+<td>చొకొట్ మంతి?<br/>➥బాగున్నారా?</td>
+<td>cokoṭ manti?<br/>bāgunnārā?<br/>➥How are you?</td>
+<td>चोकोट मनति?<br/>बागुन्नारा?<br/>हौ आर यू?<br/>आप कैसे हैं?<br/>सोय असतिवा?</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<br><br>
+<div class="page-body-container">
+<div class="table"><table>
+<tbody>
+<tr>
+<td>5.</td>
+<td>చొకొట్ మంతోన్<br/>➥నేను బాగున్నాను<br/>ఐ ఎమ్ ఫైన్<br/>మై రీక్ హూ<br/>సోయ్ అన్సత్</td>
+<td>cokoṭ mantōn<br/>nēnu bāgunnānu<br/>➥I am fine<br/>mai thīk hū<br/>sōy ansat</td>
+<td>चोकोट मनतोन<br/>नेनु बागुन्नानु<br/>ऐ ऐम फैन<br/>➥मैं ठीक हूँ<br/>सोय अंसत</td>
+</tr>
+<tr>
+<td>6.</td>
+<td>चொகொட் மந்த<br/>➥ఇది బాగుంది<br/>ఇట్ ఇన్ గుడ్<br/>యహ్ అచ్ఛాహై<br/>సోయ్ అన్సత్</td>
+<td>cokoṭ manta<br/>idi bāgundi<br/>➥It is good<br/>yah acchā hai<br/>sōy ansad</td>
+<td>चोकोट मनता<br/>इदि बागुनदि<br/>इट इस गुड<br/>➥यह अच्छा है<br/>सोय अंसद</td>
+</tr>
+<tr>
+<td>7.</td>
+<td>चొಕೊట్ సిల్లె<br/>➥ఇది బాగలేదు<br/>ఇట్ ఇన్ నాట్ గుడ్<br/>యహ్ అచ్ఛా నహిహై<br/>సోయ్ తోతెద్(வாய்ட்)</td>
+<td>cokoṭ sille<br/>idi bāgalēdu<br/>➥It is not good<br/>yah acchā nahī hai<br/>sōy tōted(vāyiṭ)</td>
+<td>चोकोट सिल्ले<br/>इदि बागलेदु<br/>इट इस नाट गुड<br/>➥यह अच्छा नहीं है<br/>सोय तोतेद(வாயிட்)</td>
+</tr>
+<tr>
+<td>8.</td>
+<td>నన్న కోయంగ్ కరిసేర్ మంతోన్<br/>➥నేను గోండి భాష నేర్చుకుంటున్నాను<br/>ఐ ఎమ్ లర్నింగ్ గోండి<br/>మై గోండీ భాషా సీఖ్ రహ / రహీ హూ<br/>ఆన్ గోండి కరప్సా అన్సత్</td>
+<td>nanna kōyang karisēr mantōn<br/>nēnu gōndī bhāṣa nērcukuṇṭunnānu<br/>➥I am learning Gondi<br/>mai gōndī bhāshā sikh rahā / rahī hū<br/>ān gōndī karapsa ansat</td>
+<td>नन्ना कोयंग करिसेर मनतोन<br/>नेनु गोनडि भाषा नेर्चुकुनटुन्नानु<br/>ऐ ऐम लर्निंग गोंडि<br/>➥मैं गोंडी भाषा सीख रहा / रही हूँ<br/>आन गोनडि करप्सा अंसतस</td>
+</tr>
+<tr>
+<td>9.</td>
+<td>నాక్ టావా సిల్లె<br/>➥నాకు తెలియదు<br/>ఐ డోంట్ నో<br/>ముఝే మాలూమ్ నహిహే<br/>ఆనుజ్ ఒర్కితోద్</td>
+<td>nāk ṭavā sille<br/>nāku teliyadu<br/>➥I don’t know<br/>mujhē mālūm nahī hē<br/>ānuṅ orki tōd</td>
+<td>नाक टावा सिल्ले<br/>नाकु तेलियदु<br/>ऐ डोंट नो<br/>➥मुझे मालूम नहीं हे<br/>आनुङ ओकिं तोद</td>
+</tr>
+</tbody>
+</table></div>
+<p class="page-number">3</p>
+</div>
+<br><br>
+<div class="page-body-container">
+<div class="centered-block"><header class="header">గోండి ➥ తెలుగు<br/>
+ఇంగ్లిష్ హింది కొలామి<br/>
+<br/>
+Gondi ➥ English<br/>
+Telugu Hindi Kolami<br/>
+<br/>
+గोंडि ➥ हिन्दी<br/>
+तेलुगु अंग्रेजी कोलामि<br/>
+<br/>
+4</header></div>
+<div class="table"><table>
+<thead>
+<tr>
+<th>గోండి ➔ తెలుగు<br>ఇంగ్లిష్ హింది కొలామి</br></th>
+<th>Gondi ➔ English<br>Telugu Hindi Kolami</br></th>
+<th>गोंडि ➔ हिन्दी<br>तेलुगु अंग्रेजी कोलामि</br></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>10. నాక్ కరే మాయ్యకి<br>➥ నాకు అర్థం కావటం లేదు<br>ఐ డోంట్ అండర్ స్టేండ్<br>మై నహీ సమఝా<br>ఆనుజ్ కరిలెద్</br></br></br></br></td>
+<td>nāk karē māymaki<br>nāku artham kāvaṭam lēdu<br>➥I don’t understand<br/>mai nahī samajhā<br/>ānuŋ kariled</br></br></td>
+<td>नाक करे मायमकि<br/>नाकु अर्थम कावटम लेदु<br/>ऐ डोंट अंडर स्टैंड<br/>मै नहीं समझा<br/>आनुङ करिलेद</td>
+</tr>
+<tr>
+<td>11. నన్న జర్ర-జర్ర కోయంగ్ కరితోన్<br/>➥ నేను కొంతమటుకు గోండి భాష నేర్చుకున్నాను<br/>ఐహెవ్ లరంట్ అలిటల్ గోండి<br/>మై థోడీ-థోడీ సీ గోండీ భాషా సీఖా/సీఖీ హూ<br/>అన్ జరజర గోండి కరప్తాన్</td>
+<td>nanna jarra-jarra kōyang karitōn<br/>nēnu kontamaṭuku gõndi bhāśa nērcukunnānu<br/>➥I have learnt a little Gondi<br/>mai thōḍi-thōḍi sī gõndī bhāśā sikhā/sikhī hū<br/>ān jarajara gõndi karaptān</td>
+<td>नन्ना जरा-जर्रा कोयंग करितोन<br/>नेनु कोनतमटुक् गोनडि भाषा नेर्चुकुन्नानु<br/>ऐ हैव लरंट अ लिटल गोंडि<br/>➥मैं थोडी-थोडी सी गोंडी भाषा सीखा/सीखी हूँ<br/>आन जरजरा गोनडि करप्तान</td>
+</tr>
+<tr>
+<td>12. నా సంగ కోయనె వడ్క<br/>➥ నాతో గోండిలో మాట్లాడు<br/>స్పీక్ విద్ మీ ఇన్ గోండి<br/>ముయ్సొ గోండీ భాషామే బాత్ కరో<br/>అన్ వెంట గోండి ముడ్</td>
+<td>nā sanga kōyane vaḍka<br/>nātō gõndilō māṭilādu<br/>➥Speak with me in Gondi<br/>mujhse gõndi bhāśā mē bāt karō<br/>an veṇṭa gõndi muḍ</td>
+<td>నా సంగా कोयనే वडకా<br/>नातो गोनडिलो माट्लाडु<br/>स्पीक विद मी इन गोंडि<br/>➥मुझसे गोंडी भाषा में बात करो<br/>अन वेनटा गोनडि मुड़</td>
+</tr>
+<tr>
+<td>13. కోయనె తేన్ బతల్ ఇంతేర్?<br/>➥ గోండి భాషలో దీనిని ఏమంటారు?<br/>వాట్ డూ యూ కాల్ డిస్ ఇన్ గోండి?<br/>గోండీ మే ఇసే క్యా బోల్తెహై?<br/>గోండినడ్ ఇదున్ తానె ఇసర్?</td>
+<td>kōyanē tēn batal intēr?<br/>gõndi bhāśalō dinini ēmaṃntāru?<br/>➥What do you call this in Gondi?<br/>gõndi mē isē kyā bôlte hai?<br/>gõndinaḍ idun tāne isar?</td>
+<td>कोयने तेन बतल इतెర?<br/>गोनडि भाषलो दीनिनि एमनटारु?<br/>वाट डू यू काल दिस इन गोंडि?<br/>➥गोंडी में इसे क्या बोलते है?<br/>गोनडिनड इदुन ताने इसर?</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<br><br>
+<div class="page-body-container">
+<div class="table"><table>
+<tbody>
+<tr>
+<td>14.</td>
+<td>నిమ్మె బతల్ ఇత్తి?<br/>➥ మీరు ఏమన్నారు?<br/>వాట్ డిడ్ యూసే?<br/>ఆప్నె క్యా కహా?<br/>నీర్ తానేవ్ ఇంతిర్?</td>
+<td>nimme batal itti?<br/>mīru ēmannāru?<br/>➥What did you say?<br/>āpne kyā kahā?<br/>nīr tānev intir?</td>
+<td>నిమ్మె బతల్ ఇత్తి?<br/>మీరు ఎమ్నారు?<br/>वाट डिड यू से?<br/>➥आपने क्या कहा?<br/>నీర్ तानेव इनतिर?</td>
+</tr>
+<tr>
+<td>15.</td>
+<td>వడ్క<br/>➥ మాట్లాడు<br/>స్పీక్<br/>బతాఇయే<br/>ముడ్</td>
+<td>vaḍka<br/>mātlıādu<br/>↳Speak<br/>batāiyē<br/>muḍ</td>
+<td>वडకా<br/>మాట్లూడు<br/>ਸਪੀਕ<br/>➥बताइये<br/>मुड</td>
+</tr>
+<tr>
+<td>16.</td>
+<td>మర్ధ వెహ<br/>➥ మళ్ళీ చెప్పండి<br/>సే ఇట్ అగెన్<br/>ఫిర్ బోలియే<br/>మల్ల ఇడ్డ్</td>
+<td>marla veha<br/>maḷḷi ceppanḍi<br/>↳Say it again<br/>phir bōliyē<br/>malla idḍ</td>
+<td>మర్లు వెహా<br/>మళ్లీ చెప్పనడి<br/>సె ఇట అగన్<br/>➥फिर बोलिये<br/>మల్లా ఇడ్డు</td>
+</tr>
+<tr>
+<td>17.</td>
+<td>జోక్-జోక్ వడ్క<br/>➥ మెల్ల-మెల్లగా మాట్లాడు<br/>స్పీక్ స్లోలీ<br/>ధీరేసే బాత్ కిజియే<br/>సిత్తం సిత్తం ముడ్</td>
+<td>jōk-jōk vaḍka<br/>mella-mellagā mātlıādu<br/>↳Speak slowly<br/>dhīrē sē bāt kijiyē<br/>sittam sittam muḍ</td>
+<td>జੋਕ-जोक वडका<br/>मेल्ला-मेल्लगा माट्लाडु<br/>स्पीक स्लोली<br/>➥धीरे से बात कीजिये<br/>सिट्तम सित्तम मुड</td>
+</tr>
+<tr>
+<td>18.</td>
+<td>వెయ్యె వెహ<br/>➥ త్వరగా చెప్పండి<br/>సే ఇట్ ఫాస్ట్<br/>జల్దీ బోలియే<br/>సప్పన ఇడ్</td>
+<td>veyne veha<br/>tvaragā ceppanḍi<br/>↳Say it fast<br/>jaldi bōliyē<br/>sappana iḍ</td>
+<td>वेय्ने वेहा<br/>त्वरगा चेप्पनडि<br/>से इट फास्ट<br/>➥जल्दी बोलिये<br/>सप्पना इड</td>
+</tr>
+</tbody>
+</table></div>
+<p class="page-number">5</p>
+</div>
+<br><br>
+<div class="page-body-container">
+<div class="table"><table>
+<thead>
+<tr>
+<th>గోండి ➥ తెలుగు<br/>ఇంగ్లిష్ హిందీ కొలామి</th>
+<th>Gondi ➥ English<br/>Telugu Hindi Kolami</th>
+<th>గोंडि ➥ हिन्दी<br/>तेलुगु अंग्रेजी కోలామి</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>19.</td>
+<td>వోర్ బతల్ వెహ్త్ఓర్?<br/>➥ ఆయన ఏమి చెప్పారు?<br/>వాట్ డిడ్ హీసే?<br/>ఉంహానే క్యా బోలా?<br/>అమ్ద్ తానెన్ ఇడ్తేంద్?</td>
+<td>vör batal vehtör?<br/>āyana ēmi ceppāru?<br/>What did he say?<br/>unhōnē kyā bōlā?<br/>amd tānen iḍtēnd?</td>
+<td>वोर बतल वेह्तोर?<br/>आयना एमि चेप्पारु?<br/>वाट डिड ही से?<br/>उन्होने क्या बोला?<br/>अम्द तानेन इड्तेनद?</td>
+</tr>
+<tr>
+<td>20.</td>
+<td>इद करल की?<br/>➥ यह वास्तविक देना?<br/>इन इट ट्रू?<br/>क्या यह सहिहा?<br/>इद् करे तदिया?</td>
+<td>id karal kī?<br/>idi nijamaina dēnā?<br/>↳Is it true?<br/>kyā yah sahī hai?<br/>id kare tadiyā?</td>
+<td>इद करल की?<br/>इदि निजमैना देना?<br/>इस इट ट्रू?<br/>➤क्या यह सही है?<br/>इद करे तदिया?</td>
+</tr>
+<tr>
+<td>21.</td>
+<td>నన్న బహ్కె మాసి వడ్క్ తెకె వెహ<br/>➥ నేను తప్పు మాట్లాడితే నాకు చెప్పండి<br/>టెల్ మీ ఇఫ్ ఐ మేక్ అ మిస్టేక్ వైల్ స్పీకింగ్<br/>మేరే బాతచీత్ మే గలతీ హుఈ తో బతాఇయే<br/>ఆన్ గల్త్ ముట్టె ఇడ్</td>
+<td>nanna bahke māsi vaḍkteke veha<br/>nēnu tappu mātlādītet nāku ceppanḍi<br/>↳Tell me if I make a mistake while speaking<br/>mērē bātacit mē galatī huī tō batāiyē<br/>ān galat muṭṭe id</td>
+<td>नन्ना बह्के मासि वड्कतेके वेहा<br/>नेनु तप्पु माट्लाडिते नाकु చెప్పన్డి<br/>टेल मी इफ ऐ मेक अ मिस्टेक वैल स्पीकिंग<br/>➤मेरे बातचीत में गलती हुई तो बताइये<br/>आन गलत मुट्टे इड</td>
+</tr>
+<tr>
+<td>22.</td>
+<td>నాక్ కరే మాయ్మకి<br/>➥ నాకు అర్థం కావటం లేదు<br/>ఐ డూ నాట్ అండర్ స్టేండ్<br/>ముఝే సమఝ్ మే నహి ఆ రహాహై<br/>అనుజ్ కరిల్సా తోతేద్</td>
+<td>nāk karē māymaki<br/>nāku artham kāvaṭam lēdu<br/>↳I do not understand<br/>mujhē samajh mē nahī ā rahā hai<br/>anuṉ karilsa totead</td>
+<td>नाक करे मायमकि<br/>नाकु अर्थम कावटम लेदु<br/>ऐ डू नाट अंडर स्टेंड<br/>➤मुझे समझ मे नही आ रहा है<br/>अनुङ करिलसा तोतेद</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<br><br>
+<div class="page-body-container">
+<div class="table"><table>
+<tbody>
+<tr>
+<td>23.</td>
+<td>నాక్ జరసి కరే మాత<br/>➥ నాకు కొద్దిగా అర్థమయింది<br/>ఐ అండర్ స్టేండ్ ఓన్ లి అ లిటల్<br/>మై థోడా హీ సమఝతా హూ<br/>అనుజ్ ఉసుటెగిన కరిలెతిన్</td>
+<td>nāk jarasi karē māta<br/>nāku koddigā arthamayindi<br/>➥| I understand only a little<br/>mai thōḍā hī samajhatā hū<br/>anuñ usuṭegina kariletin</td>
+<td>नाक जरसि करे माता<br/>नाकु कोद्दिगा अर्थमयिनदि<br/>ऐ अंडर स्टेंड ओन लि अ लिटल<br/>➥मैं थोडा ही समझता हूँ<br/>अनुङ उसुटेगिना करिलेतिन</td>
+</tr>
+<tr>
+<td>24.</td>
+<td>నాక్ కోయంగ్ వడ్క వాయొ<br/>➥ నాకు గోండి భాషలో మాట్లాడడం రాదు<br/>ఐ డూ నాట్ నో హౌ టూ స్పీక్ ఇన్ గోండి<br/>గోండీ మే బాత్ కర్నె కీ తరీకా ముఝె నహి మాలూమ్<br/>అనుజ్ గోండి ముడజ్ వరెడ్</td>
+<td>nāk kōyang vaḍka vāyo<br/>nāku gõndi bhāṣalō māṭlāḍaṃ rādu<br/>➥| I do not know how to speak in Gondi<br/>gõndi mē bāt karne kī tarikā mujhē nahī mālūm<br/>anuñ gõndi muḍan vared</td>
+<td>नाक कोयंग वडका वायो<br/>नाकु गोनडि भाषलो माट्लाडडम रादु<br/>ऐ डू नाट नो हौ टू स्पीक इन गोंडि<br/>➥गोंडी में बात करने की तरीका मुझे नहीं मालूम<br/>अनुङ गोनडि मुडङ वरेद</td>
+</tr>
+<tr>
+<td>25.</td>
+<td>నన్న కోయంగ్ కరియ లాగర్<br/>➥ నేను గోండి భాష నేర్చు కోవాలి<br/>ఐ వంట్ టూ లర్న్ గోండి<br/>మై గోండీ సీఖ్నా చాహ్తో హూ<br/>ఆన్ గోండి కరపెజ్ పాజె</td>
+<td>nanna kōyang kariya lāgar<br/>nēnu gõndi bhāṣa nērcu kōvāli<br/>➥| I want to learn Gondi<br/>mai gõndi sīkhnā cāhtā hū<br/>ān gõndi karapeṇ pāje</td>
+<td>नन्ना कोयंग करिया लागर<br/>नेनु गोनडि भाषा नेर्चु कोवालि<br/>➥मैं गोंडी सीखना चाहता हूँ<br/>आन गोनडि करपेङ पाजे</td>
+</tr>
+</tbody>
+</table></div>
+<div class="table"><table>
+<thead>
+<tr>
+<th>కలిసి మాట్లాడుట</th>
+<th>Initial Conversation</th>
+<th>मिलने के बातचीत</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>26. నీవ బత్త పాడి?<br/>➥ మీ కుటుంబం పేరు?<br/>వాట్ ఇస్ యోర్ సర్ నేమ్?<br/>ఆప్కె ఉపనామ్ క్యా హై?<br/>ఇన్నెత్ తా పాడి</td>
+<td>nīva batta pāḍi?<br/>mī kuṭumbam pēru?<br/>➥What is your surname?<br/>āpke upanām kyā hai?<br/>innet tā pāḍi</td>
+<td>నీవా బతా పాడి?<br/>మీ కుటుంబం పెరు?<br/>वाट इस योर सर नेम?<br/>➥आपके उपनाम क्या है?<br/>ఇంనేత ता పాడి</td>
+</tr>
+</tbody>
+</table></div>
+<footer class="footer">7</footer>
+</div>
+<br><br>
+<div class="page-body-container">
+<div class="centered-block"><header class="header">గోండి ➥ తెలుగు Gondi ➥ English गोंडि ➥ हिन्दी 8<br/>
+ఇంగ్లిష్ హింది కొలామి Telugu Hindi Kolami तेलुगु अंग्रेजी कोलामि</header></div>
+<div class="table"><table>
+<thead>
+<tr>
+<th>गोండి ➔ తెలుగు<br>ఇంగ్లిష్ హింది కొలామి</br></th>
+<th>Gondi ➔ English<br/>Telugu Hindi Kolami</th>
+<th>गोंडि ➔ हिन्दी<br/>तेलुगु अंग्रेजी कोलामि</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>27. నావ పేందోర్<br/>➥ మా కుటుంబం పేరు పేందుర్<br/>మై సర్ నేమ్ ఇస్ పేందూర్<br/>మేరా ఉపనామ్ పేందూర్ హై<br/>అన్నత్ పేందుర్</td>
+<td>nāva pēndōr<br/>mā kuṭumbam pēru pēndur<br/>➥My surname is Pendur<br/>mērā upanām pēndūr hai<br/>annat pēndur</td>
+<td>నావా పెనదొర<br/>మా కుటుంబం పెరు పెనదూరు<br/>मै सर नेम इस पेंदूर<br/>➥मेरा उपनाम पेन्दूर है<br/>अन्नत पेनदुर</td>
+</tr>
+<tr>
+<td>28. నీవ బద్ నార్?<br/>➥ నీ ఊరేది?<br/>విచ్ ఇన్ యోర్ విలెజ్?<br/>ఆప్పె గావ్ కా నామ్ క్యాహై?<br/>ఇన్నెట్ ఏ ఊర్‌?</td>
+<td>nīva bad nār?<br/>nī ūrēdi?<br/>➥Which is your village?<br/>➥Which is your village?<br/>āpke gāv kā nām kyā hai?<br/>innet ē ūr?</td>
+<td>నీవా बद नार?<br/>नी ऊरेदि?<br/>विच इस योर विलेज?<br/>➥आपके गाँव का नाम क्या है?<br/>इंनेत ए ऊर?</td>
+</tr>
+<tr>
+<td>29. నావ భీముగూడ<br/>➥ మా ఊరు భీముగూడ<br/>మై విలెజ్ ఇన్ భీముగూడా<br/>మేరా గావ్ భీముగుడా హై<br/>అన్నెట్ బీముగూడ</td>
+<td>nāva bhīmugūḍa<br/>mā ūru bhīmugūḍa<br/>➥My village is Bheemuguda<br/>mērā gāv bhīmuguḍā hai<br/>annet bīmugūḍa</td>
+<td>नावा भीमुगूडा<br/>मा ऊरु भीमुगूडा<br/>मै विलेज इस भीमुगूडा<br/>➥मेरा गाँव भीमुगुडा है<br/>अंनेत बीमुगूडा</td>
+</tr>
+<tr>
+<td>30. नीव बत पोरोल?<br/>➥ नी పేరు ఏమిటి?<br/>वाट इन यోర్ नेమ్?<br/>ఆప్పా నామ్ క్యాహై?<br/>ఇన్నెట్ తాపేర్?</td>
+<td>nīva bata porōl?<br/>nī pēru ēmiti?<br/>➥What is your name?<br/>āpkā nām kyā hai?<br/>innet tā pēr?</td>
+<td>नीवा बता पोरोल?<br/>नी पेरु एमिटि?<br/>वाट इस योर नेम?<br/>➥आपका नाम क्या है?<br/>इंनेत ता पेर?</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<br><br>
+<div class="page-body-container">
+<div class="table"><table>
+<tbody>
+<tr>
+<td>31.</td>
+<td>నావ దుర్నత్ రావ్<br/>➥ నా పేరు దుర్నత్ రావ్<br/>మై నేమ్ ఇస్ దుర్నథ్ రావ్<br/>మేరా నామ్ దూర్నాథ్ రావ్ హై<br/>అన్నెత్ దుర్నత్ రావ్</td>
+<td>nāva durnat rāv<br/>nā pēru durnat rāv<br/>→My name is Durnath Rao<br/>mērā nām dūrnāth rāv hai<br/>annet durnat rāv</td>
+<td>నావా दुर्नत राव<br/>ना पेरु दुर्नत राव<br/>मै नेम इस दुर्नथ राव<br/>➥मेरा नाम दूर्नाथ राव है<br/>अनेत दुर्नत राव</td>
+</tr>
+<tr>
+<td>32.</td>
+<td>నిమ్మె బేకె దాంతి?<br/>➥ నీవు ఎక్కడికి వెళ్తున్నావు?<br/>వేర్ ఆర్ యూ గోఇంగ్?<br/>ఆప్ కిధర్ జా రహేహైన్?<br/>నీ ఎదె సెసతి?</td>
+<td>nimme bēke dānti?<br/>nīvu ekkadiki veḷtunāvu?<br/>→Where are you going?<br/>āp kidhar jā rahē hain?<br/>nī ede sesati?</td>
+<td>నిమ్మె బేకే दानति?<br/>నీవు ఎక్లడికి వెళ్తున్నాवु?<br/>వెర ఆర్ యూ గోయింగ?<br/>➥आप किधर जा रहे हैं?<br/>नी एदे सेसति?</td>
+</tr>
+<tr>
+<td>33.</td>
+<td>నాటె దాంతోన్<br/>➥ ఊరి వైపు వెళ్తున్నాను<br/>ఐ ఎమ్ గోఇంగ్ టువర్డ్స్ ద విలేజ్<br/>మై గావ్ కీ ఓర్ జరా హూ<br/>ఊర్ వైసెసత్</td>
+<td>nāṭe dāntōn<br/>ūri vaipu veḷtunānu<br/>→I am going towards the village<br/>mai gāv kī ōr jā rahā hū<br/>ūr vai sesat</td>
+<td>నాటే दानतोन<br/>ऊरि बैपु वेळ्तुन्नानु<br/>ऐ ऐम गोइंग टुवाड्स द विलेज<br/>➥मैं गाँव की ओर जा रहा हूँ<br/>ऊर वै सेसत</td>
+</tr>
+<tr>
+<td>34.</td>
+<td>నిమ్మె బతల్ కామ్ కీంతి?<br/>➥ నీవేమి పని చేస్తావు?<br/>వాట్ వర్క్ డూ యూడూ?<br/>ఆప్ క్యా కామ్ కర్తెహైన్?<br/>నీ తా పని కల్సతి?</td>
+<td>nimme batal kām kīnti?<br/>nīvēmi pani cēstāvu?<br/>→What work do you do?<br/>āp kyā kām karte hain?<br/>nī tā pani kalsati?</td>
+<td>నిम्मे बतल काम कीनति?<br/>नीवेमि पनि चेस्तावु?<br/>वाट वर्क डू यू डू?<br/>➥आप क्या काम करते हैं?<br/>नी ता पनि कल्सति?</td>
+</tr>
+<tr>
+<td>35.</td>
+<td>నన్న ఖేతి కామ్ కీంతోన్<br/>➥ నేను వ్యవసాయం పని చేస్తాను<br/>ఐ ఎమ్ అ ఫార్మర్<br/>మై కిసాన్ హూ<br/>ఆన్ కెతి పని కల్సత్</td>
+<td>nanna khēti kām kīntōn<br/>nēnu vyavasāyam pani cēstānu<br/>→I am a farmer<br/>mai kisān hū<br/>ān keti pani kalsat</td>
+<td>నన్నా खेति काम कीनतोन<br/>नेनु व्यवसायम पनि चेस्ताను<br/>ऐ ऐम अ फार्मर<br/>➥मैं किसान हूँ<br/>आन केति पनि कल्सत</td>
+</tr>
+</tbody>
+</table></div>
+<p class="page-number">9</p>
+</div>
+<br><br>
+<div class="page-body-container">
+<div class="centered-block"><header class="header">గోండి ➥ తెలుగు Gondi ➥ English गोंडि ➥ हिन्दी 10<br/>
+ఇంగ్లిష్ హింది కొలామి Telugu Hindi Kolami तेलुगु अंग्रेजी कोलामि</header></div>
+<div class="table"><table>
+<tbody>
+<tr>
+<td>36.</td>
+<td>నీక్ బచ్చొంగ్ సాల్క్ మంతంగ్?<br>➥ నీ వయస్సు ఎంత?<br/>హౌ ఓల్డ్ ఆర్ యూ?<br/>ఆప్కా ఉమ్ర కితనాహై?<br/>ఇనుజ్ ఎన్ని సాల్కు అన్న</br></td>
+<td>nīk baccong sālk mantang?<br/>nī vayassu enta?<br/>→How old are you?<br/>āpkā umr kitanā hai?<br/>inuŋ enni sālku ansā</td>
+<td>నీక్ బచ్చొంగ్ సాల్క్ మనతంగ?<br/>నీ వయసు ఎన్తా?<br/>→How old আর ইউ?<br/>হৌ ওલ્ડ আর ইউ?<br/>→आपका उम्र कितना है?<br/>इनुङ एनि साल्कु अंसा</td>
+</tr>
+<tr>
+<td>37.</td>
+<td>మీ నాట్నోర్ పాట్లనా పాడి బతల్?<br/>➥ మీ ఊరి పటేల్ కుటుంబం పేరు ఏమిటి?<br/>వాట్ ఇస్ ద సర్ నేమ్ ఆఫ్ ద విలెజ్ హెడ్ మ్యన్?<br/>ఇస్ గావ్ కే పటేల్ కా ఉపనామ్ క్యా హై?<br/>ఇమ్మె ఊర పట్లక్నె పాడి తానెద్?</td>
+<td>mī nāṭnōr pāṭlanā pāḍi batal?<br/>mī ūri paṭēl kuṭumbam pēru ēmiṭi?<br/>→What is the surname of the village headman?<br/>is gāv kē paṭēl kā upanām kyā hai?<br/>imme ūra paṭlakne pāḍi tāned?</td>
+<td>मी नाट्नोर पाटलना पाडि बतल?<br/>मी ऊरि पटेल कुटुंबम पेरु ēmiṭi?<br/>→What is the surname of the village headman?<br/>वाट इस द सर नेम अफ द विलेज हेड म्यन?<br/>→इस गाँव के पटेल का उपनाम क्या है?<br/>इम्मे ऊरा पटलक्ने पाडि तानेद?</td>
+</tr>
+<tr>
+<td>38.</td>
+<td>మా నాట్నోర్ పాట్లనా పాడి మడావి<br/>➥ మా ఊరి పటేల్ కుటుంబం పేరు మడావి<br/>ఆవర్ విలెజ్ హెడ్ మ్యంస్ సర్ నేమ్ ఇన్ మడావి<br/>ఇస్ గావ్ కే పటేల్ కా ఉపనామ్ మడావి హై<br/>అన్నెత్ ఊర పట్లక్నె పాడి మడావి</td>
+<td>mā nāṭnōr pāṭlanā pāḍi maḍāvi<br/>mā ūri paṭel kuṭumbam pēru maḍāvi<br/>→Our village headman’s surname is Madavi<br/>is gāv kē paṭēl kā upanām maḍāvi hai<br/>annet ūra paṭlakne pāḍi maḍāvi</td>
+<td>मा नाट्नोर पाटलना पाडि मडावि<br/>मा ऊरि पटेल कुटुंबम पेरु मडावि<br/>→Our village headman’s surname is Madavi<br/>आवर विलेज हेड म्यंस सर नेम इस मडावि<br/>→इस गाँव के पटेल का उपनाम मडावि है<br/>अंनेत ऊरा पटलक्ने पाडि मडावि</td>
+</tr>
+<tr>
+<td>39.</td>
+<td>మీ నాట్నోర్ పాట్లన బత పొరోల్?<br/>➥ మీ ఊరి పటేల్ పేరు ఏమిటి?<br/>వాట్ ఇస్ ద నేమ్ ఆఫ్ ద విలెజ్ హెడ్ మ్యన్?<br/>ఇస్ గావ్ కే పటేల్ కా నామ్ క్యా हाइ?<br/>ఇమ్మె ఊర పట్లక్నె తా పేర్?</td>
+<td>mī nāṭnōr pāṭlana bata porōl?<br/>mī ūri paṭēl pēru ēmiṭi?<br/>→What is the name of the village headman?<br/>is gāv kē paṭēl kā nām kyā hai?<br/>imme ūra paṭlakne tā pēr?</td>
+<td>मी नाट्नोर पाटलना बता पोरोल?<br/>मी ऊरि पटेल पेरु एमिटि?<br/>→What is the name of the village headman?<br/>वाट इस द नेम अफ द विलेज हेड म्यन?<br/>→इस गाँव के पटेल का नाम क्या है?<br/>इम्मे ऊरा पटलक्ने ता पेर?</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<br><br>
+<div class="page-body-container">
+<div class="table"><table>
+<tbody>
+<tr>
+<td>40.</td>
+<td>పాట్లనా పొరోల్ రాము<br/>➥ పటెల్ గారు పేరు రాము<br/>దహెడ్ మ్యంస్ నేమ్ ఇస్ రాము<br/>పటేల్ కా నామ్ రాము హై<br/>పట్లక్ నేపేర్ రాము</td>
+<td>pāṭlanā porōl rāmu<br/>paṭel gāru pēru rāmu<br/>→The headman’s name is Ramu<br/>paṭēl kā nām rāmu hai<br/>paṭlak nē pēr rāmu</td>
+<td>పాట్లనా పోరోల్ రాము<br/>పటెల్ గారు పెరు రాము<br/>→The headman’s name is Ramu<br/>d హెడ్ మ్యంస నెమ ఈ రాము<br/>→పటెల్ కా नाम रामु है<br/>పట్లక ने पेर రాము</td>
+</tr>
+<tr>
+<td>41.</td>
+<td>పాట్లన బద్ రోన్?<br/>➥ మీ ఊరి పటేల్ గారి ఇల్లు ఎక్కడ ఉంది?<br/>వేర్ ఇన్ ద హెడ్ మ్యంస్ హౌస్?<br/>పటేల్ కా ఘర్ కహాహై?<br/>పట్లక్నె ఎల్ల ఎత్తి అన్సద్?</td>
+<td>pāṭlana bad rōn?<br/>mi ūri paṭēl gāri illu ekkaḍa undi?<br/>→Where is the headman’s house?<br/>paṭēl kā ghar kahā hai?<br/>paṭlakne ella etti ansad?</td>
+<td>పాట్లనా బద రోన?<br/>మీ ఊరి పటెల్ गारి ఇల్లు ఎక్కుడా उनది?<br/>వెర ఈ ద హెడ్ మ్యంస హౌస?<br/>→పటెల్ కా घर कहा है?<br/>పట్లక్నే ఎల్లా ఎత్తి అంసద?</td>
+</tr>
+<tr>
+<td>42.</td>
+<td>పాట్లన రోన్ అగ మంత<br/>➥ పటేల్ గారి ఇల్లు అక్కడ ఉంది<br/>దహెడ్ మ్యంస్ హౌస్ ఇన్ దేర్<br/>పటేల్ కా ఘర్ ఉధర్ హై<br/>పట్లక్నె ఎల్ల అదె అన్సద్</td>
+<td>pāṭlanā rōn aga manta<br/>paṭēl gāri illu akkaḍa undi<br/>→The headman’s house is there<br/>paṭēl kā ghar udhar hai<br/>paṭlakne ella ade ansad</td>
+<td>పాట్లనా రోన అగా మనతా<br/>పటెల్ గారు ఇల్లు అక్కుడా उनदि<br/>ద హెడ్ మ్యంస హౌస इस देर<br/>→పటెల్ కా घर उधर है<br/>పట్లక్నే ఎల్లా అదే అంసద</td>
+</tr>
+<tr>
+<td>43.</td>
+<td>నన్న నీక్ సూడ్సి బయ్ కుసి ఆతోన్<br/>➥ నేను నిన్ను చూసి చాలా సంతోషించాను<br/>ఐ ఎమ్ వెరి ప్లీస్ట్ టూ సీ యూ<br/>ఆప్కో దేఖ్ కర్ ముఝే బహుత్ ఖుశీ హై<br/>ఆన్ ఇన్ ఓలుత్ కూబ్ కుసి ఎద్దన్</td>
+<td>nanna nīk sūḍsi bay kusi ātōn<br/>nēnu ninnu cūsi cālā santōśincānu<br/>→I am very pleased to see you<br/>āpkō dēkh kar mujhē bahut khushī hai<br/>ān in oḷut kūb kusi eddan</td>
+<td>నన్నా నీకీ సూడసి బయ కుసి ఆతోన్<br/>నెను నిన్నూ చూసి చాలా సనతోపించాను<br/>ऐ ऐम वैरि ప్లీస్డ్ टू సీ यू<br/>→आपको देख कर मुझे बहुत खुशी है<br/>आन इन ओलुत कूब कुसि एद्दन</td>
+</tr>
+</tbody>
+</table></div>
+<p class="page-number">11</p>
+</div>
+</body>
+</html>

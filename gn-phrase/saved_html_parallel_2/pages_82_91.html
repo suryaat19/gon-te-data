@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html lang="te-IN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+body {
+    padding: 0 !important;
+    margin: 0 !important;
+    background-color: white !important;
+    width: 100% !important;
+    font-family: serif;
+}
+
+.page-body-container {
+    background-color: white;
+    width: 210mm;
+    margin: 0 auto;
+    padding: 20mm 15mm;
+    box-sizing: border-box;
+    min-height: 100vh;
+}
+
+p.paragraph, .paragraph, .block, .quote, .ordered-list, .unordered-list,
+.advertisement, .answer, .contact-info, .index, .options,
+.reference, .unknown, .sidebar, .footnote {
+    text-align: justify !important;
+    text-align-last: left !important;
+    text-justify: inter-word !important;
+    font-size: inherit !important;
+    line-height: 1.3 !important;
+    margin: 0 0 12pt 0 !important;
+    text-indent: 18pt !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box;
+}
+
+.quote, .ordered-list, .unordered-list, .sidebar, .footnote {
+    text-indent: 0 !important;
+}
+
+.multi-column-row { font-size: 12pt; }
+.multi-column-row.cols-1 { font-size: 12pt; }
+.multi-column-row.cols-2 { font-size: 11pt; gap: 18pt; }
+.multi-column-row.cols-3 { font-size: 10pt; gap: 16pt; }
+.multi-column-row.cols-4 { font-size: 9pt; gap: 12pt; }
+
+.page-body-container > p.paragraph,
+.page-body-container > .paragraph {
+    font-size: 12pt !important;
+}
+
+h1.chapter-title {
+    font-size: 30pt !important;
+    line-height: 1.1 !important;
+    margin: 0 0 12pt 0 !important;
+    text-align: center !important;
+    font-weight: bold;
+}
+
+h2.section-title, h2.headline {
+    font-size: 18pt !important;
+    line-height: 1.1 !important;
+    margin: 12pt 0 8pt 0 !important;
+    text-align: center !important;
+    font-weight: bold;
+}
+
+h3.sub-section-title, h3.sub-headline,
+h4.subsub-section-title, h4.subsub-headline {
+    font-size: 13pt !important;
+    line-height: 1.25 !important;
+    margin: 12pt 0 4pt 0 !important;
+    text-align: center !important;
+    font-weight: bold;
+}
+
+.multi-column-row {
+    width: 100% !important;
+    margin: 12pt 0 !important;
+    display: grid;
+}
+
+.column-block {
+    text-align: left !important;
+    text-align-last: left !important;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    min-width: 0;
+    overflow-wrap: break-word;
+    width: 100%;
+}
+
+.column-block p {
+    text-indent: 0 !important;
+    margin-bottom: 8pt !important;
+    font-size: inherit !important;
+}
+
+.column-block p br {
+    display: none;
+}
+
+.centered-block {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin: 12pt 0;
+}
+
+.centered-block > * {
+    text-align: center !important;
+    font-size: 13pt !important;
+    max-width: 100% !important;
+    margin: 0 auto !important;
+    text-indent: 0 !important;
+}
+
+.table table {
+    width: 100% !important;
+    margin: 18pt 0 !important;
+    border-collapse: collapse;
+    border: 1.5pt solid #333;
+    table-layout: fixed;
+    font-size: 11pt;
+    line-height: 1.2;
+}
+
+.table table td,
+.table table th {
+    word-break: normal;
+    overflow-wrap: break-word;
+    padding: 6pt;
+    font-size: inherit;
+    border: 0.5pt solid #333;
+    text-align: center;
+}
+
+.table table td:first-child,
+.table table th:first-child {
+    text-align: left;
+}
+
+.table table td:not(:first-child),
+.table table th:not(:first-child) {
+    white-space: nowrap;
+    text-align: right;
+}
+
+.column-block .table table {
+    width: 100% !important;
+    table-layout: fixed;
+    margin: 12pt 0;
+    border-collapse: collapse;
+    border: 1.5pt solid #333;
+}
+
+.column-block .table table td,
+.column-block .table table th {
+    word-break: break-word;
+    padding: 6pt;
+    font-size: 10pt;
+    border: 0.5pt solid #333;
+    text-align: center;
+}
+
+.column-block .table table td:first-child,
+.column-block .table table th:first-child {
+    text-align: left;
+}
+
+.column-block .table table td:not(:first-child),
+.column-block .table table th:not(:first-child) {
+    white-space: nowrap;
+    text-align: right;
+}
+
+.quote {
+    font-size: 13pt !important;
+    margin: 0 0 0 0 !important;
+    padding: 0 20px !important;
+    font-style: italic;
+    border-left: 3px solid #ccc;
+    text-align: justify !important;
+    text-indent: 0 !important;
+}
+
+.ordered-list, .unordered-list {
+    font-size: inherit !important;
+    margin: 0 0 0 0 !important;
+    padding-left: 40px !important;
+    text-align: justify !important;
+    text-indent: 0 !important;
+}
+
+.sub-ordered-list, .sub-unordered-list {
+    font-size: inherit !important;
+    margin: 0 0 0 0 !important;
+    padding-left: 60px !important;
+    text-align: justify !important;
+    text-indent: 0 !important;
+}
+
+.subsub-ordered-list, .subsub-unordered-list {
+    font-size: inherit !important;
+    margin: 0 0 0 0 !important;
+    padding-left: 80px !important;
+    text-align: justify !important;
+    text-indent: 0 !important;
+}
+
+.image, .chart, .diagram, .photograph {
+    margin: 16px auto;
+    text-align: center;
+    max-width: 100% !important;
+}
+
+.image img, .chart img, .diagram img, .photograph img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    border: 1px solid #ddd;
+}
+
+.chart {
+    border: 2px solid #4a90d9;
+    padding: 8px;
+    background-color: #f8fafc;
+}
+
+.diagram {
+    border: 2px solid #6b7280;
+    padding: 8px;
+    background-color: #f9fafb;
+}
+
+.photograph {
+    border: 2px solid #059669;
+    padding: 4px;
+    background-color: #f0fdf4;
+}
+
+.image-caption {
+    font-style: italic;
+    margin: 8px auto;
+    text-align: center;
+    max-width: 100% !important;
+}
+
+.header, .footer {
+    font-size: 13pt !important;
+    margin: 12px auto;
+    text-align: center;
+    max-width: 100% !important;
+}
+
+.sidebar {
+    font-size: inherit !important;
+    margin: 12px auto;
+    padding: 10px;
+    background-color: #f5f5f5;
+    text-align: justify !important;
+    text-indent: 0 !important;
+}
+
+.footnote {
+    font-size: inherit !important;
+    margin: 8px auto;
+    padding-left: 20px;
+    text-align: justify !important;
+    text-indent: 0 !important;
+}
+
+hr.footnote-separator {
+    border: none;
+    border-top: 1px solid #999;
+    width: 40%;
+    margin: 16px 0 8px 0;
+}
+
+a.footnote-ref {
+    color: inherit;
+    text-decoration: none;
+}
+
+a.footnote-ref:hover {
+    text-decoration: underline;
+}
+
+.advertisement, .answer, .contact-info, .index, .options,
+.reference, .unknown {
+    font-size: inherit !important;
+    margin: 0 0 12pt 0 !important;
+    text-align: justify !important;
+}
+
+.author, .dateline, .flag, .formula, .jumpline,
+.page-number, .folio, .website-link,
+.first-level-question, .second-level-question, .third-level-question {
+    font-size: inherit !important;
+    margin: 12px auto;
+    text-align: center;
+    max-width: 100% !important;
+    text-indent: 0 !important;
+}
+    </style>
+</head>
+<body>
+<div class="page-body-container">
+<div class="table"><table>
+<tbody>
+<tr>
+<td>351.</td>
+<td>ఇద్ నావ పేడి<br/>➥ఈమె నా కూతురు<br/>దిస్ ఇస్ మై డాటర్<br/>యహ్ మేరీ బేటీ హై<br/>ఇద్ అని కొమ్మా</td>
+<td>id nava pēḍi<br/>ime nā kūturu<br/>This is my daughter<br/>yah mērī bēṭi hai<br/>id ane kommā</td>
+<td>इद नावा पेडि<br/>ईमे ना कूतुरु<br/>दिस इस मै डाटर<br/>यह मेरी बेटी है<br/>इद अने कोम्मा</td>
+</tr>
+<tr>
+<td>352.</td>
+<td>ఇవ్ నావంగ్ పేకింగ్<br/>➥వీళ్ళు నా కూతురులు<br/>దీస్ ఆర్ మై డాటర్స్<br/>యే మేరే బేటియా హై<br/>ఇదా ఆమె కొమసిక్</td>
+<td>iv nāvang pēking<br/>vīllu nā kūturulu<br/>These are my daughters<br/>yē mērē bēṭiyā hai<br/>idā ame komasik</td>
+<td>इव नावंग पेकिंग<br/>वीळ్లు నా కూతੁਰਲੁ<br/>दीस आर मै डाटर्स<br/>ये मेरे बेटियां हैं<br/>इदा अमे कोमसिक</td>
+</tr>
+<tr>
+<td>353.</td>
+<td>వేర్ వోనొర్ కాండి<br/>➥ఇతను అతని కుమారుడు<br/>దిస్ ఇస్ హిస్ సాన్<br/>యహ్ ఉస్కా బేటా హై<br/>ఇమ్ద అనె కీకి</td>
+<td>vēr vōnor kāṇḍi<br/>itanu atani kumāruḍu<br/>This is his son<br/>yah uskā bēṭā hai<br/>imd ane kike</td>
+<td>వెర వోనోర్ कानడి<br/>ఇతనु अतनि कुमारुडु<br/>दिस इस हिस सान<br/>यह उसका बेटा है<br/>इम्द अने कीके</td>
+</tr>
+<tr>
+<td>354.</td>
+<td>వీర్ వోనెర్ కాండిర్<br/>➥వీరు అతని కుమారులు<br/>దీస్ ఆర్ హిస్ సాన్<br/>యే ఉస్కే బేటే హై<br/>ఇవ్ర అమ్నె కీకెల్</td>
+<td>vīr vōner kāṇḍir<br/>vīru atani kumārulu<br/>This are his sons<br/>yē uske bēṭē hai<br/>ivr amne kīkel</td>
+<td>वीर वोनेर कानडिर<br/>वीरु अतनि कुमारुलु<br/>दीस आर हिस सांस<br/>ये उसके बेटे हैं<br/>इत्र अम्ने कीकेल</td>
+</tr>
+<tr>
+<td>355.</td>
+<td>ఇద్ వోన పేడి<br/>➥ఈమె అతని కూతురు<br/>దిస్ ఇన్ హిస్ డాటర్<br/>యహ్ ఉసకీ బేటీ హై<br/>ఇద్ అనె కొమ్మా</td>
+<td>id vōna pēḍi<br/>ime atani kūturu<br/>This is his daughter<br/>yah usakī bēṭi hai<br/>id ane kommā</td>
+<td>इद वोना पेडि<br/>ईमे अतनि कूतुरु<br/>दिस इस हिस डाटर<br/>यह उसकी बेटी है<br/>इद अने कोम्मा</td>
+</tr>
+</tbody>
+</table></div>
+<p class="page-number">83</p>
+</div>
+<br><br>
+<div class="page-body-container">
+<div class="centered-block"><header class="header">గోండి ➥ తెలుగు<br/>
+ఇంగ్లిష్ హింది కొలామి<br/>
+<br/>
+Gondi ➥ English<br/>
+Telugu Hindi Kolami<br/>
+<br/>
+గोंडि ➥ हिन्दी<br/>
+तेलुगु अंग्रेजी कोलामि<br/>
+<br/>
+84</header></div>
+<div class="table"><table>
+<thead>
+<tr>
+<th>గోండి ➔ తెలుగు<br>ఇంగ్లిష్ హింది కొలామి</br></th>
+<th>Gondi ➔ English<br>Telugu Hindi Kolami</br></th>
+<th>గोंडि ➔ हिन्दी<br>तेलुगु अंग्रेजी कोलामि</br></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>356. ఇవ్ వోనంగ్ పేకింగ్<br>➥ వీళ్ళు అతని కూతురులు<br>దీస్ ఆర్ హిస్ డాటర్స్<br>యే ఉసకీ బేటియాహై<br>ఇదా అమ్నె కొమసిక్</br></br></br></br></td>
+<td>iv vōnang pēking<br>vīḷlu atani kūturulu<br>➥These are his daughters<br/>yē usakī bēṭiyā hai<br/>idā amne komasik</br></br></td>
+<td>iv వోన్ంగ పెకింగ్<br/>వీళ్లు అతని కూత్రులు<br/>దీస్ ఆర్ హిస్ డాటర్స్<br/>➥ये उसकी बेटियां हैं<br/>ఇదా అమ్నే కోమసిక</td>
+</tr>
+<tr>
+<td>357. వేర్ తానోర్ కాండి<br/>➥ఇతను ఆమె కుమారుడు<br/>దిస్ ఇన్ హర్ సాన్<br/>యహ్ ఉస్కా బేటాహై<br/>అమ్దు అద్నె కీకె</td>
+<td>vēr tānor kānḍi<br/>itanu āme kumārudu<br/>➥This is her son<br/>yah uskā bēṭā hai<br/>amd adne kike</td>
+<td>వెర తానోర్ कानడి<br/>ఇతనु ఆమే కుమార్ుడు<br/>దिस ఈస్ हर सान<br/>➥यह उसका बेटा है<br/>अम्द अद्ने कीके</td>
+</tr>
+<tr>
+<td>358. వీర్ తానెర్ కాండిర్<br/>➥వీరు అతని కుమారులు<br/>దీస్ ఆర్ హిర్ సాన్స్<br/>యే ఉస్కే బేటేహై<br/>ఇవ్ర్ అమ్నె కీకెల్</td>
+<td>vīr tāner kāndir<br/>vīru atani kumārulu<br/>➥These are her sons<br/>yē uske bēṭē hai<br/>ivr amne kikel</td>
+<td>वीर तानेर कानडिर<br/>वीरु अतनि कुमारुलु<br/>दीस आर हर सांस<br/>➥ये उसके बेटे हैं<br/>इत्र अम्ने कीकेल</td>
+</tr>
+<tr>
+<td>359. ఇద్ తాన పేడి<br/>➥ఈమె అతని కూతురు<br/>దిస్ ఇన్ హర్ డాటర్<br/>యహ్ ఉసకీ బేటీహై<br/>ఇద్ అమ్నె కొమ్మా</td>
+<td>id tāna pēḍi<br/>ime atani kūturu<br/>➥This is her daughter<br/>yah usakī bēṭi hai<br/>id amne kommā</td>
+<td>इद ताना पेडि<br/>ईमे अतनि कूतुरु<br/>दिस इस हर डाटर<br/>➥यह उसकी बेटी है<br/>इद अम्ने कोम्मा</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<br><br>
+<div class="page-body-container">
+<div class="table"><table>
+<tbody>
+<tr>
+<td>360. ఇవ్ తానంగ్ పేకింగ్<br/>➥ వీళ్ళు ఆమె కుమరెలు<br/>దీస్ ఆర్ హర్ డాటర్స్<br/>యే ఉసకీ బేటియాహై<br/>ఇదా అద్నె కొమసిక్</td>
+<td>iv tānang pēking<br/>vḷḷu āme kumartelu<br/>➥These are her daughters<br/>yē usakī bēṭiyā hai<br/>idā adne komasik</td>
+<td>iv tānang peking<br/>వీళ్ఱు ఆమే కుమరేలు<br/>దీస్ ఆర్ హర్ డాటర్స్<br/>➥ये उसकी बेटियां हैं<br/>ఇదా అద్రే కోమసిక</td>
+</tr>
+<tr>
+<td>361. వేర్ వీరొర్ కాండి<br/>➥ ఇతను వీరి కుమారుడు<br/>దిస్ ఇన్ దేర్ సాన్<br/>యహ్ ఇన్కా బేటాహై<br/>ఇమ్డ్ ఇవ్రె కీకె</td>
+<td>vēr vīror kāṇḍi<br/>itanu vīri kumāruḍu<br/>➥This is their(near) son<br/>yah inkā bēṭā hai<br/>imd ivre kīke</td>
+<td>વેર વીరోర कानडि<br/>इतनु वीरि कुमारुडु<br/>दिस इस देर सान<br/>➥यह इनका बेटा है<br/>इम्द इव्रे कीके</td>
+</tr>
+<tr>
+<td>362. వీర్ వీరెर కాండిర్<br/>➥ వీరు వీళ్ళ కుమారులు<br/>दीस् आर देर् सांस<br/>యే इन्के बेटे हाइ<br/>ఇవ్్ర అవ్రె కీకెల్ ఎన్నెర్</td>
+<td>vīr vīrer kāṇḍir<br/>vīru viḷḷa kumārulu<br/>➥These are their(near) sons<br/>yē inkē bēṭē hai<br/>ivr avre kikel enner</td>
+<td>वीर वीरेर कानडिर<br/>वीरु वीळ्ला कुमारुलु<br/>दीस आर देर सांस<br/>➥ये इनके बेटे हैं<br/>इन्न अत्रे कीकेल एंनेर</td>
+</tr>
+<tr>
+<td>363. ఇద్ వీర పేడి<br/>➥ ఈమె వీరి కూతురు<br/>దిస్ ఇన్ దేర్ డాక్టర్<br/>యహ్ ఇన్కా బేటీహై<br/>ఇద్ ఇద్నె కొమ్మా</td>
+<td>id vīra pēdi<br/>ime vīri kūturu<br/>➥This is their(near) daughter<br/>yah inakī bēṭī hai<br/>id idne kommā</td>
+<td>इद वीरा पेडि<br/>ईमे वीरि कूतुरु<br/>दिस इस देर डाटर<br/>➥यह इनकी बेटी है<br/>इद इद्ने कोम्मा</td>
+</tr>
+<tr>
+<td>364. ఇవ్ వీరంగ పేకింగ్<br/>➥ వీళ్ళు, వీళ్ళ కుమరెలు<br/>दीस् ఆర్ దేర్ డాక్టర్స్<br/>యే इन्కే బేటియాహై<br/>ఇదా ఇవ్రె కొమసిక్</td>
+<td>iv vīrang pēking<br/>viḷḷu, viḷḷa kumartelu<br/>➥These are their(near) daughters<br/>yē inkē bēṭiyā hai<br/>idā ivre komasik</td>
+<td>इव वीरंग पेकिंग<br/>वीळ्लु, वीळ్లా కుమतेलु<br/>दीस आर देर डाटर्स<br/>➥ये इनके बेटियां हैं<br/>इदा इव्रे कोमसिक</td>
+</tr>
+</tbody>
+</table></div>
+<p class="page-number">85</p>
+</div>
+<br><br>
+<div class="page-body-container">
+<div class="centered-block"><header class="header">గోండి ➥ తెలుగు Gondi ➥ English गोंडि ➥ हिन्दी telugu अंग्रेजी कोलामि 86<br/>
+ఇంగ్లిష్ హింది కొలామి Telugu Hindi Kolami</header></div>
+<div class="table"><table>
+<thead>
+<tr>
+<th>గోండి ➥ తెలుగు<br>ఇంగ్లిష్ హింది కొలామి</br></th>
+<th>Gondi ➥ English<br/>Telugu Hindi Kolami</th>
+<th>గोंडि ➥ हिन्दी<br/>तेलुगु अंग्रेजी కోలామి</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>365. వేర్ ఊరొర్ కాండి<br/>➥ ఇతను వారి యొక్క కుమారుడు<br/>దిస్ ఇన్ దేర్ సాన్<br/>యహ్ ఉన్కా బేటాహై<br/>ఇమ్ద్ అవ్రె కీకె</td>
+<td>vēr ūror kāṇḍi<br/>itanu vāri yokka kumāruḍu<br/>➥This is their(far) son<br/>yah unkā bēṭā hai<br/>imd avre kīke</td>
+<td>વેર ऊरोर कानडि<br/>इतनु वारि योक्का कुमारुडु<br/>दिस इस देर सान<br/>यह उनका बेटा है<br/>इम्द अव्रे कीके</td>
+</tr>
+<tr>
+<td>366. వీర్ ఊరెర్ కాండి<br/>➥ వీళ్ళు వాళ్ళ యొక్క కుమారులు<br/>దీస్ ఆర్ దేర్ సాంస్<br/>యే ఉన్కే బేటే హై<br/>ఇవ్్ర అవ్రె పోరకెర్</td>
+<td>vīr ūrer kāṇḍir<br/>viḷḷu vālḷa yokka kumārulu<br/>➥These are their(far) sons<br/>yē unkē bēṭē hai<br/>ivr avrer pōraker</td>
+<td>वीर ऊरेर कानडिर<br/>वीळ్లు वाळ्ळा योक्वा कुमारुलु<br/>दीस आर देर सांस<br/>➥ये उनके बेटे हैं<br/>इव్ర అవ్రేर पोरकेर</td>
+</tr>
+<tr>
+<td>367. ఇద్ ఊర పేడి<br/>➥ ఈమె వారియొక్క కూతురు<br/>దిస్ ఇన్ దేర్ డాటర్<br/>యహ్ ఉనకీ బేటీహై<br/>ఇద్ అవ్రె కొమ్మా</td>
+<td>id ūra pēḍi<br/>ime vāriyokka kūturu<br/>➥This is their(far) daughter<br/>yah unakī bēṭī hai<br/>id avre kommā</td>
+<td>इद ऊरा पेडि<br/>ईमे वारियोक्का कूतुरु<br/>दिस इस देर डाटर<br/>➥यह उनकी बेटी है<br/>इद अत्रे कोम्मा</td>
+</tr>
+<tr>
+<td>368. ఇవ్ ఊరంగ్ పేకింగ్<br/>➥ వీళ్ళు వాళ్ళ యొక్క కుమర୍ତెలు<br/>దీస్ ఆర్ దేర్ డాટર્સ<br/>యే ఉన్కే బేటియాహై<br/>ఇదా అవ్రె కొమసిక్</td>
+<td>iv ūrang pēking<br/>viḷḷu vālḷa yokka kumartelu<br/>➥These are their(far) daughters<br/>yē unkē bēṭiyā hai<br/>idā avre komasik</td>
+<td>इव ऊरंग पेकिंग<br/>वीळ్లు వాळ્ळा యోక్వా కుమर्तెలు<br/>दीस आर देर डाटार्स<br/>➥ये उनके बेटियां हैं<br/>इदा अत्रे कोमसिक</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<br><br>
+<div class="page-body-container">
+<div class="table"><table>
+<thead>
+<tr>
+<th></th>
+<th>గంటలు</th>
+<th>Time</th>
+<th>సమయ</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>369.</td>
+<td>నన్న ఇంకె వాచి కీసేర్ మంతోన్<br/>➥ నేను ఇప్పుడు చదువుతున్నాను<br/>నౌ ఐ ఎమ్ రీడింగ్<br/>అభీ మై పఢ్ రహా హూ<br/>ఆన్ ఇండి ముడ్ గల్సత్</td>
+<td>nanna iṅke vāci kīsēr mantōn<br/>nēnu ippuḍu caduvutunnānu<br/>➥Now I am reading<br/>abhī mai paḍh rahā hū<br/>ān indi muḍ galsat</td>
+<td>నన్నా ఇంకే వాచి కీసెర మనతోన్<br/>నెను ఇప్పుడు చదువుతున్నాను<br/>नौ ऐ ऐम रीडिंग<br/>अभी मैं पढ रहा हूँ<br/>आन इनडि मुड गल्सत</td>
+</tr>
+<tr>
+<td>370.</td>
+<td>వోర్ వెహ్తోర్, “ఇంకె సిల్లె!”<br/>➥ అతను చెప్పిండు ఇప్పుడు లేదు<br/>హీసెడ, “నాట్ నౌ!”<br/>“అభీ నహీన్!” ఉస్నె బోలా<br/>ఇడ్తెంద్ పంజీ తొతెడ్</td>
+<td>vör vehtor, “iṅke sille!”<br/>atanu ceppinḍu ippuḍu lēdu<br/>➥He said, “Not now!”<br/>“abhī nahīn!” usne bōlā<br/>iṭtend paṇñi toted</td>
+<td>वोर वेह्तोर, “इंके सिल्ले!”<br/>अतनु चेप्पिनडु इप्पुडु लेदु<br/>ही सेड, “नाट नौ!”<br/>➥“अभी नहीं!” उसने बोला<br/>इड्तेनद पंङि तोतेद</td>
+</tr>
+<tr>
+<td>371.</td>
+<td>इद जोक తిर्यాని దాकट<br/>➥ ఈ సారి తిర్యాణి వెళ్ళుదాము<br/>దిస్ టైమ్ లెట్స్ గో టూ తిర్యానీ<br/>इस बार् తిर्यानी जायेంగే<br/>ఈ మాట్ తిर्यాని సెన్నది</td>
+<td>id jōka tiryāni dākaṭ<br/>ī sāri tiryāni veḷḷudāmu<br/>This time let’s go to Tiryani<br/>is bär tiryāni jāyēngē<br/>ī māṭ tiryāni sennad</td>
+<td>इद जोका तिर्यानि दाकट<br/>ई सारि तिर्याणि वेळ्ळुदामु<br/>दिस टैम लैट्स गो टू तिर्यानी<br/>➥ इस बार तिर्यानि जायेंगे<br/>ई माट तिर्यानि सेन्नड</td>
+</tr>
+<tr>
+<td>372.</td>
+<td>इंकेन बस्नग उచ్చేर मंतोर<br/>➥ अभीडे बస్సులో కూర్చుంటునాడు<br/>రైట్ నౌ హీ ఇన్ సిటింగ్ ఇన్ ద బస్<br/>అభీ వహ్ బస్మే బైఠా హై<br/>పజీని బస్సుత్ ఉదస నంసంద్</td>
+<td>iṅkēn basnaga uccēr mantōr<br/>ippuḍe bassulō kūrcuṉṭunādu<br/>➥Right now he is sitting in the bus<br/>abhī vah bas mē baiṯha hai<br/>paṇīni bassut udsa nansand</td>
+<td>इंकेन बस्रगा उच्चेर मनतोर<br/>इप्पुडे बपुलो कूर्चुनटुनाडु<br/>रैट नौ ही इस सिटिंग इन द बस<br/>➥अभी वह बस मे बैठा है<br/>पङीनि बपुत उद्सा नंसंद</td>
+</tr>
+</tbody>
+</table></div>
+<p class="page-number">87</p>
+</div>
+<br><br>
+<div class="page-body-container">
+<div class="centered-block"><header class="header">గోండి ➥ తెలుగు Gondi ➥ English गोंडि ➥ हिन्दी 88<br/>
+ఇంగ్లిష్ హింది కొలామి Telugu Hindi Kolami तेलुगु अंग्रेजी कोलामि</header></div>
+<div class="table"><table>
+<thead>
+<tr>
+<th>గోండి ➥ తెలుగు<br>ఇంగ్లిష్ హింది కొలామి</br></th>
+<th>Gondi ➥ English<br/>Telugu Hindi Kolami</th>
+<th>गोंडि ➥ हिन्दी<br/>तेलुगु अंग्रेजी कोलामि</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>373. ఇంకే-ఇంకేన్ దేవపూర్ సొత్త<br/>➥ ఇప్పుడు-ఇప్పుడె దేవాపూర్ వెళ్ళింది<br/>జస్ట్ నౌ శీవెంట్ టూ దేవపూర్<br/>అభీ-అభీ వహ్ దేవపూర్ గయీ<br/>పంజీ పంజీని దేవాపుర్ సెద్దిన్</td>
+<td>iŋkē-iŋkēn dēvapūr sotta<br/>ippuḍu-ippuḍe dēvāpūr veḷlindi<br/>➥Just now she went to Devapur<br/>abhī-abhī vah dēvapūr gayī<br/>paṇñi paṇñīni dēvāpur seddin</td>
+<td>ఇంకే-ఇంకేన్ देवपूर సోत्ता<br/>ఇప్పుడు-ఇప్పుడే దేవాపూర్ వెఱ్ఱినది<br/>➥Just now she went to Devapur<br/>అభీ-అభీ వహ దేవపూర్ గయీ<br/>పాṇñi paṇñīni dēvāpur seddin</td>
+</tr>
+<tr>
+<td>374. అద్ ఇత్త, “ఇంకేన్ సిల్లె, మల్ల!”<br/>➥ ఆమె అన్నది ఇప్పుడు లేదు తర్వాత!<br/>శీసెడ, “నాట్ రైట్ నౌ, లేటర్!”<br/>“అభీ నహీన్, బాద్ మే!” వహ్ బోలీ<br/>అద్ ఇంత్తిన్ పంజిని తోద్ మల్ల</td>
+<td>ad itta, “iŋkēn sille, malla!”<br/>āme annadi ippuḍu lēdu tarvāta!<br/>➥She said, “Not right now, later!”<br/>“abhī nahīn, bād mē!” vah bōlī<br/>ad inttin paṇñini tōd malla</td>
+<td>అద ఇత్తా, “ఇంకేన్ సిల్లె, మల్లా!”<br/>ఆమే అన్నది ఇప్పుడు లెదు తర్వాతా!<br/>శీసొడ, “నాట్ రెట్ నౌ, లేటర్!”<br/>➥“అభీ కాదు, తర్వాత!” वह बोली<br/>అద ఇన్తిన్ పాṇñini tōd మల్లా</td>
+</tr>
+<tr>
+<td>375. ఇంకె వేరి బతల్ కీతి?<br/>➥ ఇప్పటి వరకు ఏమి చేశారు?<br/>అప్ టూ నౌ వాట్ హెవ్ యూ డన్?<br/>అబ్ తక్ అప్నె క్యా కియా?<br/>పంజీదూక్ తా గత్తిర్</td>
+<td>iŋke vēri batal kīti?<br/>ippaṭi varaku ēmi cēśāru?<br/>➥Up to now what have you done?<br/>ab tak āpane kyā kiyā?<br/>paṇñidūk tā gattir</td>
+<td>ఇంకే వెరి బతల కీతి?<br/>ఇప్పటి వరకు ఎమి చేశారు?<br/>అప్ టు నౌ వాట్ హెవ్ యూ డన్?<br/>➥अब तक आपने क्या किया?<br/>పాṇñidūk tā gattir</td>
+</tr>
+<tr>
+<td>376. బస్కే వాతిట్?<br/>➥ఎప్పుడు వచ్చారు?<br/>వెన్ డిడ్ యూ ఆల్ కమ్?<br/>అప్ లోగ కబ్ ఆయే?<br/>ఎపుడ్ వత్తిర్</td>
+<td>baskē vātiṭ?<br/>eppuḍu vaccāru?<br/>➥When did you all come?<br/>āp lōg kab āyē?<br/>epuḍu vattir</td>
+<td>బస్కే వాతిట?<br/>ఎప్పుడు వచ్ఛారు?<br/>వెన్ డిడ్ యూ ఆల కమ్?<br/>➥आप लोग कब आये?<br/>ఎపుడ వత్తిర</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<br><br>
+<div class="page-body-container">
+<div class="table"><table>
+<tbody>
+<tr>
+<td>377.</td>
+<td>బస్కే-బస్కేన్ రేల్తె దాంతోం<br/>➥ అప్పుడు అప్పుడు రైలుతో వెళ్తాము<br/>సమ్ టైమ్స్ వీ గో బైట్రేన్<br/>కభీ-కభీ హమ్(లోగ్) రేల్ గాడీ సే జాతే హై<br/>అపుడ్-అపుడ్ రైలుత్ సెసతుం</td>
+<td>baskē-baskēn rēlte dāntōm<br/>appuḍu appuḍu railutō veḷtāmu<br/>➥Sometimes we go by train<br/>kabhī-kabhī ham(lōg) rēl gāḍi sē jātē hai<br/>apuḍ-apuḍ railut sesatum</td>
+<td>బస్కే-బస్కేన్ రెల్తే दानतोమ<br/>అప్పుడు అప్పుడు రెలుటో వెళ్తాము<br/>సమ టేస్స్ వీ గో బ్యా ట్రెన్<br/>➥कभी-कभी हम(लोग) रेल गाडी से जाते हैं<br/>అపుడ-అపుడ రెలుత సెసతుम</td>
+</tr>
+<tr>
+<td>378.</td>
+<td>నన్న రోజి యేర్ తుంగంతోన్<br/>➥నేను ప్రతి రోజు స్నానం చేస్తాను<br/>ఐహెవ్ అ బాత్ డేలి<br/>మై హర్ దిన్ స్నాన్ కరతా హూ<br/>ఆన్ రోజ్ ఈరొడ్సత్</td>
+<td>nanna rōji yēr tungantōn<br/>nēnu prati rōju snānam cēstānu<br/>➥I have a bath daily<br/>mai har din snān karatā hū<br/>ān roj īroṣsat</td>
+<td>నన్నా रोजి యెర తుంగనతోన్<br/>నెను ప్రతి రోజు स्नानమ చెస్తాను<br/>ऍహావ అ बात డెలి<br/>➥मैं हर दिन स्नान करता हूँ<br/>आन रोज ईरोडसत</td>
+</tr>
+<tr>
+<td>379.</td>
+<td>నన్న సక్కెడల్ కామ్ కీసేర్ మంతోన్<br/>➥నేను ఉదయం నుండి పని చేస్తునే ఉన్నాను<br/>ఐ ఎమ్ వర్కింగ్ సింస్ దిస్ మోర్నింగ్<br/>మై సుబేహ్ సే కామ్ కర్ రహా హూ<br/>ఆన్ తొల్లి తన పని కల్పని అన్సత్</td>
+<td>nanna sakkeḍal kām kīsēr mantōn<br/>nēnu udayam nunḍi pani cēstunē unnānu<br/>➥I am working since this morning<br/>mai subēh sē kām kar rahā hū<br/>ān tolli tana pani kalsani ansat</td>
+<td>नन्ना सक्केडल काम कीसेर मनतोन<br/>नेनु उदयम नुनडि पनि चेस्तुने उन्नानु<br/>ऐ ऐम वर्किंग सिंस दिस मोर्निंग<br/>➥मैं सुबेह से काम कर रहा हूँ<br/>आन तोल्लि तना पनि कलसनि अंसत</td>
+</tr>
+<tr>
+<td>380.</td>
+<td>बस्केगिर वोर जीब पूडंतोर<br/>➥ ಎಲ್ಲಪುಡು అతను జీಪು ನಡ್ಪುತಾರು<br/>హీ ఆల్వేಸ್ ಡ್ರೈವ್ಸ್ ದ ಜಿಪ್<br/>ವಹ್ ಹಮೇಶಾ ಜಿಪ್ ಚಲಾತೇ ಹೈ<br/>ಎಪುಡ್ ಅಮ್ದ್ ಜಿಬ್ ಅಡ್ಗಿಪ್ ಸನ್ದ</td>
+<td>baskēgir vör jīb pūḍantōr<br/>ellapuḍu atanu jīpu naḍputādu<br/>➥He always drives the jeep<br/>vah hamēshā jīp calātē hai<br/>epuḍ amd jīb adgip sand</td>
+<td>बस्केगिर वोर जीब पूडनतोर<br/>एललपुडु अतनु जीपु नड्पुताडु<br/>ही आल्वेस ड्राइव्स द जीप<br/>➥वह हमेशा जीप चलाते है<br/>एपुड अम्द जिब अद्गिप सनद</td>
+</tr>
+</tbody>
+</table></div>
+<p class="page-number">89</p>
+</div>
+<br><br>
+<div class="page-body-container">
+<div class="centered-block"><header class="header">గోండి ➥ తెలుగు Gondi ➥ English गोंडि ➥ हिन्दी 90<br/>
+ఇంగ్లిష్ హింది కొలామి Telugu Hindi Kolami तेलुगु अंग्रेजी कोलामि</header></div>
+<div class="table"><table>
+<thead>
+<tr>
+<th>తినుట(క్రియ కాలము)</th>
+<th>Eating(Verb Tenses)</th>
+<th>खाना(क्रिया काल)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>381. నన్న మర్క పండి తింతోన్<br>➥నేను మామిడి పండు తింటాను<br/>ఐ ఈట్ మెంగో<br/>మై ఆమ్ ఖాతా హూ<br/>ఆన్ మామిడి పన్ తిసత్</br></td>
+<td>nanna marka panḍi tintōn<br/>nēnu māmiḍi panḍu tiṉtānu<br/>➥I eat mango<br/>mai ām khātā hū<br/>ān māmiḍi pan tisat</td>
+<td>నన్నా మర్కా పనడి తినతోన్<br/>నెను మామిడి పనడు తినటాన్<br/>✅ నేను మామిడి పండ్ తింటాను<br/>మై ఆమ్ ఖాతా హూ<br/>ఆన్ మామిడి పన్ తిసత్</td>
+</tr>
+<tr>
+<td>382. నన్న మర్క పండి తింజేర్ మంతోన్<br/>➥నేను మామిడి పండు తింటున్నాను<br/>ఐ ఎమ్ ఈటింగ్ అమెంగో<br/>మై ఆమ్ ఖా రహా హూ<br/>ఆన్ మామిడి పన్ తిస నంసత్</td>
+<td>nanna marka panḍi tinjēr mantōn<br/>nēnu māmiḍi panḍu tiṉtunnānu<br/>➥I am eating a mango<br/>mai ām khā rahā hū<br/>ān māmiḍi pan tisa nansat</td>
+<td>నన్నా మర్కా పనడి తినజెర మనతోన్<br/>నెను మామిడి పనడు తినటున్అను<br/>✅ నేను మామిడి పండ్ తింటున్నాను<br/>మై ఆమ్ ఈటింగ్ అ మెన్గో<br/>ఆన్ మామిడి పన్ టిసా నంసత్</td>
+</tr>
+<tr>
+<td>383. నన్న మర్క పండి తిన్క<br/>➥నేను మామిడి పండు తిన్నాల<br/>ఐ విల్ ఈట్ అ మెంగో<br/>మై ఆమ్ ఖాఊగా<br/>ఆన్ మామిడి పన్ తిందున</td>
+<td>nanna marka panḍi tinka<br/>nēnu māmiḍi panḍu tinnāla<br/>➥I will eat a mango<br/>mai ām khāugā<br/>ān māmiḍi pan tinduna</td>
+<td>నన్నా మర్కా పనడి తిన్కా<br/>నెను మామిడి పనడు తిన్లా<br/>✅ I will eat a mango<br/>మై విల్ ఈట్ అ మెన్గో<br/>ఆన్ మామిడి పన్ తిదునా</td>
+</tr>
+<tr>
+<td>384. నన్న మర్క పండి తిందున్<br/>➥నేను మామిడి పండు తిన్నె వాడిని<br/>ఐ యూస్డ్ టూ ఈట్ మంగోస్<br/>మై ఆమ్ ఖాతా థా<br/>ఆన్ మామిడి పన్ తినెకరన్ అన్డన్</td>
+<td>nanna marka panḍi tindun<br/>nēnu māmiḍi panḍu tinnevāḍini<br/>➥I used to eat mangoes<br/>mai ām khātā thā<br/>ān māmiḍi pan tinekaran anḍan</td>
+<td>నన్నా మర్కా పనడి తినద్రు<br/>నెను మామిడి పనడు తినవెడ్రిన<br/>✅ I used to eat mangoes<br/>మై యూస్డ్ టూ ఈట్ మంగోస్<br/>✅ నేను మర్కా తహ</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<br><br>
+<div class="page-body-container">
+<div class="multi-column-row cols-3" style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr));">
+<div class="column-block" style="grid-column: 1;">
+<p class="paragraph">385. నన్న మర్క పండి తింజేర్ మందున్<br/>
+నేను మామిడి పండు తింటుఉండే వాడిని<br/>
+ఐ వాస్ ఈటింగ్ అ మెంగో<br/>
+మై ఆమ్ ఖా రహా థా<br/>
+అన్ మామ్మి పన్ తిన నందున్</p>
+</div>
+<div class="column-block" style="grid-column: 2;">
+<p class="paragraph">nanna marka panḍi tinjēr mandun<br/>
+nēnu māmiḍi panḍu tiṇṭuundē vāḍini<br/>
+I was eating a mango<br/>
+mai ām khā rahā thā<br/>
+an māmḍi pan tisa nandun</p>
+</div>
+<div class="column-block" style="grid-column: 3;">
+<p class="paragraph">नन्ना मर्का पनडि तिनजेर मनदुन<br/>
+नेनु मामिडि पनडु तिनटुउनडे वाडिनि<br/>
+ऐ वास ईटिंग अ मेंगो<br/>
+➥मैं आम खा रहा था<br/>
+अन माम्डि पन तिसा ननदुन</p>
+</div>
+</div>
+<div class="table"><table>
+<thead>
+<tr>
+<th></th>
+<th>వండుట(క్రియ కాలము)</th>
+<th>Cooking(Verb Tenses)</th>
+<th>పకానా(క్రియా కాల)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>386.</td>
+<td>బెయే గాటొ అట్టుందు<br>➥ అమ్మ వంట చేసేది<br>మదర్ యూన్డ్ టూ కుక్ ఫ్రూడ్<br>మా ఖానా పకాయా కరతీ థీ<br>అమ్మ వెయ్ గలుంద్</br></br></br></br></td>
+<td>beyē gāṭo aṭṭundu<br>amma vaṇṭa cēsedi<br>➥Mother used to cook food<br>mā khānā pakāyā karatī thī<br>amma vey galund</br></br></br></br></td>
+<td>बेये गाटो अट्ठनुदु<br>अम्मा वनटा चेसेदि<br>मदर यूस्ड टू कुक फूड<br>➥माँ खाना पकाया करती थी<br>अम्मा वेय गलुनद</br></br></br></br></td>
+</tr>
+<tr>
+<td>387.</td>
+<td>బెయే గాటొ అట్<br/>➥ అమ్మ వంట చేసింది<br/>మదర్ కుక్డ్ ఫ్రూడ్<br/>మానే ఖానా పకాయా<br/>అమ్మ వెయ్ గత్తిన</td>
+<td>beyē gāṭo aṭṭa<br/>amma vaṇṭa cēsindi<br/>➥Mother cooked food<br/>mā nē khānā pakāyā<br/>amma vey gattina</td>
+<td>बेये गाटो अट्ता<br/>अम्मा वनटा चेसिनदि<br/>मदर कुक्ड फूड<br/>➥माँ ने खाना पकाया<br/>अम्मा वेय गत्तिना</td>
+</tr>
+<tr>
+<td>388.</td>
+<td>బెయే గాటొ అట్సి<br/>➥ అమ్మ వంట వండింది<br/>మదర్ హెడ్ కుక్డ్ ఫ్రూడ్<br/>మానే ఖానా పకాయా థా<br/>అమ్మ అంబా వెయ్గలుత్</td>
+<td>beyē gāṭo aṭsi<br/>amma vaṇṭa vanḍindi<br/>➥Mother had cooked food<br/>mā nē khānā pakāyā thā<br/>amma ambā veygaltu</td>
+<td>बेये गाटो अट्सि<br/>अम्मा वनटा वनडिनदि<br/>मदर हेड कुक्ड फूड<br/>➥माँ ने खाना पकाया था<br/>अम्मा अंबा वेय्गलुत</td>
+</tr>
+</tbody>
+</table></div>
+<p class="page-number">91</p>
+</div>
+<br><br>
+<div class="page-body-container">
+<div class="centered-block"><header class="header">గోండి ➥ తెలుగు Gondi ➥ English गोंडि ➥ हिन्दी 92<br/>
+ఇంగ్లిష్ హింది కొలామి Telugu Hindi Kolami तेलुगु अंग्रेजी कोलामि</header></div>
+<div class="table"><table>
+<thead>
+<tr>
+<th>గోండి ➔ తెలుగు<br>ఇంగ్లిష్ హింది కొలామి</br></th>
+<th>Gondi ➔ English<br/>Telugu Hindi Kolami</th>
+<th>గोंడి ➔ हिन्दी<br/>तेलुगु अंग्रेजी కోలామి</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>389. బెయే గాటొ అట్సేర్ మత్త<br/>➥ అమ్మ వంట చేస్తుంది<br/>మదర్ వాస్ కుకింగ్ ఫ్రూడ్<br/>మా ఖానా పకా రహీ థీ<br/>అమ్మ అంబా వెయ్యగల్సద్</td>
+<td>beyē gāṭo aṭsēr matta<br/>amma vaṇṭa cēstundi<br/>Mother was cooking food<br/>mā khānā pakā rahī thī<br/>amma ambā veyygalsad</td>
+<td>बेये गाटो अट्सेर मत्ता<br/>अम्मा वनटा चेस्तुनदि<br/>मदर वास कुकिंग फूड<br/>➥माँ खाना पका रही थी<br/>अम्मा अंबा वेय्यगलसद</td>
+</tr>
+<tr>
+<td>390. వీస సాల్క్ నల్ బెయే అట్సేరెన్ మంత<br/>➥ ఇరువై సంవత్సరముల నుండి అమ్మ వంట చేస్తుంది<br/>ఫోర్ ట్వంటీ యీఆర్స్ మదర్ హెడ్ బీన్ కుకింగ్ ఫ్రూడ్<br/>బీస్ సాల్ సే మా ఖానా పకా రహీ థీ<br/>ఇర్వె సాల్కలత్తన వెయ్యగల్సద్</td>
+<td>vīsa sālk nal beyē aṭsēren manta<br/>iruvai sanvatsaramula nunḍi amma vaṇṭa cēstundi<br/>For twenty years mother had been cooking food<br/>bīs sāl sē mā khānā pakā rahī thī<br/>irve sākalattana veyygalsad</td>
+<td>वीसा साल्क नल बेये अट्సెरेन मनता<br/>इरुवै संवत्सरमुला नुनडि अम्मा वनटा चेस्तुनदि<br/>फोर ट्वेंटी यीअर्स मदर हेड बीन कुकिंग फूड<br/>➥बीस साल से माँ खाना पका रही थी<br/>इर्वे साल्कलत्तना वेयगल्सद</td>
+</tr>
+<tr>
+<td>391. బెయే గాటొ అట్వల్ కీంత<br/>➥ అమ్మ అన్నం వండుడు చేస్తది<br/>మదర్ యూజులీ కుక్స్ ఫ్రూడ్<br/>మా ఖానా పకాయా కరతీ హై<br/>అమ్మ అంబా వెయ్యగల్కడ్ ఇదర్సద్</td>
+<td>beyē gāṭo aṭval kīnta<br/>amma annam vanḍuḍu cēstadi<br/>Mother usually cooks food<br/>mā khānā pakāyā karatī hai<br/>amma ambā veyygalekad idarsad</td>
+<td>बेये गाटो अट्वल कीनता<br/>अम्मा अन्नम वनडुड्डु चेस्तदि<br/>मदर यूजुली कुक्स फूड<br/>➥माँ खाना पकाया करती है<br/>अम्मा अंबा वेय्यगलएक इदर्सद</td>
+</tr>
+<tr>
+<td>392. బెయే గాటొ అట్టంత<br/>➥ అమ్మ అన్నం వండుతది<br/>మదర్ కుక్స్ ఫ్రూడ్<br/>మా ఖానా పకాతీ हाइ<br/>అమ్మ అంబా వెయ్యగల్సద్</td>
+<td>beyē gāṭo aṭṭanta<br/>amma annam vanḍutadi<br/>Mother cooks food<br/>mā khānā pakātī hai<br/>amma ambā veyygalsad</td>
+<td>बेये गाटो अट्टनता<br/>अम्मा अन्नम वनडुतदि<br/>मदर कुक्स फूड<br/>➥माँ खाना पकाती है<br/>अम्मा अंबा वेय्यगलसद</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</body>
+</html>
