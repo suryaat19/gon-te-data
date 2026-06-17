@@ -1,0 +1,771 @@
+<!DOCTYPE html>
+<html lang="te-IN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+body {
+    padding: 0 !important;
+    margin: 0 !important;
+    background-color: white !important;
+    width: 100% !important;
+    font-family: serif;
+}
+
+.page-body-container {
+    background-color: white;
+    width: 210mm;
+    margin: 0 auto;
+    padding: 20mm 15mm;
+    box-sizing: border-box;
+    min-height: 100vh;
+}
+
+p.paragraph, .paragraph, .block, .quote, .ordered-list, .unordered-list,
+.advertisement, .answer, .contact-info, .index, .options,
+.reference, .unknown, .sidebar, .footnote {
+    text-align: justify !important;
+    text-align-last: left !important;
+    text-justify: inter-word !important;
+    font-size: inherit !important;
+    line-height: 1.3 !important;
+    margin: 0 0 12pt 0 !important;
+    text-indent: 18pt !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box;
+}
+
+.quote, .ordered-list, .unordered-list, .sidebar, .footnote {
+    text-indent: 0 !important;
+}
+
+.multi-column-row { font-size: 12pt; }
+.multi-column-row.cols-1 { font-size: 12pt; }
+.multi-column-row.cols-2 { font-size: 11pt; gap: 18pt; }
+.multi-column-row.cols-3 { font-size: 10pt; gap: 16pt; }
+.multi-column-row.cols-4 { font-size: 9pt; gap: 12pt; }
+
+.page-body-container > p.paragraph,
+.page-body-container > .paragraph {
+    font-size: 12pt !important;
+}
+
+h1.chapter-title {
+    font-size: 30pt !important;
+    line-height: 1.1 !important;
+    margin: 0 0 12pt 0 !important;
+    text-align: center !important;
+    font-weight: bold;
+}
+
+h2.section-title, h2.headline {
+    font-size: 18pt !important;
+    line-height: 1.1 !important;
+    margin: 12pt 0 8pt 0 !important;
+    text-align: center !important;
+    font-weight: bold;
+}
+
+h3.sub-section-title, h3.sub-headline,
+h4.subsub-section-title, h4.subsub-headline {
+    font-size: 13pt !important;
+    line-height: 1.25 !important;
+    margin: 12pt 0 4pt 0 !important;
+    text-align: center !important;
+    font-weight: bold;
+}
+
+.multi-column-row {
+    width: 100% !important;
+    margin: 12pt 0 !important;
+    display: grid;
+}
+
+.column-block {
+    text-align: left !important;
+    text-align-last: left !important;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    min-width: 0;
+    overflow-wrap: break-word;
+    width: 100%;
+}
+
+.column-block p {
+    text-indent: 0 !important;
+    margin-bottom: 8pt !important;
+    font-size: inherit !important;
+}
+
+.column-block p br {
+    display: none;
+}
+
+.centered-block {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin: 12pt 0;
+}
+
+.centered-block > * {
+    text-align: center !important;
+    font-size: 13pt !important;
+    max-width: 100% !important;
+    margin: 0 auto !important;
+    text-indent: 0 !important;
+}
+
+.table table {
+    width: 100% !important;
+    margin: 18pt 0 !important;
+    border-collapse: collapse;
+    border: 1.5pt solid #333;
+    table-layout: fixed;
+    font-size: 11pt;
+    line-height: 1.2;
+}
+
+.table table td,
+.table table th {
+    word-break: normal;
+    overflow-wrap: break-word;
+    padding: 6pt;
+    font-size: inherit;
+    border: 0.5pt solid #333;
+    text-align: center;
+}
+
+.table table td:first-child,
+.table table th:first-child {
+    text-align: left;
+}
+
+.table table td:not(:first-child),
+.table table th:not(:first-child) {
+    white-space: nowrap;
+    text-align: right;
+}
+
+.column-block .table table {
+    width: 100% !important;
+    table-layout: fixed;
+    margin: 12pt 0;
+    border-collapse: collapse;
+    border: 1.5pt solid #333;
+}
+
+.column-block .table table td,
+.column-block .table table th {
+    word-break: break-word;
+    padding: 6pt;
+    font-size: 10pt;
+    border: 0.5pt solid #333;
+    text-align: center;
+}
+
+.column-block .table table td:first-child,
+.column-block .table table th:first-child {
+    text-align: left;
+}
+
+.column-block .table table td:not(:first-child),
+.column-block .table table th:not(:first-child) {
+    white-space: nowrap;
+    text-align: right;
+}
+
+.quote {
+    font-size: 13pt !important;
+    margin: 0 0 0 0 !important;
+    padding: 0 20px !important;
+    font-style: italic;
+    border-left: 3px solid #ccc;
+    text-align: justify !important;
+    text-indent: 0 !important;
+}
+
+.ordered-list, .unordered-list {
+    font-size: inherit !important;
+    margin: 0 0 0 0 !important;
+    padding-left: 40px !important;
+    text-align: justify !important;
+    text-indent: 0 !important;
+}
+
+.sub-ordered-list, .sub-unordered-list {
+    font-size: inherit !important;
+    margin: 0 0 0 0 !important;
+    padding-left: 60px !important;
+    text-align: justify !important;
+    text-indent: 0 !important;
+}
+
+.subsub-ordered-list, .subsub-unordered-list {
+    font-size: inherit !important;
+    margin: 0 0 0 0 !important;
+    padding-left: 80px !important;
+    text-align: justify !important;
+    text-indent: 0 !important;
+}
+
+.image, .chart, .diagram, .photograph {
+    margin: 16px auto;
+    text-align: center;
+    max-width: 100% !important;
+}
+
+.image img, .chart img, .diagram img, .photograph img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    border: 1px solid #ddd;
+}
+
+.chart {
+    border: 2px solid #4a90d9;
+    padding: 8px;
+    background-color: #f8fafc;
+}
+
+.diagram {
+    border: 2px solid #6b7280;
+    padding: 8px;
+    background-color: #f9fafb;
+}
+
+.photograph {
+    border: 2px solid #059669;
+    padding: 4px;
+    background-color: #f0fdf4;
+}
+
+.image-caption {
+    font-style: italic;
+    margin: 8px auto;
+    text-align: center;
+    max-width: 100% !important;
+}
+
+.header, .footer {
+    font-size: 13pt !important;
+    margin: 12px auto;
+    text-align: center;
+    max-width: 100% !important;
+}
+
+.sidebar {
+    font-size: inherit !important;
+    margin: 12px auto;
+    padding: 10px;
+    background-color: #f5f5f5;
+    text-align: justify !important;
+    text-indent: 0 !important;
+}
+
+.footnote {
+    font-size: inherit !important;
+    margin: 8px auto;
+    padding-left: 20px;
+    text-align: justify !important;
+    text-indent: 0 !important;
+}
+
+hr.footnote-separator {
+    border: none;
+    border-top: 1px solid #999;
+    width: 40%;
+    margin: 16px 0 8px 0;
+}
+
+a.footnote-ref {
+    color: inherit;
+    text-decoration: none;
+}
+
+a.footnote-ref:hover {
+    text-decoration: underline;
+}
+
+.advertisement, .answer, .contact-info, .index, .options,
+.reference, .unknown {
+    font-size: inherit !important;
+    margin: 0 0 12pt 0 !important;
+    text-align: justify !important;
+}
+
+.author, .dateline, .flag, .formula, .jumpline,
+.page-number, .folio, .website-link,
+.first-level-question, .second-level-question, .third-level-question {
+    font-size: inherit !important;
+    margin: 12px auto;
+    text-align: center;
+    max-width: 100% !important;
+    text-indent: 0 !important;
+}
+    </style>
+</head>
+<body>
+<div class="page-body-container">
+<ol class="ordered-list"><li>హొ</li><li>తె: అవును</li><li>ఇ: యెస్</li><li>సిల్లె</li><li>తె: లేదు / కాదు</li><li>ఇ: నో</li><li>రాం! రాం!</li><li>తె: నమస్కారామండి</li><li>ఇ: హెలో</li><li>చొకొట్ మంతి?</li><li>తె: బాగున్నారా?</li><li>ఇ: హౌ ఆర్ యూ?</li><li>చొకొట్ మంతోన్</li><li>తె: నేను బాగున్నాను</li><li>ఇ: ఐ ఎమ్ ఫైన్</li><li>చొకొట్ మంత</li><li>తె: ఇది బాగుంది</li><li>ఇ: ఇట్ ఇస్ గుడ్</li><li>చొకొట్ సిల్లె</li><li>తె: ఇది బాగలేదు</li><li>ఇ: ఇట్ ఇస్ నాట్ గుడ్</li></ol>
+</div>
+<br><br>
+<div class="page-body-container">
+<div class="table"><table>
+<tbody>
+<tr>
+<td>8.</td>
+<td>నన్న కోయంగ్ కరిసేర్ మంతోన్<br/>తె: నేను గోండి భాష నేర్చుకుంటున్నాను<br/>ఇ: ఐ ఎమ్ లర్నింగ్ గోండి</td>
+</tr>
+<tr>
+<td>9.</td>
+<td>నాక్ టావా సిల్లె<br/>తె: నాకు తెలియదు<br/>ఇ: ఐ డోంట్ నో</td>
+</tr>
+<tr>
+<td>10.</td>
+<td>నాక్ కరే మాయ్యకి<br/>తె: నాకు అర్థం కావటం లేదు<br/>ఇ: ఐ డోంట్ అండర్ స్టేండ్</td>
+</tr>
+<tr>
+<td>11.</td>
+<td>నన్న జర్ర-జర్ర కోయంగ్ కరితోన్<br/>తె: నేను కొంతమటుకు గోండి భాష నేర్చుకున్నాను<br/>ఇ: ఐ హెవ్ లరంట్ అ లిటల్ గోండి</td>
+</tr>
+<tr>
+<td>12.</td>
+<td>నా సంగ కోయనె వడ్క<br/>తె: నాతో గోండిలో మాట్లాడు<br/>ఇ: స్పీక్ విద్ మీ ఇన్ గోండి</td>
+</tr>
+<tr>
+<td>13.</td>
+<td>కోయనె తేన్ బతల్ ఇంతేర్?<br/>తె: గోండి భాషలో దీనిని ఏమంటారు?<br/>ఇ: వాట్ డూ యూ కాల్ దిస్ ఇన్ గోండి?</td>
+</tr>
+<tr>
+<td>14.</td>
+<td>నిమ్మె బతల్ ఇత్తి?<br/>తె: మీరు ఏమన్నారు?<br/>ఇ: నాట్ డిడ్ యూ సే?</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<br><br>
+<div class="page-body-container">
+<div class="table"><table>
+<tbody>
+<tr>
+<td>15.</td>
+<td>వడ్క<br/>తె: మాట్లాడు<br/>ఇ: స్పీక్</td>
+</tr>
+<tr>
+<td>16.</td>
+<td>మర్ల వెహ<br/>తె: మళ్ళీ చెప్పండి<br/>ఇ: సే ఇట్ అగేన్</td>
+</tr>
+<tr>
+<td>17.</td>
+<td>జోక్-జోక్ వడ్క<br/>తె: మెల్ల-మెల్లగా మాట్లాడు<br/>ఇ: స్పీక్ స్లోలీ</td>
+</tr>
+<tr>
+<td>18.</td>
+<td>వెయ్నె వెహ<br/>తె: త్వరగా చెప్పండి<br/>ఇ: సే ఇట్ ఫాస్ట్</td>
+</tr>
+<tr>
+<td>19.</td>
+<td>వోర్ బతల్ వెహ్తోర్?<br/>తె: ఆయన ఏమి చెప్పారు?<br/>ఇ: వాట్ డిడ్ హీసే?</td>
+</tr>
+<tr>
+<td>20.</td>
+<td>ఇద్ కరల్ కీ?<br/>తె: ఇది నిజమైన దేనా?<br/>ఇ: ఇస్ ఇట్ ట్రూ?</td>
+</tr>
+<tr>
+<td>21.</td>
+<td>నన్న బహ్కె మాసి వడ్క తెకె వెహ<br/>తె: నేను తప్పు మాట్లాడితే నాకు చెప్పండి<br/>చెవ్ మీ ఇష్ ఇమ్మేర్ అనివేర్ చెవ్ స్పీకింగ్</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<br><br>
+<div class="page-body-container">
+<p class="paragraph">22. నాక్ కరే మాయ్యకి<br/>
+తె: నాకు అర్థం కావటం లేదు<br/>
+ఇ: ఐ డూ నాట్ అండర్ స్టేండ్</p>
+<p class="paragraph">23. నాక్ జరసి కరే మాత<br/>
+తె: నాకు కొద్దిగా అర్థమయింది<br/>
+ఇ: ఐ అండర్ స్టేండ్ ఓన్ లి అ లిటల్</p>
+<p class="paragraph">24. నాక్ కోయంగ్ వడ్క వాయొ<br/>
+తె: నాకు గోండి భాషలో మాట్లాడడం రాదు<br/>
+ఇ: ఐడూ నాట్ నో హౌ టూ స్పీక్ ఇన్ గోండి</p>
+<p class="paragraph">25. నన్న కోయంగ్ కరియ లాగర్<br/>
+తె: నేను గోండి భాష నేర్చు కోవాలి<br/>
+ఇ: ఐ వంట్ టూలర్న్ గోండి</p>
+<h2 class="section-title">మీరె మాసి వడ్కవల్</h2>
+<p class="paragraph">26. నీవ బత్త పాడి?<br/>
+తె: మీ కుటుంబం పేరు?<br/>
+ఇ: వాట్ ఇస్ యోర్ సర్ నేమ్?</p>
+<p class="paragraph">27. నావపేందుర్<br/>
+తె: మా కుటుంబం పేరు పేందుర్<br/>
+ఇ: మై సర్ నేమ్ ఇస్ పేందుర్</p>
+<p class="paragraph">28. నీవ బద్ నార్?<br/>
+తె: నీ ఊరేది?<br/>
+ఇ: విచ్ ఇస్ యోర్ విలెజ్?</p>
+</div>
+<br><br>
+<div class="page-body-container">
+<div class="table"><table>
+<tbody>
+<tr>
+<td>29.</td>
+<td>నావ భీముగూడ<br/>తె: మా ఊరు భీముగూడ<br/>ఇ: మై విలెజ్ ఇస్ భీముగూడ</td>
+</tr>
+<tr>
+<td>30.</td>
+<td>నీవ బత పొరోల్?<br/>తె: నీ పేరు ఏమిటి?<br/>ఇ: వాట్ ఇస్ యోర్ నేమ్?</td>
+</tr>
+<tr>
+<td>31.</td>
+<td>నావ దుర్నత్ రావ్<br/>తె: నా పేరు దుర్నత్ రావ్<br/>ఇ: మై నేమ్ ఇస్ దుర్నథ్ రావ్</td>
+</tr>
+<tr>
+<td>32.</td>
+<td>నిమ్మె బేకె దాంతి?<br/>తె: నీవు ఎక్కడికి వెళ్తున్నావు?<br/>ఇ: వేర్ ఆర్ యూ గోఇంగ్?</td>
+</tr>
+<tr>
+<td>33.</td>
+<td>నాటె దాంతోన్<br/>తె: ఊరి వైపు వెళ్తున్నాను<br/>ఇ: ఐ ఎమ్ గోఇంగ్ టువార్డ్స్ ద విలెజ్</td>
+</tr>
+<tr>
+<td>34.</td>
+<td>నిమ్మె బతల్ కామ్ కీంతి?<br/>తె: నీవేమి పని చేస్తావు?<br/>ఇ: వాట్ వర్క్ డూ యూ డూ?</td>
+</tr>
+<tr>
+<td>35.</td>
+<td>నన్న ఖేతి కామ్ కీంతోన్<br/>తె: నేను వ్యవసాయం పని చేస్తాను<br/>ఇ: ఐ ఎమ్ అ ఫార్మర్</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<br><br>
+<div class="page-body-container">
+<div class="table"><table>
+<tbody>
+<tr>
+<td>36.</td>
+<td>నీక్ బచ్చొంగ్ సాల్క్ మంతంగ్?</td>
+</tr>
+<tr>
+<td></td>
+<td>తె: నీ వయస్సు ఎంత?</td>
+</tr>
+<tr>
+<td></td>
+<td>ఇ: హౌ ఓల్డ్ ఆర్ యూ?</td>
+</tr>
+<tr>
+<td>37.</td>
+<td>మీ నాట్నోర్ పాట్లన పాడి బతల్?</td>
+</tr>
+<tr>
+<td></td>
+<td>తె: మీ ఊరి పటేల్ కుటుంబం పేరు ఏమిటి?</td>
+</tr>
+<tr>
+<td></td>
+<td>ఇ: వాట్ ఇస్ ద సర్ నేమ్ అఫ్ ద విలెజ్ హెడ్ మ్యన్?</td>
+</tr>
+<tr>
+<td>38.</td>
+<td>మా నాట్నోర్ పాట్లన పాడి మడావి</td>
+</tr>
+<tr>
+<td></td>
+<td>తె: మా ఊరి పటేల్ కుటుంబం పేరు మడావి</td>
+</tr>
+<tr>
+<td></td>
+<td>ఇ: ఆవర్ విలెజ్ హెడ్ మ్యంస్ సర్ నేమ్ ఇస్ మడావి</td>
+</tr>
+<tr>
+<td>39.</td>
+<td>మీ నాట్నోర్ పాట్లన బత పొరోల్?</td>
+</tr>
+<tr>
+<td></td>
+<td>తె: మీ ఊరి పటేల్ పేరు ఏమిటి?</td>
+</tr>
+<tr>
+<td></td>
+<td>ఇ: వాట్ ఇస్ ద నేమ్ అఫ్ ద విలెజ్ హెడ్ మ్యన్?</td>
+</tr>
+<tr>
+<td>40.</td>
+<td>పాట్లన పొరోల్ రాము</td>
+</tr>
+<tr>
+<td></td>
+<td>తె: పటెల్ గారు పేరు రాము</td>
+</tr>
+<tr>
+<td></td>
+<td>ఇ: దహెడ్ మ్యంస్ నేమ్ ఇస్ రాము</td>
+</tr>
+<tr>
+<td>41.</td>
+<td>పాట్లన బద్ రోన్?</td>
+</tr>
+<tr>
+<td></td>
+<td>తె: మీ ఊరి పటేల్ గారి ఇల్లు ఎక్కడ ఉంది?</td>
+</tr>
+<tr>
+<td></td>
+<td>ఇ: వేర్ ఇస్ ద హెడ్ మ్యంస్ హౌస్?</td>
+</tr>
+<tr>
+<td>42.</td>
+<td>పాట్లన రోన్ అగ మంత</td>
+</tr>
+<tr>
+<td></td>
+<td>తె: పటేల్ గారి ఇల్లు అక్కడ ఉంది?</td>
+</tr>
+<tr>
+<td></td>
+<td>ఇ: దహెడ్ మ్యంస్ హౌస్ ఇస్ దేర్</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<br><br>
+<div class="page-body-container">
+<div class="table"><table>
+<thead>
+<tr>
+<th colspan="3">పూసి కియ్యల్</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>44.</td>
+<td>ఇద్ బతల్?</td>
+<td></td>
+</tr>
+<tr>
+<td>తె:</td>
+<td>ఇది ఏమిటి?</td>
+<td></td>
+</tr>
+<tr>
+<td>ఇ:</td>
+<td>వాట్ ఇన్ దిస్?</td>
+<td></td>
+</tr>
+<tr>
+<td>45.</td>
+<td>అద్ బతల్?</td>
+<td></td>
+</tr>
+<tr>
+<td>తె:</td>
+<td>అది ఏమిటి?</td>
+<td></td>
+</tr>
+<tr>
+<td>ఇ:</td>
+<td>వాట్ ఇన్ దెట్?</td>
+<td></td>
+</tr>
+<tr>
+<td>46.</td>
+<td>అద్ చెప్పుల్ / సెర్పుం</td>
+<td></td>
+</tr>
+<tr>
+<td>తె:</td>
+<td>అది చెప్పు</td>
+<td></td>
+</tr>
+<tr>
+<td>ఇ:</td>
+<td>దెట్ ఇన్ అ స్లిపర్</td>
+<td></td>
+</tr>
+<tr>
+<td>47.</td>
+<td>అద్ చెప్పుల్ / సెర్పుం బోన?</td>
+<td></td>
+</tr>
+<tr>
+<td>తె:</td>
+<td>ఆ చెప్పు ఎవరిది?</td>
+<td></td>
+</tr>
+<tr>
+<td>ఇ:</td>
+<td>హూస్ స్లిపర్ ఇన్ దెట్?</td>
+<td></td>
+</tr>
+<tr>
+<td>48.</td>
+<td>అద్ నావ</td>
+<td></td>
+</tr>
+<tr>
+<td>తె:</td>
+<td>అది నాది?</td>
+<td></td>
+</tr>
+<tr>
+<td>ఇ:</td>
+<td>దెట్ ఇన్ మైన్</td>
+<td></td>
+</tr>
+<tr>
+<td>49.</td>
+<td>అద్ వోన?</td>
+<td></td>
+</tr>
+<tr>
+<td>తె:</td>
+<td>అది ఆయన దా?</td>
+<td></td>
+</tr>
+<tr>
+<td>ఇ:</td>
+<td>ఇన్ దెట్ హిస్?</td>
+<td></td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<br><br>
+<div class="page-body-container">
+<div class="table"><table>
+<tbody>
+<tr>
+<td>50.</td>
+<td>నావంగ్ బవ్ చెప్పుల్క్ / సెర్పుక్?</td>
+</tr>
+<tr>
+<td>తె:</td>
+<td>నా చెప్పులు ఏవి?</td>
+</tr>
+<tr>
+<td>ఇ:</td>
+<td>విచ్ స్లిపర్ ఇస్ మైన్?</td>
+</tr>
+<tr>
+<td>51.</td>
+<td>అద్ సుంగున?</td>
+</tr>
+<tr>
+<td>తె:</td>
+<td>ఇది సుంగు దా?</td>
+</tr>
+<tr>
+<td>ఇ:</td>
+<td>ఇన్ దెట్ సుంగుస్?</td>
+</tr>
+<tr>
+<td>52.</td>
+<td>ఇద్ బాతల్ మంత?</td>
+</tr>
+<tr>
+<td>తె:</td>
+<td>ఇది ఎలాగ ఉంది?</td>
+</tr>
+<tr>
+<td>ఇ:</td>
+<td>వాట్ కైండ్ ఇస్ ఇట్?</td>
+</tr>
+<tr>
+<td>53.</td>
+<td>ఇద్ తాన్ మొడిత</td>
+</tr>
+<tr>
+<td>తె:</td>
+<td>ఇది దాని లాగ ఉంది</td>
+</tr>
+<tr>
+<td>ఇ:</td>
+<td>ఇట్ ఇన్ లైక్ దెట్ వన్</td>
+</tr>
+<tr>
+<td>54.</td>
+<td>అద్ బగ మంత?</td>
+</tr>
+<tr>
+<td>తె:</td>
+<td>అది ఎక్కడ ఉంది?</td>
+</tr>
+<tr>
+<td>ఇ:</td>
+<td>వేర్ ఇస్ ఇట్?</td>
+</tr>
+<tr>
+<td>55.</td>
+<td>అద్ ఇగ్గేనె మంత</td>
+</tr>
+<tr>
+<td>తె:</td>
+<td>అది ఇక్కడ ఉంది</td>
+</tr>
+<tr>
+<td>ఇ:</td>
+<td>ఇట్ ఇన్ హీర్</td>
+</tr>
+<tr>
+<td>56.</td>
+<td>రోత్ పొరొ మంత?</td>
+</tr>
+<tr>
+<td>తె:</td>
+<td>అది ఇల్లు మీద ఉన్నది</td>
+</tr>
+<tr>
+<td>ఇ:</td>
+<td>ఇన్ ఇట్ ఆన్ ద రూఫ్?</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<br><br>
+<div class="page-body-container">
+<h2 class="section-title">హుకుమ్ సియ్యల్</h2>
+<ol class="ordered-list"><li>గాటొ తిన్ / తిన్మ</li><li>తె: భోజనం చేయండి / చేయవద్దు</li><li>ఇ: ఈట్ ఫూడ్ / డోంట్ ఈట్</li><li>యేర్ ఉన్ / ఉన్మ</li><li>తె: నీళ్ళు త్రాగండి / త్రాగవద్దు</li><li>ఇ: డ్రింక్ వాటర్ / డోంట్ డ్రింక్</li><li>ఇద్ కేంజ / కేంజ్మ</li><li>తె: ఇది వినండి / వినవద్దు</li><li>ఇ: లిసెన్ టూ దిస్ / డోంట్ లిసెన్</li><li>సొ / సొన్న</li><li>తె: వెళ్లండి / వెళ్లకండి</li><li>ఇ: గో / డోంట్ గో</li><li>నిల / నిల్మ</li><li>తె: నిలబడుము / నిలబడవద్దు</li><li>ఇ: స్టేండ్ అప్ / డోంట్ స్టేండ్</li><li>ఉద్ద / ఉద్మ</li><li>తె: కూర్చోండి / కూర్చోవద్దు</li><li>ఇ: సిట్ / డోంట్ సిట్</li><li>హక్కె సూడ / సూడ్మ</li><li>తె: అక్కడ చూడండి / చూడొద్దు</li><li>ఇ: లుక్ దేర్ / డోంట్ లుక్ దేర్</li></ol>
+</div>
+<br><br>
+<div class="page-body-container">
+<div class="table"><table>
+<tbody>
+<tr>
+<td>64.</td>
+<td>హిక్కే సూడ / సూడ్మ<br/>తె: ఇక్కడ చూడండి / చూడొద్దు<br/>ఇ: లుక్ హీర్ / డోంట్ లుక్ హీర్</td>
+</tr>
+<tr>
+<td>65.</td>
+<td>గాటొ అట్ట / అట్మ<br/>తె: భోజనము వండుము / వండద్దు<br/>ఇ: కుక్ ఫూడ్ / డోంట్ కుక్</td>
+</tr>
+<tr>
+<td>66.</td>
+<td>బహ్రి సొ / సోన్మ<br/>తె: బయటకు వెళ్లండి / వెళ్ళద్దు<br/>ఇ: గో ఆవ్ట్ / డోంట్ గో ఆవ్ట్</td>
+</tr>
+<tr>
+<td>67.</td>
+<td>ఇగ్గే నర్మ / నరుమ్మ<br/>తె: ఇక్కడ నిద్రపొండి / నిద్రపోవద్దు<br/>ఇ: స్లీప్ హీర్ / డోంట్ స్లీప్ హీర్</td>
+</tr>
+<tr>
+<td>68.</td>
+<td>నిమ్ వోన్ సంగ వడ్క / వడ్క్మ<br/>తె: ఆయనతో మీరు మాట్లాడండి / మాట్లాడవద్దు<br/>ఇ: స్పీక్ విద్ హిమ్ / డోంట్ స్పీక్ విద్ హిమ్</td>
+</tr>
+<tr>
+<td>69.</td>
+<td>రొప్పో వా<br/>తె: లోపలకి రండి<br/>ఇ: కమ్ ఇన్</td>
+</tr>
+<tr>
+<td>70.</td>
+<td>జర దీర<br/>తె: కొంత సేపు ఆగండి<br/>ఇ: వేట్ అ లిటల్</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</body>
+</html>

@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="te-IN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+body {
+    padding: 0 !important;
+    margin: 0 !important;
+    background-color: white !important;
+    width: 100% !important;
+    font-family: serif;
+}
+
+.page-body-container {
+    background-color: white;
+    width: 210mm;
+    margin: 0 auto;
+    padding: 20mm 15mm;
+    box-sizing: border-box;
+    min-height: 100vh;
+}
+
+p.paragraph, .paragraph, .block, .quote, .ordered-list, .unordered-list,
+.advertisement, .answer, .contact-info, .index, .options,
+.reference, .unknown, .sidebar, .footnote {
+    text-align: justify !important;
+    text-align-last: left !important;
+    text-justify: inter-word !important;
+    font-size: inherit !important;
+    line-height: 1.3 !important;
+    margin: 0 0 12pt 0 !important;
+    text-indent: 18pt !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box;
+}
+
+.quote, .ordered-list, .unordered-list, .sidebar, .footnote {
+    text-indent: 0 !important;
+}
+
+.multi-column-row { font-size: 12pt; }
+.multi-column-row.cols-1 { font-size: 12pt; }
+.multi-column-row.cols-2 { font-size: 11pt; gap: 18pt; }
+.multi-column-row.cols-3 { font-size: 10pt; gap: 16pt; }
+.multi-column-row.cols-4 { font-size: 9pt; gap: 12pt; }
+
+.page-body-container > p.paragraph,
+.page-body-container > .paragraph {
+    font-size: 12pt !important;
+}
+
+h1.chapter-title {
+    font-size: 30pt !important;
+    line-height: 1.1 !important;
+    margin: 0 0 12pt 0 !important;
+    text-align: center !important;
+    font-weight: bold;
+}
+
+h2.section-title, h2.headline {
+    font-size: 18pt !important;
+    line-height: 1.1 !important;
+    margin: 12pt 0 8pt 0 !important;
+    text-align: center !important;
+    font-weight: bold;
+}
+
+h3.sub-section-title, h3.sub-headline,
+h4.subsub-section-title, h4.subsub-headline {
+    font-size: 13pt !important;
+    line-height: 1.25 !important;
+    margin: 12pt 0 4pt 0 !important;
+    text-align: center !important;
+    font-weight: bold;
+}
+
+.multi-column-row {
+    width: 100% !important;
+    margin: 12pt 0 !important;
+    display: grid;
+}
+
+.column-block {
+    text-align: left !important;
+    text-align-last: left !important;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    min-width: 0;
+    overflow-wrap: break-word;
+    width: 100%;
+}
+
+.column-block p {
+    text-indent: 0 !important;
+    margin-bottom: 8pt !important;
+    font-size: inherit !important;
+}
+
+.column-block p br {
+    display: none;
+}
+
+.centered-block {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin: 12pt 0;
+}
+
+.centered-block > * {
+    text-align: center !important;
+    font-size: 13pt !important;
+    max-width: 100% !important;
+    margin: 0 auto !important;
+    text-indent: 0 !important;
+}
+
+.table table {
+    width: 100% !important;
+    margin: 18pt 0 !important;
+    border-collapse: collapse;
+    border: 1.5pt solid #333;
+    table-layout: fixed;
+    font-size: 11pt;
+    line-height: 1.2;
+}
+
+.table table td,
+.table table th {
+    word-break: normal;
+    overflow-wrap: break-word;
+    padding: 6pt;
+    font-size: inherit;
+    border: 0.5pt solid #333;
+    text-align: center;
+}
+
+.table table td:first-child,
+.table table th:first-child {
+    text-align: left;
+}
+
+.table table td:not(:first-child),
+.table table th:not(:first-child) {
+    white-space: nowrap;
+    text-align: right;
+}
+
+.column-block .table table {
+    width: 100% !important;
+    table-layout: fixed;
+    margin: 12pt 0;
+    border-collapse: collapse;
+    border: 1.5pt solid #333;
+}
+
+.column-block .table table td,
+.column-block .table table th {
+    word-break: break-word;
+    padding: 6pt;
+    font-size: 10pt;
+    border: 0.5pt solid #333;
+    text-align: center;
+}
+
+.column-block .table table td:first-child,
+.column-block .table table th:first-child {
+    text-align: left;
+}
+
+.column-block .table table td:not(:first-child),
+.column-block .table table th:not(:first-child) {
+    white-space: nowrap;
+    text-align: right;
+}
+
+.quote {
+    font-size: 13pt !important;
+    margin: 0 0 0 0 !important;
+    padding: 0 20px !important;
+    font-style: italic;
+    border-left: 3px solid #ccc;
+    text-align: justify !important;
+    text-indent: 0 !important;
+}
+
+.ordered-list, .unordered-list {
+    font-size: inherit !important;
+    margin: 0 0 0 0 !important;
+    padding-left: 40px !important;
+    text-align: justify !important;
+    text-indent: 0 !important;
+}
+
+.sub-ordered-list, .sub-unordered-list {
+    font-size: inherit !important;
+    margin: 0 0 0 0 !important;
+    padding-left: 60px !important;
+    text-align: justify !important;
+    text-indent: 0 !important;
+}
+
+.subsub-ordered-list, .subsub-unordered-list {
+    font-size: inherit !important;
+    margin: 0 0 0 0 !important;
+    padding-left: 80px !important;
+    text-align: justify !important;
+    text-indent: 0 !important;
+}
+
+.image, .chart, .diagram, .photograph {
+    margin: 16px auto;
+    text-align: center;
+    max-width: 100% !important;
+}
+
+.image img, .chart img, .diagram img, .photograph img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    border: 1px solid #ddd;
+}
+
+.chart {
+    border: 2px solid #4a90d9;
+    padding: 8px;
+    background-color: #f8fafc;
+}
+
+.diagram {
+    border: 2px solid #6b7280;
+    padding: 8px;
+    background-color: #f9fafb;
+}
+
+.photograph {
+    border: 2px solid #059669;
+    padding: 4px;
+    background-color: #f0fdf4;
+}
+
+.image-caption {
+    font-style: italic;
+    margin: 8px auto;
+    text-align: center;
+    max-width: 100% !important;
+}
+
+.header, .footer {
+    font-size: 13pt !important;
+    margin: 12px auto;
+    text-align: center;
+    max-width: 100% !important;
+}
+
+.sidebar {
+    font-size: inherit !important;
+    margin: 12px auto;
+    padding: 10px;
+    background-color: #f5f5f5;
+    text-align: justify !important;
+    text-indent: 0 !important;
+}
+
+.footnote {
+    font-size: inherit !important;
+    margin: 8px auto;
+    padding-left: 20px;
+    text-align: justify !important;
+    text-indent: 0 !important;
+}
+
+hr.footnote-separator {
+    border: none;
+    border-top: 1px solid #999;
+    width: 40%;
+    margin: 16px 0 8px 0;
+}
+
+a.footnote-ref {
+    color: inherit;
+    text-decoration: none;
+}
+
+a.footnote-ref:hover {
+    text-decoration: underline;
+}
+
+.advertisement, .answer, .contact-info, .index, .options,
+.reference, .unknown {
+    font-size: inherit !important;
+    margin: 0 0 12pt 0 !important;
+    text-align: justify !important;
+}
+
+.author, .dateline, .flag, .formula, .jumpline,
+.page-number, .folio, .website-link,
+.first-level-question, .second-level-question, .third-level-question {
+    font-size: inherit !important;
+    margin: 12px auto;
+    text-align: center;
+    max-width: 100% !important;
+    text-indent: 0 !important;
+}
+    </style>
+</head>
+<body>
+<div class="page-body-container">
+<div class="table"><table>
+<tbody>
+<tr>
+<td>209. నన్న చహ ఉంటోన్<br/>తె: నేను టీ(ఛాయ) త్రాగుతాను<br/>ఇ: ఐ(విల్) డ్రింక్ టీ</td>
+</tr>
+<tr>
+<td>210. జేవున్(గాటొ) తయార్ ఆత<br/>తె: భోజనము(అన్నము) తయారైంది<br/>ఇ: ద మీల్(రైస్) ఇస్ రెడి</td>
+</tr>
+<tr>
+<td>211. ఇంకె రోన్ దాకట్<br/>తె: ఇప్పుడు ఇంటికి వెళ్ళుదాము<br/>ఇ: లెట్ అస్ గో హోమ్ నౌ</td>
+</tr>
+<tr>
+<td>212. ఇద్ యేత<br/>తె: ఇది తీసుకో<br/>ఇ: టేక్ దిస్</td>
+</tr>
+<tr>
+<td>213. ఇద్ నిహ్గ ఇర<br/>తె: ఇది నీ దగ్గర ఉంచుకో<br/>ఇ: యూ కీప్ ఇట్ విద్ యూ</td>
+</tr>
+<tr>
+<td>214. ఇద్ చహ గోడ్ మంత<br/>తె: ఇది ఛాయ తియ్యగా ఉంది<br/>ఇ: దిస్ టీ ఇస్ స్వీట్</td>
+</tr>
+<tr>
+<td>215. ఇద్ యేర్ కినన్ మంత<br/>తె: ఈ నీళ్ళు చల్లగా ఉన్నాయి<br/>ఇ: దిస్ వాటర్ ఇస్ కోల్డ్</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<br><br>
+<div class="page-body-container">
+<div class="table"><table>
+<tbody>
+<tr>
+<td>216. నా పెట్టి నింతప్ మంత<br/>తె: నా కడుపు నిండి నట్లుగా ఉంది<br/>ఇ: మై స్టమక్ ఇస్ ఫీలింగ్ ఫుల్</td>
+</tr>
+<tr>
+<td>217. మాఫ్ కీమ్<br/>తె: నన్ను క్షేమించండి<br/>ఇ: ఫోర్గివ్ మీ</td>
+</tr>
+<tr>
+<td>218. నన్న సాపంగ్ తినోన్<br/>తె: నేను వంకాయ తిన్నను<br/>ఇ: ఐ డోంట్ ఈట్ బ్రిజ్జాల్(ఎగ్ ప్లాజ్ట్)</td>
+</tr>
+<tr>
+<td>219. నన్న పూసి కియ్యల్ మారుంగ్ తోన్<br/>తె: నేను అడగడము మరచి పోయాను<br/>ఇ: ఐ ఫోర్గాట్ టూ ఆస్క్</td>
+</tr>
+<tr>
+<td>220. మొడ్డె నురమ్త<br/>తె: పాప నిద్రిస్తుంది<br/>ఇ: ద బేబీ(గర్ల్) హెస్ ఫాలెన్ అస్లీప్</td>
+</tr>
+<tr>
+<td>221. పేడి కటుడ్గ నర్మంత<br/>తె: పాప మంచము మీద పడుకుంది<br/>ఇ: ద గర్ల్ హెస్ స్లెక్ట్ ఆన్ ద బెడ్</td>
+</tr>
+<tr>
+<td>222. ఇంకె మరట్ సొన్జి తిన్కట్<br/>తె: మనం ఇప్పుడు తినుటకు వెళ్ళుదాము<br/>ఇ: లెట్ అస్ ఆల్ గో టూ ఈట్ నౌ</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<br><br>
+<div class="page-body-container">
+<div class="table"><table>
+<tbody>
+<tr>
+<td>223. ఇంకె మొమొట్ నరుమ్కట్<br/>తె: మనము ఇప్పుడు నిద్ర పోదాము<br/>ఇ: లెట్ అస్ ఆల్ స్లీప్ నౌ</td>
+</tr>
+<tr>
+<td>224. మొమొట్ ఆంగ్లే కొట్సి మహ్‌తోం<br/>తె: చొక్కా కుట్టడము ముగించినాము<br/>ఇ: వీహెవ్ ఫినిష్ మేకింగ్ అ శర్ట్</td>
+</tr>
+<tr>
+<td>225. నిమ్మె బయ్ కామ్ కీతి<br/>తె: నీవు చాలా కష్టపడి పని చేశావు<br/>ఇ: యూహెవ్ డన్ అ లాట్ ఆఫ్ వర్క్</td>
+</tr>
+<tr>
+<td>226. నిమ్మె చొకొట్ కామ్ కీతి<br/>తె: నీవు చాలాబాగ పని చేశావు<br/>ఇ: యూహెవ్ డన్ గుడ్ వర్క్</td>
+</tr>
+<tr>
+<td>227. ఇద్ బయ్ జడ్ సిల్లె<br/>తె: ఇది చాలా బరువుగా లేదు<br/>ఇ: ఇట్ ఇన్ నాట్ వెరి హెవీ</td>
+</tr>
+<tr>
+<td>228. అద్ బయ్ లంగ్ సిల్లె<br/>తె: అది చాలా దూరం లేదు<br/>ఇ: దెట్ ఇన్ నాట్ వెరి ఫార్</td>
+</tr>
+<tr>
+<td>229. కాండిర్ సాడతల్ రొహ్క్ సొంజేర్ మంతేర్<br/>తె: మగ పిల్లలు బడి నుండి ఇంటికి వెళ్ళుతున్నారు<br/>ఇ: ద బొయ్స్ ఆర్ గోఇంగ్ హోమ్ ఫ్రమ్ స్కూల్</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<br><br>
+<div class="page-body-container">
+<div class="table"><table>
+<tbody>
+<tr>
+<td>230. మొడ్డె అడ్సేర్ మంత<br/>తె: పాప ఏడుస్తుంది<br/>ఇ: ద బేబీ(గర్ల్) ఇస్ క్రైయింగ్</td>
+</tr>
+<tr>
+<td>231. వోర్ అగసెల్లోర్<br/>తె: ఆయన అక్కడ లేరు<br/>ఇ: హీ ఇస్ నాట్ దేర్</td>
+</tr>
+<tr>
+<td>232. నన్న గాటొ అట్సేర్ మంతోన్<br/>తె: నేను అన్నం వండుతున్నాను<br/>ఇ: ఐ ఎమ్ కుకింగ్ ఫూడ్</td>
+</tr>
+<tr>
+<td>233. నన్న పుస్తక్ వాచి కీసేర్ మంతోన్<br/>తె: నేను పుస్తకం చదువుతున్నాను<br/>ఇ: ఐ ఎమ్ రీడింగ్ అ బుక్</td>
+</tr>
+<tr>
+<td>234. మొమొట్ హాటుం సొంజేర్ మంతోం<br/>తె: మేము అంగడికి(బజార్) పోతున్నాము<br/>ఇ: వీ ఆర్ గోఇంగ్ టూ ద మార్కెట్</td>
+</tr>
+<tr>
+<td>235. ఇంకెమొమొట్ హాటుం దాంతోం<br/>తె: మేము అంగడికి(బజార్) ఇప్పుడు వెళ్తాము<br/>ఇ: వీ ఆర్ అబౌట్ టూ గో టూ ద మార్కెట్</td>
+</tr>
+<tr>
+<td>236. నన్న నాడి మల్సి వాంతోన్<br/>తె: నేను రేపు తిరిగి వస్తాను<br/>ఇ: ఐ ఎమ్ కమింగ్ బెక్ టుమారొ</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<br><br>
+<div class="page-body-container">
+<p class="paragraph">237. నన్న రెండ, మూంద్ రోజ్క్నె మల్సి వాంతోన్<br/>
+తె: నేను రెండు, మూడు రోజుల తర్వాత తిరిగి వస్తాను<br/>
+ఇ: ఐ విల్ కమ్ బెక్ ఇన్ అ ఫియూ డేస్</p>
+<p class="paragraph">238. వోర్ నిన్నె సొత్తోర్<br/>
+తె: ఆయన నిన్న వెళ్ళి పోయాడు<br/>
+ఇ: హీవెంట్ యెస్టర్డే</p>
+<p class="paragraph">239. వోర్ నిన్నె సక్రేసొత్తోర్<br/>
+తె: ఆయన నిన్న ప్రొద్దున వెళ్లాడు<br/>
+ఇ: హీవెంట్ యెస్టర్డేమోర్నింగ్</p>
+<p class="paragraph">240. వోర్ అస్కేన్ సొడితోర్<br/>
+తె: ఆయన ఎప్పుడో వెళ్ళి పోయాడు<br/>
+ఇ: హీవెంట్ అ లాంగ్ టైమ్ అగో</p>
+<h2 class="section-title">డాక్టర్తగ</h2>
+<p class="paragraph">241. నీక్ సుకంసెల్లె?<br/>
+తె: నీకు రోగం ఉంది?<br/>
+ఇ: ఆర్ యూ నాట్ వెల్?</p>
+<p class="paragraph">242. బస్కెడల్ సుకంసెల్లె?<br/>
+తె: ఎంత కాలం నుండి జబ్బుగా ఉంది?<br/>
+ఇ: హౌ లాంగ్ హెవ్ యూ బీన్ సిక్?</p>
+<p class="paragraph">243. నిమ్మె కకంతి?</p>
+<p class="paragraph">తె: నీకు వాంతులు వస్తున్నాయా?</p>
+<p class="paragraph">ఇ: డూ యూ హెవ్ వామిటింగ్?</p>
+</div>
+<br><br>
+<div class="page-body-container">
+<div class="table"><table>
+<tbody>
+<tr>
+<td>244. నీక్ మెయ్‌దన్ వాంత?</td>
+</tr>
+<tr>
+<td>తె: నీకు విరేచనాలు అవుతున్నాయా?</td>
+</tr>
+<tr>
+<td>ఇ: ఆర్ యూ సఫరింగ్ ఫ్రమ్ డైఒరీయా?</td>
+</tr>
+<tr>
+<td>245. నావ తల్ల నోంత</td>
+</tr>
+<tr>
+<td>తె: నాకు తలనొప్పి ఉంది</td>
+</tr>
+<tr>
+<td>ఇ: ఐహెవ్ అహెడ్ ఏక్</td>
+</tr>
+<tr>
+<td>246. ఇంకె చొకొట్ మంతి?</td>
+</tr>
+<tr>
+<td>తె: నీవు బాగున్నావా?</td>
+</tr>
+<tr>
+<td>ఇ: ఆర్ యూ బెటర్?</td>
+</tr>
+<tr>
+<td>247. కాండిన్ యెత్త</td>
+</tr>
+<tr>
+<td>తె: బాబును ఎత్తుకోండి</td>
+</tr>
+<tr>
+<td>ఇ: హోల్డ్ ద(బొయ్) చైల్డ్</td>
+</tr>
+<tr>
+<td>248. పేడిన్ యెత్త</td>
+</tr>
+<tr>
+<td>తె: పాపను ఎత్తుకోండి</td>
+</tr>
+<tr>
+<td>ఇ: హోల్డ్ ద(గర్ల్) చైల్డ్</td>
+</tr>
+<tr>
+<td>249. నాక్ తొహ</td>
+</tr>
+<tr>
+<td>తె: నాకు చూపించండి</td>
+</tr>
+<tr>
+<td>ఇ: శో మీ</td>
+</tr>
+<tr>
+<td>250. టొడ్డి డక్నె కీమ్</td>
+</tr>
+<tr>
+<td>తె: మీ నోరు తెరవండి</td>
+</tr>
+<tr>
+<td>ఇ: ఓపన్ యోర్ మౌత్</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<br><br>
+<div class="page-body-container">
+<ol class="ordered-list"><li>గోలి మింగ</li><li>తె: గోలి(మాత్ర) మ్రింగండి</li><li>ఇ: స్వాలొ ద టబ్లెట్</li><li>ఇద్ చక్ ఇర</li><li>తె: ఇది శుభ్రంగా వుంచండి</li><li>ఇ: కీప్ ఇట్ క్లీన్</li><li>ఇద్ మర సక్రేనుల్పె సోక</li><li>తె: ఈ మందును ఉదయము, సాయంత్రము రాసు కోండి</li><li>ఇ: అప్లై దిస్ ఒయింట్ మెంట్ మోర్నింగ్ ఎండ్ ఈవెనింగ్</li><li>తాడ్క్క</li><li>తె: గోకవద్దు</li><li>ఇ: డూ నాట్ స్క్రెచ్</li><li>నిమ్మె గోలింగ్ మార్తెకె, మల్ల వా</li><li>తె: గోలీలు అయిపోయిన తర్వాత మళ్ళీ రండి</li><li>ఇ: కమ్ అగేన్ ఆఫ్టర్ యూ ఫినిశ్ ద టబ్లేట్స్</li><li>నిమ్మె బారి వాతి?</li><li>తె: మీరు ఎందుకు వచ్చారు?</li><li>ఇ: వైహెవ్ యూ కమ్?</li><li>బహన్ నోయ్యల్ సురు ఆత?</li><li>తె: ఎలా నొప్పి మొదలైంది?</li><li>ఇ: హౌ డిడ్ ద పేన్ స్టార్ట్?</li></ol>
+</div>
+<br><br>
+<div class="page-body-container">
+<div class="table"><table>
+<tbody>
+<tr>
+<td>258. బస్కేడల్ నోయ్యల్ సురు ఆత?</td>
+</tr>
+<tr>
+<td>తె: ఎప్పటి నుండి నొప్పి మొదలైంది?<br/>ఇ: వెన్ డిడ్ యూ ఫర్ట్స్ గెట్ దిస్ పేన్?</td>
+</tr>
+<tr>
+<td>259. బస్కే జాస్త నోయ్యల్ సురు అంత?</td>
+</tr>
+<tr>
+<td>తె: ఎప్పుడు నొప్పి ఎక్కువ అవుతుంది?<br/>ఇ: వెన్ వాస్ ద పేన్ టూ మచ్ టూ బేర్?</td>
+</tr>
+<tr>
+<td>260. బగ నోయ్యల్ సురు ఆత?</td>
+</tr>
+<tr>
+<td>తె: ఎక్కడ నొప్పి మొదలైంది?<br/>ఇ: వేర్ డిడ్ ద పేన్ స్టార్ట్?</td>
+</tr>
+<tr>
+<td>261. ఇంకె బగ నోసేర్ మంత?</td>
+</tr>
+<tr>
+<td>తె: ఎక్కడ నొప్పి ఉంది?<br/>ఇ: వేర్ ఇస్ ఇట్ పేనింగ్ నౌ?</td>
+</tr>
+<tr>
+<td>262. బహన్ నోసేర్ మంత?</td>
+</tr>
+<tr>
+<td>తె: ఎట్లా నొస్తుంది?<br/>ఇ: వాట్ ఇస్ ద పేన్ లైక్?</td>
+</tr>
+<tr>
+<td>263. నీవ మేందొల్ నోంతకీ? చుబ్బ-చుబ్బ ఆంత?</td>
+</tr>
+<tr>
+<td>తె: నీ శరీరము ఉబ్బి నట్టు అనిపిస్తుందా? లేదా ముళ్ళు<br/>గుచ్చినట్లు అనిపిస్తుందా?</td>
+</tr>
+<tr>
+<td>ఇ: ఇస్ ఇట్ శార్ప్ పేన్, ఓర్ ఇస్ ఇట్ డల్ పేన్?</td>
+</tr>
+<tr>
+<td>264. నీకున్ బస్కే-బస్కే హీన్ ఆంత?</td>
+</tr>
+<tr>
+<td>తె: నీకు ఎప్పుడెప్పుడు ఇలా అవుతుందా?</td>
+</tr>
+<tr>
+<td>ఇ: డస్ ఇట్ హర్ట్ ఆల్ ద టైమ్, ఓర్ ఆఫ్ ఎండ్ ఆన్?</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<br><br>
+<div class="page-body-container">
+<div class="table"><table>
+<tbody>
+<tr>
+<td>265. నోనెకే నీకున్ జోప్ వాంత?<br/>తె: నొప్పితో నీకు నిద్ర వస్తుందా?<br/>ఇ: కెన్ యూస్లీప్ విద్ ద పేన్?</td>
+</tr>
+<tr>
+<td>266. నీకున్ బహన్ యెడ్కి వాత?<br/>తె: నీకు ఎలా జ్వరము వచ్చింది?<br/>ఇ: హౌ డిడ్ యూ గెట్ ఫీవర్?</td>
+</tr>
+<tr>
+<td>267. నీకున్ బస్కే-బస్కే యెడ్కి వాత?<br/>తె: నీకు జ్వరము ఎప్పుడెప్పుడు వచ్చింది?<br/>ఇ: వెన్ డూ యూ గెట్ ద ఫీవర్?</td>
+</tr>
+<tr>
+<td>268. నీకున్ బహన్ చక్కర్ వాంత?<br/>తె: నీకు ఎలా ఛక్కర్ వస్తుంది?<br/>ఇ: వాట్ కైండ్ అఫ్ డిసినస్ డూ యూహెవ్?</td>
+</tr>
+<tr>
+<td>269. నిమ్మె ఇద్ నొప్పిత్ సాటి బతల్-బతల్ కీతి?<br/>తె: నీవు ఈ నొప్పి కోసం ఏం ఏమి చేశావు?<br/>ఇ: వాట్ రెమెడీస్ హెవ్ యూ ఆల్రేడి ట్రైడ్?</td>
+</tr>
+<tr>
+<td>270. నిమ్మె గోలింగ్ మింగ్తి కీ?<br/>తె: నీవు గోలి(మాత్ర) మ్రింగావ?<br/>ఇ: డిడ్ యూటేక్(స్వాలొ) ద టెబ్లేట్స్?</td>
+</tr>
+<tr>
+<td>271. నిమ్మె గోలింగ్ బారి మింగ్ మకి?<br/>తె: నీవు గోలి(మాత్ర) ఎందుకు మ్రింగ లేదు?<br/>ఇ: వై డిడ్ యూ నాట్ టేక్(స్వాలొ) ద టెబ్లేట్స్?</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<br><br>
+<div class="page-body-container">
+<div class="table"><table>
+<tbody>
+<tr>
+<td>272. నిమ్మె టానిక్ మర్ర ఉట్టి?</td>
+</tr>
+<tr>
+<td>తె: నీవు టానిక్(మందు) త్రాగినావ?</td>
+</tr>
+<tr>
+<td>ఇ: డిడ్ యూ డ్రింక్ ద సీరప్/టానిక్?</td>
+</tr>
+<tr>
+<td>273. నిమ్మె టానిక్ మర్ర బారి ఉన్మకి?</td>
+</tr>
+<tr>
+<td>తె: నీవు టానిక్(మందు) ఎందుకు త్రాగలేదు?</td>
+</tr>
+<tr>
+<td>ఇ: వై డిడ్ యూ నాట్ డ్రింక్ ద సీరప్/టానిక్?</td>
+</tr>
+<tr>
+<td>274. నీకున్ మొదొల్ బస్కే-బస్కే హీన్ ఆత?</td>
+</tr>
+<tr>
+<td>తె: నీకు మొదలు ఎప్పుడెప్పుడు ఇలా అయింది?</td>
+</tr>
+<tr>
+<td>ఇ: హౌ మెనిటైమ్స్ హెస్ ఇట్ హెపండ్ లైక్ దిస్ బీఫోర్?</td>
+</tr>
+<tr>
+<td>275. బహన్ కీతెకె నీవ నొయ్యల్ కమ్మి ఆయార్?</td>
+</tr>
+<tr>
+<td>తె: ఏమి చేస్తే నీ నొప్పి తగ్గును?</td>
+</tr>
+<tr>
+<td>ఇ: వాట్ మేక్స్ యూ ఫీల్ బెటర్ ఓర్ వర్స్?</td>
+</tr>
+<tr>
+<td>276. నీకున్ బగటల్ బహన్ యెడ్కి సురు ఆత?</td>
+</tr>
+<tr>
+<td>తె: నీకు ఎక్కడి నుండి ఎట్లా జ్వరము వచ్చింది?</td>
+</tr>
+<tr>
+<td>ఇ: హౌ ఎండ్ వెన్ డిడ్ యోర్ సిక్ నెస్ బిగిన్?</td>
+</tr>
+<tr>
+<td>277. నీకున్ మొదొల్ బస్కే హీన్ ఆసి మత్త?</td>
+</tr>
+<tr>
+<td>తె: నీకు ఇంతకు ముందు ఎప్పుడైన ఇలా వచ్చిందా?</td>
+</tr>
+<tr>
+<td>ఇ: హెవ్ యూ హెడ్ దిస్ సేమ్ ట్రబల్ బీఫోర్?</td>
+</tr>
+<tr>
+<td>278. మీ నాటె బోనె హీన్ ఆసి మత్త?</td>
+</tr>
+<tr>
+<td>తె: మీ ఊరిలో ఇంతకు ముందు ఇలా ఎవరికైన ఉండేనా?</td>
+</tr>
+<tr>
+<td>ఇ: హెస్ ఎనీవన్ ఎల్స్ ఇన్ యోర్ ఫెమిలీ ఓర్ విలెజ్ హెడ్ ఇట్?</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</body>
+</html>

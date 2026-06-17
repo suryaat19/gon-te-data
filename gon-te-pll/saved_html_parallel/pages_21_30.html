@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="te-IN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+body {
+    padding: 0 !important;
+    margin: 0 !important;
+    background-color: white !important;
+    width: 100% !important;
+    font-family: serif;
+}
+
+.page-body-container {
+    background-color: white;
+    width: 210mm;
+    margin: 0 auto;
+    padding: 20mm 15mm;
+    box-sizing: border-box;
+    min-height: 100vh;
+}
+
+p.paragraph, .paragraph, .block, .quote, .ordered-list, .unordered-list,
+.advertisement, .answer, .contact-info, .index, .options,
+.reference, .unknown, .sidebar, .footnote {
+    text-align: justify !important;
+    text-align-last: left !important;
+    text-justify: inter-word !important;
+    font-size: inherit !important;
+    line-height: 1.3 !important;
+    margin: 0 0 12pt 0 !important;
+    text-indent: 18pt !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box;
+}
+
+.quote, .ordered-list, .unordered-list, .sidebar, .footnote {
+    text-indent: 0 !important;
+}
+
+.multi-column-row { font-size: 12pt; }
+.multi-column-row.cols-1 { font-size: 12pt; }
+.multi-column-row.cols-2 { font-size: 11pt; gap: 18pt; }
+.multi-column-row.cols-3 { font-size: 10pt; gap: 16pt; }
+.multi-column-row.cols-4 { font-size: 9pt; gap: 12pt; }
+
+.page-body-container > p.paragraph,
+.page-body-container > .paragraph {
+    font-size: 12pt !important;
+}
+
+h1.chapter-title {
+    font-size: 30pt !important;
+    line-height: 1.1 !important;
+    margin: 0 0 12pt 0 !important;
+    text-align: center !important;
+    font-weight: bold;
+}
+
+h2.section-title, h2.headline {
+    font-size: 18pt !important;
+    line-height: 1.1 !important;
+    margin: 12pt 0 8pt 0 !important;
+    text-align: center !important;
+    font-weight: bold;
+}
+
+h3.sub-section-title, h3.sub-headline,
+h4.subsub-section-title, h4.subsub-headline {
+    font-size: 13pt !important;
+    line-height: 1.25 !important;
+    margin: 12pt 0 4pt 0 !important;
+    text-align: center !important;
+    font-weight: bold;
+}
+
+.multi-column-row {
+    width: 100% !important;
+    margin: 12pt 0 !important;
+    display: grid;
+}
+
+.column-block {
+    text-align: left !important;
+    text-align-last: left !important;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    min-width: 0;
+    overflow-wrap: break-word;
+    width: 100%;
+}
+
+.column-block p {
+    text-indent: 0 !important;
+    margin-bottom: 8pt !important;
+    font-size: inherit !important;
+}
+
+.column-block p br {
+    display: none;
+}
+
+.centered-block {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin: 12pt 0;
+}
+
+.centered-block > * {
+    text-align: center !important;
+    font-size: 13pt !important;
+    max-width: 100% !important;
+    margin: 0 auto !important;
+    text-indent: 0 !important;
+}
+
+.table table {
+    width: 100% !important;
+    margin: 18pt 0 !important;
+    border-collapse: collapse;
+    border: 1.5pt solid #333;
+    table-layout: fixed;
+    font-size: 11pt;
+    line-height: 1.2;
+}
+
+.table table td,
+.table table th {
+    word-break: normal;
+    overflow-wrap: break-word;
+    padding: 6pt;
+    font-size: inherit;
+    border: 0.5pt solid #333;
+    text-align: center;
+}
+
+.table table td:first-child,
+.table table th:first-child {
+    text-align: left;
+}
+
+.table table td:not(:first-child),
+.table table th:not(:first-child) {
+    white-space: nowrap;
+    text-align: right;
+}
+
+.column-block .table table {
+    width: 100% !important;
+    table-layout: fixed;
+    margin: 12pt 0;
+    border-collapse: collapse;
+    border: 1.5pt solid #333;
+}
+
+.column-block .table table td,
+.column-block .table table th {
+    word-break: break-word;
+    padding: 6pt;
+    font-size: 10pt;
+    border: 0.5pt solid #333;
+    text-align: center;
+}
+
+.column-block .table table td:first-child,
+.column-block .table table th:first-child {
+    text-align: left;
+}
+
+.column-block .table table td:not(:first-child),
+.column-block .table table th:not(:first-child) {
+    white-space: nowrap;
+    text-align: right;
+}
+
+.quote {
+    font-size: 13pt !important;
+    margin: 0 0 0 0 !important;
+    padding: 0 20px !important;
+    font-style: italic;
+    border-left: 3px solid #ccc;
+    text-align: justify !important;
+    text-indent: 0 !important;
+}
+
+.ordered-list, .unordered-list {
+    font-size: inherit !important;
+    margin: 0 0 0 0 !important;
+    padding-left: 40px !important;
+    text-align: justify !important;
+    text-indent: 0 !important;
+}
+
+.sub-ordered-list, .sub-unordered-list {
+    font-size: inherit !important;
+    margin: 0 0 0 0 !important;
+    padding-left: 60px !important;
+    text-align: justify !important;
+    text-indent: 0 !important;
+}
+
+.subsub-ordered-list, .subsub-unordered-list {
+    font-size: inherit !important;
+    margin: 0 0 0 0 !important;
+    padding-left: 80px !important;
+    text-align: justify !important;
+    text-indent: 0 !important;
+}
+
+.image, .chart, .diagram, .photograph {
+    margin: 16px auto;
+    text-align: center;
+    max-width: 100% !important;
+}
+
+.image img, .chart img, .diagram img, .photograph img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    border: 1px solid #ddd;
+}
+
+.chart {
+    border: 2px solid #4a90d9;
+    padding: 8px;
+    background-color: #f8fafc;
+}
+
+.diagram {
+    border: 2px solid #6b7280;
+    padding: 8px;
+    background-color: #f9fafb;
+}
+
+.photograph {
+    border: 2px solid #059669;
+    padding: 4px;
+    background-color: #f0fdf4;
+}
+
+.image-caption {
+    font-style: italic;
+    margin: 8px auto;
+    text-align: center;
+    max-width: 100% !important;
+}
+
+.header, .footer {
+    font-size: 13pt !important;
+    margin: 12px auto;
+    text-align: center;
+    max-width: 100% !important;
+}
+
+.sidebar {
+    font-size: inherit !important;
+    margin: 12px auto;
+    padding: 10px;
+    background-color: #f5f5f5;
+    text-align: justify !important;
+    text-indent: 0 !important;
+}
+
+.footnote {
+    font-size: inherit !important;
+    margin: 8px auto;
+    padding-left: 20px;
+    text-align: justify !important;
+    text-indent: 0 !important;
+}
+
+hr.footnote-separator {
+    border: none;
+    border-top: 1px solid #999;
+    width: 40%;
+    margin: 16px 0 8px 0;
+}
+
+a.footnote-ref {
+    color: inherit;
+    text-decoration: none;
+}
+
+a.footnote-ref:hover {
+    text-decoration: underline;
+}
+
+.advertisement, .answer, .contact-info, .index, .options,
+.reference, .unknown {
+    font-size: inherit !important;
+    margin: 0 0 12pt 0 !important;
+    text-align: justify !important;
+}
+
+.author, .dateline, .flag, .formula, .jumpline,
+.page-number, .folio, .website-link,
+.first-level-question, .second-level-question, .third-level-question {
+    font-size: inherit !important;
+    margin: 12px auto;
+    text-align: center;
+    max-width: 100% !important;
+    text-indent: 0 !important;
+}
+    </style>
+</head>
+<body>
+<div class="page-body-container">
+<p class="paragraph">141. వోర్ సాడతె బహన్ దాంతోర్?<br/>
+తె: అతను బడికి ఎలా వెళ్ళుతాడు?<br/>
+ఇ: హౌ డస్ హీ గో టూ స్కూల్?<br/>
+142. వోర్ సాడతె బస్నె దాంతోర్<br/>
+తె: అతను బడికి స్కూల్ బస్లో వెళ్ళుతాడు?<br/>
+ఇ: హీ గోస్ టూ స్కూల్ బై బస్<br/>
+143. అద్ బద్?<br/>
+తె: ఆమె ఎవరు?<br/>
+ఇ: హూ ఇస్ శీ?<br/>
+144. అద్ నీవ సేలడ్ కి త్కక ఆంద్?<br/>
+తె: ఆమె మీ అక్కనా / చెల్లెనా?<br/>
+ఇ: ఇస్ శీ యోర్ ఓల్డర్ ఓర్ యంగర్ సిస్టర్?<br/>
+145. నీక్ బచ్వీర్ తాదల్ తమ్ముర్ మంతేర్?<br/>
+తె: నీకు ఎంతమంది అన్నదమ్ములు ఉన్నారు?<br/>
+ఇ: హౌ మెని బ్రదర్స్ డూ యూహెవ్?<br/>
+146. నీక్ బచ్చొంగ్ సేలడ్ తక్కక్ మంతంగ్?<br/>
+తె: నీకు ఎంతమంది అక్కచెల్లెలు ఉన్నారు?<br/>
+ఇ: హౌమెని సిస్టర్స్ డూ యూహెవ్?<br/>
+147. నీవుర్ బెయే బాబల్ ఆందిర్?<br/>
+తె: వాళ్ళు మీ తల్లి-దండ్రులా?<br/>
+ఇ: ఆర్ దేయ్ యోర్ ఫాదర్ ఎండ్ మదర్?</p>
+</div>
+<br><br>
+<div class="page-body-container">
+<div class="table"><table>
+<tbody>
+<tr>
+<td>148. మీ బెయే బతల్ కామ్ కీంత?<br/>తె: మీ అమ్మగారు ఏం చేస్తారు?</td>
+</tr>
+<tr>
+<td>ఇ: వాట్ డస్ యోర్ మదర్ డూ?</td>
+</tr>
+<tr>
+<td>149. మా బెయే రోన్ మందంత<br/>తె: మా అమ్మగారు ఇంట్లో వుంటారు</td>
+</tr>
+<tr>
+<td>ఇ: శీ ఇస్ అ హౌస్ వైఫ్</td>
+</tr>
+<tr>
+<td>150. మీ బాబల్ బహన్ మంతోర్?<br/>తె: మీ నాన్న గారు ఎలా ఉన్నారు?</td>
+</tr>
+<tr>
+<td>ఇ: హౌ ఇస్ యోర్ ఫాదర్?</td>
+</tr>
+<tr>
+<td>151. వోన్ సుస్తీవాత<br/>తె: ఆయనకు సుస్తీ చేసింది</td>
+</tr>
+<tr>
+<td>ఇ: హీ ఇస్ నాట్ ఫీలింగ్ వెల్</td>
+</tr>
+<tr>
+<td>152. మీ బాబల్ సర్కరి నవ్వరి వాలెయ్?<br/>తె: మీ నాన్న గారు ప్రభుత్వోద్యోగా?</td>
+</tr>
+<tr>
+<td>ఇ: ఇస్ యోర్ ఫాదర్ ఇన్ గవర్మెంట్ సర్ విస్?</td>
+</tr>
+<tr>
+<td>153. సేల్లె మా బాబల్ సామన్ వోమంతొర్<br/>తె: కాదు మా నాన్న గారిది వ్యాపారం</td>
+</tr>
+<tr>
+<td>ఇ: నో, హీ ఇస్ బిసినస్ మ్యన్.</td>
+</tr>
+<tr>
+<td>154. మిమ్మెట్ బగ కామ్ కీంతిట్?<br/>తె: మీరు ఎక్కడ పని చేస్తారు?</td>
+</tr>
+<tr>
+<td>ఇ: వేర్ డూ యూ ఆల్ వర్క్?</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<br><br>
+<div class="page-body-container">
+<p class="paragraph">155. సర్కర్ అపిస్ నగ కామ్ కీంతోన్<br/>
+తె: ప్రభుత్వ కార్యాలయంలో పని చేస్తున్నాను<br/>
+ఇ: ఐ వర్క్ ఇన్ అ గవర్మెంట్ ఆఫీస్<br/>
+156. ఊర్ బూర్?<br/>
+తె: వారెవరు?<br/>
+ఇ: హూ ఆర్ దేయ్?<br/>
+157. ఊర్ నీవేర్ చుట్టల్క్ అందిర్?<br/>
+తె: వాళ్ళు మీ బంధువులా?<br/>
+ఇ: ఆర్ దేయ్ యోర్ రెలటీవ్స్?<br/>
+158. ఊర్ మా చుట్టల్క్<br/>
+తె: వారు మా బంధువులు / చుట్టలు<br/>
+ఇ: దేయ్ ఆర్ మై రెలటీవ్స్<br/>
+159. మా కాకల్ తిర్యానీతల్ వాతోర్<br/>
+తె: మా పిన తండ్రి తిర్యాణి నుండి వచ్చారు<br/>
+ఇ: మై అంకల్ హెస్ కమ్ ఫ్రమ్ తిర్యానీ<br/>
+160. నీక్ బచ్వీర్ కాండిర్-పేకింగ్ మంతేర్?<br/>
+తె: నీకెంతమంది పిల్లలు?<br/>
+ఇ: హౌమెని చిల్డ్రెన్ డూ యూహెవ్?<br/>
+161. మీ కాండిన ఉమ్మర్ బచ్చోర్?<br/>
+తె: మీ అబ్బాయి వయసెంత?<br/>
+ఇ: హౌ ఓల్డ్ ఇస్ యోర్ సాన్?</p>
+</div>
+<br><br>
+<div class="page-body-container">
+<p class="paragraph">162. వోన్క్ బార సాల్క్<br/>
+తె: అతనికి పన్నెండేళ్ళు<br/>
+ఇ: హీస్ ట్వెల్ఫ్ యీఅర్స్ ఓల్డ్<br/>
+163. నిమ్మె బగ మందంతి?<br/>
+తె: నీవు ఎక్కడ ఉంటావు?<br/>
+ఇ: వేర్ డూ యూ లివ్?<br/>
+164. మీ తాదల్ బద్దె పరీక్షత్ దాంతోర్ బతల్?<br/>
+తె: మీ సోదరుడు ఏదయినా పరీక్షకు వెళుతున్నాడా?<br/>
+ఇ: ఇన్ యోర్ ఎల్డర్ బ్రదర్ ప్రిపేర్ ఫోర్ సమ్ ఎక్సమీనేషన్?<br/>
+165. హొ ఐ.ఎ.ఎస్ పరీక్షత్ తెయర్ ఆంతోర్<br/>
+తె: అవును, ఐ.ఏ.ఎస్. పరీక్షకు తయారువుతున్నాడు<br/>
+ఇ: యెస్, హీ ఇస్ ప్రిపేర్ ఫోర్ ద ఐ.ఆ. ఎస్. ఎక్సమీనేషన్<br/>
+166. ఇంకె బగ దాంతి జంగు?<br/>
+తె: ఇప్పుడెక్కడకు వెళ్ళుతావు జంగు?<br/>
+ఇ: వేర్ విల్ యూ గో నౌ, జంగు?<br/>
+167. మా రోన్ దాంతోన్<br/>
+తె: మా ఇంటికి వెళ్ళుతాను<br/>
+ఇ: ఐల్ గో బెక్ టూ మై హోమ్</p>
+</div>
+<br><br>
+<div class="page-body-container">
+<div class="table"><table>
+<thead>
+<tr>
+<th>గాలుమ్క్</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>168. నేండ్ సిత్తూర్ మంత<br/>తె: ఈ రోజు చల్లగా ఉంది<br/>ఇ: ఇట్ ఇన్ కూల్ టుడే</td>
+</tr>
+<tr>
+<td>169. నేండ్ యెద్ది మంత<br/>తె: ఈ రోజు చాలా వేడిగా ఉంది<br/>ఇ: ఇట్ ఇన్ హాట్ టుడే</td>
+</tr>
+<tr>
+<td>170. నేండ్ హాబర్ గప్నె ఆత<br/>తె: ఈ రోజు ఆకాశం మబ్బుగా ఉంది<br/>ఇ: దస్కై ఇన్ క్లౌడెడ్ ఓవర్ టుడే</td>
+</tr>
+<tr>
+<td>171. నేండ్ పిర్ వాయర్?<br/>తె: ఈ రోజు వర్షం వస్తుందా?<br/>ఇ: ఇన్ ద రేన్ కమింగ్ టుడే?</td>
+</tr>
+<tr>
+<td>172. పిర్ సురు ఆత<br/>తె: వర్షం మొదలైంది<br/>ఇ: ద రేన్ హెస్ స్టార్టెడ్</td>
+</tr>
+<tr>
+<td>173. పిర్ వాంత<br/>తె: వర్షం వస్తుంది<br/>ఇ: ఇట్ ఇన్ రేనింగ్</td>
+</tr>
+<tr>
+<td>174. యెద్ది బయ్ తెరంత<br/>తె: ఎండ చాలా వేడిగాఉంది<br/>ఇ: ఇట్ ఇన్ వెరి హాట్ ఇన్ ద సన్</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<br><br>
+<div class="page-body-container">
+<p class="paragraph">175. నేండ్ పున్నక్ మంత<br/>
+తె: నేడు పూర్ణిమ నిండుగా ఉన్నాడు<br/>
+ఇ: ద మూన్ ఇస్ ఫుల్ టుడే<br/>
+176. నేండ్ వడి జోర్తి వాసెర్ మంత<br/>
+తె: ఈ రోజు గాలి చాలా బలంగా వస్తుంది<br/>
+ఇ: ద విండ్ ఇస్ వెరి స్ట్రాంగ్ టుడే<br/>
+177. సరి చిక్ల ఆత<br/>
+తె: దారి చాలా బురదగా ఉంది<br/>
+ఇ: ద రోడ్ ఇస్ మడీ<br/>
+178. నేండ్ సరి వత్త<br/>
+తె: దారి మంచిగా ఎండినది<br/>
+ఇ: ద రోడ్ ఇస్ డ్రై టుడే</p>
+<h2 class="section-title">యేత్వల్ వొంవల్</h2>
+<p class="paragraph">179. కేరెంగ్ వొమ్తి?<br/>
+తె: నీవు అరటిపండ్లు అమ్మినావా?<br/>
+ఇ: ఆర్ యూ సెలింగ్ బనానాస్?</p>
+<p class="paragraph">180. నిహ్గ బచ్చొంగ్ మంతంగ్?<br/>
+తె: నీ దగ్గర ఎన్ని ఉన్నాయి?<br/>
+ఇ: హౌమెనిడూ యూహెవ్?</p>
+<p class="paragraph">181. నహ్గ ఇచుంగ్స మంతంగ్<br/>
+తె: నా దగ్గర కొన్ని ఉన్నాయి<br/>
+ఇ: ఐహెవ్ అ లిటల్</p>
+</div>
+<br><br>
+<div class="page-body-container">
+<p class="paragraph">182. నహ్గ వెల్లె మంతంగ్<br/>
+తె: నా దగ్గర చాలా ఉన్నాయి<br/>
+ఇ: ఐహెవ్ ప్లెంటీ<br/>
+183. నా కేరెంగ్ సమ్ది మార్తంగ్<br/>
+తె: నా అరటిపండ్లు మొత్తం అయిపోయినాయి<br/>
+ఇ: మై బనానాస్ ఆర్ ఆల్ ఫినిష్ట్<br/>
+184. అవ్ పండింగ్ ఆందుంగ్?<br/>
+తె: అవి పండి నాయా?<br/>
+ఇ: ఆర్ దోస్ ఫ్రూట్ రైప్?<br/>
+185. తేన బచ్చోర్ దర?<br/>
+తె: దీని ధర ఎంత?<br/>
+ఇ: వాట్ ఇన్ దేర్ రేట్?<br/>
+186. నన్న ఇద్ యేతన<br/>
+తె: నేను దీనిని కొనాలని అనుకుంటున్నాను<br/>
+ఇ: ఐ వంట్ టూ బై దిస్<br/>
+187. నన్న ఇద్ యేతొన్<br/>
+తె: నాకు దీనిని కొనాలని లేదు<br/>
+ఇ: ఐ డూ నాట్ వంట్ టూ బై దిస్</p>
+</div>
+<br><br>
+<div class="page-body-container">
+<div class="table"><table>
+<thead>
+<tr>
+<th>ఆశ్చర్యార్థక గుర్తు</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>188. ఏయ్!<br/>తె: అరె!<br/>ఇ: హే!</td>
+</tr>
+<tr>
+<td>189. బయ్ చొకొట్!<br/>తె: చాలా బాగుంది!<br/>ఇ: ఎక్సెలెంట్!</td>
+</tr>
+<tr>
+<td>190. బయ్ కూసి!<br/>తె: చాలా సంతోషమైన విషయం!<br/>ఇ: హౌ జొయ్ ఫుల్!</td>
+</tr>
+<tr>
+<td>191. వెల్లె పరిసాన్!<br/>తె: చాలా విచారించవలసిన విషయం!<br/>ఇ: హౌ స్టెడ్!</td>
+</tr>
+<tr>
+<td>192. పేన్ద దయ!<br/>తె: దేవుని దయ!<br/>ఇ: త్యంక్ గాడ్!</td>
+</tr>
+<tr>
+<td>193. పేన్ద ఆసిర్వాద్నె!<br/>తె: దేవుని దయ వలన!<br/>ఇ: బై గాడ్స్ గ్రేస్!</td>
+</tr>
+<tr>
+<td>194. బయ్ చొకొట్ కీతేర్!<br/>తె: అద్భుతంగా చేశారు!<br/>ఇ: డన్ వన్ డర్ ఫులీ!</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<br><br>
+<div class="page-body-container">
+<p class="paragraph">195. బత సోబతే!<br/>
+తె: అతి సుందరం!<br/>
+ఇ: హౌ బియుటిఫుల్!<br/>
+196. బయ్ సోబత!<br/>
+తె: ఎంత అందమయింది!<br/>
+ఇ: వెరినైస్!<br/>
+197. ఆంత! ఇంకె దబ్ మన్!<br/>
+తె: చాల్లెండి!/ఇక ఆపండి!<br/>
+ఇ: ఎనుఫ్! నౌ కీప్ క్వైయెట్!<br/>
+198. హిక్కే కేంజ!<br/>
+తె: ఇదిగో!<br/>
+ఇ: లిసెన్ హీర్!<br/>
+199. బత మానం సెల్లె!<br/>
+తె: ఎంత అవమానకరం!<br/>
+ఇ: హౌ డిస్ గ్రేస్ఫుల్!<br/>
+200. బత వేరినల్!<br/>
+తె: ఎంత భయంకరం!<br/>
+ఇ: హౌటెరిబల్!<br/>
+201. వెయ్నె ఆయి!<br/>
+తె: తర్వగా కానివ్వండి!<br/>
+ఇ: మేక్ హేస్ట్!</p>
+</div>
+<br><br>
+<div class="page-body-container">
+<ol class="ordered-list"><li>కరల్!</li><li>తె: నిజంగా!</li><li>ఇ: రియలీ!</li><li>హొ అచ్చొరే!</li><li>తె: అవును అంతే!</li><li>ఇ: యెస్, ఇట్ ఇస్!</li><li>హొ నన్నయ్ మేయ్తొన్!</li><li>తె: అవును! నేను గెలిచాను!</li><li>ఇ: యెస్! ఐ హెవ్ వన్!</li><li>బత్తంగ్ వడ్కంతి!</li><li>తె: ఎంత అర్థరహితము!/పిచ్చి వాగుడు!</li><li>ఇ: వాట్ నాన్ సెంస్ యూ స్పీక్!</li></ol>
+<h2 class="section-title">ఉచ్చి వడ్క్వల్</h2>
+<ol class="ordered-list"><li>నాకున్ కర్ వస్తా</li><li>తె: నాకు ఆకలేస్తుంది</li><li>ఇ: ఐ ఎమ్ హంగ్రీ</li><li>యేర్ వట్క వస్తా</li><li>తె: నాకు దాహం వేస్తుంది</li><li>ఇ: ఐ ఎమ్ తర్టీ</li><li>నన్న హట్టె మాతోన్</li><li>తె: నేను అలసి పోయాను</li><li>ఇ: ఐ ఎమ్ టైర్డ్</li></ol>
+</div>
+</body>
+</html>
